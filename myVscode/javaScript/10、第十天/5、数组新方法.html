@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//every每一个  some一些  find查找  findIndex查找下标  filter过滤
+			var ages=[50,80,90,35,55];
+			//item:遍历到的当前元素
+			//index：当前元素对应的下标
+			//self:数组本身
+			/* 
+			  判断数组中每个元素是否符合条件
+			  .every(function(item,index,self) 
+			*/
+			var bool1=ages.every(function(item,index,self){
+				return item>60;
+			})
+			console.log(bool1);  //false
+			/*
+			  判断数组中是否有元素符合条件
+			  .some(function(item,index,self) 
+			*/
+			var bool2=ages.some(function(item,index,self){
+				return item>60;
+			})
+			console.log(bool2);  //true
+			
+			/*
+			  返回符合条件的第一个元素
+			  .find(function(item,index,self) 
+			*/
+			var num=ages.find(function(item,index,self){
+				return item>60;
+			})
+			console.log(num); //80
+			/*
+			  返回符合条件的第一个元素下标
+			  .findIndex(function(item,index,self) 
+			  indexOf("60") 等值条件
+			*/
+			var firstIndex=ages.findIndex(function(item,index,self){
+				return item>60;
+			})
+			console.log(firstIndex); //1
+			
+			
+			/*
+			  过滤出符合条件的所有元素
+			  .find(function(item,index,self) 
+			*/
+			var array=ages.filter(function(item,index,self){
+				return item>60;
+			})
+			console.log(array); //[80,90]
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		#first{
+			width: 150px;
+			height: 100px;
+			font-size: 30px;
+			border: 3px solid gray;
+			border-radius: 10px;
+			background-color: whitesmoke;
+		}
+	</style>
+	<body>
+		
+		<button id="first">验证码</button>
+		<script>
+			var _first=document.querySelector("#first")
+			_first.onclick=function(){
+				_first.disabled=true;
+				var count=5;
+				var id=setInterval(function(){
+					_first.innerText=count;
+					if(count==0){
+						_first.innerHTML="重新获取"
+						_first.disabled=false;
+						clearInterval(id)
+					}
+					count--;
+				},1000)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+         /* 
+			 使用Array对象变量classmates存储4个同学的名字，
+			 即：陈鹏宇，王宁，张营和黄莉，然后在页面上输出这些名字 
+			 */
+
+
+       /*
+		新建数组MyArr并赋值“A”，‘B’，‘C’，新建数组MyArr2并赋值‘J’，‘K’，‘L’，将数组MyArr和MyArr2合并为MyArr3，
+        并输出MyArr3数据到页面，删除MyArr3中第一个元素和最后一个元素，并输出MyArr3数据到页面。
+        在MyArr3的下标为2的位置删除1个元素增加0,4两个元素，最终在页面输出MyArr3的长度 
+	   */
+        var classmate = new Array('陈鹏宇','王宁','张营','黄莉');
+
+        classmate.forEach(function(item,index){
+            document.write(item+",")
+
+        })
+        console.log(classmate);
+
+        var MyArr=["A","B","C"];
+        var MyArr2=["J","K","L"];
+
+        var MyArr3=MyArr.concat(MyArr2);
+        for(var i=0;i<MyArr3.length;i++){
+            document.write(MyArr3[i]);
+        }
+        console.log(MyArr3);
+
+        MyArr3.pop();
+        MyArr3.shift();
+        console.log(MyArr3);
+
+        MyArr3.splice(1,1,'0','4');
+        console.log(MyArr3);
+        console.log(MyArr3.length);
+    </script>
+</body>
+</html>

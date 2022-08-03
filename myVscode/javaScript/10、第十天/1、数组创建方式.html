@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 
+			单个变量只能存储一个数据
+			数组可以存储一组数据，对信息进行分门别类 
+			*/
+		   // 第一种，数组创建方式,数组下标从0开始
+		   var scores=[10,20,50,90,80];
+			//获取数组的长度
+			console.log(scores.length); //5
+			//获取数组数据
+			console.log(scores[1]); //20
+			//修改数组数据
+			scores[2]=60;
+			console.log(scores); // [10, 20, 60, 90, 80]
+			//添加数据
+			scores[5]=100;
+			console.log(scores); // [10, 20, 60, 90, 80, 100]
+			scores[10]=98;
+			console.log(scores);
+			console.log(scores[6]); //undefined
+			
+			//第二种
+			var nums=new Array(10,20,30);
+			//创建一个长度为3的数组
+			var nums2=new Array(3);
+			nums2[2]=20;
+			console.log(nums2); // [empty × 2, 20]
+			nums2[5]=50;
+			console.log(nums2);//[empty × 2, 20, empty × 2, 50]
+		</script>
+	</body>
+</html>

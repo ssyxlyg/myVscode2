@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var names=['张三','李四','王五'];
+			//末尾追加
+			names[names.length]='赵六';
+			names.push('郭靖','黄蓉');
+			//末尾删除
+			names.pop();
+			//开头添加
+			names.unshift('沈腾','马丽');
+			//开头删除
+			names.shift();
+			console.log(names);
+			//删除并替换
+			// names.splice(startIndex,length,["替换的元素"])
+			names.splice(1,1);  //删除张三
+			console.log(names);
+			names.splice(1,3,'程博','于航');
+			console.log(names);
+		    
+			
+			var num1=[10,20,30];
+			var num2=[10,20,30,50,60];
+			//数组连接
+			var num3=num1.concat(num2);
+			console.log(num3);
+			//数组翻转
+			num1.reverse();
+			console.log(num1);
+			//splice  截取  string也有
+			var num5=num2.slice(1,4);
+			console.log(num5);
+			//拆分和合并
+			//string  split
+			var str='长亭外-古道边-芳草碧连天';
+			//将字符串拆分为数组
+			var array=str.split("-");
+			console.log(array);
+			//将数组合并为字符串
+			var str2=array.join(",");
+			console.log(str2);
+		</script>
+	</body>
+</html>

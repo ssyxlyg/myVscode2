@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var str = "Hello world!";
+        document.write(str);
+        // 输出字符串长度
+        console.log(str.length);
+        // 判断是否以某个字符串结尾
+        console.log(str.endsWith("!"));
+        // 判断是否以某个字符串开头
+        console.log(str.startsWith("He"));
+        // 查找第一个字符、字符串索引
+        console.log(str.indexOf("o"));
+        // 查找最后一个字符字符串索引
+        console.log(str.lastIndexOf("o"));
+        // 截取字符串长度 substr(start,length);
+        console.log(str.substr(2, 5));
+        // 截取字符串长度 substr(start,end) 不包括end;
+        console.log(str.substring(2, 5));
+        console.log(str.slice(-2, -1));
+
+
+
+
+        // 不常用
+        // 根据下标返回相应的字符串
+        console.log(str.charAt(2));
+
+        for (var i = 0; i < str.length; i++) {
+            console.log(str.charAt(i));
+        }
+
+        var str2 = str.concat("join")
+        console.log(str2);
+
+        console.log(str.repeat(3));
+
+        console.log(str.toLocaleLowerCase());
+        console.log(str.toLocaleUpperCase());
+        console.log("     123");
+        console.log("     1 23".trim());
+
+        console.log('nih')
+
+
+    </script>
+</body>
+
+</html>

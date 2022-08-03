@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str="Hello World!";
+			// 1、根据下标，返回对应的字符
+			console.log(str.charAt(2));//2
+			//字符串遍历
+			for (var i=0; i<str.length; i++){
+				console.log(str.charAt(i));
+			}
+			
+			//2、返回对应的unicode码
+			// 01-------AsII  unicode utf-8----e
+			//a-z:97-122    //A-Z:65-90
+			console.log(str.charCodeAt(1));//101
+			console.log(String.fromCharCode(101));//e
+			//3、字符串连接，返回一个新的字符串
+			var str2=str.concat("奇酷教育");
+			console.log(str);//Hello World!奇酷教育
+			console.log(str2);//Hello World!奇酷教育
+			//4、复制指定次数字符串
+			console.log(str.repeat(3));
+			//5、转换大小写
+			console.log(str.toLowerCase());//hello world!
+			console.log(str.toUpperCase());//HELLO WORLD!
+			//6、去除两边的空格
+			console.log("      123".trim());
+		</script>
+	</body>
+</html>

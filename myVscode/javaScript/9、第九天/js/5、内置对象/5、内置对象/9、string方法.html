@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//字符串下标从0开始
+			var str="Hello World!";
+			//1、获取字符串长度
+			console.log(str.length);//12
+			//2、字符串开头结尾
+			console.log(str.endsWith("rld!"));//true
+			console.log(str.startsWith("He"));//true
+			//3、查找字符串
+			//返回查找的第一个字符的下标
+			console.log(str.indexOf("o"));//4
+			//返回查找的最后一个字符的下标
+			console.log(str.lastIndexOf("orl"));//7
+			//查找是否有某个字符串，没有返回-1
+			console.log(str.indexOf("q"));//-1
+			//判断是否包含某个字符串，返回true/false
+			console.log(str.includes("o"));//true
+			
+			
+			//3、字符串截取
+			// start：开始下标;length:字符个数;end:结束下标
+			//substr[start,length)
+			console.log(str.substr(2,3));//llo
+			//substring[start,end)
+			console.log(str.substring(2,4));//ll
+			//slice[start,end)
+			console.log(str.slice(-2,-1));//l
+			console.log(str.substring(2));//llo World!
+		</script>
+	</body>
+</html>

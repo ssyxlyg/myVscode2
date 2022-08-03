@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="active">10</div>
+		<button id="btn">开始</button>
+		<script>
+			var _active=document.querySelector("#active");
+			var _btn=document.querySelector("#btn");
+			var id;  //记录第一次生成的标识
+			_btn.onclick=function(){
+				var info=_btn.innerText;
+				var count=_active.innerText;
+				//如果点击开始，开始改为结束
+				if(info=="开始"){
+					_btn.innerText="结束";
+					id=setInterval(function(){
+						  count--;
+						  //重新写入
+						  _active.innerText=count;
+					},1000)
+				}
+				//点击结束，清空定时器
+				if(info=="结束"){
+					_btn.innerText="开始";
+					clearInterval(id);
+				}
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //every每一个  some一些  find查找  findIndex查找下标  filter过滤
+        //item:遍历到的当前元素
+        //index：当前元素对应的下标
+        //self:数组本身
+        var ages = [23, 18, 22, 25, 30, 21, 40];
+        /* 
+          判断数组中每个元素是否符合条件
+          .every(function(item,index,self) 
+        */
+        var bool = ages.every(function (item, index) {
+            return item > 20;
+        })
+        console.log(bool);
+        /*
+           判断数组中是否有元素符合条件
+          .some(function(item,index,self) 
+         */
+        var bool2 = ages.some(function (item, index) {
+            return item < 20;
+        })
+        console.log(bool2);
+        /*
+              返回符合条件的第一个元素
+              .find(function(item,index,self) 
+            */
+        var array = ages.find(function (item, index) {
+            return item;
+        })
+        console.log(array);
+        /*
+              返回符合条件的第一个元素下标
+              .findIndex(function(item,index,self) 
+              indexOf("60") 等值条件
+            */
+        var array2 = ages.findIndex(function (item, index) {
+            return item > 20;
+        })
+        console.log(array2);
+        /*
+              过滤出符合条件的所有元素
+              .find(function(item,index,self) 
+            */
+        var array3 = ages.filter(function (item, index) {
+            return item > 20;
+
+        })
+        console.log(array3);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var date=new Date();
+			console.log(date.getFullYear()); //2022年
+			console.log(date.getMonth()+1); //8月，国外0-11
+			console.log(date.getDate());//1号
+			console.log(date.getDay());//1,星期一
+			console.log(date.getHours());//14点
+			console.log(date.getMinutes());//42分钟
+			console.log(date.getSeconds());//25秒
+			//1秒=1000毫秒
+			console.log(date.getMilliseconds());//962毫秒
+			//或取的是1970-1-1到现在的号秒数
+			console.log(date.getTime());//1659336205722
+			//距离；8-3还有几天几时几分几秒
+			//两个日期相减
+			var cha=new Date("2022-8-3 00:00:00")-new Date();
+			console.log(cha);//119373955毫秒
+			var days=parseInt(cha/60/60/24);//天
+			var hours=parseInt(cha/1000/60/60%24);  //小时
+			var minutes=parseInt(cha/1000/60%60);  //分钟
+			var seconds=parseInt(cha/1000%60);  //秒
+			
+			document.write(`距离2022-8-3日还有${days}天${hours}时${minutes}分${seconds}秒`)
+		</script>
+	</body>
+</html>

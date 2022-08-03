@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script>
+			//字面量，基本类型（原始类型）
+			var str1="Hello World!";
+			console.log(str1);
+			//隐形借用：new String（str1）.length
+			console.log(str1.length);//12
+			console.log(typeof(str1));//string
+			var str2=String("Hello World!");
+			console.log(str2);
+			//引用类型(包装类型)
+			var str3=new String("Hello World!");
+			console.log(str3);
+			console.log(str3.length); //12
+			console.log(typeof(str3));  //Object
+			
+			console.log(str1==str2); //true
+			console.log(str1===str2); //true
+			console.log(str1==str3); //true
+			console.log(str1===str3); //false
+			
+			
+			//基本类型没值:undefined
+			// null:空值，也叫空引用
+			console.log(typeof(null)); //object
+			//引用类型没有值返回null
+			var _app=document.querySelector("#app1");
+			console.log(_app);  //null
+			// Cannot read properties of null，不能读取null的属性
+			// console.log(_app.innerHTML);
+			
+		</script>
+		<img src="./string--img/QQ图片20220802115032.png" alt="">
+	</body>
+</html>

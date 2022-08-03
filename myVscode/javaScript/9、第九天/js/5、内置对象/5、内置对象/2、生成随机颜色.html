@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		#first{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<div id="first"></div>
+		<script>
+			function randomColor(){
+				var random1=Math.floor(Math.random()*256);
+				var random2=Math.floor(Math.random()*256);
+				var random3=Math.floor(Math.random()*256);
+				return`rgb(${random1},${random2},${random3})`
+			}
+			var _first=document.querySelector("#first")
+			_first.onclick=function(){
+				_first.style.backgroundColor=randomColor()
+			}
+		</script>
+	</body>
+</html>

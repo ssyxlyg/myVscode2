@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrapper{
+				width: 450px;
+				padding: 30px;
+				background-color:whitesmoke;
+				margin: 0 auto;
+			}
+			#wrapper form{
+				width: 450px;
+				text-align: center;
+			}
+			#wrapper form label{
+				display: inline-block;
+				width: 80px;
+				text-align: right;
+			}
+			#wrapper form>div{
+				margin-bottom: 20px;
+				display: flex;
+			}
+			#wrapper form>div span{
+				color: red;
+				font-size: 12px;
+			}
+			#wrapper form>input{
+				width: 100px;
+				height: 30px;
+				margin-left: -120px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<form action="#" method="get">
+				<div>
+					<label>邮箱:</label>
+					<input type="text" id="email" name="email">
+					<span id="emailInfo"></span>
+				</div>
+				<div>
+					<label>密码:</label>
+					<input type="text" id="pwd">
+					<span id="pwdInfo"></span>
+				</div>
+				<div>
+					<label>确认密码:</label>
+					<input type="text" id="repwd">
+					<span id="repwdInfo"></span>
+				</div>
+				<div>
+					<label>用户名:</label>
+					<input type="text" id="uname">
+					<span id="unameInfo"></span>
+				</div>
+				<input type="submit" value="注册" id="submit">
+			</form>
+		</div>
+		<script src="js/myform.js"></script>
+	</body>
+</html>

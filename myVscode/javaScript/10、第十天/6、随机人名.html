@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="" alt="">
+		<script>
+			//随机人名
+			var names=['于航','亮亮','龙龙','程博','张浩'];
+			var imgs=['./img/photo-1.jpg','./img/photo-2.jpg','./img/photo-3.jpg'];
+			// 0-4
+			var index=Math.floor(Math.random()*5);
+			document.write(names[index]);
+			//0-2
+			var i=Math.floor(Math.random()*3); //随机的图片下标
+			var _img=document.querySelector("img");
+			_img.src=imgs[i];
+			
+			
+			//如何求数组最大值
+			var  scores=[86,37,65,92,28];
+			var max=scores[0]; //守擂者
+			for (var i =1; i < scores.length; i++) {
+				if(scores[i]>max){
+					max=scores[i]; //比最大值大就覆盖
+				}
+			}
+			console.log(max);
+		</script>
+	</body>
+</html>
