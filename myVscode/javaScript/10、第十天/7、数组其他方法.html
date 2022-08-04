@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var nums=[20,50,15,15];
+			//判断数组中是否包含某个值,找不到返回-1
+			console.log(nums.indexOf(15));//2
+			console.log(nums.lastIndexOf(15));//3
+			console.log(nums.includes(15));//true
+			//找不到返回undefined
+			var n=nums.find(function(item){
+				return item==16
+			})
+			console.log(n); //undefined
+			//找不到，返回-1
+			var index=nums.findIndex(function(item){
+				return item==16
+			})
+			console.log(index); //undefined
+			
+			//判断一个对象是否是数组
+			console.log(typeof(nums)); //object
+			var date=new Date();  //对象
+			console.log(typeof(date)); //object
+			//判断是否是数组,区分对象和数组
+			console.log(Array.isArray(nums)); //true
+			console.log(Array.isArray(date)); //false
+			console.log(Array.isArray(2)); //false
+			
+			//forEach没有返回值
+			var newArray=[];
+			nums.forEach(function(item,index,self){
+				//将数组中每个元素加2
+				 item+=2;
+				 newArray.push(item);
+			})
+			console.log(newArray);
+			//map:对数组中元素加工后，再返回一个新的数组
+			var newArray2=nums.map(function(item,index,self){
+				//将数组中每个元素加2
+				return item+=2;
+			})
+			console.log(newArray2);
+			
+			// 对nums求和
+			var res=20; //和
+			for (var i = 0; i < nums.length; i++) {
+				res+=nums[i];
+			}
+			console.log(res);
+			//res,每一个操作后的返回结果
+			// reduce(function(res,item,index,self){},res的初始默认值)
+			var sum=nums.reduce(function(res,item,index,self){
+				//res:每次的返回结果，第一次默认是数组第一个值
+				return res=res+item;
+			},0)
+			console.log(sum);
+			
+			//求最大值
+			var max=nums.reduce(function(res,item){
+				return res<item?item:res;
+			})
+			console.log(max);
+		</script>
+	</body>
+</html>

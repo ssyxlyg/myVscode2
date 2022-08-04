@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            display: inline-block;
+            /* width: 120px; */
+            margin: 0 10px;
+            /* text-align:  center; */
+
+        }
+    </style>
+</head>
+
+<body>
+    第二题：请依次输入成绩：<input type="text" id="second"> <span id="max"></span><span id="avg"></span><span id="x_avg"></span><span id="d_avg"></span>
+        <p id="arr"></p>
+    第三天：请输入比较数字：<input type="text" name="" id="third">
+    <!-- <button id="submit">提交</button> -->
+    <script>
+        // 1、将数组[1, 4, 6, 8, 9, 5]倒序输出;
+
+        var array=[1,4,6,8,9,5];
+        var array2=array.reverse();
+        var arr= array2.map(function(item,index,self){
+            return item;
+        })
+        console.log(arr);
+       
+        
+
+        // 2、编写程序读入数目确定的考试成绩，并判断多少个分数高于或等于平均分，有多少低于平均分;
+        var _second=document.getElementById("second");
+        var _max=document.getElementById("max");
+        var _avg=document.getElementById("avg");
+        var _arr=document.getElementById("arr");
+        var _x_avg=document.getElementById("x_avg");
+        var _d_avg=document.getElementById("d_avg");
+        var array6=new Array();
+
+        var count=1;
+
+        _second.onblur=function(){
+            var second=_second.value
+            if(second==""||second==undefined||isNaN(second)||second<0||second>150){
+                alert("无效成绩");
+                _second.value="";
+                return;
+            }
+            var scores=_second.value*1;
+            array6.push(scores);
+            var max = array6.reduce(function(res,item){
+                return res<item?item:res;
+            })
+
+            var sum=array6.reduce(function(res,item){
+                return res+=item;
+            })
+            _max.innerHTML=`最高分：${max}`;
+            _avg.innerHTML=`平均分：${sum/count}`;
+            var count1=0;
+            var count2=0;
+            for(var i=0;i<array6.length;i++){
+                if(array6[i]<sum/count){
+                    count1++;
+                }
+                if(array6[i]>sum/count){
+                    count2++;
+                }
+            }
+            _x_avg.innerHTML=`${count1}人小于平均分`;
+            _d_avg.innerHTML=`${count2}人大于平均分`
+            
+            _arr.innerHTML=`成绩录入：${array6}`
+            _second.value="";
+            count++;
+        }
+        
+        
+        // 3、有一个数列：8，4，2，1，23，344，12，从键盘中任意输入一个数据，判断数列中是否包含此数;
+        var _third=document.getElementById("third");
+        _third.onblur=function(){
+            var array3=[8,4,2,1,23,344,12];
+            console.log(array3)
+            var val=_third.value*1;
+            var flag=array3.includes(val);
+            if(flag){
+                alert("数列中包含此数");
+                _third.value="";
+            }else{
+                alert("数列中不包含此数");
+                _third.value="";
+            }
+
+        }
+
+        // 4、请把下面字符串颠倒输出  var str = "hello world!";
+        var str = "hello world!";
+        
+        var array4=Array.from(str);
+        var array5 = array4.reverse();
+        var str2=array5.join("");
+        console.log(str2)
+        // console.log(array5)
+        // 选做
+        // 5、去掉重复元素  var arr = [8,'hello',10,8,8,"hello","abc",10,5];
+        var arr2 = [8,'hello',10,8,8,"hello","abc",10,5];
+        // var arr3=new Array();
+        // var k=0;
+       for (var i=0;i<arr2.length;i++){
+            for(var j=i+1;j<arr2.length;j++){
+                if(arr2[i]==arr2[j]){
+                    arr2.splice(j,1);
+                    j--;                  
+                }
+            }
+       }
+       console.log(arr2);
+    </script>
+</body>
+
+</html>

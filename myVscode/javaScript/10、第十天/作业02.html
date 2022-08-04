@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #container {
+            width: 300px;
+            height: 400px;
+            border: 1px solid red;
+
+        }
+
+        img {
+            position: relative;
+            top: 4px
+        }
+        #content{
+            width: 240px;
+            line-height: 30px;
+            
+        }
+        button{
+            margin-top: 20px;
+            /* margin-left: 5px; */
+            width: 50px;
+            line-height: 30px;
+        }
+        p{
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="container">
+        </div>
+        <input type="text" name="" id="content">
+        <button>发送</button>
+    </div>
+    <script>
+        var _container = document.getElementById("container");
+        var _content = document.getElementById("content");
+        var _btn = document.querySelector("button");
+
+
+        var count = 0;
+        _btn.onclick = function () {
+            var random = Math.floor(Math.random() * 5);
+            var names = ["螳螂", "盲僧", "鳄鱼", "亚索", "永恩"]
+            var imgs = ["img/Khazix.png", "img/LeeSin.png", "img/Renekton.png", "img/Yasuo.png", "img/Yone.png"]
+            count++;
+            // _container.innerHTML+=`<p>${_content.value}</p>`
+            // _content.value="";
+            if (count % 2 == 1) {
+                _container.innerHTML += `<p style="text-align:left"><img src='${imgs[random]}' style="width:20px; "> ${names[random]} :${_content.value}</p>`
+                _content.value = "";
+
+            } else {
+                _container.innerHTML += `<p style="text-align:right"><img src='${imgs[random]}' style="width:20px;"> ${names[random]}:${_content.value}</p>`
+                _content.value = "";
+            }
+
+
+            console.log(count);
+        }
+    </script>
+
+</body>
+
+</html>
