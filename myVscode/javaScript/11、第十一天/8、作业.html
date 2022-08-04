@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			 // 1、将数组[1,4,6,8,9,5]倒序输出; 
+			    // for(var i=array.length-1;i>=0;i--){array[i]}
+			// 2、编写程序读入数目确定的考试成绩，并判断多少个分数高于或等于平均分，有多少低于平均分;
+			   //     var arr=new Array(5);
+				  //  var sum=0;
+				  //  var avg=0;
+				  //  for(var i=0;i<arr.length;i++){
+					 //   var num=prompt("请输入")*1;
+					 //   arr[i]=num;
+					 //   sum+=num;
+				  //  }
+				  //  avg=sum/arr.length;
+				   
+				  // var newArr1=arr.filter(function(item){
+					 //   return item>=avg;
+				  //  })
+				  //  console.log("高于或等于平均分:"+newArr1.length);
+				  //  console.log("低于平均分:"+(arr.length-newArr1.length));
+				   
+				   
+				   
+			// 3、有一个数列：8，4，2，1，23，344，12，从键盘中任意输入一个数据，判断数列中是否包含此数;
+			        
+			// 4、请把下面字符串颠倒输出  var str = "hello world!";
+			      var str = "hello world!";
+			      var array=str.split("");
+				  array.reverse();
+				  var str=array.join("");
+				  console.log(str);
+			// 5、去掉重复元素  var arr = [8,'hello',10,8,8,"hello","abc",10,5];
+			    var arr = [8,'hello',10,8,8,"hello","abc",10,5];
+				var newArr=[];
+				for (var i in arr) {
+					if(!newArr.includes(arr[i])){
+						newArr.push(arr[i]);
+					}
+				}
+				console.log(newArr);
+				
+				var res=arr.reduce(function(res,item){
+					if(!res.includes(item)){
+						res.push(item);
+					}
+					return res;
+				},[])
+				console.log(res);
+		</script>
+	</body>
+</html>
