@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            width: 300px;
+            margin: 0 auto;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+    <script>
+        var user = {
+            "employees": [
+                {
+                    "name": "shenmiweiyi",
+                    "QQ": 306451129,
+                    "email": "shenmiweiyi@163.com",
+                    "address":
+                        [
+                            { "City": "ZhengZhou", "ZipCode": "450000" },
+                            { "City": "BeiJing", "ZipCode": "100000" }
+                        ]
+                },
+                {
+                    "name": "kehao",
+                    "QQ": 254892313,
+                    "email": "kehao@163.com",
+                    "address":
+                        [
+                            { "City": "ShangHai", "ZipCode": "200000" },
+                            { "City": "GuangZhou", "ZipCode": "510000" }
+                        ]
+                }
+            ]
+        }
+        var _wrapper=document.getElementById("wrapper");//获取div节点
+        var info=user.employees;//info为数组
+        console.log(info);
+        //遍历info数组
+        info.forEach(function(item,index){
+            //遍历数组中的对象
+            for (var key in item) {
+                var str;      
+                //定义address数组         
+                var arr=item.address;
+                //判断是否为address
+               if(key!="address"){
+                _wrapper.innerHTML+=`<p>${key}:${item[key]}</p>`
+               }else{//key=adress 遍历adress中的数组，对象
+                arr.forEach(function(item2,index2){
+                    for (var key2 in item2) {
+                        //拼接
+                        _wrapper.innerHTML+=`<p>--${key2}:${item2[key2]}</p>`                     
+                    }
+                })
+               }              
+            }
+        })
+       
+    </script>
+</body>
+
+</html>

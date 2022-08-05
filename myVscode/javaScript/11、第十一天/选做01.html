@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         4. 有如下的数据、请完成一下要求
+        //         [
+        //             {“id”: 1, name: “张三”, score: 55, subject: “语文” },
+        //             {“id”: 2, name: “李四”, score: 76, subject: “语文” },
+        //             {“id”: 3, name: “王五”, score: 67, subject: “语文” },
+        //             {“id”: 4, name: “张三”, score: 23, subject: “数学” },
+        //             {“id”: 5, name: “李四”, score: 81, subject: “数学” },
+        //             {“id”: 6, name: “王五”, score: 64, subject: “数学” }, 
+        // ]
+        // a) 求所有学生总成绩
+        // b) 求所有学生的语文总成绩
+        // c) 求所有超过60分的学生语文总成绩
+        // d) 删除不及格的科目信息
+
+
+        var student = [
+            { "id": 1, name: "张三", score: 55, subject: "语文" },
+            { "id": 2, name: "李四", score: 76, subject: "语文" },
+            { "id": 3, name: "王五", score: 67, subject: "语文" },
+            { "id": 4, name: "张三", score: 23, subject: "数学" },
+            { "id": 5, name: "李四", score: 81, subject: "数学" },
+            { "id": 6, name: "王五", score: 64, subject: "数学" },
+        ]
+
+        var sum = student.reduce(function (res, item, index) {
+            return res += item.score * 1;
+        }, 0)
+        console.log("所有学生总成绩:" + sum)
+
+        var chinese = student.filter(function (item, index) {
+            return item.subject == "语文";
+
+        })
+
+        var chinese_sum = chinese.reduce(function (res, item) {
+            return res += item.score * 1
+        }, 0)
+        // console.log(chinese)
+        console.log("所有学生的语文总成绩:"+chinese_sum)
+
+        var jg=chinese.filter(function(item){
+            return item.score>=60;
+        })
+        var jg_sum=jg.reduce(function(res,item){
+            return res+=item.score*1;
+        },0)
+        console.log("所有超过60分的学生语文总成绩:"+jg_sum);
+
+        var njg=student.filter(function(item){
+            return item.score<60;
+        })
+        student.forEach(function(item,index){
+            njg.forEach(function(item2,index2){
+                if(item2==item){
+                    student.splice(index,1);
+                }
+            })
+        })
+        console.log(student)
+    </script>
+</body>
+
+</html>

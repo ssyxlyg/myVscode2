@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		省:<select id="province"></select>
+		市:<select id="city"></select>
+		县:<select id="county"></select>
+		<script src="./js/citys.js"></script>
+		<script>
+			//省的个数=option的个数
+			//获取所有的省的数组
+			var provinces=citys.districts[0].districts;
+			console.log(provinces);
+			var _province=document.querySelector("#province"); //省
+			var _city=document.querySelector("#city");   //市
+			var _county=document.querySelector("#county");   //市
+			//obj:每一个省对象
+			provinces.forEach(function(obj){
+				_province.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+			})
+			
+			
+			showCitys();  //第一次需要初始加载，此后是切换加载
+			//切换省时，市和县都要切换
+			_province.onchange=function(){
+				showCitys();
+				showCounty();
+			}
+			//加载市
+			function showCitys(){
+				_city.innerHTML="";  //清空
+				//获取当前所选的省的编码
+				var code=_province.value;
+				//根据编码获取对应的省对象
+				var province=provinces.find(function(obj){
+					return obj.adcode==code;
+				})
+				//获取所有市的数组
+				var citys=province.districts;
+				//obj:每一个市对象
+				citys.forEach(function(obj){
+					_city.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+				})
+			}
+			
+			showCounty(); //第一次需要初始加载，此后是切换加载
+			_city.onchange=function(){
+				showCounty();
+			}
+			
+			//加载县
+			function showCounty(){
+				_county.innerHTML="";  //清空
+				var cityCode=_city.value; //市编码
+				var provinceCode=_province.value; //省编码
+				//根据省编码获取对应的省对象
+				var province=provinces.find(function(obj){
+					return obj.adcode==provinceCode;
+				})
+				//获取市的数组
+				var citys=province.districts;
+				// obj:每一个市对象
+				var city=citys.find(function(obj){
+					return obj.adcode==cityCode;
+				})
+				//获取所有县的数组
+				var countys=city.districts;
+				//obj:每一个县对象
+				countys.forEach(function(obj){
+					_county.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+				})
+				
+			}
+			
+			
+			/* var nums=[10,20,30];
+			var num=nums.find(function(item){
+				return item==20;
+			})
+			console.log(num); //20
+			var array=[{"name":"张三","age":20},{"name":"李四","age":20}];
+			//找到李四对象
+			var lisi=array.find(function(obj){
+				return obj.name=="李四";
+			})
+			console.log(lisi); */
+		</script>
+	</body>
+</html>

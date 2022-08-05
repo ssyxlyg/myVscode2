@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="./js/json.js"></script>
+		<script>
+			//第一题
+			//获取imgList数组
+			var imgList=obj1.imgComments.imgList;
+			document.write("<ul>")
+			imgList.forEach(function(obj){
+				document.write("<li>")
+				document.write(`订单编号:${obj.imageId};用户昵称:${obj.nickname}`)
+				document.write("</li>")
+			})
+			document.write("</ul>")
+			
+			// 第二题
+			var male=obj2.男明星;
+			var female=obj2.女明星;
+			
+		    document.write("男明星:")
+			male.forEach(function(obj){
+				document.write("<div>")
+				for (var key in obj) {
+					document.write(`${key}-->${obj[key]}&emsp;`)
+				}
+				document.write("</div>")
+			})
+			document.write("女明星:")
+			female.forEach(function(obj){
+				document.write("<div>")
+				for (var key in obj) {
+					document.write(`${key}-->${obj[key]}&emsp;`)
+				}
+				document.write("</div>")
+			})
+			
+			//第三题
+			//获取employees的数组
+			var employees=user.employees;
+			document.write("<ul>")
+			employees.forEach(function(obj){
+				document.write("<li>")	
+				document.write(`名字:${obj.name}<br>QQ:${obj.QQ}<br>邮箱:${obj.email}<br>`)
+				var addresses=obj.address;
+				document.write("地址:<br>")
+				addresses.forEach(function(obj){
+					document.write(`--城市:${obj.City}<br>--邮编:${obj.ZipCode}<br>`)
+				})
+					
+				document.write("</li>")
+			})
+			document.write("</ul>")
+			
+			
+			
+			//第四题
+			// a)求所有学生总成绩
+			var res=scores.reduce(function(res,obj){
+				 return  res+=obj.score;
+			 },0)
+			 console.log(res);
+			// b)求所有学生的语文总成绩
+			var res=scores.reduce(function(res,obj){
+				if(obj.subject=="语文"){
+					res+=obj.score;
+				}
+				 return  res;
+			 },0)
+			 console.log(res);
+			// c)求所有超过60分的学生语文总成绩
+			var res=scores.reduce(function(res,obj){
+				if(obj.subject=="语文"&&obj.score>60){
+					res+=obj.score;
+				}
+				 return  res;
+			 },0)
+			 console.log(res);
+			// d)删除不及格的科目信息
+			var array=scores.filter(function(obj){
+				return obj.score<60
+			})
+			console.log(array);
+		</script>
+	</body>
+</html>

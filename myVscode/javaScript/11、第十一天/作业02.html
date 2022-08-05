@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<!-- <!-- 把下列json对象按要求遍历
+
+{
+	"男明星": [
+			{ "name":"梁朝伟","age":"40"},
+			{ "name":"刘德华","age":"42"},
+			{ "name":"彭于晏","age":"29"}
+		],
+	"女明星": [
+			{ "name":"刘嘉玲","age":"40"},
+			{ "name":"张敏","age":"41"},
+			{ "name":"张柏芝","age":"30"},
+			{ "name":"朱茵","age":"38"}
+		]
+} -->
+	<ul id="per"></ul>
+
+	<script>
+		var person = {
+			"男明星": [
+				{ "name": "梁朝伟", "age": "40" },
+				{ "name": "刘德华", "age": "42" },
+				{ "name": "彭于晏", "age": "29" }
+			],
+			"女明星": [
+				{ "name": "刘嘉玲", "age": "40" },
+				{ "name": "张敏", "age": "41" },
+				{ "name": "张柏芝", "age": "30" },
+				{ "name": "朱茵", "age": "38" }
+			]
+		}
+
+		var male = person.男明星;
+		var famale = person.女明星;
+		for (var key in person) {
+			if (key == "男明星") {
+				document.write(key+"<br>")
+
+				var male1 = male.forEach(function (item, index) {
+					for (var key2 in item) {
+						
+						document.write(`${key2}--->${item[key2]}&emsp;&emsp;&emsp;`)
+					}
+					document.write("<br>")
+				});
+			} else {
+				document.write(key+"<br>")
+
+				var famale1 = famale.forEach(function (item, index) {
+					for (var key2 in item) {
+						document.write(`${key2}--->${item[key2]}&emsp;&emsp;&emsp;`)
+					}
+					document.write("<br>")
+				});
+			}
+			// document.write(key,person[key]);
+		}
+	</script>
+
+
+	<!-- 页面里实现
+		男明星:
+		name--梁朝伟     age---40
+		name--刘德华     age---42
+		name--彭于晏     age---29
+		
+		女明星:
+		name--刘嘉玲     age---40
+		name--张敏        age---41
+		name--张柏芝      age---30
+		name--朱茵       age---38  -->
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="provinces"></select>
+    <select name="" id="citys"></select>
+    <select name="" id="county"></select>
+
+    <script src="./js/citys.js"></script>
+    <script>
+        
+        var _provinces=document.getElementById("provinces");//获取省下拉框节点
+        var _citys=document.getElementById("citys");//获取市下拉框节点
+        var _county=document.getElementById("county");//获取县下拉框节点
+
+        var prov=citys.districts[0].districts;//获取所有省级对象
+        // console.log(prov);
+
+        // 遍历省级对象并添加省名，adcode
+        prov.forEach(function(obj){
+            _provinces.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+        });
+
+        // 省级切换时市级联动
+        _provinces.onchange=function(){
+            showCitys();
+            showCounty();
+        }
+        //定义市级操作函数
+        function showCitys(){
+            _citys.innerHTML=""//初始化
+            var adcode=_provinces.value;//获取省级adcode
+            // console.log(adcode);
+            // 通过省级adcode得到整个省级对象
+            var province=prov.find(function(obj){
+                return obj.adcode==adcode;
+            })
+            console.log(province);
+            var citys=province.districts;//得到市级对象
+
+            // 遍历市级对象并添加市名，adcode
+            citys.forEach(function(obj){
+            _citys.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+        });
+        }
+        // 页面初始化
+        showCitys();
+
+
+        showCounty();
+        _citys.onchange=function(){
+            showCounty();
+        }
+
+        function showCounty(){
+            _county.innerHTML=""
+            var cityCode=_citys.value;//获取市级编码
+            // console.log(cityCode);
+            var provCode=_provinces.value;//获取省级编码
+            // console.log(provCode);
+            var province=prov.find(function(obj){
+                return obj.adcode==provCode;
+            })
+
+            // console.log(province);
+
+            var citys=province.districts;//获取市级对象
+            console.log(citys)
+
+            //市级联动
+            var city=citys.find(function(obj){
+                return obj.adcode==cityCode;
+            })
+
+            //获取县级对象
+            var county=city.districts;
+            console.log(county);
+
+            //添加
+            county.forEach(function(obj){
+
+                _county.innerHTML+=`<option value="${obj.adcode}">${obj.name}</option>`
+            })
+
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 
+			基本数据类型:String Number Boolean null undefined
+			引用类型: Array  function  对象 
+			*/
+		    //1、创建对象:静态特点(属性)+动态特点(方法)
+			var yh={
+				"name":"于航",   //键值对
+				"sex":"boy",
+				"age":20,
+				"test":function(){
+					console.log("会跑步");
+				},
+				//this指代的是当前对象本身
+				"addAge":function(n){
+					console.log(this.age+n);
+				}
+			}
+			//调用对象属性:对象名.属性名 或 对象名[属性名]
+			console.log(yh.name);
+			console.log(yh["sex"]);
+			//调用对象中的方法:对象名.方法名()
+			yh.test();
+		    yh.addAge(6);
+		</script>
+	</body>
+</html>

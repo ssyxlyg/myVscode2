@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//json:数据格式，形如{"key":"value","key":"value",....}
+			//json字符串
+			var str='{"name":"张三","age":20}';
+			console.log(str.name);
+			//字符串转换为对象
+			var obj=JSON.parse(str);
+			console.log(obj);
+			console.log(obj.name);
+			//将对象转换为字符串
+			var str2=JSON.stringify(obj);
+			console.log(str2);
+			console.log(typeof(str2));
+		</script>
+	</body>
+</html>

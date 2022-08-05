@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            "id": 1,
+            "name": "张三",
+            "age": 18,
+            "bobby": function () {
+                console.log("跑步")
+            },
+            "addAge": function (n) {
+                console.log(this.age + n)
+            }
+        }
+
+        console.log(obj.id);
+        console.log(obj.name);
+        obj.bobby();
+        obj.addAge(2);
+
+        var obj2 = new Object();
+        obj2.name = "李四";
+        obj2.age = "20";
+        obj2.hobby = function () {
+            console.log("唱歌");
+        }
+        console.log(obj2.name);
+        obj2.hobby();
+    </script>
+</body>
+
+</html>

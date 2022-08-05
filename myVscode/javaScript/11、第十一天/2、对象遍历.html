@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+		</ul>
+		<script>
+			//遍历数组fori   for i in array   forEach
+			//遍历对象:  for key键 in 对象名
+			
+			var zs={
+				"name":"张三",
+				"age":20,
+				"sex":"男",
+				"height":1.83
+			}
+			
+			var _li=document.querySelector("li");
+			for(var key in zs){
+				//zs.key=>zs["key"]，可以将变成字符串
+				_li.innerHTML+=key+":"+zs[key]+",";
+			}
+			
+			var array=[{
+				"name":"张三",
+				"age":20,
+				"sex":"男",
+				"height":1.83
+			},{
+				"name":"李四",
+				"age":20,
+				"sex":"女",
+				"height":1.65
+			},{
+				"name":"王五",
+				"age":20,
+				"sex":"男",
+				"height":1.78
+			}]
+		</script>
+	</body>
+</html>
