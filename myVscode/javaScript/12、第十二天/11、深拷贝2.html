@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		   var obj1={"a":1,"b":2};
+		   var ary1=[1,2,3];
+		   
+		   var obj = {
+				"a": 1,
+				"b": 2,
+				"c": ['hello', 'world'],
+				"stu": {
+					'name': 'zs',
+					"age": 18,
+					"score": [10, 50, 60]
+				}
+			}
+			//obj可能是数组也可能是对象
+			function deepCopy(obj){
+				var newObj=Array.isArray(obj)?[]:{};
+				for (var key in obj) {
+					if(typeof(obj[key])!="object"){
+						newObj[key]=obj[key];
+					}else{
+						//递归
+						var no=deepCopy(obj[key]);
+						newObj[key]=no;
+					}
+					
+				}
+				return newObj;
+			}
+			
+			//深拷贝
+			var obj8=JSON.parse(JSON.stringify(obj));
+			console.log(obj8);
+			obj8.c[0]="奇酷";
+			console.log(obj8);
+			console.log(obj);
+			
+			var obj2=deepCopy(obj1);
+			console.log(obj2);
+			
+			var ary2=deepCopy(ary1);
+			console.log(ary2);
+			
+			var obj6=deepCopy(obj);
+			console.log(obj6);
+			obj6.stu.score[1]=100;
+			console.log(obj6);
+			console.log(obj);
+			
+		</script>
+	</body>
+</html>

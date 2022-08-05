@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var obj = {
+				"a": 1,
+				"b": 2,
+				"c": ['hello', 'world'],
+				"stu": {
+					'name': 'zs',
+					"age": 18,
+					"score": [10, 50, 60]
+				}
+			}
+
+        function deepCopy(obj){
+            var newObj=Array.isArray(obj)?[]:{};
+            for (var key in obj) {
+                if(typeof(obj[key])=="object"){
+                    newObj[key]=obj[key];
+
+                }else{
+                    var no=deepCopy(obj[key]);
+                    newObj=no;
+                }
+            }
+            return newObj;
+        }
+        var obj2=deepCopy(obj);
+        console.log(obj2)
+
+        var obj3=JSON.parse(JSON.stringify(obj));
+        console.log(obj3)
+    </script>
+</body>
+</html>
