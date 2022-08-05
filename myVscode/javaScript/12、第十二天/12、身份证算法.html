@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		身份证号:<input type="text" />
+		<script src="./js/citys.js"></script>
+		<script>
+			var _input=document.querySelector("input");
+			_input.onblur=function(){
+				//this=>_input
+				var num=this.value;
+				var flag=checkId(num);
+				if(!flag){
+					alert("身份证信息不正确")
+				}else{
+					alert("正确")
+				}
+			}
+			/*
+			 18位: 41072419980815451x
+			 410724 1998 0815 451x
+			 41:省编码前2位
+			 4107:市编码前4位
+			 410724:县编码
+			 45:派出所编码
+			 1:奇数为男，偶数为女
+			 x:计算所得
+			     1、将前面的身份证号码17位数分别乘以不同的系数。
+			        从第一位到第十七位的系数分别为:7、9、10、5、8、4、2、1、6、3、7、9、10、5、8、4、2;
+			     2、将这17位数字和系数相乘的结果相加;
+			     3、用加出来和除以11，看余数是多少;
+			     4、余数只可能有0、1、2、3、4、5、6、7、8、9、10这11个数字,
+				       其分别对应的最后一位身份证的号码为1、0、X、9、8、7、6、5、4、3、2。
+			*/
+			function checkId(ID) {
+				if (ID.length>18) {
+					return false;
+				}
+				//获取身份证前2位  省编码前两位
+				var provinceCode = ID.substr(0, 2);
+				//获取省的数组
+				var provinces = citys.districts[0].districts;
+				//获取到的是对应的省
+				var province = provinces.find(function(obj) {
+					return obj.adcode.startsWith(provinceCode);
+				})
+				//省没有找到
+				if (province == undefined) {
+					return false;
+				}
+
+				//获取身份证前4位  市编码前两位
+				var cityCode = ID.substr(0, 4);
+				//获取市的数组
+				var cs = province.districts;
+				//获取到的是对应的市
+				var city = cs.find(function(obj) {
+					return obj.adcode.startsWith(cityCode);
+				})
+				if (city == undefined) {
+					return false;
+				}
+
+				//获取身份证前6位  省编码前两位
+				var countyCode = ID.substr(0, 6);
+				//获取县的数组
+				var countys = city.districts;
+				//对应的县
+				var county = countys.find(function(obj) {
+					return obj.adcode==countyCode;
+				})
+                if (county == undefined) {
+                	return false;
+                }
+				
+				//验证最后一位
+				var nums=[7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2];
+				//分别相乘相加
+				var res=nums.reduce(function(res,item,index){
+					  res+=ID.charAt(index)*item;
+					  return res;
+				},0)
+				
+				var mod=res%11;   //拿到余数
+				var endNums=[1,0,"x",9,8,7,6,5,4,3,2];
+				if(ID.substring(17)!=endNums[mod]){
+					return false;
+				}
+				return true;
+			}
+
+			console.log(checkId("410724199803031537"));
+		</script>
+	</body>
+</html>
