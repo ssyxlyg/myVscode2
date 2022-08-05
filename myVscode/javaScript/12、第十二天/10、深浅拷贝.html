@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 
+			  浅拷贝：拷贝基本数据类型时，不受任何影响，
+			       当拷贝引用类型时，源对象也会被修改。
+			 深拷贝：就是完完全全拷贝一份新的对象，
+			        它会在内存的堆区域重新开辟空间，
+					修改拷贝对象就不会影响到源对象
+			*/
+			var n=6;
+			var m=n;
+			console.log(m);//6
+			var obj1={"a":1,"b":2};   //obj1:0x001
+			//浅拷贝
+			var obj2=obj1;   //obj2:0x001
+			obj2.a=6;
+			console.log(obj1); //{a: 6, b: 2}
+			//对象深拷贝
+			var obj3={};
+			for (var key in obj1) {
+				//obj3.a=1;
+				obj3[key]=obj1[key];
+			}
+			console.log(obj3); //{a: 6, b: 2}
+			obj3.b=888;
+			console.log(obj3);  //{a: 6, b: 888}
+			console.log(obj1);  //{a: 6, b: 2}
+			
+			var ary1=[1,2,3];
+			var ary2=ary1;
+			ary2[1]=6;
+			console.log(ary2); //[1, 6, 3]
+			//数组深拷贝
+			var ary3=[];
+			for (var key in ary1) {
+				ary3[key]=ary1[key];
+			}
+			console.log(ary3);  //[1, 6, 3]
+			ary3[1]=666;
+			console.log(ary3);  //[1, 666, 3]
+			console.log(ary1); //[1, 6, 3]
+		</script>
+	</body>
+</html>
