@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//函数内部调用函数本身
+			//找规律，找出口
+			//10!=10*9*8*7,......
+			function jc(n){
+				//出口
+				if(n==1){
+					return 1;
+				}
+				// 规律
+				return n*jc(n-1);
+			}
+			console.log(jc(3));
+			
+			/* 100*jc(99)
+			100*99*jc(98)
+			100*99*......2*jc(1);
+			100*99*......2*1; */
+			
+			// 1  1  2  3  5   8   13
+			function feibo(n){
+			   //出口
+			   if(n==2||n==1){
+				   return 1;
+			   }
+			   return feibo(n-1)+feibo(n-2);
+			}
+			/* 
+			f(7)=f(6)+f(5)
+			f(3)=f(2)+f(1)
+			f(3)=1+1 
+			*/
+		   console.log(feibo(8))
+		</script>
+	</body>
+</html>

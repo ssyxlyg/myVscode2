@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function test(a,b,c){
+				//隐形的内置对象 arguments,接收所有实参
+				//形参和arguments是相互映射的，相互影响
+				b=6;
+				console.log(arguments[1]);  //6
+				arguments[2]=8;
+				console.log(c); //8
+				console.log(arguments);
+				//类数组3种遍历方式,数组回调遍历它不能用
+				// for (var i = 0; i < arguments.length; i++) {
+				// 	console.log(arguments[i]);
+				// }
+				// for (var i in arguments) {
+				// 	console.log(arguments[i]);
+				// }
+				// for (var item of arguments) {
+				// 	console.log(item);
+				// }
+				
+			}
+			test(1,2,3)
+			console.log([1,2,3]);
+			console.log({"name":"zs"});
+			
+			
+		</script>
+	</body>
+</html>
