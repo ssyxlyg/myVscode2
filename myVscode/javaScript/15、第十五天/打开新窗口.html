@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" target="_blank">百度</a>
+    <a href="#" onclick="demo1()">点击跳转</a>
+    <button onclick="demo2()">点击open</button>
+    <script>
+        function demo1(){
+            location.href="http://www.baidu.com"
+        }
+        function demo2(){
+            window.open("http://www.baidu.com","_blank","width=300 height=300")
+            // window.open("http://www.baidu.com","_blank","width=500 height=500 left=300 top=300")
+
+
+        }
+    </script>
+</body>
+</html>

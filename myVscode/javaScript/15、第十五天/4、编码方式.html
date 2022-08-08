@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//编码
+			var str=encodeURI("http://127.0.0.1:8848/workspace/js/8、BOM/3、打开新窗口.html");
+			console.log(str);
+		    //解码
+			var str2=decodeURI(str);
+			console.log(str2);
+			
+			//编码
+			var str=encodeURIComponent("http://127.0.0.1:8848/workspace/js/8、BOM/3、打开新窗口.html");
+			console.log(str);
+			//解码
+			var str2=decodeURIComponent(str);
+			console.log(str2);
+			
+			console.log(decodeURI("https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&rsv_idx=1&tn=baidu&wd=js%E8%BD%AE%E6%92%AD%E5%9B%BE&fenlei=256&oq=html&rsv_pq=c4286e910000310f&rsv_t=275cafjslHI5Srp03amgRn4N%2BOSGULNB7RBavVsLRptnRGmIPVkalrNhisM&rqlang=cn&rsv_enter=0&rsv_dl=ts_0&rsv_btype=t&rsv_sug3=23&rsv_sug1=28&rsv_sug7=101&rsv_sug2=1&prefixsug=js%2520lunbo&rsp=0&inputT=11143&rsv_sug4=11705"));
+			
+			//base64编码方式
+			var str3="qiku";
+			console.log(atob(str3));  //ª).
+			console.log(btoa("ª)."));
+		</script>
+	</body>
+</html>

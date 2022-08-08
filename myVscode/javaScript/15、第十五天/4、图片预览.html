@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- this:指代当前节点对象 -->
+		<input type="file" id="tag1" accept="image/jpeg,image/png,image/gif" onchange="switchImg(this)" />
+		<img src=""  id="img">
+		<script type="text/javascript">
+		 // var _tag=document.getElementById("tag1");
+		  var _img=document.getElementById("img");
+			function switchImg(tag){
+				//1、获取上传的文件对象
+				var file=tag.files[0];
+				//2、读取文件流
+				var fr=new FileReader();
+				//3、读取文件
+				fr.readAsDataURL(file);
+				fr.onload=function(){
+					console.log(fr.result);
+					_img.src=fr.result;
+				}
+			}
+		</script>
+	</body>
+</html>

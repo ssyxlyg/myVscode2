@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		    target="_self"  覆盖当前页
+		    target="_blank"  打开新的标签页
+		 -->
+		<a target="_blank" href="2、history.html">history</a>
+		<a href="#" onclick="gobaidu()">百度</a>
+		<button onclick="openwin()">打开新窗口</button>
+		<script>
+			function gobaidu(){
+				location.href="http://www.baidu.com"
+			}
+			function openwin(){
+				// window.open("url","_self/_blank","窗口特征")
+				window.open("http://www.baidu.com","_blank"
+				,"width=500 height=500 left=300 top=300")
+			}
+		</script>
+	</body>
+</html>
