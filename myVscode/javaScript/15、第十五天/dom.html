@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="first">ID选择器</div>
+        <div class="second" name="active">类选择器</div>
+        <div name="active">标签选择器</div>
+    </div>
+    <script>
+        var _div=document.getElementsByTagName("div");
+        console.log(_div);
+        console.log(_div[3].innerText)
+
+        var _id=document.getElementById("first");
+        console.log(_id.innerText)
+
+        var _className=document.getElementsByClassName("second");
+        console.log(_className[0].innerText)
+
+        var _divs2=document.querySelectorAll("div");
+        console.log(_divs2);
+        console.log(_divs2[2].innerText);
+
+        var _div2=document.querySelector(".wrapper div");
+        console.log(_div2.innerText);
+
+        var _name=document.getElementsByName("active");
+        console.log(_name);
+        console.log(_name[1].innerText);
+
+    </script>
+</body>
+
+</html>

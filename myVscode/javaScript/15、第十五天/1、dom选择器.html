@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="first">id选择器</div>
+			<div class="second" name="active">标签选择器</div>
+			<div class="second" name="active">类选择器</div>
+		</div>
+		<script>
+			/* 
+			 getElementById：通过Id获取
+			 getElementsByTagName:通过标签名称获取,返回类数组
+			 getElementsByClassName:通过类名称获取,返回类数组
+			 getElementsByName:通过name属性名称获取,返回类数组
+			 querySelector:返回符合条件的第一个元素
+			 querySelectorAll:返回符合条件的所有元素
+			*/
+			var _first=document.getElementById("first");
+			console.log(_first.innerText);
+			
+			var _divs=document.getElementsByTagName("div");
+			console.log(_divs); //类数组
+			console.log(_divs[2].innerText);
+			
+			var _seconds=document.getElementsByClassName("second");
+			console.log(_seconds);
+			console.log(_seconds[1].innerText);
+			
+			var _actives=document.getElementsByName("active");
+			console.log(_actives);
+			
+			//无法实时获取
+			var  _div2=document.querySelector(".wrapper>div");
+			console.log(_div2.innerHTML);
+			var  _divs2=document.querySelectorAll(".wrapper>div");
+			console.log(_divs2);
+			console.log(_divs2[1].innerText);
+		</script>
+	</body>
+</html>
