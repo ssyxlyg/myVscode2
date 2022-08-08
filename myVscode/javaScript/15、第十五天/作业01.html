@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+            
+        }
+        .wrapper{
+            width: 809px;
+            margin: 0 auto;
+        }
+        .top span{
+            display: inline-block;
+            float: right;
+            background-color: red;
+            line-height: 20px;
+            color: #fff;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .main{
+            background: url(./img/shoppingBg.jpg) no-repeat center center;
+            width: 809px;
+            height: 414px;
+        }
+        .main ul{
+            float: right;
+            margin-top: 120px;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        .main ul span{
+            display: block;
+            text-align: center;
+            
+        }
+        .main li:nth-of-type(1){
+            margin-bottom: 70px;
+            color: #9DA195;
+
+        }
+        .main li:nth-of-type(2){
+            margin-bottom: 90px;
+            color: #9DA195;
+           
+        }
+        .main li:nth-of-type(3){
+            width: 80px;
+            line-height: 30px;
+            color: #fff;
+            background-color:red ;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top"><img src="./img/dd_logo.jpg" alt=""><span onclick="window.close()">关闭</span></div>
+        <div class="main">
+            <ul>
+                <li><span onclick="demo1()">移入收藏</span><span onclick="demo2()">删除</span></li>
+                <li><span onclick="demo1()">移入收藏</span><span onclick="demo2()">删除</span></li>
+                <li><span onclick="demo3()">结算</span></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function demo1(){
+            alert("已移入收藏夹")
+
+            
+        }
+        function demo2(){
+            confirm("确认删除？")
+        }
+        function demo3(){
+            window.open()
+        }
+    </script>
+</body>
+</html>

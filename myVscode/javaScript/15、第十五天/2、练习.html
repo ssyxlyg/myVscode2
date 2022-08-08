@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<input type="text" name="season"  value="春" />
+			<input type="text" name="season"  value="夏" />
+			<input type="text" name="season"  value="秋" />
+			<input type="text" name="season"  value="冬" /><br>			
+			<input type="button" name="" id="btn1" value="显示input内容" />
+			<input type="button" name="" id="btn2" value="显示season内容" />
+			<div></div>
+		</div>
+		<script>
+			//获取所有的input
+			var _inputs=document.querySelectorAll("input");
+			//获取name=season的input
+			// var _inputsSeason=document.querySelectorAll("input[name=season]");
+			var _inputsSeason=document.getElementsByName("season")
+			var _div=document.querySelector(".wrapper div");
+			var _btn1=document.querySelector("#btn1");
+			var _btn2=document.querySelector("#btn2");
+			
+			//点击触发
+			_btn1.onclick=function(){
+				_div.innerHTML=""
+				for (var tag of _inputs) {
+					_div.innerHTML+=`<p>${tag.value}</p>`
+				}
+			}
+			
+			//点击触发
+			_btn2.onclick=function(){
+				_div.innerHTML=""
+				for (var tag of _inputsSeason) {
+					_div.innerHTML+=`<p>${tag.value}</p>`
+				}
+			}
+			
+		</script>
+	</body>
+</html>

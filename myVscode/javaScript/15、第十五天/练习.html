@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="春">
+    <input type="text" value="夏">
+    <input type="text" value="秋">
+    <input type="text" value="冬"><br>
+    <input type="button" value="显示input内容" id="btn1">
+    <input type="button" value="显示season内容" id="btn2">
+    <div class="first"></div>
+
+    <script>
+        var _inp=document.getElementsByTagName("input");
+        var _inp2=document.querySelectorAll("input:not(input[type=button])");
+        var  _first=document.querySelector(".first");
+        var _btn1=document.getElementById("btn1");
+        var _btn2=document.getElementById("btn2");
+
+        _btn1.onclick=function(){
+            _first.innerHTML=""
+            console.log(_inp)
+            for(var tag of _inp){
+                _first.innerHTML+=`<P>${tag.value}</p>`;
+            }
+            
+        }
+        _btn2.onclick=function(){
+            _first.innerHTML=""
+
+            console.log(_inp2);
+            for(var tag of _inp2){
+                _first.innerHTML+=`<P>${tag.value}</P>`
+            }
+        }
+    </script>
+</body>
+</html>
