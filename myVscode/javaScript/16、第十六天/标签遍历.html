@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+        <li>5555</li>
+    </ul>
+    <script>
+        var _lis=document.getElementsByTagName("li");
+
+        for (var item of _lis) {
+            console.log(item.innerText)
+        }
+
+        for(var i=0;i<_lis.length;i++){
+            console.log(_lis[i].innerText)
+        }
+
+        Array.from(_lis).forEach(function(item){
+            console.log(item.innerText)
+
+        })
+
+        var _lis2 = Array.from(_lis);
+        for (var key in _lis2) {
+           console.log(_lis2[key].innerText)
+                
+           
+        }
+
+    </script>
+</body>
+</html>

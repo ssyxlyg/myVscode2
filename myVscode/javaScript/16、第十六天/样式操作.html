@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .active{
+            border-radius: 50%;
+        }
+        .test{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div>hello world!</div>
+
+    <script>
+        var _div=document.querySelector("div");
+
+        _div.onclick=function(){
+            if(_div.style.backgroundColor==""){
+                _div.style.backgroundColor="skyblue"
+            }else{
+                _div.style.backgroundColor="";
+            }
+        }
+
+        _div.onclick=function(){
+            if(_div.className==""){
+                _div.className="active";
+            }else{
+                _div.className="";
+            }
+        }
+
+        _div.onclick=function(){
+            if(_div.classList.contains("test")){
+                _div.classList.remove("active","test");
+                
+            }else{
+                _div.classList.add("test","active");
+              
+            }
+        }
+
+    </script>
+</body>
+</html>

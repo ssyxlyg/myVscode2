@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11111</li>
+			<li>22222</li>
+			<li>33333</li>
+			<li>44444</li>
+			<li>55555</li>
+		</ul>
+		<script>
+			//获取所有li标签，类数组
+			//将类数组，转换为数组 Array.from(_lis)
+			var _lis=document.getElementsByTagName("li");
+			var _lis2=document.querySelectorAll("li");
+			//第一种
+			for (var i = 0; i < _lis.length; i++) {
+				console.log(_lis[i].innerText);
+			}
+			
+			// 第二种 for of
+			for (var item of _lis) {
+				console.log(item.innerText);
+			}
+			// 第三种 for in不能直接使用
+			//先转换为数组
+			var _lisAry=Array.from(_lis)
+			for (var j in _lisAry) {
+				console.log(_lisAry[j].innerText);
+			}
+			
+			// 第四种 forEach不能直接使用
+			Array.from(_lis).forEach(function(item){
+				console.log(item.innerText);
+			})
+			
+			// querySelectorAll forEach可以直接使用
+			_lis2.forEach(function(item){
+				console.log(item.innerText);
+			})
+			
+			// find,filter ,findindex
+		</script>
+	</body>
+</html>
