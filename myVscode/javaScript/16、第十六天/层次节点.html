@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>奇酷教育</p>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+
+    </ul>
+    <p>web前端</p>
+    <script>
+        var ul = document.querySelector("ul");
+        //获取ul元素所有子元素
+        var childs = ul.children || ul.childNodes;
+        console.log(childs);
+        //获取子元素长度
+        console.log(childs.length)
+        //从父元素获取子元素长度
+        console.log(ul.childElementCount);
+
+        //获取第一个子元素
+        var firstChild = ul.firstElementChild || ul.firstChild;
+        console.log(firstChild.innerText);
+
+        //获取最后一个子元素
+        var lastChild = ul.lastElementChild || ul.lastChild;
+        console.log(lastChild.innerText)
+
+        //获取ul起一个兄弟元素
+        var prev = ul.previousElementSibling;
+        console.log(prev.innerText);
+
+        //获取后一个兄弟节点
+        var next=ul.nextElementSibling||ul.nextSibling;
+        console.log(next.innerText)
+    </script>
+</body>
+
+</html>
