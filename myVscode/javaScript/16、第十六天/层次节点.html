@@ -36,11 +36,11 @@
         console.log(lastChild.innerText)
 
         //获取ul起一个兄弟元素
-        var prev = ul.previousElementSibling;
+        var prev = ul.previousElementSibling || ul.previousSibling;
         console.log(prev.innerText);
 
         //获取后一个兄弟节点
-        var next=ul.nextElementSibling||ul.nextSibling;
+        var next = ul.nextElementSibling || ul.nextSibling;
         console.log(next.innerText)
     </script>
 </body>
