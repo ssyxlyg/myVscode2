@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" id="all"> 全选
+		<hr>
+		<input type="checkbox"> 打游戏
+		<input type="checkbox"> 学习
+		<input type="checkbox"> 睡觉
+		<script>
+			//获取全选input
+			var _all=document.querySelector("#all");
+			//获取所有反选input
+			var _inputs=document.querySelectorAll("input:not(#all)");
+			//全选
+			_all.onclick=function(){
+				//1、获取全选的状态
+				var status=_all.checked;
+				//2、保证全选的checked值与反选一致
+				_inputs.forEach(function(tag){
+					tag.checked=status;
+				})
+			}
+			
+			//反选
+			
+			_inputs.forEach(function(tag){
+				//点击每一个复选框
+				tag.onclick=function(){
+					//过滤出当前已选中的所有复选框
+					var chboxes=Array.from(_inputs).filter(function(obj){
+						return obj.checked==true;
+					})
+					//如果选中的复选框个数=当前所有复选框个数
+					// if(chboxes.length==_inputs.length){
+					// 	_all.checked=true;
+					// }else{
+					// 	_all.checked=false;
+					// }
+					
+					_all.checked=chboxes.length==_inputs.length
+				}
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

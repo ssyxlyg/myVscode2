@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>
+					<input type="checkbox" id="all">
+				</th>
+				<th>名称</th>
+				<th>价格</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>键盘</td>
+				<td>500</td>
+				<td>
+					<button class="active">-</button>
+					<input type="text" value="1">
+					<button class="active">+</button>
+				</td>
+				<td>500</td>
+				<td><button class="del">删除</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>鼠标</td>
+				<td>100</td>
+				<td>
+					<button class="active">-</button>
+					<input type="text" value="1">
+					<button class="active">+</button>
+				</td>
+				<td>100</td>
+				<td><button class="del">删除</button></td>
+			</tr>
+			<tr>
+				<td colspan="3">总计</td>
+				<td colspan="3" id="sum"></td>
+			</tr>
+		</table>
+		<script>
+			//获取所有的加减按钮
+			var _buttons=document.querySelectorAll(".active");
+			_buttons.forEach(function(tag){
+				// tag：每一个 button
+				tag.onclick=function(){
+					//this指tag
+					cal(this,this.innerText);
+				}
+				
+			})
+			
+			  
+			//单个button的点击
+			function cal(tag,param) {
+				// tag:指所点击的button按钮 
+				//获取input的值
+				var _input = tag.parentNode.children[1];
+				var num = _input.value * 1;
+				//数量加1
+				num=eval(num+param+1);
+				if(num<0){
+					alert("当前数量已经为0!");
+					return;
+				}
+				_input.value = num;
+				//小计=单价*数量
+				//获取单价   tag的父元素的上一个兄弟         
+				var unitPrice = tag.parentNode.previousElementSibling.innerText;
+				var total = num * unitPrice;
+				//更新小计   tag的父元素的下一个兄弟    
+				tag.parentNode.nextElementSibling.innerText = total;
+				//重新计算总计
+				sum();
+			}
+
+		
+		    //全选
+			var _all=document.querySelector("#all");
+			var _inputs=document.querySelectorAll("input[type=checkbox]:not(#all)");
+			_all.onclick=function(){
+				//获取全选状态
+				var status=this.checked;
+				_inputs.forEach(function(tag){
+					tag.checked= status;
+				})
+				//重新计算总计
+				sum();
+			}
+			
+			
+			//反选
+			_inputs.forEach(function(tag){
+				//每点击复选框都要重新过滤
+				tag.onclick=function(){
+					//过滤出选中的复选框
+					var chboxes=Array.from(_inputs).filter(function(item){
+						return item.checked==true;
+					})
+					_all.checked=chboxes.length==_inputs.length;
+					//重新计算总计
+					sum();
+				}
+			})
+			
+			
+			//总计：所有选中的小计相加
+			var _sum=document.querySelector("#sum");
+			function sum(){
+				//所有选中的checkbox
+				var chboxes=Array.from(_inputs).filter(function(item){
+					return item.checked==true;
+				})
+				var sum=0  //总计
+				chboxes.forEach(function(tag){
+					var xiaoji=tag.parentNode.parentNode.children[4].innerText*1;
+					sum+=xiaoji;
+				})
+				//更新总计
+				_sum.innerText=sum;
+			}
+		
+		    //删除:获取所有删除按钮
+			var _dels=document.querySelectorAll(".del");
+		    _dels.forEach(function(tag){
+				// tag:指每一个删除按钮
+				tag.onclick=function(){
+					if(confirm("确认删除吗?")){
+						tag.parentNode.parentNode.remove();
+					}
+					//更新input个数
+					_inputs=document.querySelectorAll("input[type=checkbox]:not(#all)");
+				    sum();
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <table border="1" cellspacing="0" cellpadding="5px">
+            <tr>
+                <th><input type="checkbox" id="all"></th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>键盘</td>
+                <td>500</td>
+                <td>
+                    <button class="active">-</button>
+                    <input type="text" value="1">
+                    <button class="active">+</button>
+                </td>
+                <td>500</td>
+                <td><button class="del">删除</button></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>鼠标</td>
+                <td>100</td>
+                <td>
+                    <button class="active">-</button>
+                    <input type="text" value="1">
+                    <button class="active">+</button>
+                </td>
+                <td>100</td>
+                <td><button class="del">删除</button></td>
+
+            </tr>
+            <tr>
+                <td colspan="3">总计</td>
+                <td colspan="3" id="sum"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var _inputs = document.querySelectorAll(".active");
+        _inputs.forEach(function (tag) {
+            tag.onclick = function () {
+                cal(this, this.innerText);
+
+            }
+        })
+        function cal(tag, param) {
+            var _input = tag.parentNode.children[1];
+            var num = _input.value * 1;
+
+            num = eval(num + param + 1);
+            if (num < 0) {
+                return;
+            }
+            _input.value = num;
+            // console.log(_input.value)
+            //小计=单价*数量
+            //获取单价
+            var unitPrice = tag.parentNode.previousElementSibling.innerText;
+            // console.log(unitPrice);
+            var total = num * unitPrice;
+            tag.parentNode.nextElementSibling.innerText = total;
+
+            sum();
+        }
+
+        var _all = document.querySelector("#all");//获取全选框节点
+        var _inputs = document.querySelectorAll("input[type=checkbox]:not(#all)");//获取反选框节点
+
+        _all.onclick = function () {
+            //获取全选框状态
+            var status = this.checked;
+
+            //遍历反选框，与全选框状态保持一致
+            _inputs.forEach(function (tag) {
+                tag.checked = status;
+            })
+
+            sum();
+
+        }
+
+        //遍历反选框
+        _inputs.forEach(function (tag) {
+            tag.onclick = function () {
+                //筛选checked=true的元素
+                var ch = Array.from(_inputs).filter(function (item) {
+                    return item.checked == true;
+                })
+                //全选框状态
+                _all.checked = ch.length == _inputs.length;
+                sum();
+            }
+
+        })
+
+        //总计
+        var _sum = document.querySelector("#sum");
+
+        function sum() {
+            var ch = Array.from(_inputs).filter(function (item) {
+                return item.checked == true;
+            })
+            console.log(ch)
+            var sum = 0;
+            ch.forEach(function (tag) {
+                var xiaoji = tag.parentNode.parentNode.children[4].innerText * 1;
+                console.log(xiaoji);
+                sum += xiaoji;
+
+            })
+            // console.log(sum);
+            _sum.innerText = sum;
+
+        }
+
+        var _del = document.querySelectorAll(".del");
+        _del.forEach(function (tag) {
+            tag.onclick = function () {
+                if (confirm("确认删除吗？")) {
+                    tag.parentNode.parentNode.remove();
+
+                }
+                _inputs = document.querySelectorAll("input[type=checkbox]:not(#all)");
+                sum();
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

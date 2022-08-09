@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="all"> 全选
+		<hr>
+		<input type="checkbox"> 打游戏
+		<input type="checkbox"> 学习
+		<input type="checkbox"> 睡觉
+    <script>
+        var _all=document.querySelector("#all");//获取全选按钮节点
+        var _inputs=document.querySelectorAll("input:not(#all)");//获取复选按钮节点
+
+        // 
+        _all.onclick=function(){
+            var status=_all.checked;
+            _inputs.forEach(function(item){
+                item.checked=status;
+            })
+
+        }
+        _inputs.forEach(function(tag){
+            // var ch=_all.checked;
+            tag.onclick=function(){
+            var _inp = Array.from(_inputs).filter(function(item){
+                return item.checked==true;
+            })
+            // if(inp.length==_inputs.length){
+            //     _all.checked=true;
+            // }else{
+            //     _all.checked=false;
+            // }
+            _all.checked=_inp.length==_inputs.length;
+        }
+
+        })
+
+
+    </script>
+</body>
+</html>

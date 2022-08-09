@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <table border="1" cellspacing="0" cellpadding="5px">
+            <tr>
+                <th><input type="checkbox"  id="all"></th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>键盘</td>
+                <td>500</td>
+                <td>
+                    <button onclick="minus(this)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="add(this)">+</button>
+                </td>
+                <td>500</td>
+                <td><button>删除</button></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>鼠标</td>
+                <td>100</td>
+                <td>
+                    <button onclick="minus(this)">-</button>
+                    <input type="text" value="1">
+                    <button onclick="add(this)">+</button>
+                </td>
+                <td>100</td>
+                <td><button>删除</button></td>
+
+            </tr>
+            <tr>
+                <td colspan="3">总计</td>
+                <td colspan="3"></td>              
+            </tr>
+        </table>
+    </div>
+    <script>
+        //加
+        function add(tag){
+            var _input=tag.parentNode.children[1];
+            var num=_input.value*1;
+            num++;
+            _input.value=num;
+            // console.log(_input.value)
+            //小计=单价*数量
+            //获取单价
+            var unitPrice=tag.parentNode.previousElementSibling.innerText;
+            // console.log(unitPrice);
+            var total=num*unitPrice;
+            tag.parentNode.nextElementSibling.innerText=total;
+
+        }
+        //减
+        function minus(tag){
+            var _input=tag.parentNode.children[1];
+            var num=_input.value*1;
+            if(num==0){
+                return;
+            }
+            num--;
+            _input.value=num;
+            // console.log(_input.value)
+            //小计=单价*数量
+            //获取单价
+            var unitPrice=tag.parentNode.previousElementSibling.innerText;
+            // console.log(unitPrice);
+            var total=num*unitPrice;
+            tag.parentNode.nextElementSibling.innerText=total;
+        }
+
+        var _all=document.querySelector("#all");//获取全选按钮节点
+        var _inputs=document.querySelectorAll("input[type=checkbox]:not(#all)");//获取复选按钮节点
+
+        // 
+        _all.onclick=function(){
+            var status=_all.checked;
+            _inputs.forEach(function(item){
+                item.checked=status;
+            })
+
+        }
+        _inputs.forEach(function(tag){
+            // var ch=_all.checked;
+            tag.onclick=function(){
+            var _inp = Array.from(_inputs).filter(function(item){
+                return item.checked==true;
+            })
+            // if(inp.length==_inputs.length){
+            //     _all.checked=true;
+            // }else{
+            //     _all.checked=false;
+            // }
+            _all.checked=_inp.length==_inputs.length;
+        }
+
+        })
+    </script>
+</body>
+</html>
