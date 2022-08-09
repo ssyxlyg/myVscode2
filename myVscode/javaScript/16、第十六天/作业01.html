@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size{
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+        }
+        .pos {
+            position: relative;
+            left: 30px;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input type="button" value="点击改变大小" id="one">
+        <input type="button" value="点击改变背景颜色" id="two">
+        <input type="button" value="点击改变字体大小" id="three">
+        <input type="button" value="点击改变边框" id="four">
+        <input type="button" value="点击改变位置" id="five">
+        <input type="button" value="点击改变位置（自动）" id="six">
+    </div>
+    <div id="container">
+        hello 我将发生变化
+    </div>
+
+    <script>
+        var _container = document.querySelector("#container");
+        var _one = document.querySelector("#one");
+        var _two = document.querySelector("#two");
+        var _three = document.querySelector("#three");
+        var _four = document.querySelector("#four");
+        var _five = document.querySelector("#five");
+        var _six = document.querySelector("#six");
+
+        _one.onclick = function () {
+            _container.classList.add("size")
+        }
+        _two.onclick = function () {
+            _container.style.backgroundColor = "red"
+        }
+        _three.onclick = function () {
+            _container.style.fontSize = "20px"
+
+        }
+        _four.onclick = function () {
+            _container.style.border = "5px solid skyblue"
+        }
+        _five.onclick = function () {
+            _container.classList.add("pos")
+        }
+        _six.onclick = function () {
+            var num=Math.floor(Math.random()*100)
+            _container.style.margin_left="num"
+        }
+    </script>
+</body>
+
+</html>

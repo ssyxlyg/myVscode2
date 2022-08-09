@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table td {
+            width: 134px;
+            text-align: center;
+            border-bottom: 1px dashed lightgray;
+        }
+
+        table tr {}
+
+        table img {
+            width: 100px;
+        }
+
+        table button {
+            float: left;
+            height: 35px;
+            width: 30px;
+        }
+
+        table input {
+            float: left;
+            width: 60px;
+            height: 30px;
+        }
+
+        span {
+            display: block;
+            width: 120px;
+            line-height: 40px;
+            background-color: red;
+            color: #fff;
+        }
+
+        .diff td {
+            border: none;
+        }
+        label{
+            display: inline-block;
+            width: 100px;
+            line-height: 30px;
+            background-color: red;
+            color: #fff;
+            text-align: center;
+           float:right;
+           border-radius: 10px;
+           margin-top: 15px;
+           margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p><img src="./img/dd_logo.jpg" alt=""><label onclick="window.close()">关闭</label></p>
+        <table border="0">
+            <tr>
+                <td>商品图片</td>
+                <td>商品信息</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>总价</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td><img src="./img/dog.jpg" alt=""></td>
+                <td>我和狗狗活下来了</td>
+                <td>21.90</td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </td>
+                <td>21.90</td>
+                <td>
+                    <p onclick="alert('已移入收藏')">移入收藏</p>
+                    <p class="del">删除</p>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="./img/mai.jpg" alt=""></td>
+                <td>灰霾来了怎么办</td>
+                <td>24.00</td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </td>
+                <td>24.00</td>
+                <td>
+                    <p onclick="alert('已移入收藏')">移入收藏</p>
+                    <p class="del">删除</p>
+                </td>
+            </tr>
+            <tr class="diff">
+                <td></td>
+                <td></td>
+                <td>商品总计</td>
+                <td id="sum"></td>
+                <td></td>
+                <td><span>结算</span></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+
+        var _buttons = document.querySelectorAll("button");
+        var _inputs = document.querySelectorAll("input")
+        // console.log(_buttons)
+        _buttons.forEach(function (tag) {
+            tag.onclick = function () {
+                cal(this, this.innerText);
+
+            }
+            // console.log(tag.innerText)
+        })
+        function cal(tag, param) {
+            var _input = tag.parentElement.children[1];
+            var num = _input.value;
+            // console.log(num)
+            num = eval(num + param + 1);
+
+            if (num < 0) {
+                return;
+            }
+
+            _input.value = num;
+
+            // console.log(_input.value)
+            //小计=单价*数量
+            //获取单价
+            var unitPrice = tag.parentNode.previousElementSibling.innerText;
+            // console.log(unitPrice);
+            var total = num * unitPrice;
+            tag.parentNode.nextElementSibling.innerText = total.toFixed(2);
+
+            sum();
+            // console.log(num);
+        }
+        var _sum = document.querySelector("#sum");
+
+        function sum() {
+            var sum=0;
+            _inputs.forEach(function (tag) {
+                var xiaoji = tag.parentNode.parentNode.children[4].innerText * 1;
+                // console.log(xiaoji);
+                sum += xiaoji;
+
+            })
+            // console.log(sum);
+            _sum.innerText = sum;
+
+        }
+
+        var _del = document.querySelectorAll(".del");
+        _del.forEach(function (tag) {
+            tag.onclick = function () {
+                if (confirm("确认删除吗？")) {
+                    tag.parentNode.parentNode.remove();
+
+                }
+                _inputs = document.querySelectorAll("input");
+                sum();
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

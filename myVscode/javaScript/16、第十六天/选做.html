@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper1 ,#wrapper2,#wrapper3{
+            width: 300px;
+            height: 300px;
+            border: 1px solid lightgray;
+            display: none;
+
+
+        }
+
+        .container {
+            padding: 15px 10px;
+            height: 70px;
+            width: 300px;
+        }
+
+        .image {
+            float: left;
+        }
+
+        .content {
+            float: left;
+
+        }
+
+        .content p {
+            border-bottom: 1px solid lightgray;
+            line-height: 34px;
+            margin-left: 15px;
+        }
+
+        .btn {
+            height: 30px;
+            margin-left: 120px;
+        }
+
+        button {
+            float: left;
+            width: 60px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <button>热销</button>
+        <button>推荐</button>
+        <button>经典</button>
+    </div>
+    <div id="wrapper1">
+        <div class="container">
+            <div class="image"><img src="./img/pic1.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic2.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic3.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper2">
+        <div class="container">
+            <div class="image"><img src="./img/pic2.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic3.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic1.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper3">
+        <div class="container">
+            <div class="image"><img src="./img/pic3.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic1.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="image"><img src="./img/pic2.png" alt=""></div>
+            <div class="content">
+                <p>9月必备6款短外套</p>
+                <p>十款约会装恋爱运up</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var _btn = document.querySelectorAll("button");
+        var _wrapper1 = document.querySelector("#wrapper1")
+        _wrapper1.style.display="block"
+        var _wrapper2 = document.querySelector("#wrapper2")
+        var _wrapper3 = document.querySelector("#wrapper3")
+
+        console.log(_btn);
+        _btn.forEach(function (tag, index) {
+            tag.onclick = function () {
+                var _content = tag.innerText;
+                if (_content == "热销") {
+                    _wrapper1.style.display = "block";
+                    _wrapper2.style.display="none"
+                    _wrapper3.style.display="none"
+
+                }else if(_content=="推荐"){
+                    _wrapper1.style.display = "none";
+                    _wrapper2.style.display="block"
+                    _wrapper3.style.display="none"
+                }else{
+                    _wrapper1.style.display = "none";
+                    _wrapper2.style.display="none"
+
+                    _wrapper3.style.display="block"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
