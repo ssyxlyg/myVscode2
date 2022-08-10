@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 30px;
+            border: 1px solid lightgray;
+            border-radius: 15px;
+        }
+        #content{
+            /* width: 300px; */
+            height: 30px;
+            /* border: 1px solid lightgray; */
+            border-radius: 15px;
+            background-color: skyblue;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="content"></div>
+    </div>
+
+    <script>
+        var _content=document.getElementById("content");
+        var num=0; 
+        var id = setInterval(function(){
+           num++;
+           _content.style.width=`${num}px`;
+           var num1=parseInt(num/3)
+           _content.innerText=`${num1}%`;
+           if(num==300){
+            clearInterval(id);
+           }
+        if(_content.innerText=="100%"){
+            _content.innerText="加载完成"
+        }
+        },10)
+
+    </script>
+</body>
+</html>

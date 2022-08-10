@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p>11111</p>
+        <p>22222</p>
+        <p>33333</p>
+
+    </div>
+
+    <script>
+        //获取父节点
+        var _wrapper=document.querySelector(".wrapper");
+        //获取第一个p节点
+        var _firstP=_wrapper.firstElementChild;
+        // 删除
+        // _firstP.remove();
+
+        _wrapper.removeChild(_firstP);
+
+        // 创建一个span节点
+        var _span=document.createElement("span");
+        _span.innerText="你好";
+
+        // 获取被替换的节点
+        var _lastP=_wrapper.lastElementChild;
+        // 替换
+        _wrapper.replaceChild(_span,_lastP)
+        
+
+    </script>
+</body>
+
+</html>

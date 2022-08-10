@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="410000">河南省</option>
+        <option value="460000">广东省</option>
+        <option value="480000">海南省</option>
+    </select>
+    <script>
+        var _select=document.querySelector("select");
+        _select.onchange=function(){
+            var _val=_select.value;
+            console.log(_val);
+
+            var selectIndex=_select.selectedIndex;
+            console.log(selectIndex);
+
+            var option=_select.options;
+            console.log(option[selectIndex].innerText);
+
+
+        }
+        //追加节点
+        var _option=document.createElement("option");
+        _option.value="490000";
+        _option.innerText="山东省";
+        _select.appendChild(_option);
+
+        var _option2=new Option("安徽省","310000",true,"true");
+
+        _select.add(_option2,null);
+
+    </script>
+</body>
+</html>

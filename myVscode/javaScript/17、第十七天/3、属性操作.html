@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<img src="" alt="" title="">
+		</div>
+		<script>
+			/* 
+			元素.setAttribute("属性名","属性值")
+			元素.getAttribute("属性名")
+			元素.已有属性名="" 
+			*/
+			//获取wrapper父元素
+			var _wrapper=document.querySelector(".wrapper");
+			//自定义属性选择setAttribute
+			_wrapper.setAttribute("a","核桃");
+			//获取属性
+			console.log(_wrapper.getAttribute("a"));
+			
+			//标签本身具有的属性可以直接点设置
+			 var _img=document.querySelector("img");
+			_img.src="./img/photo-1.jpg";
+			
+			
+			//nodeName:获取节点名称
+			console.log(_wrapper.nodeName); //DIV
+			/* nodeType:获取节点类型  
+			   元素结点返回1
+               属性结点返回2
+               文本结点返回3 
+			*/
+
+			console.log(_wrapper.nodeType); //1
+			console.log(_wrapper.getAttributeNode("a").nodeType); //2
+		</script>
+	</body>
+</html>

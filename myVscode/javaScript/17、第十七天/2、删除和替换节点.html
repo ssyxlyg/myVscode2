@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<p>111111</p>
+			<p>222222</p>
+			<p>333333</p>
+		</div>
+		<script>
+			//获取wrapper父元素
+			var _wrapper=document.querySelector(".wrapper");
+			//获取第一个p元素
+			var _firstP=_wrapper.firstElementChild;
+			/* 
+			  删除节点
+			     父元素.removeChild(子元素)
+				 子元素.remove() 
+			*/
+			_wrapper.removeChild(_firstP);
+			// _firstP.remove();
+			
+			//替换节点
+			//获取最后一个p元素
+			var _lastP=_wrapper.lastElementChild;
+			//创建新节点
+			var _span=document.createElement("span");
+			_span.innerText="奇酷教育";
+			// 替换节点:父元素.replaceChild(替换节点,被替换节点)
+			_wrapper.replaceChild(_span,_lastP)
+		</script>
+	</body>
+</html>

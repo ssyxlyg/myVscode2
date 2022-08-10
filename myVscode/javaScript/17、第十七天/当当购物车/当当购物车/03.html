@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#imgs {
+				width: 100px;
+				height: 150px;
+			}
+
+			.box {
+				width: 800px;
+				height: 500px;
+				border: 1px solid gray;
+				margin: 0 auto;
+			}
+
+			#clo {
+				float: right;
+				background-color: red;
+			}
+
+			#settlement {
+				float: right;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="./images/dd_logo.jpg" alt="">
+			<button id="clo">关闭</button>
+			<table border="0" cellspacing="0" cellpadding="10">
+				<thead>
+					<tr>
+						<th>商品图片</th>
+						<th>商品信息</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>总价</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img id="imgs" src="./images/dog.jpg" alt=""></td>
+						<td>我和狗狗活了下来</td>
+						<td>￥21.90</td>
+						<td>
+							<button class="active">-</button>
+							<input type="text" value="1">
+							<button class="active">+</button>
+						</td>
+						<td>21.90</td>
+						<td><button class="del">移入收藏<br>删除</button></td>
+					</tr>
+					<tr>
+						<td><img id="imgs" src="./images/mai.jpg" alt=""></td>
+						<td>灰霾来了怎么办</td>
+						<td>￥24.00</td>
+						<td>
+							<button class="active">-</button>
+							<input type="text" value="1">
+							<button class="active">+</button>
+						</td>
+						<td>24.00</td>
+						<td><button class="del">移入收藏<br>删除</button></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							总价：
+							<button id="sum">结算</button>
+						</td>
+					</tr>
+				</tfoot>
+		</div>
+		<script>
+			//获取所有加减button
+			var _buttons = document.querySelectorAll(".active");
+			_buttons.forEach(function(btn) {
+				btn.onclick = function() {
+					//实际参数
+					cal(this, this.innerText);
+				}
+			})
+
+
+			//单个tr的小计
+			// tag：点击的按钮
+			// params:加号或减号
+			function cal(tag, params) {
+				//数量
+				var num = tag.parentNode.children[1].value * 1;
+				//改变数量
+				num = eval(num + params + 1);
+				//从新放入input
+				tag.parentNode.children[1].value = num;
+
+				//单价
+				var unitPrice = tag.parentNode.previousElementSibling.innerText;
+				unitPrice = unitPrice.slice(1);
+				//总计
+				var total = num * unitPrice;
+				total = total.toFixed(2); //保留两位小数
+				tag.parentNode.nextElementSibling.innerText = total;
+
+				//重新计算总计
+				sum();
+			}
+
+
+			//总计
+			var _dels = document.querySelectorAll("tbody .del");
+			var _sum = document.querySelector("#sum");
+
+			function sum() {
+				var _trs = document.querySelectorAll("tbody tr");
+				var sum = 0; //总计
+				Array.from(_trs).forEach(function(tag) {
+					console.log(tag.children[4]);
+					//获取小计
+					var tal = tag.children[4].innerText * 1;
+					sum += tal;
+				})
+				_sum.innerText = sum;
+			}
+
+			_dels.forEach(function(tag) {
+				tag.onclick = function() {
+					if (confirm("确认删除吗")) {
+						tag.parentNode.parentNode.remove();
+					}
+					sum();
+				}
+			})
+		</script>
+	</body>
+</html>

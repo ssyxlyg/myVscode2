@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<select>
+			<option value="410000">河南省</option>
+			<option value="460000">广东省</option>
+		</select>
+		<script>
+			var _select=document.querySelector("select");
+			_select.onchange=function(){
+				//获取当前选中的option的value
+				var val=_select.value;
+				console.log(val);
+				
+				//获取当前选中的option的下标
+				var selectIndex=_select.selectedIndex
+				console.log(selectIndex);
+				
+				//获取select下所有options
+				var options=_select.options;
+				//获取当前选中的option的文本值
+				console.log(options[selectIndex].innerText);
+			}
+			
+			//追加option节点
+			var _option=document.createElement("option");
+			_option.value="480000";
+			_option.innerText="海南省";
+			_select.appendChild(_option);
+			
+			//新方式new Option("text","value",true,"是否选中")
+			var _option2=new Option("山东省","490000",true,"true");
+			//追加
+			// _select.add(_option2,null);
+			//插入
+			_select.add(_option2,_select.firstElementChild);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				height: 1600px;
+			}
+			.wrapper{
+				width: 300px;
+				height: 300px;
+				border: 3px solid black;
+				overflow:auto;
+			}
+			.inner{
+				width: 200px;
+				height: 600px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper" style="font-size:20px">
+			<div class="inner">3436334737</div>
+		</div>
+		<script>
+			var _wrapper=document.querySelector(".wrapper");
+			// _wrapper.style.backgroundColor="red"
+			//只能设置和获取行内样式
+			console.log(_wrapper.style.fontSize);
+			
+			//获取内嵌样式
+			console.log(document.defaultView.getComputedStyle(_wrapper,null).width);
+			
+			//获取window被卷去的距离(滚动距离)
+			//滚动事件
+			console.log(window.screen.availHeight);
+			window.onscroll=function(){
+				console.log(window.pageXOffset,window.pageYOffset);
+			}
+			
+			
+			//获取元素的滚动距离
+			_wrapper.onscroll=function(){
+				console.log(_wrapper.scrollLeft,_wrapper.scrollTop);
+			}
+		</script>
+	</body>
+</html>

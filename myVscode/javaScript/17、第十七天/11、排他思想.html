@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			/* 默认所有隐藏 */
+			.contents>div{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<div class="btns">
+				<button>热销</button>
+				<button>推荐</button>
+				<button>经典</button>
+			</div>
+			<div class="contents">
+				<div>热销第一名
+					<div><img src="./img/pic1.png" alt=""></div>
+					<div><img src="./img/pic2.png" alt=""></div>
+					<div><img src="./img/pic3.png" alt=""></div>
+				</div>
+				<div>推荐五颗星
+				
+					<div><img src="./img/pic3.png" alt=""></div>
+					<div><img src="./img/pic1.png" alt=""></div>y
+					<div><img src="./img/pic2.png" alt=""></div>
+				</div>
+				<div>经典永流传
+					<div><img src="./img/pic1.png" alt=""></div>
+					<div><img src="./img/pic3.png" alt=""></div>
+					<div><img src="./img/pic2.png" alt=""></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			//1、获取所有button按钮
+			var _btns=document.querySelectorAll(".btns button");
+			var _contents=document.querySelectorAll(".contents>div");
+			// _btns.forEach(function(btn,index){
+			// 	btn.onclick=function(){
+			// 		//对应的contents的下标显示
+			// 		_contents[index].style.display="block";
+			// 		//对应的contents的其他小标隐藏
+			// 		_contents.forEach(function(item,i){
+			// 			if(index!=i){
+			// 				_contents[i].style.display="none";
+			// 			}
+			// 		})
+			// 	}
+			// })
+			
+			_btns.forEach(function(btn,index){
+				btn.onclick=function(){
+					//先隐藏所有
+					_contents.forEach(function(item,i){
+							_contents[i].style.display="none";
+					})
+					//对应的contents的下标显示
+					_contents[index].style.display="block";
+					
+				}
+			})
+		</script>
+	</body>
+
+</html>

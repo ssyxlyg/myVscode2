@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #send {
+            width: 150px;
+            line-height: 40px;
+            background-color: #009966;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+
+        }
+
+        .wrapper {
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        .form {
+            width: 500px;
+            background-color: white;
+            border: 1px solid lightgray;
+            position: absolute;
+            display: none;
+        }
+
+        .form>div {
+            margin: 10px;
+
+        }
+
+        #sub {
+            width: 120px;
+            line-height: 25px;
+            border-radius: 5px;
+            background-color: #009966;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        ul {
+            border-top: 1px solid lightgray;
+        }
+
+        ul>li {
+            display: flex;
+            color: lightgray;
+            font-size: 12px;
+            border-bottom: 1px dashed lightgray;
+            height: 60px;
+            margin-top: 10px;
+        }
+
+        ul>li img {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .bk {
+            margin-left: 20px;
+        }
+
+        .bk h4 {
+            color: black;
+            font-size: 14px;
+            line-height: 30px;
+        }
+
+        input {
+            width: 450px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="send">我要发帖</div>
+        <div class="form">
+            <div><input type="text" placeholder="请输入标题（1-50个字符）"></div>
+            <div>所属板框：
+                <select name="" id="se">
+                    <option value="">请选择板块</option>
+                    <option value="">电子书籍</option>
+                    <option value="">新课来了</option>
+                    <option value="">新手报到</option>
+                    <option value="">职业规划</option>
+                </select>
+            </div>
+            <div class="text">
+                <textarea name="" id="" cols="62" rows="15">
+
+                </textarea>
+                <div id="sub">发布</div>
+            </div>
+
+        </div>
+        <ul>
+            <!-- 模板样式 -->
+            <!-- <li>
+                <div><img src="./img/tou01.jpg" alt=""></div>
+                <div class="bk">
+                    <h4>888</h4>
+                    <p>板块:<span id="bk">新手报到</span>&emsp;&emsp;&emsp;发表时间：<span id="time">1111</span></p>
+                </div>
+                
+            </li> -->
+
+        </ul>
+    </div>
+    <script>
+        var _send = document.getElementById("send");//获取我要发帖节点
+        // console.log(send)
+        var _form = document.querySelector(".form");//获取发帖内容节点
+        // console.log(_form)
+        //点击事件
+        _send.onclick = function () {
+            // this.style.display="block";
+            _form.style.display = "block"//点击form节点出现
+            _input.value = ""
+        }
+
+        var _sub = document.querySelector("#sub");//获取发布节点
+        var _ul = document.querySelector("ul");//获取ul节点
+        var _input = document.querySelector("input");//获取input节点
+
+        //点击发布
+        _sub.onclick = function () {
+            var title = _input.value;    //获取input的值  
+            if (title == "") {
+                alert("请输入标题")
+            } else {
+
+                _form.style.display = "none"//form节点隐藏
+                var _li = document.createElement("li");//新增li节点
+
+                var _div1 = document.createElement("div");//新增div节点
+
+                var _img = document.createElement("img");//新增img节点
+
+                var _random = Math.floor(Math.random() * 4);//生成随机数作为图片数组的下标
+
+                var _images = ["./img/tou01.jpg", "./img/tou02.jpg", "./img/tou03.jpg", "./img/tou04.jpg"];//图片数组
+                var _imgSrc = _images[_random];//生成随机图片效果
+                _img.src = _imgSrc;
+
+                _li.append(_div1);//div增加到li标签中
+                _div1.append(_img);//img加到div中
+
+
+                /***************************/
+
+                var _div2 = document.createElement("div");//新增div
+                _div2.setAttribute("class", "bk");//给div添加class属性
+
+                var _h4 = document.createElement("h4");//新增h4标签
+
+                _h4.innerText = title;//input的值放入到h4标签中
+                _li.append(_div2);//div加入到li标签中
+                _div2.append(_h4);//h4加入到div标签中
+
+                /*******************************/
+
+                var _p = document.createElement("p");//新增一个p标签；
+                //给p标签加内容
+               
+                _p.innerHTML = `板块:<span id="bk">${Select()}</span>&emsp;&emsp;&emsp;发表时间：<span id="time">${sendTime()}</span>`;
+            
+                _div2.append(_p);//p标签加入到div中
+
+                //把完整的li插入到ul的第一个孩子前面
+                _ul.insertBefore(_li, _ul.firstElementChild);
+
+            }
+
+
+        }
+        //获取当前时间
+        function sendTime() {
+            var _time = new Date();
+            var years = _time.getFullYear();
+            var months = _time.getMonth();
+            var date = _time.getDate();
+            var hours = _time.getHours();
+            var minutes = _time.getMinutes();
+
+            // console.log(`${years}-${months}-${date} ${hours}:${minutes}`);
+            return `${years}-${months}-${date}&emsp;${hours}:${minutes}`;
+
+        }
+        // sendTime();
+        var _select = document.querySelector("select");
+        //切换事件
+        _select.onchange = function () {
+            Select();
+        }
+        //获取下拉框的值
+        function Select() {
+            //获取当前选中的option的下标
+            var selectIndex = _select.selectedIndex;
+            // console.log(selectIndex);
+            //获取select下所有options
+            var options = _select.options;
+            //获取当前选中的option的文本值
+            console.log(options[selectIndex].innerText);
+           
+                 return options[selectIndex].innerText;
+            
+        }
+    </script>
+</body>
+
+</html>

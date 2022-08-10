@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//1、创建节点
+		var _ul=document.createElement("ul");
+		//2、将ul追加到body
+		document.body.appendChild(_ul);
+		//3、动态追加10个li
+		for (var i = 0; i <10; i++) {
+			//创建li节点
+			var _li=document.createElement("li");
+			//给li添加内容
+			_li.innerText="奇酷教育";
+			//将li追加到ul中
+			_ul.appendChild(_li);
+		}
+		
+		//4、加一条评论
+		var _li2=document.createElement("li");
+		_li2.innerText="奇酷教育就是好";
+		//5、将_li2插入到第一个li之前
+		_ul.insertBefore(_li2,_ul.firstElementChild)
+		
+	</script>
+</html>

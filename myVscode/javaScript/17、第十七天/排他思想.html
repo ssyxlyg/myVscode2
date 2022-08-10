@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contents>div{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="btns">
+            <button>热销</button>
+            <button>推荐</button>
+            <button>经典</button>
+        </div>
+        <div class="contents">
+            <div>热销第一名
+                <div><img src="./img/pic1.png" alt=""></div>
+                <div><img src="./img/pic2.png" alt=""></div>
+                <div><img src="./img/pic3.png" alt=""></div>
+            </div>
+            <div>推荐五颗星
+
+                <div><img src="./img/pic3.png" alt=""></div>
+                <div><img src="./img/pic1.png" alt=""></div>y
+                <div><img src="./img/pic2.png" alt=""></div>
+            </div>
+            <div>经典永流传
+                <div><img src="./img/pic1.png" alt=""></div>
+                <div><img src="./img/pic3.png" alt=""></div>
+                <div><img src="./img/pic2.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var _btns=document.querySelectorAll("button");
+        var _contents=document.querySelectorAll(".contents>div");
+        _btns.forEach(function(tag,index){
+            tag.onclick=function(){
+                _contents.forEach(function(item,i){
+                    // _contents[i].style.display="none";
+                    item.style.display="none"
+                })
+                _contents[index].style.display="block";
+               
+
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

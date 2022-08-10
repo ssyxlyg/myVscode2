@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建一个ul
+        var _ul=document.createElement("ul");
+        //将ul追加到body
+        document.body.appendChild(_ul)
+        //创建10个li
+        for(var i=0;i<10;i++){
+            var _li=document.createElement("li");
+            _li.innerText="hello world!";
+            _ul.appendChild(_li)
+        }
+
+        //追加品论
+        var _li2=document.createElement("li");
+        _li2.innerText="再见";
+        _ul.insertBefore(_li2,_ul.firstElementChild);
+
+
+    </script>
+</body>
+</html>
