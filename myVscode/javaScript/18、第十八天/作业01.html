@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 500px;
+            border: 1px solid gray;
+            margin: 0 auto;
+            overflow: auto;
+            position: relative;
+
+        }
+        .content{
+            width: 100%;
+            height: 1600px;
+        }
+        .logo{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: deepskyblue;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            display: none;
+            font-size: 12px;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="logo">
+                <a href="javascript:void(0)" onclick="toTop()">返回顶部</a>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var _logo=document.querySelector(".logo");//获取按钮节点
+        var _content=document.querySelector(".content");
+        var _container=document.querySelector(".container");//获取容易节点
+
+        //滚动执行
+        _container.onscroll=function(){
+            var _height=_container.scrollTop;//获取容器垂直滚动距离
+            console.log(_height);
+            _logo.style.top=_height+_container.clientHeight-_logo.clientHeight-10+"px"//按钮框位置保持不变
+            // 滚动大于400出现，否则消失
+            if(_height>400){
+                _logo.style.display="block"
+            }else{
+                _logo.style.display="none"
+            }
+        }
+        //点击a标签执行
+        function toTop(){
+            // 设置定时器
+            var id = setInterval(function(){
+               var _top=_logo.offsetTop;//获取a标签的位置
+               var speed=10;//移动速度
+               console.log("位置"+_top);
+               _logo.style.top=_top-speed+"px";//a标签向上移动
+               var _scroll=_container.scrollTop;//获取滚动距离
+               _container.scrollTop=_scroll-speed;//向上滚动
+               
+               //回到顶部停止
+               if(_scroll==0){
+                clearInterval(id);
+               }
+            },10)
+        }
+    </script>
+</body>
+</html>

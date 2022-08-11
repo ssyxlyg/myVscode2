@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper{
+				width: 600px;
+				height: 600px;
+				border: 5px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			.wrapper .boll{
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background-color: red;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			.box{
+				text-align: center;
+			}
+			.box button{
+				width: 200px;
+				height: 50px;
+				color:white;
+				font-size: 30px;
+				border: none;
+				background-color: green;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="wrapper">
+				<div class="boll"></div>
+			</div>
+			<button>开始</button>
+		</div>
+		<script>
+			//获取容器
+			var _wrapper=document.querySelector(".wrapper");
+			//开始按钮
+			var _button=document.querySelector("button");
+			//小球
+			var _boll=document.querySelector(".boll");
+			_button.onclick=function(){
+				var speedX=6;  //x速度
+				var speedY=10;  //y速度
+				 var id=setInterval(function(){
+					 //获取现有的left和top值
+					 //如果到最右边，需要反方向
+					 if(_wrapper.clientWidth-_boll.offsetLeft<=_boll.offsetWidth){
+						 speedX*=-1;
+					 }
+					_boll.style.left=(_boll.offsetLeft+speedX)+"px"
+					
+					 //如果到最上边，需要反方向
+					if(_boll.offsetTop<=0){
+						speedY*=-1;
+					}
+					
+					_boll.style.top=(_boll.offsetTop-speedY)+"px"
+					
+					//到最下边，需要反向
+					if(_wrapper.clientHeight-_boll.offsetTop<=_boll.offsetHeight){
+						speedY*=-1;
+					}
+					
+					//到最左边，需要反向
+					if(_boll.offsetLeft<=0){
+						speedX*=-1;
+					}
+				 },100)
+			}
+		</script>
+	</body>
+</html>

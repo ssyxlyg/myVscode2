@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 1600px;
+        }
+        .first{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+        .second{
+            width: 100px;
+            height: 200px;
+            background-color: skyblue;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="first"></div>
+    <div class="second"></div>
+
+    <script>
+        var _first=document.querySelector(".first");
+        var _second=document.querySelector(".second");
+
+        window.onscroll=function(){
+            var windowY=window.pageYOffset;
+            console.log(windowY);
+            _first.style.top=windowY+"px"
+
+            if(windowY>=500){
+                _second.style.display="block"
+            }else{
+                _second.style.display="none"
+
+            }
+
+
+        }
+
+        console.log(window.screen.availHeight);
+    </script>
+</body>
+</html>

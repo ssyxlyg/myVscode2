@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid black;
+            overflow:auto;
+
+        }
+        .inner{
+            width: 150px;
+            height: 600px;
+            background-color: deepskyblue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner"></div>
+    </div>
+    <script>
+        console.log(window.innerWidth, window.innerHeight);
+
+        var  _wrapper=document.querySelector(".wrapper");
+        console.log(_wrapper.clientWidth,_wrapper.clientHeight)
+        console.log(_wrapper.offsetWidth,_wrapper.offsetHeight)
+
+
+        var _inner=document.querySelector(".inner");
+        console.log(_wrapper.scrollWidth,_wrapper.scrollHeight)
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title></title>
+		<style>
+			img{
+				width: 500px;
+				height: 350px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 自定义属性 data-属性名
+		     获取: tag.dataset.属性名
+		     src:本地的占位图片
+		     data-src:请求服务器的图片
+		 -->
+		<img src="./imgs/1.png"  data-src="https://img30.360buyimg.com/babel/s1180x940_jfs/t1/197897/36/26700/88269/62f25a93Ef1184840/a85fad7441987960.jpg.webp"  alt="">
+		<script>
+			var _img=document.querySelector("img");
+			setTimeout(function(){
+				// 将占位地址替换为真实地址
+				_img.src=_img.dataset.src;
+				
+			},1000)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 1600px;
+			}
+			
+			.wrapper{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;
+			}
+			.active{
+				width: 50px;
+				height: 200px;
+				background-color: blue;
+				position:fixed;
+				right: 10px;
+				bottom: 10px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper"></div>
+		<div class="active">
+			<a href="javascript:void(0);" onclick="backTop()">回到顶部</a>
+		</div>
+		<script>
+			var _wrapper=document.querySelector(".wrapper")
+			var _active=document.querySelector(".active")
+			window.onscroll=function(){
+				//1、wrapper
+				//window的滚动距离
+				var windowY=window.pageYOffset;
+				_wrapper.style.top=windowY+"px";
+				
+				//2、active
+				if(windowY>=500){
+					_active.style.display="block";
+				}
+			}
+			
+			// function backTop(){
+			// 	//只能获取，不能设置
+			// 	var windowY=window.pageYOffset;
+			// 	var id=setInterval(function(){
+			// 		if(windowY<=0){
+			// 			clearInterval(id);
+			// 		}
+			// 		windowY-=10;
+					
+			// 	},100);	
+			// }
+		</script>
+	</body>
+</html>

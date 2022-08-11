@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{
+				list-style: none;
+			}
+			.wrapper{
+				width: 700px;
+				height: 500px;
+				/* border: 1px solid black; */
+				margin: 0 auto;
+				position: relative;
+			}
+			.post,.send{
+				text-align: center;
+				background-color:lightgreen;
+				border-radius: 10px;
+				border: none;
+				color: white;
+				font-weight: 800;
+			}
+			.post{
+				width: 200px;
+				line-height: 50px;
+				font-size: 20px;
+			}
+			.line{
+				width: 100%;
+				height: 0;
+				border-bottom: 1px solid lightgray;
+				margin: 10px 0;
+			}
+			
+			.form{
+				width:560px;
+				padding: 15px;
+				box-sizing: border-box;
+				border: 1px solid lightgray;
+				display: none;
+				position: absolute;
+				left:140px;
+				background-color: #fff;
+			}
+			.form input{
+				width: 85%;
+				height: 30px;
+				font-size: 18px;
+			}
+			
+			.form select{
+				width: 200px;
+				height: 35px;
+				margin: 20px 0;
+			}
+			.form textarea{
+				width: 85%;
+				height: 200px;
+			}
+			.send{
+				width:150px;
+				line-height: 35px;
+				font-size: 18px;
+			}
+			ul li{
+				display: flex;
+			}
+			ul li img{
+				margin-right: 20px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<button class="post">我要发帖</button>
+			<div class="line"></div>
+			<div class="form">
+				<input type="text" placeholder="请输入标题(1-50个字符)"><br>
+				所属板块:
+				<select name="" id="">
+					<option value="">请选择板块</option>
+					<option value="1">电子书籍</option>
+					<option value="2">新客来了</option>
+					<option value="3">新手报到</option>
+					<option value="4">职业规划</option>
+				</select><br>
+				<textarea></textarea>
+				<button class="send">发布按钮</button>
+			</div>
+			<ul>
+				<li>
+					<img src="./images/tou01.jpg" alt="">
+					<div>
+						<h3>发布发不发</h3>
+						<p>板块:新课来了   发表时间:2022-8-11 11:4</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script>
+			//我要发帖
+			var _post=document.querySelector(".post")
+			//发布
+			var _send=document.querySelector(".send")
+			//输入框
+			var _form=document.querySelector(".form")
+			//标题
+			var _input=document.querySelector(".form input")
+			//板块
+			var _select=document.querySelector(".form select")
+			//评论列表
+			var _ul=document.querySelector("ul")
+			
+			_post.onclick=function(){
+				_form.style.display="block";
+			}
+			
+			_send.onclick=function(){
+				//1、获取标题
+				var title=_input.value;  
+				//2、选中的板块
+				var index=_select.selectedIndex;
+				var option=_select.options[index];
+				var category=option.innerText;
+				
+				//图片处理
+				var imgs=["./images/tou01.jpg","./images/tou02.jpg","./images/tou03.jpg","./images/tou04.jpg"]
+				var randomIndex=Math.floor(Math.random()*4);
+				
+				//3、创建li
+				var _li=document.createElement("li");
+				_li.innerHTML=`
+				    <img src="${imgs[randomIndex]}" alt="">
+					<div>
+						<h3>${title}</h3>
+						<p>板块:${category}&emsp;&emsp;发表时间:${getTimes()}</p>
+					</div>`
+					
+				//4、插入li
+				_ul.insertBefore(_li,_ul.firstElementChild);
+				
+				//5、发布之后隐藏form
+				_form.style.display="none";
+				
+			}
+			
+			//时间函数
+			function getTimes(){
+				var date=new Date();
+				var year=date.getFullYear();
+				var month=date.getMonth()+1;
+				var day=date.getDate();
+				var hour=date.getHours();
+				var minute=date.getMinutes();
+				
+				return `${year}-${month}-${day}  ${hour}:${minute}`
+			}
+		</script>
+	</body>
+</html>

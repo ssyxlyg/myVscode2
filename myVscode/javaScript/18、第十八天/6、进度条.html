@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.toobar{
+				width: 300px;
+				height: 30px;
+				border-radius:10px;
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			.active{
+				height: 100%;
+				width:0%;
+				background-color:deepskyblue;
+				text-align: center;
+				line-height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="toobar">
+			<div class="active">0%</div>
+		</div>
+		<script>
+			var _active=document.querySelector(".active");
+			var id=setInterval(function(){
+				//获取的是px
+				var wd=document.defaultView.getComputedStyle(_active,null).width;
+				//每次加1px
+				wd=parseInt(wd)+1;
+				_active.style.width=wd+"px";
+				_active.innerHTML=Math.round(((wd/300)*100))+"%";
+				if(wd==300){
+					clearInterval(id);
+					_active.innerHTML="加载完成";
+				}
+			},50);
+		</script>
+	</body>
+</html>

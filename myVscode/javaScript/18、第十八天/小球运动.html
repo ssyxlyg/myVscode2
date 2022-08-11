@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 500px;
+            height: 300px;
+            border: 5px solid black;
+            position: relative;
+        }
+
+        button {
+            width: 80px;
+            height: 30px;
+            border: none;
+            background-color: green;
+            border-radius: 5px;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="ball"></div>
+        </div>
+        <button>开始</button>
+    </div>
+</body>
+<script>
+    var _container=document.querySelector(".container");
+    var _ball=document.querySelector(".ball");
+    var _btn=document.querySelector("button");
+
+    _btn.onclick=function(){
+
+        var speedX=10;
+        var speedY=10;
+
+        var id=setInterval(function(){
+            _ball.style.left=_ball.offsetLeft+speedX+"px";
+            _ball.style.top=_ball.offsetTop-speedY+"px";
+
+            if(_container.clientWidth-_ball.offsetLeft<=_ball.clientWidth){
+                speedX*=-1;
+            }
+            if(_ball.offsetTop<=0){
+                speedY*=-1;
+            }
+            if(_ball.offsetLeft<=0){
+                speedX*=-1;
+            }
+            if(_container.clientHeight-_ball.offsetTop<=_ball.clientHeight){
+                speedY*=-1;
+            }
+
+        },100)
+
+    }
+</script>
+
+</html>
