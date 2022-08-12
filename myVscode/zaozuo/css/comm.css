@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+img{
+	vertical-align: middle;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.clearfix::after{
+	display: block;
+	content: '';
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
