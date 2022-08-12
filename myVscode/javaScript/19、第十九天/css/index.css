@@ -1,0 +1,10 @@
+.wrapper {
+  width: 200px;
+}
+.wrapper .container {
+  background-color: aqua;
+}
+.wrapper .container .content {
+  font-size: 20px;
+  font-weight: bold;
+}
