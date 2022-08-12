@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper {
+				width: 300px;
+				height: 500px;
+				border: 1px solid black;
+				margin: 0 auto;
+				overflow: auto;
+				position: relative;
+				
+			}
+
+			.active {
+				height: 1800px;
+			}
+
+			.backTop {
+				width: 30px;
+				height: 100px;
+				position: absolute;
+				bottom: 0;
+				right: 10px;
+				color: blue;
+				font-weight: 900;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="active"></div>
+			<div class="backTop">回到顶部</div>
+		</div>
+		<script>
+			var _wrapper = document.querySelector(".wrapper");
+			var _backTop = document.querySelector(".backTop");
+			_wrapper.onscroll = function() {
+				//保持回到顶部的位置不变
+				//top=_wrapper.scrollTop+(_wrapper.clientHeight-_backTop.offsetHeight)
+				_backTop.style.top = _wrapper.scrollTop + (_wrapper.clientHeight - _backTop.offsetHeight) + "px";
+				if (_wrapper.scrollTop >= 500) {
+					_backTop.style.display = "block";
+				} else {
+					_backTop.style.display = "none";
+				}
+			}
+
+
+			_backTop.onclick = function() {
+				var id = setInterval(function() {
+					_wrapper.scrollTop -= 10;
+					if (_wrapper.scrollTop <= 0) {
+						clearInterval(id)
+					}
+				}, 20)
+			}
+		</script>
+	</body>
+</html>

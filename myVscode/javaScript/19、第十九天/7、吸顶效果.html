@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				height: 1600px;
+			}
+			.first{
+				width: 100%;
+				height: 300px;
+				background-color: blue;
+			}
+			.second{
+				width: 100%;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first"></div>
+		<div class="second"></div>
+		<script>
+			var _second = document.querySelector(".second");
+			window.onscroll=function(){
+				var windowY=window.pageYOffset;
+				if(_second.offsetTop<=windowY){
+					//当滚动到最上方时改为固定定位
+					_second.style.position="fixed";
+					_second.style.top=0;
+					
+				}
+			}
+		</script>
+	</body>
+</html>

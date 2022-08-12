@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./wow/css/animate.css">
+		<style>
+			/* 
+			   1、下载wow
+			   2、引用animate.css和wow.js
+			   3、初始化
+			   4、copy类名
+			 */
+			.wrapper{
+				width:1000px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+			div{
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+			}
+			.wrapper div{
+				background-color:red;
+			}
+			/* .wrapper div:nth-of-type(1){
+				background-color:red;
+			}
+			.wrapper div:nth-of-type(2){
+				background-color:green;
+			}
+			.wrapper div:nth-of-type(3){
+				background-color:blue;
+			} */
+		</style>
+	</head>
+	<body>
+		<!-- 
+		data-wow-duration   动画持续时间 
+		data-wow-delay      动画延迟时间 
+		data-wow-offset	 元素的位置（左上角的位置）露出后距离底部多少像素时执行
+		data-wow-iteration  动画执行次数 
+		-->
+		<div class="wrapper">
+			<div class="wow bounceInLeft" data-wow-delay="2s"></div>
+			<div class="wow bounceInUp" data-wow-iteration="3"></div>
+			<div class="wow bounceInRight"></div>
+			<div class="wow bounceInLeft" data-wow-duration="2s"></div>
+			<div class="wow bounceInUp"></div>
+			<div class="wow bounceInRight"></div>
+			<div class="wow bounceInLeft"></div>
+			<div class="wow bounceInUp"></div>
+			<div class="wow bounceInRight"></div>
+			<div class="wow bounceInLeft" data-wow-offset="200"></div>
+			<div class="wow bounceInUp"></div>
+			<div class="wow bounceInRight"></div>
+		</div>
+		<script src="./wow/js/wow.js"></script>
+		<script>
+		if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+			new WOW().init();
+		};
+		</script>
+	</body>
+</html>
