@@ -96,7 +96,7 @@
         <script src="./swiper/swiper-bundle.min.js"></script>
 
         <!-- Initialize Swiper -->
-        <script>
+        <!-- <script>
             var swiper = new Swiper(".mySwiper", {
                 // slidesPerView : 2 ,//显示多个
                 autoplay: true,//自动播放
@@ -117,7 +117,32 @@
                 direction: 'vertical',//轮播方向
 
             });
-        </script>
+        </script> -->
+
+<script language="javascript"> 
+    var mySwiper = new Swiper('.swiper',{
+      pagination :{
+        el: '.swiper-pagination',
+        clickable :true,
+      },
+      autoplay: true,//自动播放
+      loop: true,//循环播放
+    })
+    //鼠标滑过pagination控制swiper切换
+    for(i=0;i<mySwiper.pagination.bullets.length;i++){
+      mySwiper.pagination.bullets[i].onmouseover=function(){
+        this.click();
+      };
+    } 
+    
+    
+    //如果你在swiper初始化后才决定使用clickable，可以这样设置
+    mySwiper.params.pagination.clickable = true ;
+    //此外还需要重新初始化pagination
+    mySwiper.pagination.destroy()
+    mySwiper.pagination.init()
+    mySwiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');
+    </script>
     </body>
 
     </html>
