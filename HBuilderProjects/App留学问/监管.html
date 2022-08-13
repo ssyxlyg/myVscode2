@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="./css/base.css">
+		<title></title>
+		<style type="text/css">
+			
+			header {
+				background-color: #f6cb5d;
+				color: #333333;
+			}
+
+			.mysupervise {
+				display: flex;
+				width: 3.75rem;
+				height: 0.45rem;
+				line-height: 0.45rem;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 11px;
+			}
+
+			.mysupervise .front {
+				width: 0.12rem;
+				height: 0.21rem;
+			}
+
+			.mysupervise .content {
+				font-size: 0.15rem;
+			}
+
+			.mysupervise .back {
+				width: 0.24rem;
+				height: 0.21rem;
+			}
+
+			.summary {
+				/* width: 3.75rem; */
+				height: 0.92rem;
+			}
+
+			.summary h4 {
+				font-size: 0.15rem;
+				/* height: 0.15rem; */
+				padding: 0.02rem 0.34rem;
+			}
+
+			.summary p {
+				font-size: 0.12rem;
+				/* height: 0.12rem; */
+				padding: 0.02rem 0.34rem;
+			}
+
+			.summary span {
+				display: block;
+				padding: 0.08rem 0.34rem;
+
+
+			}
+
+			.summary span a {
+				width: 0.63rem;
+				height: 0.23rem;
+				line-height: 0.23rem;
+				border: 0.01rem solid #fff;
+				border-radius: 0.1rem;
+				font-size: 0.12rem;
+				text-align: center;
+				display: block;
+				color: #FFF;
+			}
+
+			main {
+				/* width: 3.75rem; */
+				height: 6.31rem;
+				background-color: #f2f3f3;
+
+			}
+
+			.introduce {}
+
+			.introduce h3 {
+				font-size: 0.18rem;
+				padding-top: 16px;
+				padding-left: 0.1rem;
+			}
+
+			.introduce i {
+				display: block;
+				width: 0.32rem;
+				height: 0.32rem;
+				/* border: 1px solid red; */
+				vertical-align: middle;
+				/* float: left; */
+			}
+
+			.fund,.service,.protect {
+				display: flex;
+				justify-content: left;
+				background-color: #fff;
+				/* width: 3.75rem; */
+				height: 0.54rem;
+				/* margin-top: 0.16rem; */
+				margin: 0.16rem 0.1rem;
+				/* line-height: 0.54rem; */
+			}
+
+			.fund i {
+				background: url("./img/zjbz .png") no-repeat center center;
+				background-size: 0.32rem 0.32rem;
+				margin-top: 0.11rem;
+				margin-left: 0.07rem;
+				margin-right: 0.03rem;
+			}
+
+			.service i {
+				background: url("./img/zfjg .png") no-repeat center center;
+				background-size: 0.32rem 0.32rem;
+				margin-top: 0.11rem;
+				margin-left: 0.07rem;
+				margin-right: 0.03rem;
+			}
+
+			.protect i {
+				background: url("./img/fl.png") no-repeat center center;
+				background-size: 0.32rem 0.32rem;
+				margin-top: 0.11rem;
+				margin-left: 0.07rem;
+				margin-right: 0.03rem;
+			}
+			.insure{
+			}
+			.insure h3{
+				font-size: 0.18rem;
+				/* padding-left: 0.1rem; */
+				margin: 0.36rem 0.1rem;
+			}
+			.bao{
+				/* width: 3.75rem; */
+				height: 1.84rem;
+				/* border:0.01rem solid red; */
+				background-color: #FFF;
+				display: flex;
+				justify-content: left;
+				color: #f6cb5d;
+			}
+			.bao i{
+				display: block;
+				width: 0.7rem;
+				height: 0.78rem;
+				/* border: 1px solid black; */
+				background: url(./img/bxfw.png) no-repeat center center;
+				background-size: 0.7rem 0.78rem;
+				margin-top: 0.27rem;
+				margin-left: 0.39rem;
+			}
+			.bao .bao_content{
+				margin-top: 0.32rem;
+				margin-left: 0.24rem;
+			}
+			.bao .bao_content h2{
+				font-size: 0.24rem;
+				margin-bottom: 0.05rem;
+			}
+			.bao .bao_content p{
+				font-size: 0.12rem;
+				width: 1.78rem;
+				/* height: 0.13rem; */
+			}
+			.bao_content span{
+				display: block;
+				width: 1.12rem;
+				height: 0.37rem;
+				line-height: 0.37rem;
+				text-align: center;
+				border:0.01rem solid #f6cb5d;
+				margin-top: 0.26rem;
+				border-radius: 0.20rem;
+			}
+			.bao_content span a{
+				display: block;
+				color: #f6cb5d;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="mysupervise">
+				<div class="front"><img src="./img/zuo.png" alt=""></div>
+				<div class="content">我的监管</div>
+				<div class="back"> <img src="./img/fenxiang.png" alt=""></div>
+			</div>
+			<div class="summary">
+				<h4>当前暂未录得你在平台的签约问题</h4>
+				<p>我已签约，未开启保障？</p>
+				<span><a href="">点击反馈</a></span>
+			</div>
+		</header>
+		<!-- ************** -->
+		<main>
+			<div class="introduce">
+				<h3>监管模块介绍</h3>
+				<div class="fund">
+					<i></i>
+					<div>
+						<h4>资金保障</h4>
+						<p>保障签约资金安全</p>
+					</div>
+				</div>
+				<div class="service"><i></i>
+					<div>
+						<h4>服务进度监管</h4>
+						<p>监测老师服务进度</p>
+					</div>
+				</div>
+				<div class="protect"><i></i>
+					<div>
+						<h4>服务维权</h4>
+						<p>投诉及法律维权，客户实时跟进协助</p>
+					</div>
+				</div>
+			</div>
+			<div class="insure">
+				<h3>买一赔十保险</h3>
+			</div>
+			<div class="bao">
+				<i></i>
+				<div class="bao_content">
+					<h2>买一赔十保险</h2>
+					<p>签约时额外支付合同:金额1%，服务出现问题领取10倍赔偿</p>
+					<span><a href="">查看详情页</a></span>
+				</div>
+			</div>
+		</main>
+
+	</body>
+</html>

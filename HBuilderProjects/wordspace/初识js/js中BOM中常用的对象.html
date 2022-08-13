@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/********Location*********/
+			function demo1() {
+
+				// 返回主机名和当前url的端口号
+				// 127.0.0.1 8848
+				console.log(window.location.host);
+				// 127.0.0.1
+				console.log(window.location.hostname);
+				// 8848
+				console.log(window.location.port);
+				// http
+				console.log(window.location.protocol);
+				// 当前地址栏信息
+				console.log(window.location.href);
+
+				// 重点
+				// 替换当前url地址-->当前的页面
+				//window.location.href="http://www.baidu.com";
+
+				// 重新加载
+				// window.location.reload();
+			}
+
+
+			/**********Histroy*************/
+			function demo2() {
+				console.log(window.history.length);
+
+				// url地址中历史记录前一个
+				window.history.back();
+
+				// url地址中历史记录后一个
+				// window.history.forward();
+
+				// 正数 负数  0
+				// window.history.go();
+
+			}
+
+			/*******************screen************/
+			
+			function demo3(){
+				var w = window.screen.width; 
+				var h= window.screen.height;
+				
+				console.log("宽度："+w+"高度："+h);
+			}
+			
+			/**************Navigator*************/
+			function demo4(){
+				
+				console.log(window.navigator.userAgent);
+				
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+
+		<input type="button" onclick="demo1()" name="" id="" value="点击">
+		<input type="button" onclick="demo2()" name="" id="" value="Histroy">
+		<input type="button" onclick="demo3()" name="" id="" value="Screen">
+		<input type="button" onclick="demo4()" name="" id="" value="Navigator">
+	</body>
+</html>

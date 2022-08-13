@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			input{
+				/* 改变光标背景颜色 */
+				caret-color: red;
+				
+			}
+			.first{
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				/* 内阴影 */
+				box-shadow: 0 0 1px red inset;
+				transition:all 0.5s linear;
+			}
+			.first:hover{
+				box-shadow: 0 0 100px red inset;
+			}
+			.second{
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				/* border: 1px solid gray; */
+				box-shadow: 0 0 1px red inset;
+				position: relative;
+			}
+			.second img:nth-of-type(1){
+				opacity: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -105px;
+				margin-left: -105px;
+				transform: all 0.5s;
+			}
+			.second img:nth-of-type(2){
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -91px;
+				margin-top: -34px;
+				transition: all 0.5s ;
+			}
+			.second:hover  img:nth-of-type(1){
+				opacity: 1;
+				transform: scale(0.8);
+			}
+			.second:hover  img:nth-of-type(2){
+				opacity: 0;
+				transform: scale(0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="">
+		<div class="first">
+			
+		</div>
+		<div class="second">
+			<img src="./img/th3.png" alt="">
+			<img src="./img/cp3.jpg" alt="">
+		</div>
+	</body>
+</html>

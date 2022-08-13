@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function demo1(){
+				
+				console.log("demo1")
+			}
+			function demo2(){
+				
+				console.log("demo2")
+			}
+			function demo3(){
+				
+				console.log("demo3")
+			}
+			function demo4(){
+				
+				console.log("demo4")
+			}
+		</script>
+	</head>
+	<!-- 页面加载完成 -->
+	<body onload="demo4()">
+		<!-- 单击事件 -->
+		<button onclick="demo1()">单击</button>
+		<!-- 双击事件 -->
+		<button ondblclick="demo1()">双击</button>
+		<!-- 键盘按下事件 -->
+		<input type="text" name="" id="" onkeydown="demo1()">
+		<!-- 键盘弹起事件 -->
+		<input type="text" name="" id="" onkeyup="demo2()">
+		<!-- 鼠标事件  onmouseover:鼠标移上 onmousout:鼠标移开-->
+		<div onmouseover="demo2()" onmouseout="demo1()" onmousemove="demo3()" style="width: 200px;height: 200px;background-color: greenyellow;"></div>
+		<!-- 失去焦点 onblur  获得焦点 onfocus-->
+		<input type="text" onblur="demo1()" onfocus="demo3()">
+		<!--  -->
+		<select name="" id="" onchange="demo1()">
+			<option value="">请选择</option>
+			<option value="">河南</option>
+			<option value="">河北</option>
+			
+		</select>
+	</body>
+	<!-- 
+		事件结合对象的使用
+			onclick,ondblclick-一般结合按钮使用
+			onkeydown，onkeyup，onblur,onfocus-一般结合文本框使用
+			但是 onblur onfocus 绝对不会结合按钮使用
+			onmouseover，onmouseout-一般结合div等块使用
+			onchange-结合下拉框，和文本框使用
+	 
+	 -->
+</html>

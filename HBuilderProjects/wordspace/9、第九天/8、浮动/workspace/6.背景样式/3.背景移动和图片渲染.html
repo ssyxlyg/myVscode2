@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.active{
+				/* 引用背景图片，父元素必须设置宽高中的一个 */
+				height: 915px;
+				background:pink url(img/bg.jpg) no-repeat;
+				/* 背景图片是否固定
+				   local:默认，会随浏览器滚动条滚动
+				   fixed:背景固定不动
+				*/
+				background-attachment: fixed;
+				border: 10px solid red;
+				color: white;
+				font-size: 30px;
+			}
+			.wrapper{
+				width: 200px;
+				height: 200px;
+				padding: 100px;
+				border: 50px solid rgba(255,0,0,0.5);
+				background: lightblue url(img/chui.png) no-repeat center;
+				/* 背景渲染位置
+				padding-box:默认坐标点在padding的左上角
+				border-box:border的左上角
+				content-box:内容区的左上角 */
+				background-origin: content-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="active">新时代的中国青年生逢其时、重任在肩，施展才干的舞台无比广阔，实现梦想的前景无比光明。青春有为、时代有我，
+		当代青年要在实现民族复兴的赛道上奋勇争先。</div>
+		<div class="wrapper"></div>
+	</body>
+</html>

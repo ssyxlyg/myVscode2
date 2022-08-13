@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			function demo1(){
+				// 获得元素的css样式
+				var d = $("#div1");
+				
+				console.log(d.css("width")+"----"+d.css("height")+"---"+d.css("background-color"));
+				
+				// 操作css样式
+				// d.css("width","300px");
+				// d.css("height","300px");
+				// d.css("background-color","red");
+				// d.css("border-radius","50%");
+				d.css({"width":"300px","height":"300px","background-color":"red","border-radius":"50%"});
+				// 增加css内容方式二 --增加类名
+				d.attr("class","d");
+				// d.addClass("d");
+			
+			}
+		</script>
+		<style type="text/css">
+			/* #div1{
+				width: 200px;
+				height: 200px;
+				background-color: limegreen;
+			} */
+			.d{
+				width: 300px;
+				height: 300px;
+				background-color: antiquewhite;
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="操作CSS样式" onclick="demo1()">
+		<br>
+		<div id="div1"></div>
+	</body>
+</html>

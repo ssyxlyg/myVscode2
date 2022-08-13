@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img{
+				width: 757px;
+				height: 500px;
+			}
+			.box{
+				width: 757px;
+				height: 500px;
+				border: 1px solid red;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			.box .imgs{
+			   width: 2271px;	
+			   height: 500px;
+			   /* 图片不换行 */
+			   /* float: left; */
+			   white-space: nowrap;
+			   /* =================== */
+			   animation: mybox 6s steps(3) infinite;
+			}
+			
+			@keyframes mybox{
+				/* ================== */
+				0%{
+					transform: translateX(0);
+				}
+				
+				100%{
+					transform: translateX(-2277px);
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+	   <div class="wrapper">
+		   <!-- 显示一张图片宽高 -->
+		   <div class="box">
+			   <!-- 显示3张图片的宽高 -->
+			   <div class="imgs">
+				   <img src="./img/10001.jpg" alt="">
+				   <img src="./img/10003.jpg" alt="">
+				   <img src="./img/10005.jpg" alt="">
+			   </div>
+		   </div>
+	   </div>
+	</body>
+</html>

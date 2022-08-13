@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{
+				position: relative;
+			}
+			.first,.second,.third,.fourth{
+				width: 200px;
+				height: 200px;
+			}
+			.first{
+				background-color: rgba(255, 0, 0, 0.5);
+				position: absolute;
+				left: 50px;
+				top: 50px;
+				z-index: -1;
+			}
+			.second{
+				background-color: aqua;
+				opacity: 0.5;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				
+				/* 
+					z-index,只针对定位元素有效 
+					值越大，层级越高，默认是1
+					可以设置负数
+				*/
+				z-index: 2;
+			}
+			.third{
+				background-color: yellow;
+				/* 针对背景颜色设置透明度 */
+				/* opacity: 0.5; */
+				position: absolute;
+				left: 150px;
+				top: 150px;
+				
+			}
+			.fourth{
+				background-color: green;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="first"></div>
+			<div class="second"></div>
+			<div class="third"></div>
+			<div class="fourth"></div>
+		</div>
+	</body>
+</html>

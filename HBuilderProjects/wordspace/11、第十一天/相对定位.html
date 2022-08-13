@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper .first,.wrapper .second{
+				width: 500px;
+				height: 100px;
+			}
+			.first{
+				background-color:  red;
+				/* 
+				 相对自己位置移动
+					left距离左边距离
+					right距离右边位置
+					top距离上边距离
+					bottom距离下边距离
+				 没有脱离标准文档流
+				 层级会自动提高会覆盖浮动元素
+				 
+				 
+				 */
+				position: relative;
+				top: 20px;
+				left: 30px;
+			}
+			.second{
+				background-color:  green;
+			}
+			.third{
+				float: left;
+				width: 500px;
+				height: 100px;
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="third">
+				
+			</div>
+			<div class="first">
+
+			</div>
+			<div class="second">
+			
+			</div>
+		</div>
+	</body>
+</html>

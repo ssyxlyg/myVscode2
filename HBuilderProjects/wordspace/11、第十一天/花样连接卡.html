@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{
+				border: 1px solid pink;
+				width: 300px;
+				height: 300px;
+				margin: 0 auto;
+				padding: 10px;
+			}
+			.wrapper div{
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				background-color: pink;
+			}
+			.wrapper div:hover{
+				background-color: aqua;
+			}
+			.wrapper div:nth-of-type(2){
+				position: relative;
+				left: 200px;
+				bottom: 100px;
+			}
+			.wrapper div:nth-of-type(4){
+				position: relative;
+				left: 100px;
+				bottom: 200px;
+			}
+			.wrapper div:nth-of-type(5){
+				position: relative;
+				left: 200px;
+				bottom: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div>花样链接1</div>
+			<div>花样链接2</div>
+			<div>花样链接3</div>
+			<div>花样链接4</div>
+			<div>花样链接5</div>
+		</div>
+	</body>
+</html>

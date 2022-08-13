@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 字体样式 */
+			.nav{
+				font-style: italic;
+				/* normal italic oblique */
+				
+				font-weight: bold;
+				font-size: 20px;
+				font-family: arial;
+				/* 'Times New Roman' , 宋体' */
+			}
+			.nav2{
+				font:italic bold 20px 'Times New Roman' ;
+				/* 风格 粗细 大小 类型 */
+			}
+			/* 文本样式 */
+			.nav3{
+				border: 1px solid green;
+				/* 宽度 */
+				width: 60%;
+				/* 字体颜色 */
+				color: blueviolet;
+				/* 文本缩进 */
+				text-indent: 10px;
+				/* 文本水平对齐 */
+				text-align: right;
+				/* 文本装饰 */
+				text-decoration: underline;
+				/* underline 下划线 
+					overline 上划线
+					line-throngh删除线
+					none 去除线
+				*/
+			   text-transform: uppercase;
+			   /* 	uppercase 装换为大写
+					lowercase 装换为小写
+				*/
+			   
+				/* 行高 */
+				line-height: 50px;
+				height: 80px;
+				/* 文本垂直居中 
+					 1.只设置行高
+					 2.高度与行高保持一致
+				 */
+			}
+			
+			img{
+				vertical-align: text-bottom;
+				/* 只在行内块使用
+					baseline 基线对齐
+					middle 中线对齐
+					text-top 顶线对齐
+				 
+				 */
+			}
+			input{
+				height: 100px;
+				vertical-align: text-bottom;
+			}
+			div{
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav2">
+			hello world!
+		</div>
+		<div class="nav2 nav3">
+			hello world!
+		</div>
+		<div class="">
+			<img src="./img/核桃.png" alt="">核桃
+		</div>
+		<div><span>姓名</span><input type="text" name="" id=""></div>
+	</body>
+</html>

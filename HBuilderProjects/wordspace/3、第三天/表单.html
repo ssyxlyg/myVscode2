@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#a{
+				width: 60%;
+				margin: auto;
+				align-content: center;
+				
+			}
+			
+			#overFlowText{
+				width: 300px;
+				height: 100px;
+				overflow: scroll;
+				background-color: aqua;
+			}
+			table tr th {
+				font-size: 30px;
+				color: red;
+				line-height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			action 网后端提交的地址 #表示提交到本页面
+			method 提交方式
+			type 表单呈现类型
+			name 表单的名字
+			value 用来接收用户输入的数据
+		 
+		 -->
+		<!-- <form action="" method="GET">
+			用户名：<input type="text"  name="username" value=""> <br>
+			密&emsp;码：<input type="password" name="password" value=""> <br>
+			<input type="submit" name="" value="提交">
+			<button name="" value="">重置</button>
+		</form> -->
+		<div id="a">
+			<form action="" method="GET">
+				<table>
+					<tr>
+						<th colspan="2">登录</th>
+					</tr>
+					<tr>
+						<td>用户名：</td>
+						<td><input type="text" name="username" value=""></td>
+					</tr>
+					<tr>
+						<td>密&emsp;码：</td>
+						<td><input type="password" name="password" value=""></td>
+					</tr>
+					<tr>
+						<td>性&emsp;别：</td>
+						<td><input type="radio" name="sex" id="male" value="男" checked><label for="male">男</label><input type="radio" name="sex" id="female" value="女"><label for="female">女</label></td>
+					</tr>
+						<tr>
+							<td>爱&emsp;好：</td>
+							<td><input type="checkbox" name="like" value="唱歌" checked>唱歌<input type="checkbox" name="like"  value="打球">打球</td>
+						</tr>
+						<tr>
+							<td>城&emsp;市：</td>
+							<td>
+								<select name="city" id="">
+									<option value="郑州" selected>郑州</option>
+									<option value="新乡">新乡</option>
+									<option value="开封">开封</option>
+									<option value="周口">周口</option>
+									
+									
+								</select>
+								
+								
+							</td>
+						</tr>
+					<tr>
+						
+						<td><input type="submit" name="" value="提交"></td>
+						<td><button name="reset" value="">重置</button></td>
+					</tr>
+				</table>
+				
+			</form>
+		</div>
+		<div id="overFlowText">
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+			
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+			
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+			
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+			
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+			
+			这里的文本内容是可以滚动的，滚动条方向是垂直方向。
+		</div>
+	</body>
+</html>

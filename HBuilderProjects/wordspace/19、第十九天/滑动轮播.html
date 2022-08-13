@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.slides {
+				overflow: hidden;
+				position: relative;
+			}
+
+			.box {
+				white-space: nowrap;
+				animation: mybox 10s infinite;
+			}
+
+			.box img {
+				width: 100%;
+			}
+
+
+			@keyframes mybox {
+
+				0%,
+				15% {
+					transform: translate(0px);
+				}
+
+				33%,
+				50% {
+					transform: translate(-100%);
+				}
+
+				66%,
+				85% {
+					transform: translate(-201%);
+				}
+
+				
+				100% {
+					transform: translate(-301%);
+				}
+			}
+			.slide{
+				z-index: 100px;
+			}
+			.slide span{
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+				margin-left: -45px;
+				display: inline-block;
+				width:30px ;
+				height: 5px;
+				background-color:#7A7D83 ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slides">
+			<div class="box">
+				<!-- 显示三张图片的宽高 -->
+				<div class="images">
+					<img src="./img/10004.jpg" alt="">
+					<img src="./img/10058.jpg" alt="">
+					<img src="./img/10013.jpg" alt="">
+					<img src="./img/10004.jpg" alt="">
+				</div>
+				<!-- <div class="slide">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div> -->
+			</div>
+		</div>
+	</body>
+</html>

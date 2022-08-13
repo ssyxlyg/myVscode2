@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.active {
+				dorder: 10px solid;
+			}
+
+			.active:hover {
+				background-color: #0000FF;
+			}
+
+			.active:hover>p {
+				color: #87CEFA;
+			}
+
+			.active:hover span {
+				color: red;
+			}
+
+			.active:hover+p {
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="active">555
+			1111
+			<p>
+				333333
+				<span>777777</span></p>
+		</div>
+		<p>2222</p>
+	</body>
+</html>

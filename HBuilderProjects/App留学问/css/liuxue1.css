@@ -1,0 +1,49 @@
+header {
+	margin-top: 1rem;
+	text-align: center;
+}
+
+header img {
+	height: 3.73rem;
+}
+
+.text {
+	height: 0.78rem;
+	margin-top: 0.35rem;
+	text-align: center;
+}
+
+.text h1 {
+	font-family: lianmengqiyilushuaizhengruiheiti-Regular;
+	font-size: 36px;
+	color: #644743;
+}
+
+.text p {
+	font-family: lianmengqiyilushuaizhengruiheiti-Regular;
+	font-size: 15px;
+	color: #644743;
+	margin-top: 0.26rem;
+}
+
+.end {
+	display: flex;
+	justify-content: center;
+	margin-top: 0.64rem;
+	/* margin-bottom: 1.72rem; */
+}
+
+.end p {
+	width: 0.08rem;
+	height: 0.08rem;
+	border-radius: 0.04rem;
+	background-color: #f6cf6b;
+	margin-right: 0.14rem;
+}
+
+.end p:nth-of-type(1) {
+	width: 0.24rem;
+	height: 0.08rem;
+	background-color: #f6cf6b;
+	border-radius: 0.04rem;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function demo1() {
+			
+				//获得元素对象
+				var d = document.getElementById("div1");
+				
+				// 获得元素标签中纯文本内容
+				// console.log(d.innerText);
+				
+				// 获得元素的html标签+文本
+				console.log(d.innerHTML);
+				
+				// 不识别html代码，会当做纯文本输出
+				// d.innerText = "<i>你说得对</i>"
+				
+				// 识别html代码
+				d.innerHTML = "<i>你说得对</i>"
+			}
+		</script>
+	</head>
+	<body>
+
+		<input type="button" onclick="demo1()" name="" id="" value="操作节点的文本值">
+
+		<hr>
+		<div id="div1">
+			<span>哈哈哈哈哈</span>
+			<span>你好</span>
+		</div>
+	</body>
+</html>
+<!-- 
+		文本内容：
+			如果是双标签--获得是文本内容
+				<span>哈哈哈哈哈</span>
+		值：
+			单标签的value
+				<input value=""/>
+				
+		双标签 ----innerHTML/innerText
+			特例：
+				select、textarea 如果获取双标签的值需要使用
+ 
+ 
+ -->

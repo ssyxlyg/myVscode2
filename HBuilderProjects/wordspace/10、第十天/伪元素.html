@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper::before{
+				display: inline-block;
+				background-color: aqua;
+				content: "222";
+			}
+			.wrapper::after{
+				display: block;
+				background-color: bisque;
+				content: '333';
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 每个元素出生之前都有一个伪元素before和after -->
+		<div class="wrapper">
+			111111
+		</div>
+	</body>
+</html>

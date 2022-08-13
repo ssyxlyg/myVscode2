@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{
+				
+			}
+			.wrapper>ul{
+				list-style: none;
+			}
+			.wrapper>ul li{
+				float: left;
+				width: 50px;
+				height: 30px;
+				background-color: aqua;
+				
+			}
+			.wrapper>ul li ul{
+				display: none;
+				/* clear: both; */
+			}
+			.wrapper>ul li:hover ul{
+				display:block
+			}
+			.wrapper>ul li ul li{
+				/* float: left; */
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul>
+				<li>
+					1
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</li>
+				<li>
+					2
+						<ul>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+						</ul>
+				</li>
+				<li>
+					3
+						<ul>
+							<li>7</li>
+							<li>8</li>
+							<li>9</li>
+						</ul>
+				</li>
+			</ul>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function demo1(){
+				
+				// 创建一个节点对象
+				var p = $("<p>List Item2</p>");
+				//往div1内部中追加p元素 后-----&
+				//$("#div1").append(p);
+				// 把p追加到div元素内部中
+				// p.appendTo($("#div1"));
+				
+				// 往div1内部中追加p标签 前------&
+				// $("#div1").prepend(p);
+				// p.prependTo($("#div1"));
+				
+				// 往div外部追加元素 后-------&
+				// $("#div1").after(p);
+				// 往div外部追加元素 前-------&
+				// $("#div1").before(p);
+				
+				// 移除指定的节点对象
+				// $("#div1").remove();
+				// 清空div中元素内容
+				$("#div1").empty();
+			}
+		</script>
+	
+	</head>
+	<body>
+		<input type="button" name="" id="" value="节点的操作" onclick="demo1()"/>
+		<hr>
+		<div id="div1" style="width: 200px;height: 200px;border: 1px solid red;">
+			<p> List Item1</p>
+		</div>
+		
+	</body>
+</html>

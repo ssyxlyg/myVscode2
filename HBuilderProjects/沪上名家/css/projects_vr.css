@@ -1,0 +1,163 @@
+.location {
+	width: 100%;
+}
+
+.location_m {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 20px 0;
+	color: #999;
+	font-size: 14px;
+}
+
+.location_m a {
+	color: #999;
+}
+
+.location_m a:hover {
+	color: #d7bf67;
+	
+}
+
+.location_in {
+	float: left;
+}
+
+/* *************** */
+.vr_anli {
+	width: 100%;
+	/* z-index: -1; */
+}
+
+.vr_anli ul {
+	width: 1200px;
+	/* height: 492px; */
+	margin: 0 auto;
+}
+.vr_anli .dw{
+	position: relative;
+	height: 480px;
+	border:1px solid red;
+}
+
+.vr_anli_container {
+	width: 380px;
+	overflow: hidden;
+	/* position: relative; */
+}
+
+.vr_anli_container img {
+	width: 100%;
+	z-index: -1;
+	transition: all 1s;
+}
+
+.vr_anli_container:hover img{
+	transform: scale(1.1);
+	opacity: 0.8;
+}
+.vr_anli_container:hover .bofang{
+	display: block;
+	/* transform: scale(1); */
+}
+.dw:hover .visit{
+	display: block;
+}
+
+/* .vr_anli_container:hover~.visit {
+	display: block; */
+/* } */
+
+
+/* .vr_anli ul li:hover .visit{
+	display: block; 
+} */
+/* .vr_anli_container:hover~.bofang {
+	display: block; */
+
+
+/* } */
+
+
+.vr_anli li {
+	position: relative;
+	float: left;
+	width: 380px;
+	height: 490px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+/* .vr_anli_container:hover~.dw{
+	display: block;
+} */
+
+.vr_anli_text {
+	box-sizing: border-box;
+	background-color: #F7F7F7;
+	width: 380px;
+	height: 60px;
+	padding-left: 25px;
+	padding-top: 15px;
+	border: 1px solid #EDECEC;
+	margin-top: -60px;
+	/* margin-bottom: 10px; */
+}
+
+.vr_anli_text a {
+	color: #212628;
+}
+
+
+.visit {
+	position: absolute;
+	bottom: 15px;
+	right: 20px;
+	display: none;
+	z-index: 200;
+}
+
+.visit a {
+	display: block;
+	padding: 2px 8px;
+	color: #d3bf53;
+	background: #fff;
+	border: 1px solid #d3bf53;
+	font-size: 14px;
+}
+
+.bofang {
+	display: none;
+	/* z-index: 120; */
+	transform: scale(0);
+	/* translate: all 1s; */
+	
+}
+
+.bofang .cricle {
+	position: absolute;
+	top: 170px;
+	left: 150px;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: #999;
+	opacity: 0.5;
+	z-index: 8px;
+}
+
+.bofang .sj {
+	position: absolute;
+	left: 185px;
+	top: 200px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-left: 15px solid rgb(231, 76, 60);
+	border-right-width: 0;
+	border-radius: 5px;
+	z-index: 10;
+}
+
+footer {
+	margin-top: 140px;
+}

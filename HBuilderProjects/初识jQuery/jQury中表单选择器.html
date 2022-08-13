@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//获得input标签中type=text的对象
+				// $("input[type=text]").css("background-color", "green");
+				// $(":text").css("background-color","orange");
+				// $(":password").css("background-color","skyblue");
+				//获得所有表单项
+				//$(":input").css("background-color","aqua");
+				// 获得所有的input标签
+				// $("input").css("background-color","aqua");
+				//获得被选中的复选框，单选框
+				$("input:checked");
+				//
+				$("input:selected");
+				
+
+			})
+		</script>
+	</head>
+	<body>
+		<h3>注册</h3>
+		<hr>
+		<form action="">
+			<p>
+				用户名：<input type="text" name="z_name" id="">
+			</p>
+			<p>
+				密码：<input type="password" name="z_pwd" id="">
+			</p>
+			<p>
+				出生日期：<input type="date" name="z_bmw" id="">
+			</p>
+			<p>
+				爱好：
+				<input type="checkbox" name="z_bmw" id="">抽烟
+				<input type="checkbox" name="z_bmw" id="" checked>喝酒
+				<input type="checkbox" name="z_bmw" id="">烫头
+			</p>
+			<p>
+				籍贯：
+				<select name="" id="">
+					<option value="">请选择</option>
+					<option value="" selected>河北</option>
+					<option value="">河南</option>
+					<option value="">山东</option>
+				</select>
+			</p>
+			<p>
+				备注：
+				<textarea name="" id="" cols="30" rows="10"></textarea>
+			</p>
+		</form>
+	</body>
+</html>

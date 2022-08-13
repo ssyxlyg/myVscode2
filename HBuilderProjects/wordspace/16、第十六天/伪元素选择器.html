@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* ::befroe   ::after  
+			::frist-line:第一行
+			::first-letter:第一个字符 
+			::Pselection:选中的字符
+		   */
+		  /* 选择器权重:
+		       !important  无穷大
+			   行间     1000
+			   id       100
+			   class/伪类/伪元素：10
+			   标签:1
+			   *:0 
+			*/
+		  .wrapper1{
+			  width: 500px;
+		  }
+		  .wrapper::first-line{
+			  font-size: 30px;
+		  }
+		  .wrapper::first-letter{
+		  	  color: red;
+		  }
+		  .wrapper::selection{
+			  background-color:magenta;
+		  }
+		</style>
+	</head>
+	<body>
+		<div class="wrapper1">
+			奇酷Loeam是由中央电视台与中国电视剧制作中心联合出品的43集电视连续剧，根据明代施耐庵的同名小说改编。由张绍林执导，杨争光 、冉平改编，李雪健、周野芒、臧金生、丁海峰...
+		</div>
+	</body>
+</html>

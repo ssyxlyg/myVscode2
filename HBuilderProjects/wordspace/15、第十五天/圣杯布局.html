@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 圣杯布局和双飞翼的特点
+					1、两边定宽，中间100%
+					2、中间先渲染，提升用户体验
+					3、双飞翼布局不会破碎
+			 圣杯布局缺点
+					当中间区域的宽度小与两边区域的时候回破碎
+					
+					圣杯布局：
+						wrapper（div中 div上 div下）
+						1、wrapper>div,float:left;
+						2、wrapper设置左右padding
+						3、div左,margin-left:-100%;relative
+						4、div右,margin-left:-200px;relative
+					双飞翼布局
+						wrapper（div中（div.contain） div上 div下）
+						1、wrapper>div,float:left;
+						2、contain设置左右margin
+						3、div左,margin-left:-100%;
+						4、div右,margin-left:-200px;
+			 */
+			body{
+				/* 防止布局破碎 */
+				min-width: 600px;
+				
+			}
+			.fl,.fr{
+				width: 200px;
+				height: 200px;
+			}
+			.fl{
+				background-color: red;
+				margin-left: -100%;
+				position: relative;
+				left: -200px;
+			}
+			.center{
+				width: 100%;
+				height: 200px;
+				background-color: green;
+			}
+			.fr{
+				background-color: blue;
+				margin-left: -200px;
+				position: relative;
+				left: 200px;
+				
+			}
+			.wrapper{
+				padding: 0 200px;
+			}
+			.wrapper div{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="center">中间</div>
+			<div class="fl"></div>
+			<div class="fr"></div>
+		</div>
+	</body>
+</html>

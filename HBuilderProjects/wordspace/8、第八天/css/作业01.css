@@ -1,0 +1,41 @@
+
+.wrapper {
+	width: 450px;
+	margin: 10px auto;
+	box-shadow: 10px 10px 20px gray;
+}
+
+.wrapper>h2 {
+	color: white;
+	text-indent: 30px;
+	line-height: 40px;
+	background: #518700 url(../img/bang.gif) no-repeat 38% center;
+	background-size: 35px;
+}
+
+.wrapper>ul {
+	padding-top: 20px;
+}
+
+.wrapper>ul li {
+
+	list-style: none;
+	line-height: 40px;
+	padding-left: 60px;
+}
+
+.wrapper>ul li>img {
+	width: 30px;
+	vertical-align: middle;
+}
+
+.wrapper>ul>.small>img {
+	width: 20px;
+	padding-left: 5px;
+}
+
+.wrapper>ul li>span {
+	margin-left: 20px;
+	font-size: 18px;
+	color: #1a97c3;
+}

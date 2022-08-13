@@ -1,0 +1,52 @@
+.container {
+	width: 60%;
+	margin: auto;
+}
+
+.title {
+	text-align: center;
+	font-size: 22px;
+	line-height: 50px;
+	text-shadow: 2px 2px 8px #B0B0B0;
+}
+
+.summary {
+	text-align: center;
+	color: #999999;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+.time {
+	text-align: center;
+}
+.time>span{
+	color: red;
+}
+
+.imges {
+	text-align: center;
+}
+
+.ent>div {
+	font-style: italic;
+	line-height: 30px;
+	text-indent: 30px;
+}
+
+.main {
+	text-indent: 30px;
+	line-height: 25px;
+	]
+}
+
+.main>div {
+	margin-top: 20px;
+}
+
+span {
+	text-indent: 100px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 40px;
+}

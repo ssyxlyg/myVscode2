@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background-color: black;
+			}
+			.wrapper{
+				width: 100px;
+				height: 100px;
+				/* 圆角边框 */
+				border-radius: 50%;
+				/* 径向渐变 */
+				background: radial-gradient(circle farthest-side at center,white,grey);
+				/* animation: 名字 时间 匀速  往返  无限循环 */
+				animation: mybox 8s linear alternate infinite;
+			}
+			
+			@keyframes mybox{
+				0%{
+					transform: translate(0,0);
+				}
+				25%{
+					transform: translate(500px,0);
+				}
+				50%{
+					transform: translate(500px,500px);
+				}
+				75%{
+					transform: translate(0,500px);
+				}
+				100%{
+					transform: translate(0,0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper"></div>
+	</body>
+</html>

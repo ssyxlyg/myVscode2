@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="./css/base.css">
+		<title></title>
+		<style type="text/css">
+			header{
+				width: 100%;
+				height: 0.6%;
+				background-color: orangered;
+				color: #fff;
+				text-align: center;
+				line-height: 0.6rem;
+				font-size: 0.16rem;
+			}
+			.hobby{
+				background-color: orange;
+				padding: 0.15rem;
+				font-size: 0.14rem;
+			}
+			.hobby ul{
+				display: flex;
+				border: 0.01rem solid #fff;
+				border-radius: 0.08rem;
+				overflow: hidden;
+			}
+			.hobby ul li{
+				width: 50%;
+				height: 0.3rem;
+				line-height: 0.3rem;
+				text-align: center;
+				color: #fff;
+			}
+			.hobby ul li:nth-of-type(1){
+				background-color: white;
+				color: orange;
+			}
+			.search{
+				background-color: lightgray;
+				padding: 0.15rem;
+				font-size: 0.14rem;
+			}
+			.search input{
+				width: 100%;
+				border-radius: 0.08rem;
+				border: none;
+				outline: none;
+				height: 0.3rem;
+				line-height: 0.3rem;
+				text-align: center;
+				background: #fff url(./img/SUO.PNG) no-repeat 42% center;
+				background-size: 0.20rem 0.20rem;
+			}
+			.search input:focus{
+				text-align: left;
+				text-indent: 0.2rem;
+				background-position: 95% center;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			个性化
+		</header>
+		<div class="hobby">
+			<ul>
+				<li>兴趣</li>
+				<li>建议</li>
+			</ul>
+		</div>
+		<div class="search">
+			<input type="text" placeholder="搜索">
+		</div>
+	</body>
+</html>

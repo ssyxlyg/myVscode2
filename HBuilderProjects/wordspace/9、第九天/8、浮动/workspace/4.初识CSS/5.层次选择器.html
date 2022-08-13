@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 子代选择器:E>f   E的儿子F */
+			.wrapper>ul {
+				background-color: #0000FF;
+			}
+			.wrapper>p {
+				background-color: #E0FFFF;
+			}
+            /* 后代选择器 E F:E的所有后代 */
+			.wrapper p {
+				font-size: 20px;
+			}
+			.wrapper ul{
+				font-size: 50px;
+			}
+			/* 兄弟选择器：E+F,的第一个兄弟 */
+			.wrapper>p+span {
+				background-color: #F08080;
+			}
+			/* 类选择器:选出类名一致的所有标签 .类名*/
+			.active{
+				background-color: #E0FFFF;
+			}
+			.box{
+				background-color: #FFFF00;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="wrapper">
+			<ul>
+				<li>qi</li>
+				<li>2</li>
+				<li>3</li>
+				<p class="active">chencheng</p>
+			</ul>
+			<p>奇酷教育</p>
+			<span>web前端1</span>
+			<span>web前端2</span>
+		</div>
+		<div class="box">
+			<ul>
+				<li>chenheng</li>
+			</ul>
+			<p>奇酷教育</p>
+
+		</div>
+	</body>
+</html>

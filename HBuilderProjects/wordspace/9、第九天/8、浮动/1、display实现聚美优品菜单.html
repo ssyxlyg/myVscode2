@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding:0;
+			}
+			.wrapper{
+				background-color: black;
+				/* padding-left: 100px; */
+				/* 最小宽度防止页面破碎 */
+				min-width:800px;
+			}
+			.wrapper>ul{
+				width: 800px;
+				/* 必须设置宽度，margin：0 auto才有效 */
+				margin: 0 auto;
+			}
+
+		   .wrapper>ul>li{
+			   list-style: none;
+			   display: inline-block;
+			   height: 38px;
+			   /* 垂直居中 */
+			   line-height: 38px;
+			   width: 110px;
+			   /* 水平居中 */
+			   text-align: center;
+		   }
+		   .first{
+			   background-color: #ED145B;
+		   }
+		   .wrapper>ul>li>a{
+			   text-decoration: none;
+			   color: white;
+			   display: inline-block; 
+			   /* 和父元素宽度一致 */
+			   width: 100%;
+		   }
+		   /* 菜单悬浮li时改变背景颜色 */
+		  .wrapper>ul>li:hover{
+			  background-color: #ED145B;
+			  border-bottom: 5px solid yellow;
+		  }
+		  /* 
+		   某个元素悬浮时，可改变它的子元素样式
+		  菜单悬浮li时,改变子元素a的字体颜色和粗细 
+		  */
+		  .wrapper>ul>li:hover a{
+			  color: black;
+			  font-weight: 900px;
+		  }
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul>
+				<li class="first"><a href="#">首页</a></li>
+				<li><a href="#">极速免税店</a></li>
+				<li><a href="#">母婴特卖</a></li>
+				<li><a href="#">美妆商城</a></li>
+				<li><a href="#">国际轻奢</a></li>
+				<li><a href="#">品牌专场</a></li>
+				<li><a href="#">合作招商</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

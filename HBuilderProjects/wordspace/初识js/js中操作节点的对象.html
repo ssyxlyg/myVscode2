@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function add1() {
+
+				// 创建一个p标签
+				var p = document.createElement("p");
+				p.innerText = "照片";
+
+				// 创建一个input标签
+				var inp = document.createElement("input");
+				inp.type = "file";
+
+				// 创建一个button
+				var btn = document.createElement("button");
+				btn.innerText = "删除";
+
+
+				// g给指定的节点绑定事件
+				btn.onclick = function() {
+					var flag = window.confirm("确认删除")
+					// 直接移除p标签
+					if (flag) {
+						p.remove();
+					}
+				}
+
+				// 指定标签间的关系
+				p.appendChild(inp);
+				p.appendChild(btn);
+				//把p标签追加到现有元素之后
+				// document.body.appendChild(p);
+
+				var p1 = document.getElementById("sp1");
+				// 在指定元素之前追加元素
+				document.body.insertBefore(p, p1);
+
+			}
+		</script>
+	</head>
+	<body>
+		姓名：<input type="text" name="" id="">
+		<p>
+			照片：<input type="file" name="" id="">
+			<button onclick="add1()">添加</button>
+		</p>
+		<p id="sp1">
+
+			<button>清空</button>
+			<button>提交</button>
+		</p>
+	</body>
+</html>

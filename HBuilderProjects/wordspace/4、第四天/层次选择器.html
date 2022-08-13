@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			<!-- 子代选择器 a>b -->
+			.wrapper>ul{
+				color: aqua;
+			}
+			.wrapper>p{
+				color: bisque;
+			}
+			/* 后代选择器 a b，a所有后代b */
+			.wrapper p{
+				font-size: 50px;
+			}
+			/* 兄弟选择器 a+b，a的第一个兄弟b */
+			.wrapper>p+span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<p>html</p>
+			</ul>
+			<p>hello world!</p>
+			<span>web大前端1</span>
+			<span>web大前端2</span>
+			<span>web大前端3</span>
+			<span>web大前端4</span>
+		</div>
+		<div class="">
+			<ul>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</body>
+</html>

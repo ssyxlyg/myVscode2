@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper{
+				width: 200px;
+				border: 1px solid red ;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			.wrapper img{
+				animation: mybox 1s steps(10) infinite;
+			}
+			@keyframes mybox{
+				0%{
+					transform: translateX(0);
+				}
+				100%{
+					transform: translateX(-2000px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<img src="./img/walkingdead.png" alt="">
+		</div>
+	</body>
+</html>

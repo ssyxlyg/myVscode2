@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 
+				// $("#div1 span").css("background-color","red");
+				// 获得指定元素下的直系子节点
+				// $("#div1>span").css("background-color","red");
+				// $("#sp+span").css("background-color","green")
+				
+				// 匹配指定元素后面所有的符合条件的元素
+				$("#sp~span").css("background-color","green")
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="height: 300px;border: 3px solid red;">
+			
+				<span>111</span><br>
+				<span id="sp">111</span>
+				<span>111</span><br>
+				<span>111</span><br>
+			<p>
+				<span>222</span><br>
+				<span>222</span><br>
+				<span>222</span><br>
+			</p>
+			<p>
+				<span>333</span><br>
+				<span>222</span><br>
+				<span>222</span><br>
+			</p>
+		</div>
+	</body>
+</html>

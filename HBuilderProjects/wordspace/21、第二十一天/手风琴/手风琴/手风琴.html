@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+	<body>
+		<div class="box10">
+		        <div class="container_1200">
+		            <div class="accordion-box">
+		                <ul id="accordion-b">
+		                    <li style="left: -600px; z-index: 5;" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    金狮6.0德系工艺<br>
+		                                    工程质量不合格砸了重装
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/10022.jpg" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">品质优先</div>
+		                            <div class="sub-title text-sub">Quality priority</div>
+		                        </div>
+		                    </li>
+		                    <li style="left: -500px; z-index: 4;" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    沪上名家装饰集团<br>
+		                                    河南省建筑装饰协会评为诚信品牌
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/qysj03.png" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">施工透明</div>
+		                            <div class="sub-title text-sub">Construction of transparent</div>
+		                        </div>
+		                    </li>
+		                    <li style="left: -400px; z-index: 3;" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    个性化全案设计<br>
+		                                    1:1效果还原
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/qysj05.png" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">效果满意</div>
+		                            <div class="sub-title text-sub">Results satisfactory</div>
+		                        </div>
+		                    </li>
+		                    <li style="left: -300px; z-index: 2;" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    清单式报价标准<br>
+		                                    明明白白消费
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/qysj06.jpg" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">价格透明</div>
+		                            <div class="sub-title text-sub">Reasonable price</div>
+		                        </div>
+		                    </li>
+		                    <li style="left: -200px; z-index: 1;" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    进口环保辅材<br>
+		                                    国内外一线大牌主材
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/10022.jpg" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">环保保障</div>
+		                            <div class="sub-title text-sub">Environmental protection</div>
+		                        </div>
+		                    </li>
+		                    <li style="left:500px;z-index:0" class="">
+		                        <div class="left">
+		                            <div class="shadow">
+		                                <div class="title">
+		                                    沪上品质，名家生活<br>
+		                                    装修一套房，温暖一个家
+		                                </div>
+		                                <a target="_blank" href="/index/activity/lists/category_id/47.html" class="button button-default" rel="nofollow">
+		                                    查看详情 &gt;
+		                                </a>
+		                            </div>
+		                            <img src="static/images/10022.jpg" class="lazy_img load-over" alt="" style="display: inline;">
+		                        </div>
+		                        <div class="right">
+		                            <div class="title text-title">安心入住</div>
+		                            <div class="sub-title text-sub">Peace of mind in</div>
+		                        </div>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		    </div>
+	</body>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script>
+		//1 .给四个list绑定鼠标悬停事件
+		$("li").hover(function(){
+			//1当前悬浮节点
+			 var index=$(this).index();
+				$(this).stop().animate({
+				     left:index*100+"px",	
+				},200)
+			
+			//2获取当前悬浮节点前的所有节点
+			var prev=$(this).prevAll("li");
+			//3获取当前悬浮节点后的所有节点
+			var next=$(this).nextAll("li");
+			prev.each(function(n){
+			      var a=(n-6)*100+"px";
+				   $("li").eq(n).stop().animate({
+				        left:a,	
+				   },200)
+			})
+			next.each(function(n){
+				   $(this).stop().animate({
+				        left:(index+n+1)*100+"px",	
+				   },200)
+			})
+		    
+		  
+		});
+
+	</script>
+</html>

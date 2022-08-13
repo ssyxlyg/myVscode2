@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/*  位移 px
+			transform:translate(x,y);
+			旋转 度数
+			transform: rotate(ndeg);
+			缩放 几倍
+			transform: scale(x,y);
+			倾斜 度数
+			transform:skew(xdeg,ydeg);
+			透视，写在父元素上
+			perspective: 1000px;
+			背面不可见
+			backface-visibility: hidden;
+			 轴心定位  bottom left right top
+			transform-origin: 25% 30%; 
+		  */
+		 
+		   /* 注释:宽、高、隐藏、边框、相对定位 */
+			.wrapper{
+			   width: 600px;
+			   height: 400px;
+			   overflow: hidden;
+			   border: 1px solid black;
+			   position: relative;
+			}
+			img{
+				transition: all 2s;
+			}
+			.wrapper:hover img{
+				transform: translateX(-40px);
+				opacity: 0.5;
+			}
+			/* 悬浮回到原来的宽高 */
+			.wrapper:hover .first{
+				transform: scaleX(1);
+			}
+			.wrapper:hover .second{
+				transform: scaleY(1);
+			}
+			.first{
+				width: 300px;
+				height: 200px;
+				/* 上下边框 */
+				border-top: 1px solid white;
+				border-bottom: 1px solid white;
+				/* 块元素居中 */
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -150px;
+				margin-top: -100px;
+				/* 默认缩放0倍 */
+				transform: scaleX(0);
+				transition: all 2s;
+			}
+			
+			.second{
+				width: 200px;
+				height: 300px;
+				border-left: 1px solid white;
+				border-right: 1px solid white;
+				/* 块元素居中 */
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -100px;
+				margin-top: -150px;
+				/* 默认缩放0倍 */
+				transform: scaleY(0);
+				transition: all 2s;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		<div class="wrapper">
+			<img src="./img/pic9.jpg" alt="">
+			<div class="first"></div>
+			<div class="second"></div>
+		</div>
+	</body>
+</html>

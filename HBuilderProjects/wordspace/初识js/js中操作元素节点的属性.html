@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function demo1(){
+				// 获得元素标签对象
+				var inp = document.getElementById("sp1");
+				
+				// 获得元素的属性
+				// inp.vale--获得用户实时输入的值
+				console.log("type:"+inp.type+";name:"+inp.name+";value:"+inp.value);
+				
+				// 操作元素的属性
+				
+				inp.type="button";
+				
+				inp.value="sxt"
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" onclick="demo1()" name="" id="" value="操作节点的属性">
+		<hr>
+		
+		<input type="text" name="username" id="sp1" value="hello">
+		
+		
+		
+	</body>
+</html>

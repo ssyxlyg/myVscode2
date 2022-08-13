@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+		<script type="text/javascript">
+			function demo(td){
+				// th就是当前点击的button对象
+				var val = td.innerText;
+				
+				var inp = document.getElementById("inp");
+				// inp.value=val;
+				
+				// alert(val);
+				
+				// 获得屏幕对象
+				if(val=="c"){
+					// 进行清除
+					inp.value="";
+					
+				}
+				else if(val=="="){
+					inp.value = eval(inp.value);
+				}
+				else{
+					inp.value+=val;
+				}
+			}
+		</script>
+		<style type="text/css">
+			button{
+				width: 35px;
+				height: 35px;
+			}
+			input{
+				display: block;
+				width: 160px;
+				margin: 10px auto;
+			}
+			table{
+				width: 160px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="inp">
+		<table>
+			<tr>
+				<td><button onclick="demo(this)">7</button></td>
+				<td><button onclick="demo(this)">8</button></td>
+				<td><button onclick="demo(this)">9</button></td>
+				<td><button onclick="demo(this)">/</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="demo(this)">4</button></td>
+				<td><button onclick="demo(this)">5</button></td>
+				<td><button onclick="demo(this)">6</button></td>
+				<td><button onclick="demo(this)">*</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="demo(this)">1</button></td>
+				<td><button onclick="demo(this)">2</button></td>
+				<td><button onclick="demo(this)">3</button></td>
+				<td><button onclick="demo(this)">-</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="demo(this)">0</button></td>
+				<td><button onclick="demo(this)">c</button></td>
+				<td><button onclick="demo(this)">+</button></td>
+				<td><button onclick="demo(this)">=</button></td>
+			</tr>
+		</table>
+	</body>
+</html>

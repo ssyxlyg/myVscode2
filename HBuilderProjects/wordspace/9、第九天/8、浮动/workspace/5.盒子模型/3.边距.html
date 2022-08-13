@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>	
+			.inner,.outter{
+				width: 300px;
+				height: 300px;
+			}
+			/* 盒子模型:margin+border+padding+content(内容区) */
+			.inner{
+				background-color: lightblue;
+				/* margin:外边距,同级标签之间的间距 */
+				/* top  right bottom left */
+				/* margin-bottom: 20px; */
+				/* margin: 20px; */
+				margin: 20px 30px;
+				
+				/* padding:内边距，内容距离父级标签四周的距离 */
+				/* padding-top:150px; */
+				padding: 150px;
+				border: 10px solid;
+			}
+			.outter{
+				background-color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="inner">奇酷教育</div>
+			<div class="outter">chencheng</div>
+		</div>
+	</body>
+</html>

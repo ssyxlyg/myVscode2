@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function checkName(){
+				var uname = document.getElementById("uname").value;
+				if(uname==""||uname==null){
+					document.getElementById("uname_span").innerHTML="用户名不能为空";
+					return false;
+				}
+				else{
+					document.getElementById("uname_span").innerHTML="用户名合法";
+					return true
+				}
+			}
+			
+			function zong(){
+				return checkName();
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 如果返回值事true可以提交表单，如果是flase就不提交 -->
+		<form action="js中event事件.html" method="get" onsubmit="return zong()"/>
+			<p>
+				用户名：<input type="text" name="uname" id="uname" onblur="checkName()" />
+				<span id="uname_span"></span>
+			</p>
+			<p>
+				密&emsp;码：<input type="password" name="pwd" id="" value="">
+			</p>
+			<p>
+				<input type="submit" name="" id="" value="登录">
+			</p>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper {
+				
+			}
+			.wrapper>ul{
+				width: 330px;
+				margin: 0 auto;
+			}
+			.wrapper>ul li{
+				display: inline-block;
+				list-style: none;
+				width: 100px;
+			}
+			.wrapper>ul li a{
+				text-decoration: none;
+			}
+			.wrapper>ul li a i{
+				display: inline-block;
+				vertical-align: middle;
+				width: 45px;
+				height: 45px;
+			}
+			.wrapper>ul>li:nth-of-type(1) i {
+				background: url(./img/navsprites_hover.gif) no-repeat 0px 0px;
+			}
+			.wrapper>ul>li:nth-of-type(1):hover i{
+				background: url(./img/navsprites_hover.gif) no-repeat 0px -45px;
+			}
+			.wrapper>ul li:nth-of-type(2) i{
+				background: url(./img/navsprites_hover.gif) no-repeat -45px 0px;
+				
+			}
+			.wrapper>ul>li:nth-of-type(2):hover i{
+				background: url(./img/navsprites_hover.gif) no-repeat -45px -45px;
+			}
+			.wrapper>ul li:nth-of-type(3) i{
+				background: url(./img/navsprites_hover.gif) no-repeat -90px 0px;
+				
+			}
+			.wrapper>ul>li:nth-of-type(3):hover i{
+				background: url(./img/navsprites_hover.gif) no-repeat -90px -45px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul>
+				<li><a href="#">
+						<i></i>
+						首页
+						</a>
+				</li>
+				<li><a href="#">
+						<i></i>
+						首页
+						</a>
+				</li>
+				<li><a href="#">
+						<i></i>
+						首页
+						</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			.wrapper {}
+
+			.silde {
+				width: 820px;
+				height: 382px;
+				margin: 0 auto;
+				overflow: hidden;
+				position: relative;
+				/* border: 1px solid black; */
+			}
+
+			.silde li {
+				/* float: left; */
+				transition: .5s transform ease-in-out;
+				position: absolute;
+				display: flex;
+				top: 0;
+				left: 0;
+				width: 820px;
+				height: 340px;
+			}
+
+			.silde li:nth-of-type(1) {
+				
+				background-color: skyblue;
+				left: 0;
+			}
+
+			.silde li:nth-of-type(2) {
+				background-color: green;
+				left: 100%;
+				
+			}
+
+			.silde li:nth-of-type(3) {
+				background-color: pink;
+				left: 200%;
+			}
+
+			.silde li:nth-of-type(4) {
+				background-color: yellow;
+				left: 300%;
+			}
+
+			.silde li:nth-of-type(5) {
+				background-color: red;
+				left: 400%;
+			}
+			input[type="radio"]{
+				position: relative;
+				display: none;
+			}
+			.control{
+				position: absolute;
+				width: 100%;
+				bottom: 0px;
+				text-align: center;
+				
+			}
+			.control label{
+				float: left;
+				display: inline-block;
+				width: 164px;
+				height: 40px;
+				line-height: 40px;
+				background-color: rgb(227,226,226);
+				color: #CEA861;
+				/* bottom: 0px; */
+				/* border: 1px solid black; */
+			}
+			.silde input[type="radio"]:nth-of-type(1):hover~.control label:nth-of-type(1){
+				/* background-color: black; */
+				border-bottom: 2px solid #CEA861;
+				
+			}
+			.silde input[type="radio"]:nth-of-type(2):hover~.control label:nth-of-type(2){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(3):hover~.control label:nth-of-type(3){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(4):hover~.control label:nth-of-type(4){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(5):hover~.control label:nth-of-type(5){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(1):checked~.con{
+				transform: translateX(0);
+			}
+			.silde input[type="radio"]:nth-of-type(2):checked~.con{
+				transform: translateX(-100%);
+			}
+			.silde input[type="radio"]:nth-of-type(3):checked~.con{
+				transform: translateX(-200%);
+			}
+			.silde input[type="radio"]:nth-of-type(4):checked~.con{
+				transform: translateX(-300%);
+			}
+			.silde input[type="radio"]:nth-of-type(5):checked~.con{
+				transform: translateX(-400%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			
+			<ul class="silde">
+				<input type="radio" name="d" id="r1" checked>
+				<input type="radio" name="d" id="r2">
+				<input type="radio" name="d" id="r3">
+				<input type="radio" name="d" id="r4">
+				<input type="radio" name="d" id="r5">
+				<li class="con"><img src="./img/l-5.jpeg" alt=""></li>
+				<li class="con"><img src="./img/l-4.jpeg" alt=""></li>
+				<li class="con"><img src="./img/l-1.jpeg" alt=""></li>
+				<li class="con"><img src="./img/l-3.jpeg" alt=""></li>
+				<li class="con"><img src="./img/l-2.jpeg" alt=""></li>
+				<div class="control">
+					<label for="r1">夏之乐章宝典</label>
+					<label for="r2">云顶三周年掌盟好事</label>
+					<label for="r3">LPL夏季赛</label>
+					<label for="r4">你的商店</label>
+					<label for="r5">K/DA精选周边特惠</label>
+				</div>
+			</ul>
+		</div>
+	</body>
+</html>

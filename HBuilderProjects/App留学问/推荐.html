@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="./css/base.css">
+		<style>
+			.wrapper {
+				height: 8.12rem;
+				background-color: #f6cb5d;
+			}
+
+			.frist>div {
+				display: flex;
+				justify-content: space-between;
+				padding: 0.5rem 0.46rem 0 0.1rem;
+				align-items: center;
+			}
+
+			.frist>div>input {
+				font-size: 0.15rem;
+				width: 3.2rem;
+				height: 0.31rem;
+				border: none;
+				outline: none;
+				border-radius: 0.14rem;
+				background: #f4f4f8 url("./img/搜索.png") no-repeat 5%;
+				background-size: 0.12rem;
+				padding-left: 0.42rem;
+				color: #bbbbbc;
+			}
+
+			.frist>div>img {
+				height: 0.2rem;
+				justify-content: space-around;
+				position: relative;
+				left: 0.2rem;
+			}
+
+			.frist1>ul {
+				height: 0.35rem;
+				display: flex;
+				justify-content: space-around;
+				padding: 0.1rem;
+			}
+
+			.frist1>ul>li {
+				height: 0.14rem;
+				text-align: center;
+				color: #666666;
+				font-size: 0.15rem;
+			}
+
+			.frist1>ul>li:nth-of-type(2) {
+				font-size: 0.18rem;
+				height: 0.17rem;
+				color: #333333;
+			}
+
+			.frist1>ul>li:nth-of-type(5) {
+				margin-right: 0.68rem;
+			}
+
+			.frist3 {
+				background-image: linear-gradient(180deg,
+						#f6cb5d 0%,
+						#ffffff 100%);
+			}
+
+			.frist3>.frist31 {
+				width: 3.52rem;
+				height: 3.07rem;
+				background-color: white;
+				border-radius: 0.16rem;
+				margin: 0.12rem;
+			}
+
+			.frist3>.frist31>.frist32 {
+				height: 0.79rem;
+				text-align: center;
+				display: flex;
+				justify-content: space-between;
+				padding: 0.25rem;
+			}
+
+			.frist32>li img {
+				width: 0.36rem;
+				height: 0.36rem;
+			}
+
+			.frist32>li>h3 {
+				height: 0.15rem;
+				line-height: 0.32rem;
+				font-size: 0.15rem;
+				color: #333333;
+			}
+
+			.frist32>li>p {
+				font-size: 0.1rem;
+				line-height: 0.32rem;
+				height: 0.1rem;
+				color: #999999;
+				margin-top: 0.08rem;
+			}
+
+			.frist33 {
+				height: 0.38rem;
+				display: flex;
+				justify-content: space-around;
+				text-align: center;
+			}
+
+			.frist33>li>p {
+				font-size: 0.13rem;
+			}
+
+			.frist33>li>img {
+				height: 0.3rem;
+			}
+
+			.frist32 li:nth-of-type(1) img {
+				height: 0.36rem;
+				width: 0.46rem;
+			}
+
+			.frist32 li:nth-of-type(2) img {
+				position: relative;
+
+			}
+
+			.frist32 li:nth-of-type(2) span {
+				display: block;
+				color: white;
+				text-align: center;
+				height: 0.35rem;
+				line-height: 0.35rem;
+				width: 1rem;
+				border-right: 1px solid #efefef;
+				border-left: 1px solid #efefef;
+				background: url("./img/ty5.png") no-repeat center top;
+				background-size: 0.35rem 0.35rem;
+				z-index: 10;
+				font-size: 0.12rem;
+			}
+
+			.box>ul:nth-of-type(1) {
+				margin-top: 0.32rem;
+				position: relative;
+				top: 0.32rem;
+			}
+
+			.box>ul:nth-of-type(1)>li>p {
+				margin-top: 0.1rem;
+			}
+
+			.box>ul:nth-of-type(2) {
+				position: relative;
+				top: 0.56rem;
+				left: -0.1rem;
+			}
+
+			.box>ul:nth-of-type(2)>li>p {
+				margin-top: 0.1rem;
+				margin-left: 0.05rem;
+			}
+
+			.frist4 {
+				margin-top: -0.3rem;
+				background-color: white;
+				height: 4rem;
+			}
+
+			.frist5 {
+				width: 100%;
+				padding-right: 0.15rem;
+				padding-left: 0.15rem;
+				position: relative;
+			}
+
+			.frist5>div:nth-of-type(1) img {
+				width: 3.52rem;
+				height: 0.65rem;
+			}
+
+			.frist5>div:nth-of-type(2) img {
+				height: 0.62rem;
+				position: absolute;
+				top: 0.01rem;
+				left: 0.5rem;
+			}
+
+			.frist5>h1 {
+				width: 1.48rem;
+				height: 0.28rem;
+				font-size: 0.3rem;
+				position: absolute;
+				left: 1.5rem;
+				top: 0.01rem;
+				color: white;
+			}
+
+			.frist5>p {
+				background-image: linear-gradient(177deg,
+						#e2724c 0%,
+						#e89351 100%);
+				border-radius: 0.15rem;
+				position: absolute;
+				left: 1.3rem;
+				top: 0.4rem;
+				color: white;
+				font-size: 0.15rem;
+			}
+
+			.frist6>h2 {
+				margin-top: 0.19rem;
+				margin-left: 0.15rem;
+				font-size: 0.18rem;
+				margin-bottom: 0.1rem;
+			}
+
+			.frist6>ul {
+				width: 3.52rem;
+				height: 0.65rem;
+				background-color: #f6cb5d;
+				border-radius: 5px;
+				margin-left: 0.14rem;
+				position: relative;
+				display: flex;
+			}
+
+			.frist6>ul>li>img {
+
+				height: 0.2rem;
+			}
+
+			.frist6>ul>li {
+				font-size: 0.11rem;
+				padding-top: 0.12rem;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+
+			.frist6>ul>p {
+				text-align: right;
+				font-size: 0.1rem;
+				color: white;
+				position: absolute;
+				right: 0.1rem;
+				bottom: 0.05rem;
+			}
+
+			.frist7>h2 {
+				margin-top: 0.19rem;
+				margin-left: 0.15rem;
+				font-size: 0.18rem;
+
+			}
+
+			.frist7>ul {
+				display: flex;
+			}
+
+			.frist7>ul>li:nth-of-type(1) {
+				width: 2.1rem;
+				height: 0.75rem;
+				font-size: 0.11rem;
+				line-height: 0.21rem;
+				margin-left: 0.15rem;
+				border-right: 1px solid #dcdcda;
+			}
+
+			.frist7>ul>li:nth-of-type(2) {
+				margin-left: 0.2rem;
+				font-size: 0.11rem;
+				line-height: 0.21rem;
+			}
+
+			.frist7>ul>li:nth-of-type(2) span {
+				color: #f6cb5d;
+			}
+
+			.frist7>ul img {
+				width: 0.45rem;
+				height: 0.45rem;
+				margin-top: 0.35rem;
+				margin-left: 0.1rem;
+			}
+
+			.frist8 {
+				height: 0.87rem;
+				background-color: white;
+			}
+
+			.frist1 ul li a {
+				color: #333;
+			}
+
+			.frist32 li a {
+				color: #333;
+			}
+			.frist7 a{
+				color: #f6cb5d;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="frist">
+				<div>
+					<input type="text" placeholder="搜索">
+					<img src="./img/消息 (2).png" alt="">
+				</div>
+			</div>
+			<div class="frist1">
+				<ul>
+					<li><a href="关注.html">关注</a></li>
+					<li><a href="推荐.html">推荐</a></li>
+					<li><a href="回答.html">问答</a></li>
+					<li><a href="评论.html">评论</a></li>
+					<li><a href="直播.html">直播</a></li>
+				</ul>
+			</div>
+			<div class="frist3">
+				<div class="frist31">
+					<ul class="frist32">
+						<li><a href="留学中介.html"><img src="./img/dsadw.png" alt="">
+								<h3>留学中介</h3>
+								<p>不出门找顾问</p>
+							</a>
+						</li>
+						<li>
+							<a href="申请免费服务.html"><span>0元</span>
+								<h3>免费申请</h3>
+								<p>办留学不花钱</p>
+							</a>
+						</li>
+						<li><a href="监管.html"><img src="./img/60(0VXIQJBGOEZP7EQ`2C3H.png" alt="">
+								<h3>平台监管</h3>
+								<p>留学更放心</p>
+							</a>
+						</li>
+					</ul>
+					<div class="box">
+
+						<ul class="frist33">
+							<li><img src="./img/成功案例.png" alt="">
+								<p>成功案例</p>
+							</li>
+							<li><img src="./img/学校.png" alt="">
+								<p>全球院校</p>
+							</li>
+							<li><img src="./img/AK-MN_排名_fill.png" alt="">
+								<p>院校排名</p>
+							</li>
+							<li><img src="./img/文本.png" alt="">
+								<p>专业库</p>
+							</li>
+							<li><img src="./img/商店.png" alt="">
+								<p>留学商城</p>
+							</li>
+						</ul>
+						<ul class="frist33">
+							<li><img src="./img/标签.png" alt="">
+								<p>实习项目</p>
+							</li>
+							<li><img src="./img/文本编辑_填充.png" alt="">
+								<p>科研项目</p>
+							</li>
+							<li><img src="./img/书.png" alt="">
+								<p>语言培训</p>
+							</li>
+							<li><img src="./img/笔 (1).png" alt="">
+								<p>艺术留学</p>
+							</li>
+							<li><img src="./img/更多.png" alt="">
+								<p>更多</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="frist4">
+				<div class="frist5">
+					<div><img src="./img/形状 2.png" alt=""></div>
+					<div><img src="./img/renwu.png" alt=""></div>
+					<h1>开学优惠</h1>
+					<p>现时速抢留学服务优惠卷</p>
+				</div>
+				<div class="frist6">
+					<h2>服务广播</h2>
+					<ul>
+						<li><img src="./img/u=3355887662,1298272292&fm=26&gp=0.png" alt=""> 聂钰文 选择了
+							Christine老师的免费咨询服务，老师本月已免费
+							为135位同学答疑，签约前评论为4</li>
+						<p>2分钟前</p>
+					</ul>
+				</div>
+				<div class="frist7">
+					<h2>热门话题</h2>
+					<ul>
+						<li>加拿大留学申请分享<br>后疫情时代，留学申请是更......<br>
+							加拿大留学<br>2021季开始啦！你的留学申.....</li>
+						<li>留学英国<br>新西兰留学<br>英国留学<br><span><a href="热榜.html">更多热榜</a></span></li>
+						<img src="./img/发布.png" alt="">
+					</ul>
+				</div>
+				<div class="frist8">
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

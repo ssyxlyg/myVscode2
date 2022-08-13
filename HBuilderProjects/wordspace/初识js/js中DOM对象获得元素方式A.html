@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获得元素对象</title>
+		<script type="text/javascript">
+			function demo1(){
+				
+				// 通过id获得元素对象
+				var sp = window.document.getElementById("sp1");
+				// 获得id名称为sp1的元素对象
+				console.log(sp);
+				// HTMLSpanElement
+				alert(sp);
+			}
+			
+			function demo2(){
+				
+				// 通过标签名称获得元素对象
+				var sps = document.getElementsByTagName("span")
+				console.log(sps[2])
+			}
+			
+			function demo3(){
+				// 通过class属性获得元素对象
+				var sps = document.getElementsByClassName("sp");
+				
+				console.log(sps[1])
+			}
+			
+			function demo4(){
+				// 通过name属性获得元素对象
+				var na = document.getElementsByName("n")
+				console.log(na)
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" onclick="demo1()" name="" id="" value="元素对象获得1">
+		<input type="button" onclick="demo2()" name="" id="" value="元素对象获得2">
+		<input type="button" onclick="demo3()" name="" id="" value="元素对象获得3">
+		<input type="button" onclick="demo4()" name="" id="" value="元素对象获得4">
+		
+		<hr>
+		<span id="sp1" name="n">bjsxt</span>
+		
+		<span>sxt</span>
+		
+		<span class="sp" name="n">tt</span>
+		
+		<span class="sp">sxtit</span>
+	</body>
+</html>

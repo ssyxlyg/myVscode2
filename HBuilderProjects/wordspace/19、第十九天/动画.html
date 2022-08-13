@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper {
+				/* 过渡 */
+				/* transition: 2s linear; */
+				/* 动画 
+					animation-name:关键帧名字
+					animation-duration:持续时间
+					animation-delay:延迟时间
+					animation-timing-function:速度
+					ease/linear/ease-in/ease-out/ease-in-out
+					animation-iteration-count:播放次数  infinite:无限循环
+					animation-direction:可以往返
+							alternate:从第一帧开始往返
+							alternate-reverse:从最后一帧开始往返
+							reverse：从最后一帧开始，但是不往返
+							normal:默认，从第一帧开始，但是不往返
+					animation-fill-mode:有延迟时间才会看到起始状态
+							backwards:开始时显示第一帧的状态，否则显示默认设置的状态
+							forwards:结束时保持最后最后一帧的状态，否则显示默认设置的状态
+							both:两则都要
+									   
+								*/
+
+				width: 200px;
+				height: 200px;
+				background-color: skyblue;
+				/* 动画名字 */
+				animation-name: mybox;
+				/* 持续时间 */
+				animation-duration: 5s;
+				/* 延迟时间 */
+				/* animation-delay: 1s; */
+				/* 运动曲线 */
+				animation-timing-function: ease;
+				/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+
+			@keyframes mybox {
+
+				/* form{
+					transform: translateX(0) ;
+				}
+				to{
+					transform: translateX(500px);
+				} */
+				15% {
+					transform: translate(0, 0);
+					background-color: red;
+				}
+
+				30% {
+					transform: translate(200px, 200px);
+					background-color: green;
+				}
+
+				45% {
+					transform: translate(200px, 400px);
+					background-color: blue;
+
+				}
+
+				60% {
+					transform: translate(400px, 400px);
+					background-color: crimson;
+				}
+
+				75% {
+					transform: translate(800px);
+					background-color: darkmagenta;
+				}
+
+				90% {
+					transform: translate(1000px);
+					background-color: darkorange;
+				}
+
+				100% {
+					transform: translate(1000px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+
+
+
+		</div>
+	</body>
+</html>

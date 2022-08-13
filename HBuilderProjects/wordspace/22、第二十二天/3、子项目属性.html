@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 父级是容器
+			     display:flex
+				 justify-content：水平对齐
+				 align-items:一根轴线垂直对齐
+				 align-content:多根轴线垂直对齐
+				 flex-wrap:wrap:允许换行
+			*/
+			.wrapper{
+				width: 700px;
+				height: 700px;
+				border: 1px solid black;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				
+			}
+			/* 子级是项目 */
+			.wrapper div{
+				width: 200px;
+				height: 200px;
+				/* flex-grow: 1;  所有项目等比放大*/
+				/* flex-shrink: 1; 默认， 所有项目等比缩小 */
+			    /* 自适应等比缩放 */
+				/* flex:1; */
+				flex: auto;
+				
+			}
+			/* 子项目属性:
+			    order：改变项目顺序，默认为0 
+				align-self:单个项目的对齐方式，会覆盖align-items的值
+				flex-grow:放大比例
+				flex-shrink:缩小比例
+			*/
+				
+			.wrapper div:nth-of-type(1){
+				background-color: red;
+				order: 1;
+				/* align-self: flex-start; */
+				/* flex-grow:1; */
+				/* flex-shrink:1; */
+			}
+			.wrapper div:nth-of-type(2){
+				background-color:green;
+				order: 3;
+				/* flex-grow:2; */
+				/* flex-shrink:2; */
+			}
+			.wrapper div:nth-of-type(3){
+				background-color:blue;
+				/* flex-grow:1; */
+				/* flex-shrink:1; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div></div>
+			<div></div>
+			<div></div>
+			
+		</div>
+	</body>
+</html>

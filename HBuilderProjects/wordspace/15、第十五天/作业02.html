@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<link rel="stylesheet" href="./css/作业02.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="bg"><img src="./img/form_bg.jpg" alt=""></div>
+			<form action="" method="GET">
+				<h3>奇酷学员信息登记表</h3>
+				<p><span>用户登录名:</span><input type="email" name="u_name" id="" value="myemail@163.com" disabled>（不能修改，只能查看）</p>
+				<p><span>真实姓名:</span><input type="text" name="r_name" id="" autofocus required>（必填项，且自动获取焦点）</p>
+				<p><span>真实年龄</span><input type="number" name="age" id="" min="15" max="120" required>（必须填写）</p>
+				<p><span>出生日期:</span><input type="date" name="date" id="" required>（必须填写）</p>
+				<p><span>电子邮箱:</span><input type="email" name="email" id=""  required>（必须填写）</p>
+				<p><span>身份证号:</span><input type="text" name="sid" id="" pattern="\w{18}"  required>（必填项，能够纯数字18位身份证号）</p>
+				<p><span>手机号码:</span><input type="tel" name="tel" id="" pattern="\w{11}"  required>（必须填写）</p>
+				<p><span>个人主页:</span><input type="url" name="internet" id="" value="" placeholder="http://www.baidu.com">（选择网址）</p>
+				<p><span>幸运颜色:</span><input type="color" name="color" id="" value="#ffff00">（选择你喜欢的颜色）</p>
+				<p><input type="submit" name="" id="" value="登录"> 
+					<input type="reset" name="" id="" value="重置" />
+				</p>
+			
+			</form>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* E:nth-of-type(n):第几个类型E */
+			ul li:nth-of-type(1){
+				color: red;
+			}
+			/* E:first-of-type:第一个 */
+			ul li:first-of-type{
+				background-color: lightblue;
+			}
+			/* E:last-of-type:最后一个 */
+			ul li:last-of-type{
+				background-color: lightblue;
+			}
+			/* even:偶数行 */
+			ul li:nth-of-type(even){
+				font-size: 25px;
+			}
+			/* odd:奇数行 */
+			ul li:nth-of-type(odd){
+				border: 1px solid red;
+			}
+			/* n前面的数值代表跨度 */
+			ul li:nth-of-type(3n+1){
+				font-weight: 900;
+				background-color: green;
+			}
+			/* nth-child:必须是相对数值的子代 */
+			.wrapper p:nth-child(2){
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>标题</h1>
+			<p>段落</p>
+			<ul>
+				<li>11</li>
+				<li>22</li>
+				<li>33</li>
+				<li>66</li>
+				<li>77</li>
+				<li>88</li>
+				<li>99</li>
+			</ul>
+		</div>
+	</body>
+</html>

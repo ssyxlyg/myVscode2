@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="./css/base.css">
+		<style type="text/css">
+			body {
+				background-color: #EEEEEE;
+				overflow-x: hidden;
+			}
+
+			header {
+				background-color: #f6cb5d;
+				color: #fff;
+				/* height: 10rem; */
+			}
+
+			.myxyg {
+				display: flex;
+				width: 100%;
+				height: 0.45rem;
+				line-height: 0.45rem;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 11px;
+				/* background-color: #f6cb5d; */
+				z-index: 100;
+				/* margin: 0 10px; */
+			}
+
+			.myxyg .front {
+				width: 0.12rem;
+				height: 0.21rem;
+			}
+
+			.myxyg .content {
+				font-size: 0.15rem;
+			}
+
+			.myxyg .back {
+				width: 0.24rem;
+				height: 0.21rem;
+			}
+
+			.asset {
+				width: 100%;
+				height: 1.65rem;
+				display: flex;
+				justify-content: space-around;
+				/* align-items: center; */
+				padding-top: 0.39rem;
+				/* border: 1px solid #fff; */
+				position: relative;
+				/* overflow: hidden; */
+			}
+
+			.asset_xyg,
+			.asset_mzb {
+				font-size: 0.3rem;
+				/* text-align: 20px; */
+				padding-left: 0.05rem;
+				/* border: 1px solid #fff; */
+			}
+
+			.asset_xyg+div,
+			.asset_mzb+div {
+				font-size: 12px;
+			}
+
+			.h_cricle {
+				width: 1.57rem;
+				height: 1.57rem;
+				border-radius: 50%;
+				/* border: 1px solid red; */
+				background-color: #fade98;
+				opacity: 0.4;
+				position: absolute;
+				top: -0.78rem;
+				left: -0.19rem;
+				/* z-index: ; */
+			}
+
+			.h_cricle span {
+				display: block;
+				width: 1.57rem;
+				height: 0.785rem;
+				background-color: #f6cb5d;
+			}
+
+			.h_cricle2 {
+				width: 3.2rem;
+				height: 3.2rem;
+				border-radius: 50%;
+				position: absolute;
+				top: 0.35rem;
+				right: -0.5rem;
+				background-color: #fade98;
+				opacity: 0.5;
+				/* border: 1px solid red; */
+			}
+
+			.h_cricle2 span {
+				display: block;
+				width: 3.2rem;
+				height: 1.9rem;
+				margin-top: 1.3rem;
+				background-color: #eeeeee;
+				z-index: -1;
+			}
+
+			.m_line {
+				width: 0.03rem;
+				height: 0.78rem;
+				border-left: 1px solid #fff;
+				position: absolute;
+				top: 0.35rem;
+				left: 1.86rem;
+			}
+
+			.use_asset {
+				width: 3.38rem;
+				height: 1.03rem;
+				/* border: 1px solid red; */
+				position: absolute;
+				bottom: -0.55rem;
+				background-color: #fff;
+				border-radius: 0.2rem;
+			}
+
+			.use_asset_top {
+				display: flex;
+				justify-content: left;
+				color: #333;
+				margin-top: 0.16rem;
+				margin-left: 0.17rem;
+			}
+
+			.use_asset_top img {
+				width: 0.28rem;
+				height: 0.24rem;
+
+			}
+
+			.use_asset_top p {
+				font-size: 0.18rem;
+				margin-left: 0.05rem;
+				font-weight: bold;
+			}
+
+			.use_asset_bottom {
+				display: flex;
+				justify-content: space-around;
+				/* color: #333; */
+				font-size: 0.12rem;
+				padding-top: 0.14rem;
+			}
+
+			.use_asset_bottom>div {
+				width: 1.07rem;
+				height: 0.25rem;
+				line-height: 0.25rem;
+				border: 0.01rem solid #f6cb5d;
+				border-radius: 0.13rem;
+				text-align: center;
+			}
+
+			.use_asset_bottom>div:nth-of-type(1) {
+				background-color: #f6cb5d;
+				color: #fff;
+
+			}
+
+			.use_asset_bottom>div:nth-of-type(2) {
+				color: #f6cb5d;
+			}
+
+			main {
+				/* margin: 0 auto; */
+				width: 100%;
+				margin-top: 0.64rem;
+				/* border:1px solid red; */
+				position: absolute;
+			}
+
+			.cat_b {
+				width: 3.38rem;
+				height: 4.58rem;
+				margin: 0 auto;
+				background-color: #fff;
+				border-radius: 20px;
+				/* z-index: 100; */
+			}
+
+			.cat_b p {
+				padding-top: 0.17rem;
+				margin-left: 21px;
+				font-size: 0.18rem;
+				font-weight: bold;
+			}
+
+			.cat_b p img {
+				width: 0.19rem;
+				height: 0.19rem;
+				margin-right: 0.1rem;
+				vertical-align: middle;
+			}
+
+			.cat_b ul {
+				margin-top: 0.14rem;
+			}
+
+			.cat_b li {
+				display: flex;
+				justify-content: space-between;
+				margin: 0 0.17rem;
+				height: 0.44rem;
+				line-height: 40px;
+				border-bottom: 1px solid #eeeeee;
+				font-size: 0.13rem;
+			}
+
+			.cat_b li:nth-last-of-type(1) {
+				border: none;
+			}
+			.cat_b li .jft{
+				width: 0.73rem;
+				height: 0.27rem;
+				line-height: 0.27rem;
+				background-color:#eeeeee;
+				border-radius: 0.13rem;
+				text-align: center;
+				color: #fa9d3a;
+			}
+			.cat_b li .jf {
+				width: 0.73rem;
+				height: 0.27rem;
+				line-height: 0.27rem;
+				background-color:#fa9d3a;
+				border-radius: 0.13rem;
+				text-align: center;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="myxyg">
+				<div class="front"><img src="./img/dsad.png" alt=""></div>
+				<div class="content">小鱼干/猫爪币</div>
+				<div class="back"> <img src="./img/_.png" alt=""></div>
+			</div>
+			<div class="asset">
+				<div>
+					<div class="asset_xyg">0 ></div>
+					<div>小鱼干（个）</div>
+				</div>
+				<div>
+					<div class="asset_mzb">20 ></div>
+					<div>猫爪币（个）</div>
+				</div>
+				<div class="h_cricle">
+					<span></span>
+				</div>
+				<div class="h_cricle2">
+					<span>
+					</span>
+				</div>
+				<div class="m_line">
+
+				</div>
+
+				<div class="use_asset">
+					<div class="use_asset_top">
+						<img src="./img/矢量智能对象.png" alt="">
+						<p>小鱼干</p>
+					</div>
+					<div class="use_asset_bottom">
+						<div>买小鱼干</div>
+						<div>卖小鱼干换猫爪币</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="cat_b">
+				<p><img src="./img/椭圆 3 拷贝.png" alt="">喵爪币</p>
+				<ul>
+					<li>
+						<div>每日登录</div>
+						<div class="jft">已完成+5</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>每日登录</div>
+						<div class="jf">已完成+10</div>
+					</li>
+					<li>
+						<div>发布大字报</div>
+						<div class="jf">去完成+10</div>
+					</li>
+				</ul>
+			</div>
+
+
+		</main>
+	</body>
+</html>

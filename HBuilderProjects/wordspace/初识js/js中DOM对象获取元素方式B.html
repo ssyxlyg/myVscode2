@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function demo1(){
+				// 获得div1元素对象
+				var di = document.getElementById("div1")
+				// 获得div1所有子标签
+				var ch = di.childNodes;
+				
+				console.log(ch)
+			}
+			function demo2(){
+				// 获得span标签对象
+				var sp = document.getElementById("sp1");
+				// 获得当前节点的父节点标签
+				var p = sp.parentNode;
+				
+				console.log(p);
+				
+			}
+			
+			function demo3(){
+				
+				// 获得span标签对象
+				var sp = document.getElementById("sp1");
+				
+				// 获得当前标签的下一个标签对象--text
+				var n1 = sp.nextSibling;
+				
+				// 获得<span>bjsxt</span>
+				var n2 = sp.nextElementSibling;
+				
+				// 上一个节点--text
+				var n3 = sp.previousSibling
+				
+				// 上一个节点元素对象<span>bjsxt</span>
+				var n4 = sp.previousElementSibling;
+				console.log(n2)
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" onclick="demo1()" value="获得子标签a">
+		<input type="button" onclick="demo2()" value="获得子标签b">
+		<input type="button" onclick="demo3()" value="获得兄弟标签c">
+		
+		<div id="div1">
+			<span>bjsxt</span>
+			<span id="sp1">bjsxt</span>
+			<span>bjsxt</span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+.wrapper {
+	width: 800px;
+	height: 60px;
+
+	margin: 10px auto;
+	border: 1px solid lightgray;
+	/* border: 1px solid black; */
+	/* box-shadow: 10px 10px 20px #999999; */
+}
+
+.wrapper>ul {
+	line-height: 50px;
+	margin-left: 45px;
+}
+
+.wrapper>ul li {
+	float: left;
+	list-style: none;
+
+	width: 50px;
+	padding-left: 18px;
+	margin: 0 10px;
+	box-sizing: border-box;
+}
+
+.wrapper>ul li:hover {
+	border-bottom: 2px solid #4E6EF2;
+}
+
+.wrapper>ul li:hover a {
+	color: black;
+}
+
+.wrapper>ul li>a {
+	text-decoration: none;
+	color: #626675;
+}
+
+.wrapper>ul li:nth-of-type(1) {
+	background: url(../img/1.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(2) {
+	background: url(../img/2.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(3) {
+	background: url(../img/3.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(4) {
+	background: url(../img/4.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(5) {
+	background: url(../img/5.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(6) {
+	background: url(../img/6.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(7) {
+	background: url(../img/6.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(8) {
+	background: url(../img/7.png) no-repeat left center;
+}
+
+.wrapper>ul li:nth-of-type(9) {
+	background: url(../img/8.png) no-repeat left center;
+}

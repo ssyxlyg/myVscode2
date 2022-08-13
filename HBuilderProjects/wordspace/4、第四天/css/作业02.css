@@ -1,0 +1,22 @@
+.wraper {
+	width: 890px;
+	margin: auto;
+}
+
+.title {
+	color: #862B00;
+}
+
+.title>span {
+	line-height: 50px;
+	font-size: 18px;
+}
+
+.title>div {
+	color: #B33500;
+	line-height: 40px;
+}
+
+img {
+	vertical-align: middle;
+}

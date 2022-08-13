@@ -1,0 +1,332 @@
+.neiye_bg {
+	width: 100%;
+}
+
+.neiye_banner {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.neiye_banner a {
+	display: block;
+}
+
+/* **************** */
+.location {
+	width: 100%;
+}
+
+.location_m {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 20px 0;
+	color: #999;
+	font-size: 14px;
+}
+
+.location_m a {
+	color: #999;
+}
+
+.location_m a:hover {
+	color: #d7bf67;
+	;
+}
+
+.location_in {
+	float: left;
+}
+
+
+
+/* ********************************* */
+.service_list {
+	width: 100%;
+	font-size: 14px;
+}
+
+.service_list .list_box {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.service_list .list_title {
+	float: left;
+	width: 80px;
+
+	/* line-height: 48px; */
+	text-align: center;
+	color: #666;
+	background-color: #fafafa;
+}
+
+.service_list .content {
+
+	float: left;
+}
+
+.list_box {
+	border: 1px solid #EDECEC;
+}
+
+.list_box li {
+	line-height: 48px;
+	height: 48px;
+	/* border-bottom: 1px solid #EDECEC; */
+
+}
+
+
+.content span {
+	display: inline-block;
+	margin-left: 20px;
+
+}
+
+.content span a {
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	padding: 5px;
+	color: black;
+}
+
+.content span:nth-of-type(1) a {
+	background-color: #d7bf67;
+	color: white;
+}
+
+.content span a:hover {
+	color: #d7bf67;
+}
+
+.content .nochange:hover {
+	color: white;
+}
+
+/* ************* */
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.content_left {
+	float: left;
+}
+
+.content_left .con {
+	width: 880px;
+	margin-top: 10px;
+
+}
+
+.content_left .con li {
+	position: relative;
+	height: 240px;
+	/* border: 1px solid black; */
+}
+
+.content_left .img_box {
+	float: left;
+	overflow: hidden;
+	margin: 10px;
+
+	width: 290px;
+	height: 220px;
+}
+
+.img_box img {
+	width: 100%;
+	transition: all 1s;
+}
+
+.content_left .img_box:hover img {
+	transform: scale(1.1);
+}
+
+.content_left li:hover {
+	box-shadow: 2px 2px 2px lightgray;
+}
+
+.container_text {
+	float: left;
+	margin-left: 20px;
+}
+
+.container_text>a {
+	display: block;
+	color: #212628;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+.container_text p {
+	padding-top: 16px;
+	font-size: 14px;
+}
+
+.container_text p a {
+	color: #212628;
+	font-weight: bold;
+}
+
+.container_text p i {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/图标.png) no-repeat center center;
+	vertical-align: middle;
+}
+
+.container_text span {
+	margin: 0;
+}
+
+.expert a {
+	position: absolute;
+	display: block;
+	color: #d3bf53;
+	background: #fff;
+	border: 1px solid #d3bf53;
+	right: 10px;
+	top: 20px;
+	width: 136px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.content_right {
+	float: left;
+	width: 300px;
+	background-color: #404A54;
+	height: 353px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.content_right h2 {
+	color: white;
+	text-align: center;
+	margin: 15px 0;
+	font-weight: normal;
+	/* font-size: 18px; */
+}
+
+
+.single {
+	margin: 12px 19px;
+}
+
+.content_right input {
+	color: #666;
+	outline: none;
+	border: none;
+	border-radius: 2px;
+	text-indent: 20px;
+}
+
+.single input {
+	width: 263px;
+	height: 48px;
+}
+
+.double {
+	margin: 12px 19px;
+}
+
+.double input {
+	width: 127px;
+	height: 48px;
+	/* margin-left: 1px; */
+}
+
+.double input:nth-of-type(1) {
+	margin-right: 3px;
+}
+
+.yvyue>form>a {
+	display: block;
+	margin: 0 19px;
+	width: 260px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	color: #555;
+}
+
+.yvyue>form>a>button {
+	background-color: #fff09e;
+	width: 260px;
+	height: 46px;
+	border: none;
+	outline: none;
+}
+
+.yvyue p {
+	text-align: center;
+	padding: 20px 0;
+	font-size: 14px;
+	color: white;
+}
+
+.ad_bottom {
+	margin-top: 30px;
+}
+
+.ad_bottom_nav {
+	margin-top: 50px;
+}
+
+.ad_bottom_nav ul {
+	width: 624px;
+	margin: 0 auto;
+	/* text-align: center; */
+	/* padding: 6px 0; */
+	/* font-size: 0; */
+	text-align: center;
+}
+
+.ad_bottom_nav li {
+	float: left;
+
+	border: 1px solid #eee;
+	margin: 5px;
+}
+
+.ad_bottom_nav li a {
+	color: #d3bf53;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	display: block;
+
+}
+
+.ad_bottom_nav .difference {
+	background-color: #EEEEEE;
+	color: #333;
+}
+
+.ad_bottom_nav .tolerant {
+	background-color: #d3bf53;
+}
+
+.ad_bottom_nav .tolerant a {
+	color: #fff;
+}
+
+.ad_bottom_nav li:hover {
+	background-color: #d3bf53;
+}
+
+.ad_bottom_nav li:hover a {
+	color: #fff;
+}
+
+footer {
+	margin-top: 120px;
+}

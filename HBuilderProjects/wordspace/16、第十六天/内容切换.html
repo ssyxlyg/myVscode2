@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style>
+			.wrapper {}
+			.wrapper .main{
+				position: relative;
+				width: 300px;
+				height: 250px;
+				background-color: lightgray;
+			}
+			.wrapper .main label {
+				display: block;
+				float: left;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				width: 100px;
+			}
+			input[type="radio"]{
+				display: none;
+			}
+			.main .content{
+				position: absolute;
+				top: 50px;
+				display: none;
+			}
+			.main input[type="radio"]:nth-of-type(1):checked~.r1{
+				display: block;
+			}
+			.main input[type="radio"]:nth-of-type(2):checked~.r2{
+				display: block;
+			}
+			.main input[type="radio"]:nth-of-type(3):checked~.r3{
+				display: block;
+			}
+			.main input[type="radio"]:nth-of-type(1):checked~label:nth-of-type(1){
+				background-color: red;
+			}
+			.main input[type="radio"]:nth-of-type(2):checked~label:nth-of-type(2){
+				background-color: red;
+			}
+			.main input[type="radio"]:nth-of-type(3):checked~label:nth-of-type(3){
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="main clearfix">
+				<input type="radio" name="book" id="b1" value="1">
+				<input type="radio" name="book" id="b2" value="2" checked>
+				<input type="radio" name="book" id="b3" value="3">
+				<label for="b1">三国演义</label>
+				<label for="b2">红楼梦</label>
+				<label for="b3">水浒传</label>
+				<div class="content r1">
+					三国演义》是中日两国合作制作的动画片，已于2009年在中国上映。该动画片是根据中国古代名著《三国演义》改编，由北京辉煌动画、央视动画与日本未来行星株式会社联手打造的高...
+				</div>
+				<div class="content r2">
+					红楼梦》,中国古代章回体长篇小说，又名《石头记》《金玉缘》，被列为中国古典四大名著之首，一般认为是清代作家曹雪芹（作者尚有争议）所著。小说以贾、史、王、薛四大家族的兴衰为背景，以富贵公子贾宝玉为视角，描绘了一批举止见识出于须眉之上的闺阁佳人们的人生百态，展现了正邪两赋有情人的人...
+				</div>
+				<div class="content r3">
+					《水浒传》是由中央电视台与中国电视剧制作中心联合出品的43集电视连续剧，根据明代施耐庵的同名小说改编。由张绍林执导，杨争光 、冉平改编，李雪健、周野芒、臧金生、丁海峰...
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 导航栏 */
+.nav {
+	overflow: hidden;
+	width: 40%;
+	margin: 0 auto;
+	background: #F5F5F5;
+	box-sizing: border-box;
+}
+
+.nav>ul li {
+	float: left;
+	line-height: 50px;
+	list-style: none;
+	width: 33%;
+	/* border-left: 1px dotted gray; */
+	/* background-color: aqua; */
+}
+
+
+
+.nav>ul li>a {
+	display: block;
+	color: #6C6C6C;
+	text-decoration: none;
+	line-height: 50px;
+	text-align: center;
+}
+
+.nav>ul li>a:hover {
+	color: #9babb0;
+	border-bottom: 2px solid #8ea0a7;
+}
+
+.nav::after {
+	clear: both;
+}
+
+/* **************************** */

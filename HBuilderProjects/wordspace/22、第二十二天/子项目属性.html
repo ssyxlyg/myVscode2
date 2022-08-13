@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{
+				/* 父级是容器 
+					display:flex;
+					flex-direction:轴线方向
+					justify-content:水平对齐
+					align-items:一根轴线垂直对齐
+					align-content:多跟轴线垂直对齐
+					flex-wrap:允许换行
+				*/
+				width: 700px;
+				/* width: auto; */
+				height: 700px;
+				border: 1px solid  #000;
+				display: flex;
+				/* 主轴方向，默认为row */
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				
+				
+			}
+			/* 子级是项目 */
+			.wrapper div{
+				width: 200px;
+				/* width: auto; */
+				height: 200px;
+				/* height: auto; */
+				
+			}
+			.first{
+				background-color: red;
+				/* flex-basis: 300px; */
+				/* 改变项目顺序 默认为0 */
+				order: 3;
+				/* 单个项目的对齐方式 */
+				align-self: flex-start;
+				/* 放大比例 */
+				flex-grow: 0;
+				/* 缩小比例 */
+				flex-shrink: 1;
+			}
+			.second{
+				background-color: green;
+			}
+			
+			.third{
+				background-color: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="first">1</div>
+			<div class="second">2</div>
+			<div class="third">3</div>
+			
+		</div>
+	</body>
+</html>

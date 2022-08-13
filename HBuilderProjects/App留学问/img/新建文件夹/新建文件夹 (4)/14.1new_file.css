@@ -1,0 +1,166 @@
+body{
+	background-color: #F6CB5D;
+}
+.box{
+	height: 0.9rem;
+	display: flex;
+	justify-content: space-between;
+	padding:0 0.23rem;
+	align-items: center;
+}
+.box .p1{
+	font-size: 0.34rem;
+	color: #333333;
+}
+.box .tu1{
+	width: 0.23rem;
+	height: 0.41rem;
+}
+.box .tu2{
+	width: 0.48rem;
+	height: 0.41rem;
+}
+.box1{
+	height: 1.84rem;
+	background-color: #fef9ed;
+	text-align: center;
+	line-height: 1.84rem;
+}
+.box1 .p1{
+	font-size: 0.72rem;
+	color: #f6cb5d;
+	text-shadow: 0 0 0.1rem
+	rgba(0,0,0,1);
+}
+.box2{
+	margin-top: 0.26rem;
+	padding:0 0.6rem;
+	position: relative;
+}
+.box2 ul{
+	list-style: none;
+	display: flex;
+	text-align: center;
+	justify-content: space-between;
+}
+
+.box2 ul  span{
+	display: inline-block;
+	width: 0.38rem;
+	height: 0.38rem;
+	border-radius: 0.5rem;
+	background-color: #FFFFFF;
+	line-height: 0.38rem;
+	font-size: 0.24rem;
+}
+.box2 ul p{
+	font-size: 0.22rem;
+	color: #333333;
+	margin-top: 0.05rem;
+}
+.xian{
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.13rem;
+	left: 1.45rem;
+	font-size: 0.1rem;
+}
+.xian1{
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.13rem;
+	left: 2.72rem;
+	font-size: 0.1rem;
+}
+.xian2{
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.13rem;
+	left: 3.98rem;
+	font-size: 0.1rem;
+}
+.xian3{
+	color: #FFFFFF;
+	position: absolute;
+	top: 0.13rem;
+	left: 5.25rem;
+	font-size: 0.1rem;
+}
+.fujs{
+	font-size: 0.36rem;
+	color: #333333;
+	margin:0.35rem 0.21rem;
+}
+.diyi{
+	margin: 0 0.21rem 0.19rem;
+	font-size: 0.3rem;
+	color: #333333;
+}
+.box3{
+		margin: 0 0.21rem;
+		width: 7.18rem;
+		background-color: #fef9ed;
+		border-radius: 0.28rem;
+}
+.box3 .p1{
+		margin: 0 auto;
+		width: 6.72rem;
+		font-size: 0.24rem;
+		color: #333333;
+		line-height: 0.43rem;
+		padding-top: 0.2 rem;
+}
+.dier{
+	margin: 0.3rem 0.21rem 0.14rem;
+	font-size: 0.3rem;
+	color: #333333;
+}
+.box4{
+	margin: 0 0.21rem;
+		width: 7.13rem;
+		background-color: #fef9ed;
+		border-radius: 0.28rem;
+}
+.box4 p{
+	margin: 0 auto;
+	width: 6.72rem;
+	font-size: 0.24rem;
+	color: #333333;
+	line-height: 0.43rem;
+	padding-top: 0.2rem;
+}
+.disan{
+		margin: 0.3rem 0.21rem 0.14rem;
+		font-size: 0.3rem;
+		color: #333333;
+}
+.box5{
+		margin: 0 0.21rem;
+		width: 7.19rem;
+		background-color: #fef9ed;
+		border-radius: 0.28rem;	margin: 0 auto;
+}
+.box5 .pp{
+		margin: 0 auto;
+		width: 6.57rem;
+		font-size: 0.26rem;
+		padding-top: 0.05rem;
+}
+.box5 .pp p{
+	margin-top: 0.05rem;
+}
+.dibu{
+	height: 0.68rem;
+	background-color: #f6cb5d;
+		border-top: solid 1px #000000;
+		display: flex;
+		align-items: center;
+		
+}
+.dibu .xianx{
+		width: 2.68rem;
+		height: 0.1rem;
+		background-color: #000000;
+		border-radius: 0.05rem;margin: 0 auto;
+		line-height: 0.68rem;
+}

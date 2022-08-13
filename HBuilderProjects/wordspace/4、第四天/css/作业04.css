@@ -1,0 +1,57 @@
+.wrapper {
+	width: 42%;
+	padding: 20px;
+	height: 60%;
+	margin: auto;
+	background-image: linear-gradient(#CAEEEE, #E5F7F6, #FFFFFF);
+}
+
+.head {
+	text-align: center;
+	line-height: 50px;
+}
+
+.title {
+	color: #467DAC;
+	font-size: 24px;
+	text-align: center;
+	text-shadow: 2px 2px 4px #999999;
+
+
+}
+
+.athor {
+	color: #999999;
+	margin-left: 30px;
+}
+
+.main {
+	text-indent: 30px;
+	line-height: 30px;
+}
+
+.main>span {
+	color: #6D17ED;
+	font-size: 22px;
+	text-shadow: 2px 2px 4px #B0B0B0;
+	padding: 0 5px;
+}
+
+.ent {
+	line-height: 30px;
+	text-indent: 30px;
+}
+
+.ent>span {
+	color: #4C67F4;
+	font-size: 22px;
+	font-style: italic;
+}
+
+.foot {
+	color: #89B252;
+	font-size: 20px;
+	text-decoration: #89B252 underline;
+	text-indent: 30px;
+	line-height: 30px;
+}

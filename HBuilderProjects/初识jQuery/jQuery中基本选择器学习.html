@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// ID选择器
+				// 使用js方式获得元素对象
+				var u = document.getElementById("uname");
+				// alert(u);
+				
+				// Object--[element,element,....]
+				var un = $("#uname");
+				//alert(un[0].value);//JQ对象转换成js对象 JQ[index]-->JS
+									//JS对象转换为JQ对象 $(u)$(js)
+			/****************类选择器*************************/ 
+				
+				var n= $(".in1");
+				// alert(n[0].value);
+				
+				// alert(n.eq(0).val());
+				
+				/***************标签选择器*****************/ 
+				
+				var inp=$("input");
+				// alert(inp);
+				var i = $("input.in1") 
+				
+			})
+		</script>
+	</head>
+	<body>
+		<p>用户名：<input type="text" name="" id="uname" class="in1" value="111"></p>
+		<p>密码：<input type="password" name="" id="pwd" class="in1"></p>
+		<p>密码：<input type="password" name="" id="pwd" ></p>
+	</body>
+</html>

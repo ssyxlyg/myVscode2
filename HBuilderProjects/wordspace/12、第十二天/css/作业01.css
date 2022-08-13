@@ -1,0 +1,76 @@
+.wrapper {
+	width: 340px;
+	margin: 0 auto
+}
+
+.wrapper>p {
+	background-color: #E9185A;
+	line-height: 40px;
+	color: white;
+	font-weight: bold;
+	text-indent: 20px;
+}
+.wrapper .box{
+	height: 40px;
+}
+.wrapper .box li{
+	border-bottom: 1px dashed #A8A5A5;
+
+}
+
+.wrapper .box i {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: black;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+}
+
+.wrapper .box a {
+	display: inline-block;
+	line-height: 40px;
+	padding-left: 10px;
+	color: #A8A5A5;
+}
+
+.wrapper .box li:hover a {
+	color: #E9185A;
+}
+
+.wrapper .box li {
+	border-bottom: 1px dashed #A8A5A5;
+	/* position: relative; */
+}
+
+.box .summary {
+	display: none;
+	/* position: absolute; */
+	/* left: 40px; */
+	/* padding-left: 40px; */
+	/* border: 1px solid black; */
+}
+
+.box .summary img {
+	margin-left: 85px;
+	/* text-align: center; */
+	/* border: 1px solid black; */
+}
+
+.box .summary p {
+	color: #E9185A;
+	text-align: center;
+	/* font-size: 12px; */
+}
+
+.box li:hover i {
+	background-color: #E9185A;
+}
+
+.box li:hover .summary {
+	display: block;
+}

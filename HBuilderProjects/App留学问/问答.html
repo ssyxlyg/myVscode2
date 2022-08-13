@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="./css/base.css" />
+		<link rel="stylesheet" href="./css/foot.css">
+		<style type="text/css">
+			body {
+				width: 100%;
+				height: 8.12rem;
+				background-color: #F4F4F8;
+				position: relative;
+			}
+
+			.box {
+				width: 100%;
+				height: 1.2rem;
+				background-color: #f6cb5d;
+				padding-top: 0.42rem;
+			}
+
+			.box1 {
+				width: 100%;
+				height: 0.45rem;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+
+			.box1 input {
+				width: 3.2rem;
+				height: 0.31rem;
+				border-radius: 14px;
+				background-color: #f4f4f8;
+				border: none;
+				outline: none;
+				background: white url("./img/sousuo.png") no-repeat 10% center;
+				background-size: 0.12rem;
+				font-size: 0.15rem;
+				line-height: 0.31rem;
+				text-indent: 0.5rem;
+			}
+
+			.box1 img {
+				height: 0.2rem;
+			}
+
+			.box2 {
+				width: 100%;
+				height: 0.35rem;
+				padding-left: 0.2rem;
+			}
+
+			.box2 li {
+				/* width: 0.3rem; */
+				height: 0.15rem;
+				line-height: 0.15rem;
+				float: left;
+				margin-right: 0.33rem;
+				margin-top: 0.07rem;
+			}
+
+			.box2 li a {
+				height: 100%;
+				display: block;
+				color: #666666;
+				font-size: 0.15rem;
+			}
+
+			.box2 li a:focus {
+				font-size: 0.18rem;
+				color: #333333;
+			}
+
+			.box3 {
+				width: 100%;
+				height: 1.02rem;
+				background-color: white;
+			}
+
+			.box3-1 {
+				width: 100%;
+				height: 50%;
+				padding-left: 0.2rem;
+				border-bottom: 2px solid #dddddd;
+			}
+
+			.box3-1 li {
+				height: 0.14rem;
+				line-height: 0.14rem;
+				float: left;
+				margin-right: 0.33rem;
+				margin-top: 0.11rem;
+
+			}
+
+			.box3-1 li a {
+				height: 100%;
+				display: block;
+				font-size: 0.14rem;
+				color: #999999;
+			}
+
+			.box3-1 li a:focus {
+				font-size: 0.15rem;
+				color: #333333;
+			}
+
+			.box3-1 li p {
+				width: 0.39rem;
+				height: 0.04rem;
+				background-color: #f79810;
+				border-radius: 2px;
+				margin-top: 0.1rem;
+				display: none;
+			}
+
+			.box3-1 li:hover p {
+				display: block;
+			}
+
+			.box3-2 {
+				width: 100%;
+				height: 50%;
+
+			}
+
+			.box3-2 ul {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+
+
+			}
+
+			.box3-2 li {
+				width: 0.55rem;
+				height: 0.24rem;
+				border-radius: 0.12rem;
+				background-color: #f1f1f1;
+				text-align: center;
+				line-height: 0.24rem;
+				margin-top: 0.16rem;
+				overflow: hidden;
+			}
+
+			.box3-2 li a {
+				display: block;
+				height: 100%;
+				color: #333333;
+				border-radius: 0.12rem;
+			}
+
+			.box3-2 li a:focus {
+				background-color: #fdf4db;
+				color: #f6cb5d;
+			}
+
+			.box4-1 {
+				height: 1.9rem;
+				border-radius: 15px;
+				background-color: #FFFFFF;
+			}
+
+			.box4-11 span {
+				display: inline-block;
+				margin-left: 0.1rem;
+				margin-top: 0.15rem;
+			}
+
+			.box4-11 span:nth-of-type(1) {
+				width: 0.48rem;
+				height: 0.18rem;
+				background-color: #bbdcf5;
+				border-radius: 0.05rem;
+				font-size: 0.11rem;
+				color: #FFFFFF;
+				text-align: center;
+			}
+
+			.box4-11 span:nth-of-type(2) {
+				color: #333333;
+				font-size: 0.14rem;
+			}
+
+			.box4-12 img {
+				height: 0.23rem;
+				margin: 0.08rem 0.09rem 0rem 0.1rem;
+				border-radius: 50%;
+			}
+
+			.box4-12 span {
+				display: inline-block;
+				margin-top: 0.1rem;
+				font-size: 0.12rem;
+				color: #666666;
+
+			}
+
+			.box4-12 ul {
+				margin-top: 0.05rem;
+			}
+
+			.box4-12 li {
+				margin-left: 0.12rem;
+				margin-top: 0.03rem;
+				font-size: 0.13rem;
+				color: #666666;
+			}
+
+			.box4-12 p {
+				margin-left: 0.12rem;
+				color: #999999;
+				font-size: 0.11rem;
+				margin-top: 0.06rem;
+			}
+
+			.box4-2 {
+				height: 1.3rem;
+				border-radius: 15px;
+				background-color: #FFFFFF;
+			}
+
+			.box4-3 {
+				height: 1.27rem;
+				border-radius: 15px;
+				background-color: #FFFFFF;
+			}
+
+			.box4>div {
+				margin-top: 0.1rem;
+			}
+
+			.box4 {
+				padding: 0px 0.1rem;
+			}
+
+			/* .box5 {
+				width: 100%;
+				height: 0.87rem;
+				background-color: white;
+				position: fixed;
+				bottom: 0;
+			}
+
+			.box5 ul {
+				display: flex;
+				justify-content: space-around;
+				margin-top: 0.3rem;
+			}
+
+			.box5 li {
+				height: 0.38rem;
+				text-align: center;
+
+			}
+
+			.box5 li a {
+				height: 100%;
+				display: block;
+				color: #333333;
+				font-size: 0.10rem;
+			}
+
+
+			.box5>ul>li>a>i {
+				width: 0.24rem;
+				height: 0.21rem;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.box5>ul>li:nth-of-type(1) i {
+				background: url("./img/png.png") no-repeat -0.02rem -0.64rem;
+				background-size: 0.24rem;
+			}
+
+			.box5>ul>li:nth-of-type(1):hover i {
+				background: url("./img/png.png") no-repeat -0.02rem -0.43rem;
+				background-size: 0.24rem;
+			}
+
+			.box5>ul>li:nth-of-type(2) i {
+				background: url("./img/png.png") no-repeat -0.02rem 0.01rem;
+				background-size: 0.24rem;
+			}
+
+			.box5>ul>li:nth-of-type(2):hover i {
+				background: url("./img/png.png") no-repeat -0.02rem -0.21rem;
+				background-size: 0.24rem;
+			}
+
+			.box5>ul>li:nth-of-type(3) i {
+				background: url("./img/png.png") no-repeat -0.02rem -0.85rem;
+				background-size: 0.24rem;
+			}
+
+			.box5>ul>li:nth-of-type(3):hover i {
+				background: url("./img/png.png") no-repeat -0.02rem -1.06rem;
+				background-size: 0.24rem;
+			}
+			.box5 .control{
+				width: 1.34rem;
+				height: 0.05rem;
+				background-color: black;
+				border-radius: 0.05rem;
+				margin: 0.1rem auto;
+			} */
+			.end {
+				width: 0.45rem;
+				height: 0.45rem;
+				border-radius: 50%;
+				position: fixed;
+				right: 0.1rem;
+				bottom: 1.2rem;
+				background-color: #f6d351;
+				text-align: center;
+			}
+
+			.end img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<input type="text" placeholder="搜索" />
+				<img src="./img/ty%208%20kb%202.png">
+			</div>
+			<div class="box2">
+				<ul>
+					<li><a href="#">关注</a></li>
+					<li><a href="#">推荐</a></li>
+					<li><a href="#">问答</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">直播</a></li>
+				</ul>
+			</div>
+			<div class="box3">
+				<div class="box3-1">
+					<ul>
+						<li>
+							<a href="#">已解答</a>
+							<p></p>
+						</li>
+						<li>
+							<a href="#">待解答</a>
+							<p></p>
+						</li>
+					</ul>
+				</div>
+				<div class="box3-2">
+					<ul>
+						<li><a href="#">全部</a></li>
+						<li><a href="#">悬赏答</a></li>
+						<li><a href="#">战队</a></li>
+						<li><a href="#">快答</a></li>
+						<li><a href="#">邀请函</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="box4">
+				<div class="box4-1">
+					<div class="box4-11">
+						<span>邀请答</span>
+						<span>英国申请需要哪些材料?</span>
+					</div>
+					<div class="box4-12">
+						<img src="./img/ty9.png"><span>SU老师</span>
+						<ul>
+							<li>1.本科学历证明</li>
+							<li>2.本科成绩单</li>
+							<li>3.个人陈述</li>
+							<li>4.推荐信2份(至少1份学术推荐档案)</li>
+						</ul>
+						<p>42围观&ensp;10回答</p>
+					</div>
+				</div>
+				<div class="box4-2">
+					<div class="box4-11">
+						<span>邀请答</span>
+						<span>高考成绩不好，想要了解一下读外国大学</span>
+					</div>
+					<div class="box4-12">
+						<img src="./img/ty9.png"><span>崛新教育Tian潘老师</span>
+						<ul>
+							<li>想要了解那个国家呢？</li>
+						</ul>
+						<p>14围观&ensp;5回答</p>
+					</div>
+				</div>
+				<div class="box4-3">
+					<div class="box4-11">
+						<span>邀请答</span>
+						<span>出国系列考试中(如雅思、托福、GRE、LSAT)，对在国内找工作有所助益的考试有哪些？</span>
+					</div>
+					<div class="box4-12">
+						<img src="./img/ty9.png"><span>崛新教育Tian潘老师</span>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="box5">
+				<ul>
+					<li>
+						<a href="#">
+							<i></i>
+							<p>首页</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i></i>
+							<p>联系</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i></i>
+							<p>我的</p>
+						</a>
+					</li>
+				</ul>
+				<div class="control">
+					
+				</div>
+			</div> -->
+			<div class="end">
+				<a href="#"><img src="./img/问答.gif">
+				</a>
+			</div>
+			<footer>
+				<div class="foot_control">
+					<div class="foot_nav">
+						<div class="index">
+							<a href="">
+								<i></i>
+								<p>首页</p>
+							</a></div>
+						<div class="lxr"><a href=""><i></i>
+						<p>联系</p>
+						</a></div>
+						<div class="myself"><a href=""><i></i>
+						<p>我的</p>
+						</a></div>
+					</div>
+					<div class="control">
+						
+					</div>
+				</div>
+			</footer>
+	</body>
+</html>

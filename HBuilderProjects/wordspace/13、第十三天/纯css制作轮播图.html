@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="lunbotu.css"> -->
+	<style type="text/css">
+		*{
+		    padding: 0;
+		    margin: 0;
+		}
+		
+		img{
+		    width: 820px;
+		    height: 340px;
+		    float: left;
+		    /* border: 2px solid black; */
+		    
+		}
+		
+		.box{
+		    width: 820px;
+		    height: auto;
+		    overflow: hidden;
+		    margin: 0 auto;
+		    margin-top: 200px;
+		
+		}
+		
+		.box ul{
+		    list-style: none;
+		    width: 4100px;
+		    animation: marginLeft 5s infinite;
+		}
+		/*鼠标悬停时动画暂停*/
+		.box ul:hover{
+		    animation-play-state: paused; 
+		}
+		/*动画*/
+		@keyframes marginLeft 
+		{
+		    0% {
+		        /* margin-left: 0; */
+		
+		    }
+		    15%{
+		        transform: translateX(-820px);
+		        border-radius: 50px;
+		    }
+		    25% {
+		        /* margin-left: -600px; */
+		        transform: translateX(-820px);
+		    }
+		
+		    35%{
+		        transform: translateX(-1640px);
+		    }
+		    50% {
+		        /* margin-left: -1200px; */
+		        transform: translateX(-1640px);
+		    }
+		
+		    60%{
+		        transform: translateX(-2460px);
+		    }
+		    75% {
+		        /* margin-left: -1800px; */
+		        transform: translateX(-2460px);
+		    }
+		    85%{
+		        transform: translateX(-3280px);
+		    }
+		    
+		    100% {
+		        /* margin-left: -2400px; */
+		        transform: translateX(-3280px);
+		    }
+		}
+		/* input:nth-of-type(1):hover+ul{
+			margin-left: 0%;
+			 animation-play-state: paused; 
+		}
+		input:nth-of-type(2):hover+ul{
+			margin-left: 20%;
+			 animation-play-state: paused; 
+		}
+		input:nth-of-type(3):hover+ul li{
+			margin-left: 40%;
+			
+		} */
+
+	</style>
+</head>
+<body>
+	
+    <div class="box">
+        <ul>
+            <li id="num_1"><img src="./img/l-1.jpeg" alt=""></li>
+            <li id="num_2"><img src="./img/l-2.jpeg" alt=""></li>
+            <li id="num_3"><img src="./img/l-3.jpeg" alt=""></li>
+            <li id="num_4"><img src="./img/l-4.jpeg" alt=""></li>
+            <li id="num_5"><img src="./img/l-5.jpeg" alt=""></li>
+        </ul>
+		<input type="button" name="" id="" value="按钮1">
+		<input type="button" name="" id="" value="按钮2">
+		<input type="button" name="" id="" value="按钮3">
+		<input type="button" name="" id="" value="按钮4">
+    </div>
+	
+    
+</body>
+</html>

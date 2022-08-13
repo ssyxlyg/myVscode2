@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 
+			E>F：E的子元素F  
+			E F：E的后代F  
+			E+F: E的相邻的兄弟F
+			E~F: E的通用兄弟F 
+		   */
+			.first+p{
+				color: red;
+			}
+			.first~p{
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="first">11</div>
+			<p>88</p>
+			<p>22</p>
+			<span>33</span>
+			<div class="second">
+				<p>666</p>
+			</div>
+		</div>
+	</body>
+</html>

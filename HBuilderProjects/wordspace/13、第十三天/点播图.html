@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的轮播图</title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+			}
+
+			ul.slides {
+				position: relative;
+				width: 600px;
+				height: 280px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				background-color: #eee;
+				overflow: hidden;
+			}
+
+			li.slide {
+				margin: 0;
+				padding: 0;
+				width: inherit;
+				height: inherit;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-family: Helvetica;
+				font-size: 120px;
+				color: #fff;
+				transition: .5s transform ease-in-out;
+				/* animation: marginLeft 5s infinite; */
+			}
+
+			.slide:nth-of-type(1) {
+				background-color: #F2E205;
+			}
+
+			.slide:nth-of-type(2) {
+				background-color: #F25C05;
+				left: 100%;
+			}
+
+			.slide:nth-of-type(3) {
+				background-color: #495F8C;
+				left: 200%;
+			}
+			.slide:nth-of-type(4) {
+				background-color: green;
+				left: 300%;
+			}
+			.slide:nth-of-type(5) {
+				background-color: skyblue;
+				left: 400%;
+			}
+
+			input[type="radio"] {
+				position: relative;
+				/* z-index: 100; */
+				display: none;
+			}
+
+			.controls-visible {
+				position: absolute;
+				width: 100%;
+				bottom: 12px;
+				text-align: center;
+			}
+
+			.controls-visible label {
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-color: #fff;
+				/* border-radius: 50%; */
+				margin: 0 3px;
+				border: 2px solid #fff;
+			}
+			label img{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+
+		/* 	.slides input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
+				background-color: #333;
+			}
+
+			.slides input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
+				background-color: #333;
+			}
+
+			.slides input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
+				background-color: #333;
+			}
+ */
+			.slides input[type="radio"]:nth-of-type(1):checked~.slide {
+				transform: translatex(0%);
+			}
+
+			.slides input[type="radio"]:nth-of-type(2):checked~.slide {
+				transform: translatex(-100%);
+			}
+
+			.slides input[type="radio"]:nth-of-type(3):checked~.slide {
+			 transform: translatex(-200%);
+			}
+
+			
+		</style>
+	</head>
+
+	<body>
+		<ul class="slides">
+			<input type="radio" id="control-1" name="control" checked>
+			<input type="radio" id="control-2" name="control">
+			<input type="radio" id="control-3" name="control">
+			<input type="radio" id="control-4" name="control">
+			<input type="radio" id="control-5" name="control">
+			<li class="slide"><img src="./" alt=""></li>
+			<li class="slide"><img src="./img/l-2.jpeg" alt=""></li>
+			<li class="slide"><img src="./img/l-3.jpeg" alt="" class=""></li>
+		</ul>
+		<div class="controls-visible">
+			<label for="control-1"><img src="./img/10002.png" alt=""></label>
+			<label for="control-2"><img src="./img/10002.png" alt=""></label>
+			<label for="control-3"><img src="./img/10002.png" alt=""></label>
+			<label for="control-4"><img src="./img/10002.png" alt=""></label>
+			<label for="control-5"><img src="./img/10002.png" alt=""></label>
+		</div>
+	</body>
+
+</html>

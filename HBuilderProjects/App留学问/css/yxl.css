@@ -1,0 +1,137 @@
+header {
+	height: 2.07rem;
+	background-color: #f6cb5d;
+	position: relative;
+	overflow: hidden;
+}
+
+header>p:nth-of-type(1) {
+	width: 1.56rem;
+	height: 0.78rem;
+	background-color: white;
+	border-radius: 0 0 0.78rem 0.78rem;
+	opacity: 0.4;
+	position: absolute;
+	top: 0.88rem;
+	left: -0.3rem;
+}
+
+header {
+	position: relative;
+}
+
+header>p:nth-of-type(2) {
+	width: 3rem;
+	height: 1.5rem;
+	background-color: white;
+	border-radius: 1.5rem 1.5rem 0 0;
+	opacity: 0.4;
+	position: absolute;
+	right: -0.5rem;
+	bottom: -0.5rem;
+}
+
+.header1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 0.44rem;
+}
+
+.header1 img {
+	height: 0.22rem;
+	margin-left: 0.12rem;
+	/* background-color: #ffffff; */
+}
+
+.header1 p:nth-of-type(1) {
+	font-family: PingFang-SC-Bold;
+	font-size: 0.17rem;
+	color: #ffffff;
+}
+
+.header1 p:nth-of-type(2) {
+	width: 0.19rem;
+	height: 0.19rem;
+	border: solid 0.01rem #ffffff;
+	border-radius: 0.1rem;
+	line-height: 0.19rem;
+	margin-right: 0.1rem;
+}
+
+.header1 p:nth-of-type(2) span {
+	margin: 0.05rem;
+	color: white;
+}
+
+.header2 {
+	width: 2.85rem;
+	height: 1.11rem;
+	margin-top: 0.22rem;
+	background: url("../img/光环.png") no-repeat center center;
+	background-size: 2.8rem;
+	margin-left: 0.45rem;
+}
+
+.header2 div {
+	padding-top: 0.33rem;
+}
+
+.header2 div p {
+	text-align: center;
+
+}
+
+.header2 div p:nth-of-type(1) {
+	height: 0.27rem;
+	font-family: PingFang-SC-Heavy;
+	font-size: 0.27rem;
+	color: #ffffff;
+}
+
+.header2 div p:nth-of-type(2) {
+	font-family: PingFang-SC-Bold;
+	font-size: 0.12rem;
+	color: #ffffff;
+	margin-top: 0.1rem;
+}
+
+.header2 div p:nth-of-type(3) {
+	height: 0.11rem;
+	font-family: PingFang-SC-Bold;
+	font-size: 0.11rem;
+	color: #ffffff;
+	margin-top: 0.03rem;
+}
+
+.text {
+	margin-top: 0.04rem;
+}
+
+.text li {
+	height: 0.44rem;
+	border-bottom: 0.01rem solid #eeeeee;
+}
+
+.text li {
+	line-height: 0.44rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.text li p:nth-of-type(1) {
+	font-family: PingFang-SC-Bold;
+	font-size: 0.13rem;
+	color: #333333;
+	margin-left: 0.14rem;
+}
+.text li p:nth-of-type(2) {
+		font-family: PingFang-SC-Bold;
+		font-size: 0.13rem;
+		color: #fa9d3a;
+		margin-right: 0.2rem;
+}
+
+.text1 p:nth-of-type(2){
+	margin-left: 0.08rem;
+}

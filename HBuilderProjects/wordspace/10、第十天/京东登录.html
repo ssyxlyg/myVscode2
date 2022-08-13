@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			.wrapper {}
+
+			.header {
+				width: 990px;
+				margin: 0 auto;
+				padding-top: 10px;
+				/* border: 1px solid #000; */
+			}
+
+			.wrapper img:nth-of-type(2) {
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+
+			.wrapper>.header>div {
+				display: block;
+				height: 22px;
+				font-size: 14px;
+				padding-left: 22px;
+				margin-top: 40px;
+				background: url(./img/q-icon.png) no-repeat left center;
+			}
+
+			.wrapper>.header>div a {
+				color: gray;
+			}
+
+			.wrapper>.header>div:hover a {
+				color: red;
+				text-decoration: underline;
+			}
+
+			/* ********************************* */
+			.summary_bg {
+				background-color: #FFF8F0;
+
+			}
+
+			.summary {
+				width: 800px;
+				margin: 0 auto;
+				text-align: center;
+				padding: 10px 0;
+				/* background: url(./img/icon-tips.png) no-repeat 150px 15px; */
+			}
+
+			.summary p {
+				color: #999;
+				font-size: 12px;
+				display: inline-block;
+			}
+
+			/* .summary i {
+				display: inline-block;
+
+				width: 16px;
+				height: 16px;
+			} */
+
+			/* ******************************* */
+			.contain {
+				background-color: #E93854;
+			}
+
+			.contain .content {
+				width: 990px;
+				height: 475px;
+				margin: 0 auto;
+				background: url(./img/background.png) no-repeat center center;
+			}
+
+			.contain .content .login {
+				width: 346px;
+				height: 400px;
+				background-color: white;
+				margin-top: 20px;
+			}
+
+			.contain .content .login>p {
+				background-color: #FFF8F0;
+				color: #999;
+				font-size: 12px;
+				/* display: inline-block; */
+				padding: 10px;
+				text-align: center;
+			}
+
+			.contain .content .login>p span {
+				padding-left: 8px;
+			}
+
+			.contain .content .login_method {
+				width: 346px;
+				line-height: 55px;
+				border-bottom: 1px solid #D5CCD5;
+			}
+
+			.contain .content .login_method>p {
+				width: 172px;
+				
+			}
+			.contain .content .login_method>p:nth-of-type(1){
+				border-right: 1px solid #D5CCD5;
+			}
+
+			.contain .content .login_method>p a {
+
+				display: block;
+				padding-left: 50px;
+				font-size: 18px;
+			}
+
+			.contain .content .login_method>p:hover a {
+				font-weight: 700;
+				color: #e4393c;
+			}
+			form{
+				width: 304px;
+				/* height: 38px; */
+				margin: 0 auto;
+				padding-top: 20px;
+			}
+			form .user{
+				margin-top: 20px;
+				height: 38px;
+				width: 100%;
+				border: 1px solid gray;
+			}
+			form .user i{
+				display: inline-block;
+				vertical-align: middle;
+				/* border: 1px solid gray; */
+				width: 38px;
+				height: 38px;
+				border-right:1px solid gray ;
+			}
+			form .user:nth-of-type(1) i{
+				
+				background: url(./img/pwd-icons-new.png) no-repeat 0 0 ;
+			}
+			form .user:nth-of-type(2) i{
+				
+				background: url(./img/pwd-icons-new.png) no-repeat -47px 0px ;
+			}
+			form .user input{
+				vertical-align: middle;
+				margin-left: 10px;
+				border:none;
+				width: 250px;
+				outline: none;
+			}
+			/* ************************** */
+			form .forget{
+				margin: 20px 0;
+				
+				
+			}
+			form .forget a{
+				font-size: 14px;
+				color: #666;
+			}
+			form .forget a:hover{
+				color: #E4393C;
+				text-decoration: underline;
+			}
+			
+			form>input{
+				display: block;
+				/* padding: 20px; */
+				width: 300px;
+				height: 40px;
+				/* line-height: 40px; */
+				color: white;
+				background-color: #E4393C;
+				font-size: 20px
+			}
+			/* ********************************** */
+			.login .chart{
+				padding: 30px;
+				font-size: 14px;
+				height: 14px;
+				line-height: 14px;
+			}
+			.login .chart i{
+				display: inline-block;
+				width: 19px;
+				height: 19px;
+				/* border: 1px solid blueviolet; */
+				vertical-align: middle;
+			}
+			.login .chart>i:nth-of-type(1){
+				background: url(./img/QQ-weixin.png) no-repeat ;
+			}
+			.login .chart>i:nth-of-type(2){
+				margin-left: 12px;
+				background: url(./img/QQ-weixin.png) no-repeat -19px 0;
+			}
+			.login .chart span i{
+				background: url(./img/pwd-icons-new.png) no-repeat -103px -74px;
+			}
+			.login .chart span{
+				display: inline-block;
+			}
+			.login .chart span a{
+				color: #B61D1D;
+			}
+			.login .chart span a:hover{
+				text-decoration: underline;
+			}
+			.login .chart span:nth-of-type(1){
+				width: 35px;
+				border-right: 1px solid #D5CCD5;
+			}
+			.login .chart span:nth-of-type(3){
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header clearfix">
+				<img src="./img/logo-201305-b.png" alt="" class="left">
+				<img src="./img/l-icon.png" alt="" class="left">
+				<div class="right"><a href="#">登录界面，调查问卷</a></div>
+			</div>
+			<div class="summary_bg">
+				<div class="summary">
+					<img src="./img/icon-tips.png" alt="">
+					<p>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版《京东隐私政策》已上线，将更有利于保护您的个人隐私。</p>
+				</div>
+
+			</div>
+			<div class="contain">
+				<div class="content">
+					<div class="login right clearfix">
+						<p><img src="./img/icon-tips.png" alt=""><span>京东不会以任何理由要求您转账汇款，谨防诈骗。</span></p>
+						<div class="login_method clearfix">
+							<p class="left"><a href="#">扫码登录</a></p>
+							<p class="left"><a href="#">账号登录</a></p>
+						</div>
+						<form action="" method="GET" class="clearfix">
+							<div class="user"><i></i><input type="text" placeholder="邮箱/用户名/登录手机"></div>
+							<div class="user"><i></i><input type="text" placeholder="密码"></div>
+							<div class="forget right">
+								<a href="">忘记密码</a>
+							</div>
+							<input type="submit" value="登录">
+						</form>
+						<div class="chart">
+							<i></i><span>QQ</span>
+							<i></i><span>微信</span>
+							<span><i></i><a href="">立即注册</a></span>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

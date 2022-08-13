@@ -1,0 +1,98 @@
+<!-- 告诉浏览器按照h5的规范解析 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 给搜索引擎定义关键词 -->
+		<meta name="keywords" content="html css js">
+		<meta name="description" content="网页的描述">
+		<title>标题</title>
+	</head>
+	<body>
+		<!-- 块级标签:独占一行、宽度默认与浏览器一致，可以设置宽高 
+		行级标签:不会换行、宽度由内容撑开，设置宽高无效
+		行内块:不会换行、宽度由内容撑开，可以设置宽高 --> 
+		
+		<!-- 块级 -->
+		<div>
+			<h1>块级元素</h1>
+			 <h1>一级标题-六级标题</h1>
+			 <p>段落</p>
+			 <p>段落</p>
+			 <ul>
+			 	<li>无序列表</li>
+			 	<li>无序列表</li>
+			 </ul>
+			 <ol>
+			 	<li>有序列表</li>
+			 	<li>有序列表</li>
+			 </ol>
+			 <dl>
+			 	<dt>水果</dt>
+			 	<dd>香蕉</dd>
+			 	<dd>苹果</dd>
+			 </dl>
+			 <table border="1" cellspacing="0" cellpadding="10"
+			      rules="all"
+			 >
+				 <tr><td rowspan="2">11</td><td>22</td></tr>
+				 <tr><td>22</td></tr>
+				 <tr><td colspan="2">11</td></tr>
+				 <tr><td>11</td><td>22</td></tr>
+			 </table>
+			 <!-- action提交表单的地址,#提交到本页面
+			      method:提交方式  get/post
+				  input标配:
+				      type：表单域类型 
+				      name：表单名称
+					  value:用来接收用户输入的数据
+			  -->
+			 <form action="#" method="get" >
+				 文本框:<input type="text" name="userName" value="张三"><br>
+				 密码框:<input type="password" name="pwd" value=""><br>
+				 
+				 单选按钮:<input type="radio" id="male" name="sex" value="1">
+				          <label for="male">男</label>
+				          <input type="radio" id="female" name="sex" value="2" checked>
+						  <label for="female">女</label><br>
+				复选框:
+				    <input type="checkbox" name="hobbys" value="1" />运动
+				    <input type="checkbox" name="hobbys" value="2" checked/>购物
+				    <input type="checkbox" name="hobbys" value="3" />看电影<br>
+				下拉框:
+				     <select name="city" multiple>
+				     <!-- <select name="city"> -->
+				     	<option value="1">郑州</option>
+				     	<option value="2" selected>开封</option>
+				     	<option value="3">洛阳</option>
+				     </select><br>
+				多行文本域:<textarea rows="10" cols="20"></textarea><br>
+				文件上传:<input type="file" name="file" value="" multiple/><br>
+				<!-- 提交按钮 -->
+				<input type="submit" value="注册">
+				<input type="image"  src="./img/submit.jpg"><br>
+				<!-- 普通按钮 -->
+				<input type="button" value="删除">
+				<button>修改</button>
+				<!-- 重置按钮 -->
+				<input type="reset" value="重置">
+			 </form>
+		</div>
+		<hr>
+		<div>
+			<h1>行级元素</h1>
+			<span>奇酷</span>
+			<i>倾斜</i><em>倾斜</em>
+			<b>加粗</b><strong>加粗</strong>
+			h<sub>下标</sub> h<sup>上标</sup>
+			<a href="http://www.baidu.com">百度</a>
+		</div>
+		<div>
+			<h1>行内块</h1>
+			<img src="./img/核桃.png" alt="替代文字" title="提示文字" width="200">
+			<img src="./img/核桃.png" alt="替代文字" title="提示文字" width="200">
+			
+			<input type="text">
+		</div>
+	</body>
+</html>

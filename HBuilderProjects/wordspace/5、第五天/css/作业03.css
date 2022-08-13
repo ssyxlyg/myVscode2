@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	background: url(../img/bg.jpg);
+	width: 311px;
+	height: 354px;
+	margin: 10px auto;
+	font-size: 14px;
+}
+
+.pos {
+	padding-top: 75px;
+}
+
+.container {
+	clear: both;
+	line-height: 40px;
+	padding-left: 30px;
+	color: white;
+}
+
+.main {
+	float: left;
+
+}
+
+.inp {
+	float: left;
+	padding-left: 20px;
+}
+
+.inp>input {
+	border-radius: 5px;
+	width: 185px;
+}
+
+.inp>select {
+	border-radius: 5px;
+}
+
+.but {
+	clear: both;
+	text-align: center;
+}
+
+.main>span {
+	color: #ff0000;
+	padding-right: 4px;
+}

@@ -1,0 +1,157 @@
+.wrapper {
+	position: fixed;
+	right: 0;
+	bottom: 100px;
+}
+
+.wrapper ul li {
+	width: 80px;
+	height: 64px;
+	/* border: 1px solid white; */
+	padding: 1px;
+}
+
+.wrapper ul li:nth-of-type(1) {
+	
+	height: 81px;
+	background-color: #00463E;
+}
+
+.wrapper ul li i {
+	display: block;
+	/* margin-top: 20px; */
+	width: 20px;
+	height: 20px;
+	margin: 10px 30px 0 30px;
+	/* border: 1px solid black; */
+}
+
+.wrapper ul li:nth-of-type(1) i {
+
+	/* border: 1px solid #000; */
+	margin: 20px 30px 0 30px;
+	background: url(../img/A1-1.png) no-repeat center center;
+}
+
+.wrapper .inline {
+	position: relative;
+}
+
+.wrapper .sm {
+	position: absolute;
+	left: 52px;
+	bottom: 45px;
+}
+
+.wrapper ul li p {
+	text-align: center;
+
+	margin-top: 2px;
+	font-size: 14px;
+}
+
+.wrapper ul li a {
+	color: #00463E;
+}
+
+.wrapper ul li:nth-of-type(1) p {
+	text-align: center;
+	color: white;
+	margin-top: 5px;
+}
+
+.wrapper ul li:nth-of-type(2) i {
+	background: url(../img/all_2021_63.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(2):hover i {
+	background: url(../img/D1-1.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(2):hover {
+	background-color: #00463E;
+}
+
+.wrapper ul li:nth-of-type(2):hover a {
+	color: white;
+}
+
+.wrapper ul li:nth-of-type(3) i {
+	background: url(../img/all_2021_64.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(3):hover i {
+	background: url(../img/C1-1.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(3):hover {
+	background-color: #00463E;
+}
+
+.wrapper ul li:nth-of-type(3):hover a {
+	color: white;
+}
+
+.wrapper ul li:nth-of-type(4) i {
+	background: url(../img/all_2021_65.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(4):hover i {
+	background: url(../img/F1-1.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(4):hover {
+	background-color: #00463E;
+}
+
+.wrapper ul li:nth-of-type(4):hover a {
+	color: white;
+}
+
+.wrapper ul li:nth-of-type(5) i {
+	background: url(../img/all_2021_66.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(5):hover i {
+	background: url(../img/E1-1.png) no-repeat center center;
+}
+
+.wrapper ul li:nth-of-type(5):hover {
+	background-color: #00463E;
+}
+
+.wrapper ul li:nth-of-type(5):hover a {
+	color: white;
+}
+
+.wrapper .ewm {
+	position: relative;
+}
+
+.wrapper .ewm div:nth-of-type(2) {
+	display: none;
+	position: relative;
+	width: 150px;
+	right: 190px;
+	bottom: 95px;
+	padding: 5px;
+	background-color: rgb(241, 241, 241);
+	/* border: 1px solid black; */
+}
+
+.wrapper .ewm span {
+	display: inline-block;
+	width: 10px;
+	padding: 0;
+	border: 10px solid transparent;
+	border-left: 10px solid rgb(241, 241, 241);
+	;
+	border-right-width: 0;
+	position: absolute;
+	left: 160px;
+	bottom: 70px;
+}
+
+.wrapper .ewm:hover div:nth-of-type(2) {
+	display: block;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/test.css">
+		<style>
+			/* 标签选择器 :选出所有符合条件的标签*/
+			h1{
+				color: red;
+			}
+			p{
+				color: green;
+			}
+			/* 类选择器:选出类名一致的所有标签 .类名*/
+			.active{
+				font-size: 30px;
+			}
+			.second{
+				font-weight: 900;
+			}
+			/* id选择器:唯一不能重复  #id名*/
+			#test{
+				background-color: lightblue;
+			}
+			
+			.ww{
+				background-color: yellow;
+			}
+			
+			/* 并集选择器 */
+			h1,.active{
+			   font-style: italic;
+			}
+			/* 通配符选择器 * 代表所有标签*/
+			*{
+				
+			}
+			.id{ background-color: #0000FF
+				
+			}
+		</style>
+	</head>
+	<body>
+		<h1>奇酷教育</h1>
+		<p class="active" id="test">张三</p>
+		<p class="active second">李四</p>
+		<p class="ww second">王五</p>
+	</body>
+</html>

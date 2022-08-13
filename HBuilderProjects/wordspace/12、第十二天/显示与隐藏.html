@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*  display:原位置不会占用
+				visibility:原位置会继续保留，类似relative
+				
+			 */
+
+			.first {
+				width: 300px;
+				height: 300px;
+				background-color: aqua;
+				display: none;
+			}
+			.second{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				visibility: hidden;
+			}
+			.wrapper div:nth-of-type(1) a:hover+.first {
+				display: block;
+			}
+			
+			.wrapper div:nth-of-type(2) a:hover+.second{
+				visibility: visible;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div>
+				<a href="">显示与隐藏</a>
+				<div class="first"> </div>
+				<p>1111111111</p>
+			</div>
+			<div><a href="">显示与隐藏</a>
+				<div class="second"> </div>
+				<p>22222222222222</p>
+			</div>
+		</div>
+	</body>
+</html>

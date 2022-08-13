@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 如果一个父元素的所有子元素都经过了浮动
+			 就会造成父元素塌陷
+			 
+			 解决边框塌陷：
+				1、给父元素设置高度（具有不确定性）
+				2、父级元素变成行级元素（块级BFC）
+					 display：inline inline-block
+					 float：left right
+					 overflow:hidden
+				3、clear:both
+					 清除周围元素浮动特性
+			 */
+			.first{
+				border: 10px solid black;
+				
+			}
+			.first img{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first">
+			<img src="./img/photo-1.jpg" alt="">
+			<img src="./img/photo-1.jpg" alt="">
+			<img src="./img/photo-1.jpg" alt="">
+			<img src="./img/photo-1.jpg" alt="">
+		</div>
+		<div>
+			qwrewtyu
+			
+		</div>
+	</body>
+</html>

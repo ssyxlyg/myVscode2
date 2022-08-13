@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			.demo a {
+				float: left;
+				display: block;
+				height: 50px;
+				width: 50px;
+				border-radius: 10px;
+				text-align: center;
+				background: #aac;
+				color: blue;
+				font: bold 20px/50px Arial;
+				margin-right: 5px;
+				text-decoration: none;
+			}
+			a[id] {
+				background-color: green;
+			}
+			a[id="first"]{
+				background-color: skyblue;
+			}
+			a[href^="sites"]{
+				background-color: aqua;
+			}
+			a[title$="link"]{
+				background-color: pink;
+			}
+			a[class*="active"]{
+				background-color: bisque;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="demo">
+			<a href="http://www.baidu.com" class="links item first" id="first">1</a>
+			<a href="" class="links active item" title="test website" target="_blank">2</a>
+			<a href="sites/file/test.html" class="links item">3</a>
+			<a href="sites/file/test.png" class="links item"> 4</a>
+			<a href="sites/file/image.jpg" class="links item">5</a>
+			<a href="efc" class="links item" title="website link">6</a>
+			<a href="/a.pdf" class="links item">7</a>
+			<a href="/abc.pdf" class="links item">8</a>
+			<a href="abcdef.doc" class="links item">9</a>
+			<a href="abd.doc" class="linksitem last" id="last">10</a>
+		</p>
+	</body>
+</html>

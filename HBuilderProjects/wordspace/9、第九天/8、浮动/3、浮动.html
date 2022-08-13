@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 标准文档流:根据块级或行级(行内、行内块、文本)的特性从上到下
+			          从左到右的自然排列方式成为标准文档流
+			   浮动流:浮动元素脱离了标准文档流
+				display:标准文档流
+				float:浮动流 
+			*/
+			/* 浮动特性:
+			     1、经过浮动的元素会变成行内块元素 
+				 2、脱离标准文档流，是浮动流
+				 3、块级元素看不到浮动元素，行级元素看的到浮动元素
+				 4、浮动元素所在父级的剩余空间不够，会自动往下一行排列
+				 5、不经过浮动的文本元素会自适应剩余空间自然环绕排列，
+				   经过浮动的文本元素不会环绕排列，剩余空间不够另起一行
+			*/
+		  
+			.wrapper .first{
+				border: 2px dashed red;
+				/* 左浮动 */
+				float: left;
+			}
+			
+			.wrapper .second{
+				border: 2px solid green;
+				float:left;
+			}
+			.wrapper .third{
+				border: 1px solid blue;
+				float: left;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="first"><img src="./img/photo-1.jpg" alt=""></div>
+			<div class="second"><img src="./img/photo-2.jpg" alt=""></div>
+			<div class="third">
+				邻水县是广安市本轮疫情中心，当地疫情始于5月9日
+			</div>
+			<div class="third">
+				邻水县是广安市本轮疫情中心，当地疫情始于5月9日
+				据“邻水发布”微信公众号消息，5月15日，广安市召开邻水“5.09”疫情处置工作视频调度会，发出集中攻坚清零行动总动员，明确要求全市上下全力支持邻水县打好疫情防控攻坚战。会议称，当前，全市疫情防控工作正处于关键时期，党中央、国务院和省委、省政府明确要求，必须在最短时间内实现社会面清零。
+			</div>
+		</div>
+	</body>
+</html>

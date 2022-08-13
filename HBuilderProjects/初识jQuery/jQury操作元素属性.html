@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			function demo1(){
+				// 获得并操作元素属性
+				var inp = $("#uu");
+				
+				// 获得元素的属性
+				// inp.arrt("value")获得文本框固有属性值
+				// console.log(inp.attr("type")+"-------"+inp.attr("name")+"-----------"+inp.arrt("value"));
+				// 获得实时属性
+				console.log(inp.val());
+				
+				// 操作元素属性
+				
+				// inp.attr("type","button");
+				// inp.attr("value","234");
+				// {key:value,key2:value2,.....}---json
+				inp.attr({"type":"button","value":"789"});
+				
+				// 判断 ii文本框是否被勾选了
+				// var f = $("#ii").attr("checked");
+				// prop("checked|selected|enabled|disabled");
+				var g = $("#ii").prop("checked");
+				console.log(g);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" onclick="demo1()" name="" id="" value="操作元素属性">
+		<hr/>
+		<p>
+			<input type="text" name="uname" id="uu" value="123">
+		</p>
+		<p>
+			爱好：
+			<input type="checkbox" name="z_bmw" id="ii">抽烟
+			<input type="checkbox" name="z_bmw" id="" checked>喝酒
+			<input type="checkbox" name="z_bmw" id="">烫头
+		</p>
+	</body>
+</html>

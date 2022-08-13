@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			.wrapper {
+				width: 100%;
+				/* margin: 0 auto; */
+				background-color: black;
+				height: 38px;
+			}
+
+			.nav {
+				width: 500px;
+				margin: 0 auto;
+			}
+
+			.nav>li {
+				float: left;
+				position: relative;
+			}
+
+			.nav li {
+				width: 100px;
+				height: 38px;
+				line-height: 38px;
+				text-align: center;
+			}
+
+			.nav li a {
+				color: white;
+			}
+
+			/* .nav .subnav a{
+				color: white;
+			} */
+			.nav .subnav {
+				display: none;
+				background-color: black;
+				position: absolute;
+				left: 0px;
+				top: 38px;
+
+			}
+
+			.nav .subnav li {
+				position: relative;
+			}
+
+			.nav>li:hover .subnav {
+				display: block;
+			}
+
+			.nav li:hover {
+				background-color: mediumpurple;
+			}
+
+			.nav .subnav li:hover>a {
+				color: grey;
+			}
+
+			.nav .subnav li:hover .innernav {
+				display: block;
+				color: gray;
+				/* background-color: mediumpurple; */
+			}
+
+			.innernav {
+				display: none;
+				position: absolute;
+				left: 100px;
+				top: 0;
+				background-color: black;
+				color: white;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul class="nav">
+				<li>
+					<a href="">星期一</a>
+					<ul class="subnav clearfix">
+						<li>
+							<a href="">三点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="">六点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>
+
+						</li>
+						<li>
+							<a href="">九点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="">十二点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>K
+						</li>
+						<li><a href="">十五点</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">星期二</a>
+					<ul class="subnav">
+						<li>
+							<a href="">4点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>
+						</li>
+						<li><a href="">六点</a></li>
+						<li><a href="">九点</a></li>
+						<li><a href="">十二点</a></li>
+						<li><a href="">十五点</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">星期三</a>
+					<ul class="subnav">
+						<li><a href="">5点</a></li>
+						<li><a href="">六点</a></li>
+						<li><a href="">九点</a></li>
+						<li><a href="">十二点</a></li>
+						<li>
+							<a href="">十五点</a>
+							<ul class="innernav">
+								<li><a href="">122</a></li>
+								<li><a href="">21</a></li>
+								<li><a href="">333</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="">星期四</a>
+					<ul class="subnav">
+						<li><a href="">三点</a></li>
+						<li><a href="">六点</a></li>
+						<li><a href="">九点</a></li>
+						<li><a href="">十二点</a></li>
+						<li><a href="">十五点</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">星期五</a>
+					<ul class="subnav">
+						<li><a href="">三点</a></li>
+						<li><a href="">六点</a></li>
+						<li><a href="">九点</a></li>
+						<li><a href="">十二点</a></li>
+						<li><a href="">十五点</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//时间的绑定
+				// $("#bu1").click(function(){
+				// 	alert("单击事件");
+				// })
+				$("#bu1").dblclick(function(){
+					alert("双击事件")
+				})
+				/*********绑定多个事件********/
+				$("#bu2").bind({
+					click:function(){
+						alert("单击事件")
+					},
+					dbclick:function(){
+					},
+					onmousedown:function(){
+					}
+				})
+				/***********one事件的使用***********/ 
+				$("#bu3").one("click",function(){
+					alert("one事件执行一次");
+				})
+				/*********trigger方法学习********（重要）*/ 
+				$("#bu4").click(function(){
+					$("#bu1").trigger("click");
+					$("#bu2").trigger("dblclick");
+				})
+				/***********事件的解绑***************/ 
+				$("#bu5").click(function(){
+					// alert("单击事件");
+					$("#bu1").unbind("dblclick");
+				})
+			})
+			// onload事件
+			$(function(){
+				
+			})
+			jQuery(function(){
+				
+			})
+			$(document).ready(function(){
+				
+			})
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="bu1" value="事件绑定A">
+		<input type="button" name="" id="bu2" value="事件绑定B">
+		<input type="button" name="" id="bu3" value="事件绑定C">
+		<input type="button" name="" id="bu4" value="事件绑定D">
+		<input type="button" name="" id="bu5" value="事件绑定E">
+	</body>
+</html>

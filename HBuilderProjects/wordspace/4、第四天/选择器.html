@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 标签选择器：选出所有符合条件的标签 */
+			p{
+				color: bisque;
+			}
+			div{
+				background-color: aquamarine;
+			}
+			/* 类选择器： */
+			.content{
+				font-size: 30px;
+			}
+			.ls{
+				font-weight: bold;
+			}
+			/* id选择器：唯一不能重复 */
+			#test{
+				background-color: aqua;
+			}
+			/* 并集选择器 */
+			h1,p{
+				font-style: italic;
+			}
+			/* 通配符选择器 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>奇酷教育</h1>
+		<p class="content" id="test">张三</p>
+		<p class="content ls">李四</p>
+		<p>赵六</p>
+		<div>王五</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function demo(){
+				
+			} 
+		</script>
+		<style type="text/css">
+			.grad1 {
+				height: 150px;
+				width: 200px;
+				/* background-color: red; */
+				/* 浏览器不支持的时候显示 */
+				background-image: radial-gradient(red, green,blue);
+				
+				/* 标准的语法（必须放在最后） */
+			}
+			.grad2{
+				height: 150px;
+				width: 200px;
+				background-color: aqua;
+				background-image: linear-gradient(45deg,red,green, blue);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grad1"></div>
+		<div class="grad2"></div>
+	</body>
+</html>

@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			body {
+				overflow-x: hidden;
+			}
+
+			header {
+				width: 100%;
+				min-width: 1200px;
+				/* height: 166px; */
+				background-color: #23282c;
+				/* background-position-x: 0%;
+				background-position-y: 0%;
+				background-repeat: repeat;
+				background-attachment: scroll;
+				background-image: none;
+				background-size: auto;
+				background-origin: padding-box;
+				background-clip: border-box; */
+				box-shadow: 0 15px 16px rgba(0, 0, 0, 0.02);
+				/* border:1px solid #23282c; */
+			}
+
+			.head-sub {
+				height: 110px;
+				/* border: 1px solid white; */
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			.head-sub .logo img {
+
+				width: 284px;
+				height: 54px;
+				line-height: 110px;
+				display: block;
+				float: left;
+				margin: 28px 140px 0 20px;
+
+			}
+
+			.search {
+				margin-top: 36px;
+				float: left;
+				/* height: inherit; */
+				/* line-height: 110px; */
+			}
+
+			.head-sub .search_front,
+			.search_back {
+				float: left;
+			}
+
+			/* 箭头图标 */
+			.tb {
+				position: relative;
+			}
+
+			.up,
+			.down {
+				width: 0px;
+				height: 0;
+			}
+
+			.up {
+				border: 7px solid transparent;
+				border-top: 7px solid #606058;
+				border-bottom-width: 0;
+			}
+
+			.down {
+				border: 7px solid transparent;
+				border-top: 7px solid #2C323A;
+				border-bottom-width: 0;
+				position: absolute;
+				top: -2px
+			}
+
+			/* ***************** */
+			.search_front {
+				position: relative;
+				width: 90px;
+				color: #666;
+				font-size: 14px;
+				height: 36px;
+				/* padding: 10px; */
+				line-height: 36px;
+				padding: 0 10px;
+				text-align: center;
+				border: 1px solid #919496;
+				background-color: #2C323A;
+				border-right: none;
+			}
+
+			.search .outnav>li {
+				/* position: relative; */
+				width: 90px;
+				height: 36px;
+				text-align: left;
+			}
+			
+			.outnav i{
+				position: absolute;
+				top: 13px;
+				right: 5px;
+				display: block;
+				/* float: left; */
+				width: 16px;
+				height: 7px;
+				/* border: 1px solid red; */
+			}
+			.search_front .innav {
+				display: none;
+				width: inherit;
+				/* line-height: inherit; */
+				/* padding: 10px; */
+				background-color: white;
+				position: absolute;
+				text-align: center;
+				left: 0;
+				top: 36px;
+				width: 110px;
+				z-index: 100;
+			}
+
+			.search_front .innav li {
+
+				/* width: inherit; */
+				line-height: 36px;
+				width: 110px;
+				/* text-align: center; */
+				/* padding: 10px 0; */
+			}
+
+			.search_front .outnav>li:hover .innav {
+				display: block;
+			}
+
+			.innav a {
+				display: block;
+				height: 36px;
+				width: 90px;
+				color: black;
+			}
+
+			.innav li:hover {
+				background-color: rgb(198, 198, 198);
+			}
+
+			.innav li:hover a {
+				color: white;
+			}
+
+			.search_back {
+				border: 1px solid #919496;
+				/* border:1px solid white; */
+				border-left: none;
+				width: 300px;
+
+			}
+
+			.search_back input {
+				/* width: 300px; */
+				height: 36px;
+				line-height: 36px;
+				background-color: #23282c;
+				border: none;
+				outline: none;
+				text-indent: 10px;
+				color: #64676A;
+			}
+
+			.search button {
+				height: 38px;
+				width: 115px;
+				background-color: #D7BF67;
+				border: none;
+				outline: none;
+				color: white;
+			}
+
+			form .tel {
+				/* display: inline-block; */
+				/* line-height: 110px; */
+				margin-left: 80px;
+				float: left;
+				padding: 35px;
+				/* height: 110px; */
+			}
+
+			form .tel i {
+				display: inline-block;
+				float: left;
+				width: 40px;
+				height: 40px;
+				background: url(./img/10088.png) no-repeat center center;
+			}
+
+			.tel p:nth-of-type(1) {
+				color: white;
+				font-size: 14px;
+			}
+
+			.tel p:nth-of-type(2) {
+				color: #d3bf53;
+				font-size: 19px;
+			}
+
+			.tel div {
+				float: left;
+			}
+
+			/* *********导航****** */
+			nav {
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			nav .subnav {
+				/* height: 56px; */
+				padding-left: 18px;
+				background-color: #2C323A;
+			}
+
+			nav .subnav>li {
+				float: left;
+				position: relative;
+
+				/* height: inherit; */
+				/* line-height: 56px; */
+				text-align: center;
+			}
+
+			nav .subnav>li>a {
+				display: block;
+				margin: 17px 0;
+				width: 126px;
+				border-right: 1px solid #565B61;
+				color: white;
+
+			}
+
+			.subnav .final_border a,
+			.final a {
+				border: none !important;
+			}
+
+			.subnav .final {
+				float: right;
+				margin-top: -4px;
+				margin-right: 25px;
+			}
+
+			.subnav .final a {
+				background-color: #DFC66A;
+				width: 87px;
+				height: 26px;
+				line-height: 26px;
+				border-radius: 15px;
+				font-size: 14px;
+			}
+
+			.subnav .menu {
+				display: none;
+				position: absolute;
+				top: 56px;
+				background-color: white;
+			}
+
+			.subnav .menu li a {
+				display: block;
+				width: 106px;
+				padding: 10px;
+				color: #000;
+			}
+
+			.subnav>li:hover .menu {
+				display: block;
+			}
+
+			.subnav>li:hover>a {
+				color: #D3BF53;
+			}
+
+			.menu li:hover a {
+				background-color: #2C323A;
+				color: #D3BF53;
+			}
+
+			/******轮播*************/
+			.slide {
+				width: 100%;
+			}
+
+			.slide a {
+				display: block;
+				width: 100%;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-position: center;
+				margin: auto;
+				background-size: cover;
+				height: 100%;
+			}
+
+			.slide a img {
+				width: 100%;
+			}
+
+			/* ******************** */
+			.container {
+				width: 100%;
+			}
+
+			.container ul {
+				width: 1360px;
+				margin: 0 auto;
+			}
+
+			.container ul li {
+				float: left;
+				width: 270px;
+				height: 150px;
+				border-left: 1px solid #f1f1f1;
+			}
+
+			.container .brand_1 {
+				background: url(./img/10099.png) no-repeat 34px center;
+				border: none;
+			}
+
+			.container .brand_1:hover {
+				background: black url(./img/index_icon01_after.png) no-repeat 34px center;
+			}
+
+			.container .brand_1:hover a {
+				color: #D3BF53;
+			}
+
+			.container .brand_2 {
+				background: url(./img/10100.png) no-repeat 34px center;
+			}
+
+			.container .brand_2:hover {
+				background: black url(./img/index_icon02_after.png) no-repeat 34px center;
+			}
+
+			.container .brand_2:hover a {
+				color: #D3BF53;
+			}
+
+			.container .brand_3 {
+				background: url(./img/10101.png) no-repeat 34px center;
+			}
+
+			.container .brand_3:hover {
+				background: black url(./img/index_icon03_after.png) no-repeat 34px center;
+			}
+
+			.container .brand_3:hover a {
+				color: #D3BF53;
+			}
+
+			.container .brand_4 {
+				background: url(./img/10102.png) no-repeat 34px center;
+			}
+
+			.container .brand_4:hover {
+				background: black url(./img/index_icon04_after.png) no-repeat 34px center;
+			}
+
+			.container .brand_4:hover a {
+				color: #D3BF53;
+			}
+
+			.container .brand_5 {
+				background: url(./img/10103.png) no-repeat 34px center;
+			}
+
+			.container .brand_5:hover {
+				background: black url(./img/index_icon05_after.png) no-repeat 34px center;
+			}
+
+			.container .brand_5:hover a {
+				color: #D3BF53;
+			}
+
+			.container .brand a {
+				display: block;
+				/* vertical-align: baseline; */
+				padding: 40px 0 40px 106px;
+				margin-top: 12px;
+				color: black;
+			}
+
+			.container .brand div {
+				height: 30px;
+				line-height: 30px;
+				width: 152px;
+			}
+
+			.container .brand .title {
+				font-size: 22px;
+			}
+
+			.container .brand .desc {
+				font-size: 14px;
+			}
+
+			/*************公共**************/
+			.index_title {
+				padding: 45px 0 40px 0;
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			.index_title h1 {
+				font-size: 36px;
+				font-weight: bold;
+				color: #fff;
+				text-align: center;
+			}
+
+			.index_title p {
+				color: #999999;
+				text-align: center;
+				margin: 10px 0 15px;
+			}
+
+			.index_title span {
+				width: 45px;
+				height: 5px;
+				background: #d3bf53;
+				margin: auto;
+				display: block;
+				margin: auto;
+			}
+
+			/* ************************ */
+			.index_1 {
+				width: 100%;
+				height: 620px;
+				background: url(./img/10104.jpg) 50% top;
+			}
+
+
+			.service {
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			.service_left {
+				margin-left: 30px;
+				width: 326px;
+				height: 348px;
+				float: left;
+				background-color: white;
+			}
+
+			.form_title {
+				text-align: center;
+				color: #212628;
+				font-size: 24px;
+				padding-top: 25px;
+			}
+
+			.form_subtitle {
+				font-size: 14px;
+				text-align: center;
+				padding: 8px 0;
+			}
+
+			.form_subtitle span {
+				color: #d3bf53;
+			}
+
+			.form_suptitle {
+				font-size: 14px;
+				text-align: center;
+				padding: 5px 0;
+			}
+
+			.form_suptitle span {
+				color: #d3bf53;
+			}
+
+			.input_list input {
+				background: #f9f9f9;
+				color: #666;
+				width: 280px;
+				height: 40px;
+				line-height: 40px;
+				padding-left: 10px;
+				margin: 5px 23px;
+				box-sizing: border-box;
+				border: 1px solid #EDECEC;
+			}
+
+			.input_list .btn {
+				width: inherit;
+			}
+
+			.input_list button {
+				padding: 11px 0;
+				background: #d3bf53;
+				border-radius: 3px;
+				width: 280px;
+				margin-top: 5px;
+				margin-left: 23px;
+				border: none;
+				outline: none;
+				/* margin: auto;
+				margin-top: auto; */
+				text-align: center;
+			}
+
+			.server_right {
+				float: left;
+				width: 986px;
+			}
+
+			.service_right_top {
+				float: left;
+				width: 984px;
+				/* height: 169px; */
+			}
+
+			.service_right_top img {
+				width: 328px;
+				height: 169px;
+			}
+
+			.service_right_top a:nth-of-type(3) img {
+				width: 286px;
+			}
+
+			.service_right_top a {
+				float: left;
+				margin-left: 10px;
+			}
+
+			.service_right_bottom {
+				/* width: 984px; */
+				/* float: left; */
+			}
+
+			.service_right_bottom a:nth-of-type(1) img {
+				width: 666px;
+				height: 169px;
+			}
+
+			.service_right_bottom a:nth-of-type(2) img {
+				width: 286px;
+				height: 169px;
+			}
+
+			.service_right_bottom img {
+				float: left;
+				margin-left: 10px;
+				margin-top: 10px;
+			}
+
+			/***********************/
+			.index_anli {
+				background-color: #1D1E22;
+			}
+
+			.container_1920 .container_anli_title {
+				padding: 45px 0 40px 0;
+			}
+
+			.container_anli_title h1 {
+				text-align: center;
+				color: white;
+				font-size: 36px;
+				font-weight: bold;
+				font-family: "微软雅黑";
+			}
+
+			.container_anli_title p {
+				color: #999999;
+				text-align: center;
+				margin: 10px 0 15px 0;
+			}
+
+			.container_anli_title span {
+
+				width: 45px;
+				height: 5px;
+				background: #d3bf53;
+				margin: auto;
+				display: block;
+				margin: auto;
+			}
+
+			.tag {
+				width: 1349px;
+				text-align: center;
+				margin: 0 auto;
+			}
+
+			.tag a {
+				color: #999;
+				font-size: 15px;
+			}
+
+			.tag i {
+				color: #999;
+				padding: 0 20px;
+			}
+
+			.container_over {
+				width: 1349px;
+				padding-top: 40px;
+				margin: 0 auto;
+			}
+
+			.container_over .first_line a {
+				display: inline-block;
+				float: left;
+				width: 19.8%;
+				margin-left: 0.2%;
+				margin-bottom: 0.2%;
+			}
+
+			.container_over .first_line img {
+				float: left;
+				width: 95%;
+
+			}
+
+			.more_anli {
+				width: 100%;
+				padding: 42px 0;
+
+			}
+
+			.more_anli a {
+				display: block;
+				width: 250px;
+				margin: 0 auto;
+			}
+
+			.more_anli button {
+				width: 250px;
+				height: 42px;
+				background: #d7bf67;
+				color: #fff;
+				border: none;
+			}
+
+			/* ********************* */
+			.index_vr {
+				width: 100%;
+				background: url(./img/10114.jpg) center top;
+			}
+
+
+
+			.vr_top {
+				width: 1349px;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.vr_top a {
+				display: block;
+				width: 1300px;
+				margin: 0 auto;
+
+			}
+
+			.vr_top a img {
+				width: 100%;
+			}
+
+			.vr_top_text {
+				position: absolute;
+				width: 1300px;
+				/* margin: auto; */
+				height: 50px;
+				left: 25px;
+				line-height: 50px;
+				bottom: 0px;
+				text-align: center;
+				background: rgba(0, 0, 0, .5);
+				font-size: 18px;
+				z-index: 50;
+			}
+
+			.vr_top_text a {
+				color: white;
+			}
+
+			.vr_my {
+				position: absolute;
+				top: 50px;
+				right: 75px;
+				z-index: 50;
+			}
+
+			.vr_bottom {
+				width: 1349px;
+				margin: 0 auto;
+				/* padding-left: 18px; */
+			}
+
+			.vr_bottom_container {
+				width: 1317px;
+				margin: 0 auto;
+			}
+
+			.vr_bottom a {
+				display: block;
+				position: relative;
+				float: left;
+				/* margin-left: 7px; */
+				padding: 20px 0px 0 8px;
+				width: 429px;
+				height: 270px;
+			}
+
+			.vr_bottom img {
+				width: 100%;
+			}
+
+			.vr_bottom_text {
+				width: 429px;
+				height: 35px;
+				line-height: 35px;
+				position: absolute;
+				bottom: 0;
+				color: white;
+				text-align: center;
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			.vr_bottom_text a {
+				display: block;
+			}
+
+			.vr_bottom_tip {
+				position: absolute;
+				display: none;
+				width: 429px;
+				height: 270px;
+				top: 20px;
+				/* margin-top: -25px; */
+				/* left: 50%; */
+				/* margin-left: -25px; */
+				background-color: rgba(0, 0, 0, .5);
+			}
+
+			.vr_bottom_tip i {
+				display: block;
+				width: 50px;
+				height: 50px;
+			}
+
+			.vr_bottom_tip i img {
+				padding: 110px 190px;
+			}
+
+			.vr_bottom_container a:hover .vr_bottom_tip {
+				display: block;
+			}
+
+			.vr_bottom_container a:hover .vr_bottom_text {
+				display: none;
+			}
+
+			.more {
+				width: 100%;
+			}
+
+			.more>div {
+				width: 1349px;
+				margin: 0 auto;
+				padding: 40px 0;
+			}
+
+			.more a {
+				display: block;
+				height: 44px;
+				width: 292px;
+				margin: 0 auto;
+			}
+
+			.more a button {
+				width: 250px;
+				height: 44px;
+				color: #23282c;
+				border: 1px solid #23282c;
+				background: none;
+			}
+
+			/* ****************** */
+			.designer {
+				width: 100%;
+				background: url(./img/10115.jpg) center top;
+			}
+
+
+
+			/* *********** */
+			.plot {
+				width: 100%;
+			}
+
+			.plot .plot_container {
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			.plot .plot_content div {
+				width: 322.25px;
+				float: left;
+				margin-left: 10px;
+			}
+
+			.plot_container a {
+				display: block;
+
+			}
+
+			.plot_container a img {
+				/* float: left; */
+				width: 100%;
+			}
+
+			.plot_content span {
+				display: inline-block;
+				margin: 25px 0;
+				color: #666;
+				/* padding-left: 5px; */
+				/* height: 67px; */
+			}
+
+			.plot_content span:nth-of-type(1) {
+				border-left: 6px solid #d3bf53;
+				box-sizing: border-box;
+				width: 106px;
+				font-size: 18px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				vertical-align: middle;
+				text-align: left;
+				/* position: relative; */
+				padding-left: 10px;
+			}
+
+			.plot_content span:nth-of-type(2) {
+				float: right;
+				padding-top: 5px;
+				/* width: 200px; */
+			}
+
+			.plot_content span:nth-of-type(2) a {
+				font-size: 14px;
+				float: left;
+				padding: 0 5px;
+				height: 14px;
+				line-height: 14px;
+				border-left: 2px solid black;
+			}
+
+			.plot_content span:nth-of-type(2) a:nth-of-type(1) {
+				border: none;
+			}
+
+			.plot_content span:nth-of-type(2) a i {
+				color: #d3bf53;
+				font-style: normal;
+			}
+
+			.plot_content span:nth-of-type(2) a {}
+
+			.plot_content span:nth-of-type(2) a:hover {
+				color: #d3bf53;
+			}
+
+			/* ********************* */
+			.index_gongdi {
+				width: 100%;
+				position: relative;
+				/* height: 243px; */
+				/* background: url(./img/10117.jpg) center top; */
+			}
+
+			.index_gongdi .gongdi_bg {
+				width: 100%;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-position: center;
+				margin: auto;
+				background-size: contain;
+				/* height: 243px; */
+				z-index: -1;
+			}
+
+			.index_gongdi .gongdi_bg img {
+				width: 100%;
+				height: 243px;
+			}
+
+			.index_gongdi .m {
+				width: 1349px;
+				margin: 0 auto;
+			}
+
+			.index_gongdi .index_title {
+				position: absolute;
+				top: 0;
+				/* 	width: 1349px;
+				margin: 0 auto; */
+			}
+
+			.process {
+				background-color: #1D1E22;
+				width: 100%;
+			}
+
+			.process_bg {
+				width: 1200px;
+				margin: 0 auto;
+			}
+
+			/* ***************** */
+			.index_news {
+				width: 100%;
+
+			}
+
+			.index_news .index_news_list .new {
+				width: 1340px;
+				margin: 0 auto;
+				margin-bottom: 30px;
+			}
+
+			.index_news .index_news_list .new li {
+				float: left;
+				width: 630px;
+				margin-left: 25px;
+				padding-bottom: 20px;
+
+			}
+
+			.new .img_wrapper {
+				width: 220px;
+				height: 110px;
+				overflow: hidden;
+				float: left;
+			}
+
+			.new .img_wrapper:hover img {
+				transform: scale(1.2);
+			}
+
+			.new .img_wrapper img {
+				width: 220px;
+				height: 165px;
+				transition: all 2s;
+			}
+
+			.new .index_news_text {
+				float: left;
+				margin-left: 20px;
+			}
+
+			.index_news_text a {
+				color: black;
+			}
+
+			.index_news_text p:nth-of-type(2) a {
+				font-size: 12px;
+				color: #666;
+				padding: 10px 0;
+			}
+
+			/* ******************* */
+			footer {
+				margin-top: 80px;
+				background: url(./img/10119.jpg) top center;
+				width: 100%;
+				position: relative;
+			}
+
+			.foot_box {
+				position: relative;
+				width: 1349px;
+				height: 400px;
+				margin: 0 auto;
+			}
+
+			.foot_box .foot_nav {
+				float: right;
+			}
+
+			.foot_box dl {
+				float: left;
+				margin-top: 40px;
+				text-align: center;
+				border-right: 1px solid rgba(255, 255, 255, .1);
+
+			}
+
+			.foot_box dl dt {
+				line-height: 30px;
+				height: 30px;
+				width: 120px;
+				/* padding: ; */
+			}
+
+			.foot_box dl a {
+				color: #fff;
+
+				line-height: 30px;
+			}
+
+			.foot_info {
+				position: absolute;
+				top: -50px;
+				left: 20px;
+				width: 428px;
+				height: 372px;
+				background-color: #23282c;
+			}
+
+			.ewm {
+				width: 340px;
+				margin: 0 auto;
+				padding-top: 30px;
+			}
+
+			.ewm>div:nth-of-type(1) {
+				float: left;
+
+			}
+
+			.ewm>div:nth-of-type(2) {
+				float: right;
+			}
+
+			.ewm>div img {
+				width: 126px;
+			}
+
+			.ewm p {
+				text-align: center;
+				line-height: 28px;
+				color: #666;
+			}
+
+			.foot_info p i {
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				/* border: 1px solid red; */
+				background: url(./img/10120.png) no-repeat center center;
+				vertical-align: middle;
+				margin-left: 45px;
+				margin-right: 10px;
+				position: relative;
+				bottom: 2px;
+			}
+
+			.foot_info>p {
+				/* padding-left: 5px; */
+				/* text-align: center; */
+				color: #525252;
+				margin-top: 30px;
+			}
+
+			.foot_info .location {
+				background: #2c323a;
+				padding: 10px;
+				margin-top: 10px;
+				margin-left: 35px;
+				color: #d3bf53;
+				width: 340px;
+			}
+
+			.foot_info h1 {
+				color: #d3bf53;
+				margin-left: 45px;
+			}
+
+			.foot_last_bg {
+				width: 100%;
+				background: rgba(0, 0, 0, .5);
+				height: 45px;
+				position: absolute;
+				bottom: 0;
+			}
+
+
+			.foot_last {
+				position: absolute;
+				bottom: 0;
+				left: 274px;
+				height: 45px;
+				line-height: 45px;
+				color: #999999;
+				font-size: 14px;
+				width: 100%;
+				/* margin: 0 auto; */
+				/* text-align: center; */
+			}
+
+			.foot_last a {
+				color: #999999;
+			}
+
+			/* ************* */
+			.wechat {
+				position: fixed;
+				right: 0;
+				top: 55%
+			}
+
+			.wechat img {
+				width: 150px;
+				/* height: 202px; */
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="head-sub">
+				<form action="#" method="get" class="clearfix">
+					<a href="" class="logo"><img src="./img/10087.png" alt=""></a>
+					<div class="search clearfix">
+						<div class="search_front">
+							<!-- <div class="search_content"></div> -->
+							<ul class="outnav">
+								<li>
+									装修案例
+									<i>
+										<div class="tb">
+
+											<div class="up"></div>
+											<div class="down"></div>
+										</div>
+									</i>
+
+
+									<ul class="innav">
+										<li><a href="">精选案例</a></li>
+										<li><a href="">设计大咖</a></li>
+										<li><a href="">热装楼盘</a></li>
+										<li><a href="">线下门店</a></li>
+										<li><a href="">装修知识</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="search_back"><input type="text" placeholder="关键字"></div>
+						<button>搜索</button>
+					</div>
+					<div class="tel">
+						<i></i>
+						<div>
+							<p>24小时咨询电话</p>
+							<p>0371-8888-5858</p>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<nav>
+				<ul class="subnav clearfix">
+					<li><a href="index.html">首页</a></li>
+					<li>
+					<li>
+						<a href="">装修定位</a>
+						<ul class="menu">
+							<li><a href="The Logicians.html">沪上名家</a></li>
+							<li><a href="The Logiciansplus.html">美墅名家</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">精装案例</a>
+						<ul class="menu">
+							<li><a href="projects.html">精选案例</a></li>
+							<li><a href="projects_vr.html">VR案例</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">设计大咖</a>
+
+					</li>
+					<li>
+						<a href="">热装楼盘</a>
+						<ul class="menu">
+							<li><a href="">热装楼盘</a></li>
+						</ul>
+					</li>
+					<li><a href="">线下门店</a></li>
+					<li>
+						<a href="">品质保障</a>
+						<ul class="menu">
+							<li><a href="">服务保障</a></li>
+							<li><a href="">施工工艺保障</a></li>
+							<li><a href="">设计保障</a></li>
+							<li><a href="">权威认证</a></li>
+							<li><a href="">业主好评</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="">装修知识</a>
+						<ul class="menu">
+							<li><a href="">装修前期</a></li>
+							<li><a href="">装修中期</a></li>
+							<li><a href="">装修后期</a></li>
+							<li><a href="">装修指南</a></li>
+						</ul>
+					</li>
+					<li class="final_border"><a href="">名家文化</a></li>
+					<li class="final"><a href="">快速报价</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<div class="slide">
+				<a href="" class="bg"><img src="./img/10058.jpg" alt=""></a>
+			</div>
+			<div class="container">
+				<ul class="clearfix">
+					<li class="brand brand_1">
+						<a href="">
+							<div class="title">专注家装11年</div>
+							<div class="desc">引领设计新潮流</div>
+						</a>
+					</li>
+					<li class="brand brand_2">
+						<a href="">
+							<div class="title">5万家庭优选</div>
+							<div class="desc">个性化家装服务品牌</div>
+						</a>
+					</li>
+					<li class="brand brand_3">
+						<a href="">
+							<div class="title">河南头部装企</div>
+							<div class="desc">分布全省多个城市</div>
+						</a>
+					</li>
+					<li class="brand brand_4">
+						<a href="">
+							<div class="title">材料保障</div>
+							<div class="desc">国内外一线大牌建材甄选</div>
+						</a>
+					</li>
+					<li class="brand brand_5">
+						<a href="">
+							<div class="title">施工保障</div>
+							<div class="desc">工程质量不合格您就砸</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+
+			<!-- *********************** -->
+			<div class="index_1">
+
+				<div class="index_title">
+					<h1 style="color: black;">尊享服务</h1>
+					<p>选择沪上名家 选择放心的家装服务</p>
+					<span></span>
+				</div>
+				<div class="service">
+					<div class="service_left">
+						<form action="#" method="get">
+							<div class="form_title">
+								免费获取家装报价
+							</div>
+							<div class="form_subtitle">
+								现已累计有
+								<span>383</span>
+								位获取
+							</div>
+							<div class="input_list">
+								<div>
+									<input type="text" placeholder="请输入您的称呼 " name="name" validate="required"
+										autocomplete="off">
+								</div>
+								<div>
+									<input type="text" placeholder="请输入您的电话" name="mobile" validate="required|phone"
+										autocomplete="off" maxlength="11">
+								</div>
+								<div>
+									<input type="text" placeholder="请输入您的小区名称" name="village" validate="required|number"
+										autocomplete="off">
+								</div>
+								<div class="form_suptitle">
+									<p>
+										<span>*</span>
+										免费电话申请：
+										<span>0371-8888 5858</span>
+									</p>
+								</div>
+								<div class="btn">
+									<button>立即获取报价</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="server_right">
+						<div class="service_right_top clearfix">
+
+							<a href=""><img src="./img/10089.jpg" alt=""></a>
+							<a href=""><img src="./img/10090.jpg" alt=""></a>
+							<a href=""><img src="./img/10091.jpg" alt=""></a>
+						</div>
+						<div class="service_right_bottom clearfix">
+							<a href=""><img src="./img/10092.jpg" alt=""></a>
+							<a href=""><img src="./img/10094.jpg" alt=""></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- ************** -->
+			<div class="index_anli">
+				<div class="container_1920">
+					<div class="index_title">
+						<h1>家装案例品鉴</h1>
+						<p>10余种潮流家装风格，数万套精品案例作品，设计师精心点评，让您快速找到家装灵感！</p>
+						<span></span>
+					</div>
+					<div class="tag">
+						<a href="">最新</a><i>/</i>
+						<a href="">现代</a><i>/</i>
+						<a href="">简约</a><i>/</i>
+						<a href="">轻奢</a><i>/</i>
+						<a href="">中式</a><i>/</i>
+						<a href="">欧式</a><i>/</i>
+						<a href="">美式</a><i>/</i>
+						<a href="">北欧</a><i>/</i>
+						<a href="">简欧</a><i>/</i>
+						<a href="">意式</a><i>/</i>
+						<a href="">法式</a><i>/</i>
+						<a href="">侘寂</a><i>/</i>
+						<a href="">地中海</a><i>/</i>
+						<a href="">新古典</a><i>/</i>
+						<a href="">田园</a><i>/</i>
+						<a href="">混搭</a><i>/</i>
+						<a href="">新中式</a><i>/</i>
+						<a href="">后现代</a><i>/</i>
+						<a href="">浪漫法式</a><i>/</i>
+						<a href="">港式</a><i>/</i>
+					</div>
+					<div class="container_over">
+						<div class="first_line clearfix">
+							<a href=""><img src="./img/10093.jpg" alt=""></a>
+							<a href=""><img src="./img/10095.jpg" alt=""></a>
+							<a href=""><img src="./img/10095.jpg" alt=""></a>
+							<a href=""><img src="./img/10096.jpg" alt=""></a>
+							<a href=""><img src="./img/10097.jpg" alt=""></a>
+						</div>
+						<div class="first_line clearfix">
+							<a href=""><img src="./img/10106.jpg" alt=""></a>
+							<a href=""><img src="./img/10107.jpg" alt=""></a>
+							<a href=""><img src="./img/10108.jpg" alt=""></a>
+							<a href=""><img src="./img/10109.jpg" alt=""></a>
+							<a href=""><img src="./img/10110.jpg" alt=""></a>
+						</div>
+
+					</div>
+					<div class="more_anli">
+						<a href=""><button>查看更多案例</button></a>
+					</div>
+				</div>
+
+			</div>
+			<!-- **************** -->
+			<div class="index_vr">
+				<div class="index_title">
+					<h1 style="color: black;">VR实景案例</h1>
+					<p>所见即所得，遇见您未来的家</p>
+					<span></span>
+				</div>
+				<div class="vr_top">
+					<div class="vr_top_bg">
+						<a href="">
+
+							<img src="./img/10111.png" alt="">
+						</a>
+					</div>
+					<div class="vr_top_text">
+						<a href="">现代简约</a>
+					</div>
+					<div class="vr_my">
+						<img src="./img/10112.png" alt="">
+					</div>
+				</div>
+				<div class="vr_bottom clearfix">
+					<div class="vr_bottom_container">
+						<a href="">
+							<img src="./img/b1.png" alt="">
+							<div class="vr_bottom_text">
+								康桥知园 · 现代轻奢
+							</div>
+							<div class="vr_bottom_tip">
+								<i>
+									<img src="./img/10056.png" alt="">
+								</i>
+							</div>
+						</a>
+						<a href="">
+							<img src="./img/b2.png" alt="">
+							<div class="vr_bottom_text">
+								正弘悦云庄 · 现代中式
+							</div>
+							<div class="vr_bottom_tip">
+								<i>
+									<img src="./img/10056.png" alt="">
+								</i>
+							</div>
+						</a>
+						<a href="">
+							<img src="./img/b3.png" alt="">
+							<div class="vr_bottom_text">
+								康桥悦蓉园 · 新中式
+							</div>
+							<div class="vr_bottom_tip">
+								<i>
+									<img src="./img/10056.png" alt="">
+								</i>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="more">
+					<div>
+						<a href="">
+							<button>
+								查看更多
+							</button>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- ********************* -->
+			<div class="designer">
+				<div class="index_title">
+					<h1>专属设计师量身打造</h1>
+					<p>所见即所得，遇见您未来的家</p>
+					<span></span>
+				</div>
+			</div>
+			<!-- ********************* -->
+			<div class="plot">
+				<div class="index_title">
+					<h1 style="color: black;">热门小区</h1>
+					<p>为300+热门楼盘业主 深度解析户型</p>
+					<span></span>
+				</div>
+				<div class="plot_container">
+					<div class="plot_content clearfix">
+						<div>
+							<a href=""><img src="./img/10051.jpg" alt=""></a>
+							<span>正商善水上境</span>
+							<span>
+								<a href="">案例<i>13</i>套</a>
+								<a href="">在施工地<i>26</i>套</a>
+							</span>
+						</div>
+						<div>
+							<a href="">
+								<img src="./img/10043.jpg" alt="">
+							</a>
+							<span>鸿园</span>
+							<span><a href="">案例<i>13</i>套</a><a href="">在施工地<i>26</i>套</a></span>
+						</div>
+						<div>
+							<a href=""><img src="./img/10041.jpg" alt=""></a>
+							<span>瀚海晴宁</span>
+							<span><a href="">案例<i>13</i>套</a><a href="">在施工地<i>26</i>套</a></span>
+						</div>
+						<div>
+							<a href=""><img src="./img/10044.jpg" alt=""></a>
+							<span>普罗旺世理想国</span>
+							<span><a href="">案例<i>13</i>套</a><a href="">在施工地<i>26</i>套</a></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- ********************* -->
+			<div class="index_gongdi">
+				<div class="gongdi_bg"><img src="./img/10117.jpg" alt=""></div>
+				<div class="m">
+					<div class="index_title">
+						<h1>在施工地</h1>
+						<p>业主记录真实装修过程</p>
+						<span></span>
+					</div>
+				</div>
+			</div>
+			<!-- ****************** -->
+			<div class="index-guarantee">
+				<div class="index_title">
+					<h1 style="color: black;">品质保障</h1>
+					<p>8重环保防护 品质看得见 享终身客户服务</p>
+					<span></span>
+				</div>
+				<div class="box"></div>
+				<div class="process">
+					<div class="process_bg"><img src="./img/10036.png" alt=""></div>
+
+				</div>
+
+
+
+			</div>
+			<!-- ****************** -->
+			<div class="index_news">
+				<div class="index_title">
+					<h1 style="color: black;">装修知识</h1>
+					<p>懂得装修才是最好的装修</p>
+					<span></span>
+				</div>
+				<div class="index_news_list">
+					<ul class="new clearfix">
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">了解一下装修吊顶有几种？</a></p>
+								<p><a href="">2022-06-10</a></p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">定制衣柜的4条注意事项！</a></p>
+								<p><a href="">2022-06-10</a></p>
+
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">夏季装修的4大注意事项！</a></p>
+								<p><a href="">2022-06-10</a></p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">防盗门选购认准这5点</a></p>
+								<p><a href="">2022-06-10</a></p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">上墙的木板你见过吗？</a></p>
+								<p><a href="">2022-06-10</a></p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="img_wrapper"><img src="./img/error_400x300.png" alt=""></div>
+							<div class="index_news_text">
+								<p><a href="">选购电视机的5大参数一定要知道！</a></p>
+								<p><a href="">2022-06-10</a></p>
+							</div>
+						</li>
+					</ul>
+					<div class="more">
+						<a href=""><button>查看更多</button></a>
+					</div>
+				</div>
+			</div>
+			<!-- ******************* -->
+
+
+		</main>
+		<footer>
+			<div class="foot_box clearfix">
+				<div class="foot_nav">
+					<dl>
+						<dt><a href="">装修定位</a></dt>
+						<dt><a href="">沪上名家</a></dt>
+						<dt><a href="">美墅名家</a></dt>
+					</dl>
+					<dl>
+						<dt><a href="">精装案例</a></dt>
+						<dt><a href="">精选案例</a></dt>
+						<dt><a href="">VR案例</a></dt>
+					</dl>
+					<dl>
+						<dt><a href="">热装楼盘</a></dt>
+						<dt><a href="">热装楼盘</a></dt>
+					</dl>
+					<dl>
+						<dt><a href="">品质保障</a></dt>
+						<dt><a href="">服务保障</a></dt>
+						<dt><a href="">施工工艺保障</a></dt>
+						<dt><a href="">设计保障</a></dt>
+						<dt><a href="">权威认证</a></dt>
+						<dt><a href="">业主好评</a></dt>
+					</dl>
+					<dl>
+						<dt><a href="">装修知识</a></dt>
+						<dt><a href="">装修前期</a></dt>
+						<dt><a href="">装修中期</a></dt>
+						<dt><a href="">装修后期</a></dt>
+						<dt><a href="">装修指南</a></dt>
+					</dl>
+					<dl>
+						<dt><a href="">设计大咖</a></dt>
+						<dt><a href="">线下门店</a></dt>
+						<dt><a href="">名家文化</a></dt>
+					</dl>
+				</div>
+				<div class="foot_info">
+					<div class="ewm clearfix">
+						<div>
+							<img src="./img/10053.jpg" alt="">
+							<p>官方公众号</p>
+						</div>
+						<div>
+							<img src="./img/10055.jpg" alt="">
+							<p>精选案例库</p>
+						</div>
+					</div>
+					<p><i></i><span>24小时家装免费咨询</span></p>
+					<h1>0371-8888 5858</h1>
+					<p class="location">总部：郑汴路中博家居中心89-5号</p>
+				</div>
+				<div class="foot_last">
+					Copyright © 2002-2020 河南沪上名家装饰工程设计有限公司 版权所有 ICP备案编号：
+					<a href="">豫ICP备10202964号-3</a>
+				</div>
+
+			</div>
+			<div class="foot_last_bg">
+			</div>
+		</footer>
+		<div class="wechat">
+			<img src="./img/10060.jpg" alt="">
+		</div>
+	</body>
+</html>

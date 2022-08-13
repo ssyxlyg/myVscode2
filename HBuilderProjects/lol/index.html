@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/comm.css">
+		<style type="text/css">
+			body{
+				background-color: #EEEEEE;
+			}
+			.wrapper {
+				width: 100%;
+			}
+
+			/* ***header**** */
+			.header {
+				position: relative;
+				width: 1366px;
+				height: 360px;
+				margin: 0 auto;
+			}
+
+			.header .bann {
+				box-sizing: border-box;
+				position: absolute;
+				width: 1920px;
+				height: 360px;
+				top: 0;
+				left: 50%;
+				margin-left: -960px;
+				background: url(./img/0-1.jpg) no-repeat center center;
+				z-index: -1;
+			}
+
+			.header .bann i {
+				display: block;
+				width: 160px;
+				height: 40px;
+				/* border: 1px solid black; */
+				margin: 0 auto;
+				margin-top: 290px;
+				background: url(./img/topfoot-spr.png) no-repeat -216px -39px;
+
+				/* margin-bottom: 20px; */
+				/* z-index: 1; */
+			}
+
+			.header .bann div {
+				float: right;
+				position: relative;
+				right: 280px;
+				bottom: 20px;
+				/* width: 100px; */
+				height: 40px;
+				/* border: 1px solid black; */
+			}
+
+			.header .bann div a {
+				display: block;
+				float: right;
+				margin-left: 10px;
+				width: 82px;
+				height: 26px;
+				line-height: 26px;
+				text-align: center;
+				background-color: rgb(17, 15, 15);
+				color: white;
+				font-size: 14px;
+				color: #D0A03C;
+				border: 1px solid #D0A03C;
+			}
+
+			.header .bann div span {
+				font-size: 14px;
+				/* margin-left: 10px; */
+			}
+
+			.header .bann div span:nth-of-type(1) {
+				color: #888787;
+			}
+
+			.header .bann div span:nth-of-type(2) {
+				color: #F5BE6F;
+			}
+
+			.header .bann div a:hover {
+				background-color: rgba(17, 15, 15, 0.5);
+				color: red;
+				/* z-index: 1; */
+			}
+
+			.nav {
+				background-image: linear-gradient(#100F10, transparent);
+			}
+
+			.nav .menu {
+				box-sizing: border-box;
+				float: left;
+				width: 916px;
+				z-index: 1;
+			}
+
+			.nav .menu>li,
+			.nav .menu img {
+				float: left;
+				/* background-color: aqua; */
+			}
+
+			.nav .menu img {
+				/* margin-left: 50px; */
+				margin-top: 8px;
+			}
+
+			.nav .menu>li {
+				height: 78px;
+				/* 	line-height: 78px; */
+				margin-top: 16px;
+				width: 148px;
+				text-align: center;
+			}
+
+			.nav .menu>li a {
+				color: white;
+				font-size: 18px;
+			}
+
+			.menu div span {
+				display: block;
+				font-size: 12px;
+				color: #AEAEAE;
+			}
+
+			.nav .login>i {
+				display: inline-block;
+				/* height: 78px;
+				line-height: 78px; */
+
+				float: left;
+
+				/* border: 1px solid black ; */
+			}
+
+			.nav .login>i:nth-of-type(1) {
+				margin-left: 80px;
+				margin-top: 20px;
+				width: 21px;
+				height: 21px;
+
+				background: url(./img/topfoot-spr.png) no-repeat -380px -39px;
+			}
+
+			.nav .login>i:nth-of-type(2) {
+				width: 21px;
+				height: 40px;
+				margin: 15px 30px 0 30px;
+				background: url(./img/topfoot-spr.png) no-repeat -300px -80px;
+			}
+
+			.nav .login {
+				float: left;
+			}
+
+			.nav .login .left div {
+				display: block;
+				float: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				height: 78px;
+				/* padding-bottom: 20px; */
+			}
+
+			.login .left div span {
+				display: inline-block;
+				color: white;
+				/* height: 48px; */
+				/* line-height: 48px; */
+				/* margin-bottom: 20px; */
+			}
+
+			.login .left div span a {
+				color: #CF880A;
+			}
+
+			.login .left i {
+				display: inline-block;
+				vertical-align: middle;
+				width: 48px;
+				height: 48px;
+				/* margin-top: 10px; */
+				background: url(./img/topfoot-spr.png) no-repeat -216px -118px;
+				/* border:1px solid black; */
+			}
+
+			.login .left i img {
+				width: 38px;
+				margin-left: 4.5px;
+				margin-top: 4.5px;
+				border-radius: 19px;
+			}
+			
+			/***************************/
+			.main {
+				width: 1366px;
+				margin: 0 auto;
+				margin-top: 40px;
+			}
+			.main .main_l{
+				float: left;
+			}
+			
+			.silde {
+				width: 820px;
+				height: 382px;
+				/* margin: 0 auto; */
+				overflow: hidden;
+				position: relative;
+				/* border: 1px solid black; */
+			}
+			
+			.silde li {
+				/* float: left; */
+				transition: .5s transform ease-in-out;
+				position: absolute;
+				display: flex;
+				top: 0;
+				left: 0;
+				width: 820px;
+				height: 340px;
+			}
+			
+			.silde li:nth-of-type(1) {
+				
+				background-color: skyblue;
+				left: 0;
+			}
+			
+			.silde li:nth-of-type(2) {
+				background-color: green;
+				left: 100%;
+				
+			}
+			
+			.silde li:nth-of-type(3) {
+				background-color: pink;
+				left: 200%;
+			}
+			
+			.silde li:nth-of-type(4) {
+				background-color: yellow;
+				left: 300%;
+			}
+			
+			.silde li:nth-of-type(5) {
+				background-color: red;
+				left: 400%;
+			}
+			input[type="radio"]{
+				position: relative;
+				display: none;
+			}
+			.control{
+				position: absolute;
+				width: 100%;
+				bottom: 0px;
+				text-align: center;
+				
+			}
+			.control label{
+				float: left;
+				display: inline-block;
+				width: 164px;
+				height: 40px;
+				line-height: 40px;
+				background-color: rgb(227,226,226);
+				color: #CEA861;
+				/* bottom: 0px; */
+				/* border: 1px solid black; */
+			}
+			.silde input[type="radio"]:nth-of-type(1):hover~.control label:nth-of-type(1){
+				/* background-color: black; */
+				border-bottom: 2px solid #CEA861;
+				
+			}
+			.silde input[type="radio"]:nth-of-type(2):hover~.control label:nth-of-type(2){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(3):hover~.control label:nth-of-type(3){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(4):hover~.control label:nth-of-type(4){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(5):hover~.control label:nth-of-type(5){
+				border-bottom: 2px solid #CEA861;
+				background-color: (247,246,246);
+			}
+			.silde input[type="radio"]:nth-of-type(1):checked~.con{
+				transform: translateX(0);
+			}
+			.silde input[type="radio"]:nth-of-type(2):checked~.con{
+				transform: translateX(-100%);
+			}
+			.silde input[type="radio"]:nth-of-type(3):checked~.con{
+				transform: translateX(-200%);
+			}
+			.silde input[type="radio"]:nth-of-type(4):checked~.con{
+				transform: translateX(-300%);
+			}
+			.silde input[type="radio"]:nth-of-type(5):checked~.con{
+				transform: translateX(-400%);
+			}
+			
+			
+			
+			.main_r{
+				float: left;
+			}
+			.main_r .main_nav {
+				width: 540px;
+				height: 35px;
+				position: relative;
+				/* border: 1px solid black; */
+			}
+			.main_r .main_nav>li{
+				float: left;
+				width: 105px;
+				font-size: 18px;
+				color: rgb(103,103,140);
+				text-align: center;
+				line-height: 35px;
+				overflow: hidden;
+				white-space: normal;
+				text-overflow: ellipsis;
+				
+				/* position: relative; */
+			}
+			.main_r .main_nav>li:nth-of-type(1){
+				margin-left: 15px;
+			}
+			.main_r .main_nav>li:hover{
+				border-bottom: 2px solid #1da6ba;
+				font-weight: 700;
+				color: #1da6ba;
+			}
+			
+			.main_content{
+				position: absolute;
+				text-align: left;
+				display: none;
+			}
+			.main_content h3{
+				margin-left: 22px;
+			}
+			.main_r .main_nav>li:nth-of-type(1):hover .main_content{
+				display: block;
+			}
+			
+			.main_content p{
+				line-height: 50px;
+			}
+			.main_content span{
+				display:inline-block;
+				padding: 5px;
+				line-height: 20px;
+				border: 1px solid #E1802B;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<div class="bann">
+					<i></i>
+					<div>
+						<span>当前游戏版本：</span>
+						<span>Ver 12.12</span>
+						<a href="">版本详情</a>
+					</div>
+				</div>
+				<div class="nav clearfix">
+					<ul class="menu clearfix">
+						<img src="./img/logo-public.png" alt="">
+						<li>
+							<div>
+								<a href="">游戏资料</a>
+								<span>GAME INFO</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<a href="">商城/合作</a>
+								<span>GAME INFO</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<a href="">社区合作</a>
+								<span>GAME INFO</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<a href="">赛事官网</a>
+								<span>GAME INFO</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<a href="">自主系统</a>
+								<span>GAME INFO</span>
+							</div>
+						</li>
+					</ul>
+
+					<div class="login clearfix">
+						<i></i><i></i>
+						<div class="left">
+							<div>
+								<i><img src="./img/default.png" alt=""></i>
+								<span>亲爱的召唤师，欢迎
+									<a href="#">登录</a>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="main">
+				<div class="main_l">
+
+					<ul class="silde">
+						<input type="radio" name="d" id="r1" checked>
+						<input type="radio" name="d" id="r2">
+						<input type="radio" name="d" id="r3">
+						<input type="radio" name="d" id="r4">
+						<input type="radio" name="d" id="r5">
+						<li class="con"><img src="./img/l-5.jpeg" alt=""></li>
+						<li class="con"><img src="./img/l-4.jpeg" alt=""></li>
+						<li class="con"><img src="./img/l-1.jpeg" alt=""></li>
+						<li class="con"><img src="./img/l-3.jpeg" alt=""></li>
+						<li class="con"><img src="./img/l-2.jpeg" alt=""></li>
+						<div class="control">
+							<label for="r1">夏之乐章宝典</label>
+							<label for="r2">云顶三周年掌盟好事</label>
+							<label for="r3">LPL夏季赛</label>
+							<label for="r4">你的商店</label>
+							<label for="r5">K/DA精选周边特惠</label>
+						</div>
+					</ul>
+				</div>
+				<div class="main_r clearfix">
+					<ul class="main_nav">
+						<li>
+							综合
+							<div class="main_content">
+								<h3>云顶之弈TOC4前哨赛&3周年主播表演赛多图流</h3>
+									<p><span>视频</span>7月8日周免英雄更新公告</p>
+									<p><span>新闻</span>2022商城商品价格调整公告</p>
+									<p><span>新闻</span>2022年7月4日不停机更新公告</p>
+									<p><span>新闻</span>蓝色精萃商店现已开启</p>
+									<p><span>公告</span>2022年6月29日 不停机更新公告</p>
+									<p><span>新闻</span> 7月1日周免英雄更新公告</p>
+								
+							</div>
+						</li>
+						<li>
+							公告
+							
+						</li>
+						<li>赛事</li>
+						<li>攻略</li>
+						<li>赛区</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

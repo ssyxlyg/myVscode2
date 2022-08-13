@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="./css/base.css">
+		<style type="text/css">
+			header {
+				background-color: #f6cb5d;
+				color: #333333;
+			}
+
+			.mysupervise {
+				display: flex;
+				width: 100%;
+				height: 0.45rem;
+				line-height: 0.45rem;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 0.11rem;
+				/* margin: 0 10px; */
+			}
+
+			.mysupervise .front {
+				width: 0.12rem;
+				height: 0.21rem;
+			}
+
+			.mysupervise .content {
+				/* font-size: 0.15rem; */
+
+
+			}
+
+			.mysupervise .content input {
+				outline: none;
+				border: none;
+				width: 2.48rem;
+				height: 0.3rem;
+				border-radius: 0.14rem;
+				background: #f4f4f8 url(./img/sousuo.png) no-repeat 0.15rem 0.07rem;
+				background-size: 0.16rem 0.16rem;
+				text-indent: 0.44rem;
+			}
+
+			.mysupervise .back {
+				width: 0.24rem;
+				height: 0.21rem;
+			}
+
+			.nav ul {
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.nav {
+				width: 100%;
+			}
+
+			.nav ul {
+				height: 0.35rem;
+				line-height: 0.35rem;
+			}
+
+			.nav li a {
+				color: #333;
+			}
+
+			.nav li:hover {
+				font-weight: bold;
+			}
+
+			main {
+				background-color: #eee;
+			}
+
+			main>p {
+				/* height: 0.17rem; */
+				font-size: 0.18rem;
+				line-height: 0.32rem;
+				color: #333333;
+				width: 100%;
+				text-align: center;
+				padding: 0.12rem 0;
+			}
+
+			.container ul {
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				align-content: space-around;
+				height: 2.06rem;
+			}
+
+			.container ul li {
+				width: 1.1rem;
+				height: 0.91rem;
+				/* border: 1px solid red; */
+				background-color: #fff;
+				border-radius: 0.05rem;
+			}
+
+			.container ul li h3 {
+				width: 100%;
+				text-align: center;
+				font-size: 0.13rem;
+				padding-top: 0.04rem;
+			}
+
+			.container ul li p {
+				width: 100%;
+				text-align: center;
+				font-size: 0.1rem;
+			}
+
+			.container ul li img {
+				display: block;
+				width: 0.38rem;
+				height: 0.34rem;
+				margin-left: 0.35rem;
+				margin-top: 0.10rem;
+
+			}
+
+			.school {
+				background-color: #fff;
+				margin-top: 0.15rem;
+			}
+
+			.school .school_bg {
+				width: 3.57rem;
+				margin: 0 auto;
+				height: 0.81rem;
+				border: 0.01rem solid red;
+				background: url("./img/形状 2.png") no-repeat center top;
+				background-size: 100% 0.66rem;
+				background-position: 0 0.15rem;
+				display: flex;
+				justify-content: left
+					/* padding-top: 0.rem; */
+			}
+
+			.school .school_bg i {
+				display: block;
+				width: 0.22rem;
+				height: 0.61rem;
+				background: url(./img/renwu.png) no-repeat center top;
+				background-size: 0.22rem 0.61rem;
+				margin-top: 0.18rem;
+				margin-left: 0.36rem;
+			}
+
+			.school_content {
+				margin-top: 0.16rem;
+				margin-left: 0.35rem;
+				color: #fff;
+			}
+
+			.school_content h2 {
+				text-indent: 0.05rem;
+				font-size: 0.3rem;
+				height: 0.4rem;
+			}
+
+			.school_content p {
+				font-size: 0.14rem;
+				padding: 0 3px;
+				background-image: linear-gradient(177deg,
+						#e2724c 0%,
+						#e89351 100%);
+				border-radius: 5px;
+			}
+
+			.service_ad {
+				padding-top: 0.16rem;
+				padding-left: 0.11rem;
+				background-color: #fff;
+			}
+
+			.service_ad h3 {
+				font-size: 0.18rem;
+			}
+
+			.service_ad_text {
+				width: 3.56rem;
+				height: 0.66rem;
+				background-color: #f6cb5d;
+				border-radius: 0.05rem;
+				margin-top: 0.04rem;
+			}
+			.service_ad_text p{
+				padding-top: 0.15rem;
+				padding-left: 0.1rem;
+				font-size: 0.11rem;
+				
+			}
+			.service_ad_text p span{
+				color: #fff;
+			}
+			.service_ad_text img {
+				width: 0.2rem;
+				height: 0.2rem;
+			}
+			.service_ad_text>span{
+				display: block;
+				margin-top: -0.10rem;
+				padding-right: 0.06rem;
+				color: #fff;
+				font-size: 0.11rem;
+				float: right;
+			}
+			.renwu{
+				background-color: #fff;
+				font-size: 0.18rem;
+			}
+			.renwu .renwu_title{
+				display: flex;
+				justify-content: left;
+				padding-top: 0.14rem;
+				padding-left: 0.11rem;
+			}
+			.renwu_title div{
+				width: 0.36rem;
+				padding-bottom: 0.06rem;
+			}
+			.renwu_title div:nth-of-type(1){
+				border-bottom:5px solid #f6cb5d;
+			}
+			.renwu_title div:nth-of-type(2){
+				margin-left: 0.23rem;
+				font-size: 0.15rem;
+				padding-top: 0.03rem;
+			}
+			.introduce{
+				display: flex;
+				margin-top: 0.06rem;
+				margin-left: 0.11rem;
+			}
+			.introduce img{
+				width: 0.89rem;
+				height: 0.84rem;
+			}
+			.introduce>div{
+				margin-left: 0.16rem;
+			}
+			.introduce p:nth-of-type(1){
+				font-size: 0.15rem;
+			}
+			.introduce p:nth-of-type(1) span{
+				font-size: 0.12rem;
+				margin-left: 0.06rem;
+			}
+			.introduce .other{
+				font-size: 0.12rem;
+			}
+			.renwu>p{
+				font-size: 0.12rem;
+				margin-left: 0.11rem;
+				margin-top: 0.08rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="mysupervise">
+				<div class="front"><img src="./img/zuo.png" alt=""></div>
+				<div class="content"><input type="text" placeholder="搜索顾问、工作室"></div>
+				<div class="back"> <img src="./img/fenxiang.png" alt=""></div>
+			</div>
+			<div class="nav">
+				<ul>
+					<li><a href="">关注</a></li>
+					<li><a href="">推荐</a></li>
+					<li><a href="">问答</a></li>
+					<li><a href="">评论</a></li>
+					<li><a href="">直播</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<main>
+			<p>智能为您赛选更多适合的顾问</p>
+			<div class="container">
+				<ul>
+					<li>
+						<h3>智能匹配</h3>
+						<p>大数据推荐顾问</p>
+						<img src="./img/dn.png" alt="">
+					</li>
+					<li>
+						<h3>案例找顾问</h3>
+						<p>查背景相似案例</p>
+						<img src="./img/wj.png" alt="">
+					</li>
+					<li>
+						<h3>沙龙直播</h3>
+						<p>顾问直播分享</p>
+						<img src="./img/1.png" alt="">
+					</li>
+					<li>
+						<h3>星际顾问</h3>
+						<p>大数据推荐顾问</p>
+						<img src="./img/wdd.png" alt="">
+					</li>
+					<li>
+						<h3>好评顾问榜</h3>
+						<p>好评率高的顾问</p>
+						<img src="./img/shuju.png" alt="">
+					</li>
+					<li>
+						<h3>专家顾问榜</h3>
+						<p>内容评选出专业顾问</p>
+						<img src="./img/xy1.png" alt="">
+					</li>
+				</ul>
+			</div>
+			<div class="school">
+				<div class="school_bg">
+					<i></i>
+					<div class="school_content">
+						<h2>开学季优惠</h2>
+						<p>现时速抢留学服务优惠卷</p>
+					</div>
+				</div>
+			</div>
+			<div class="service_ad">
+				<h3>服务广播</h3>
+				<div class="service_ad_text">
+					<p><img src="./img/u=3355887662,1298272292&fm=26&gp=0.png" alt="">
+						聂钰文 选择了<span>Christine老师</span>的免费咨询服务，老师本月已免费
+						为135位同学答疑，签约前评论为4
+					</p>
+					<span>两分钟前</span>
+				</div>
+			</div>
+			<div class="renwu">
+				<div class="renwu_title">
+					<div>顾问</div>
+					<div>机构</div>
+				</div>
+				<div class="introduce">
+					<img src="./img/u=2725738852,3175049417&fm=26&gp=0.png" alt="">
+					<div>
+						<p>Christine老师 <span>
+							哈鲁留学工作室
+						</span></p>
+						<p class="other">北京市 | 14 年</p>
+						<p class="other">签约前评价：4.68 | 172条评价</p>
+						<p class="other">好评：93%</p>
+					</div>
+				</div>
+				<p>为每一位留学生做出自己力所能及的事情</p>
+				
+			</div>
+		</main>
+	</body>
+</html>

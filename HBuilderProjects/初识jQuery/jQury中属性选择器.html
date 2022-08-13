@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/jquery-1.12.3.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				// 获得input标签中type属性为text 的标签对象
+				// $("input[type=text]").css("border","1px solid red");
+				
+				// 获得input标签中name属性开头为Z的标签对象
+				// $("input[name^=z]").css("border","1px solid red");
+				// $("input[name$=d]").css("border","1px solid red");
+				//指定name属性不等于z_name的元素对象
+				// $("input[name!=z_name]").css("border","1px solid red");
+				//指定name属性包含m的元素对象
+				$("input[name*=m]").css("border","1px solid red");
+				
+				
+				
+				
+				
+			})
+		</script>
+		
+		
+	</head>
+	<body>
+		<h3>注册</h3>
+		<hr>
+		<form action="">
+			<p>
+				用户名：<input type="text" name="z_name" id="">
+			</p>
+			<p>
+				密码：<input type="password" name="z_pwd" id="">
+			</p>
+			<p>
+				出生日期：<input type="date" name="z_bmw" id="">
+			</p>
+			<p>
+				籍贯：
+				<select name="" id="">
+					<option value="">请选择</option>
+					<option value="">河北</option>
+					<option value="">河南</option>
+					<option value="">山东</option>
+				</select>
+			</p>
+			<p>
+				备注：
+				<textarea name="" id="" cols="30" rows="10"></textarea>
+			</p>
+		</form>
+	</body>
+</html>
