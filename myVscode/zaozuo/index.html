@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/comm.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./swiper/swiper-bundle.min.css">
     <style>
-       .head_top{
+        .swiper {
             width: 100%;
-            height: 36px;
-            background-color: #313131;
-            color: red;
-       }
-       .head_top ul{
-        display: flex;
-        justify-content: left;
-        width: 1366px;
-        line-height: 36px;
-        /* align-items: center; */
-        font-size: 12px;
-       }
-       .head_top ul a{
-        display: inline-block;
-        height: 30px;
-        /* width: 100%; */
-        color: #fff;
-        /* text-decoration: underline; */
-       }
-       .head_top ul a:hover{
-        /* text-decoration: underline; */
-        border-bottom: 1px solid #fff;
-       }
-       ul .pos{
-        margin-left: 950px;
-       }
-       .head_top li{
-        padding:0 10px;
-       }
-       .head_top li span{
-            font-size: 10px;
-       }
+            /* height: 500px; */
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="head_top">
-            <ul>                
+            <ul>
                 <li class="pos">
                     <i>11</i>
                     <a href="">实体店</a>
@@ -57,10 +58,480 @@
             </ul>
         </div>
         <div class="title">
-            <img src="./img/zaozuo.jpg" alt="">
+            <div class="logo">
+                <img src="./img/zaozuo.jpg" alt="">
+            </div>
+            <div class="login_wrapper">
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+        </div>
+        <nav>
+            <ul class="nav_out">
+                <li>
+                    <a href="">首页</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">全屋系列</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">沙发·椅凳</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">桌 | 几 | 台</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">床·床具</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">柜架</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">灯具</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">家居</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+                        <li><a href="">瑞典美术系列</a></li>
+                        <li><a href="">海盐硬糖系列</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">折扣区</a>
+                    <ul class="nav_inner">
+                        <li><a href="">全部</a></li>
+                        <li><a href="">城市丛林系列</a></li>
+                        <li><a href="">牙白香榭系列</a></li>
+                        <li><a href="">本木宅寂系列</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+        <div class="slides">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./img/10011.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/10012.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/10013.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/10014.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/10015.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/10016.jpg" alt=""></div>
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <!--左箭头。如果放置在swiper外面，需要自定义样式。-->
+                <div class="swiper-button-next"></div>
+                <!--右箭头。如果放置在swiper外面，需要自定义样式。-->
+                <!--分页器。如果放置在swiper外面，需要自定义样式。-->
+            </div>
+        </div>
+
+        <!-- Swiper JS -->
+        <script src="./swiper/swiper-bundle.min.js"></script>
+
+
+        <script language="javascript">
+            var mySwiper = new Swiper('.swiper', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: true,//自动播放
+                loop: true,//循环播放
+            })
+            //鼠标滑过pagination控制swiper切换
+            for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+                mySwiper.pagination.bullets[i].onmouseover = function () {
+                    this.click();
+                };
+            }     
+        </script>
+        <!-- *************************** -->
+        <div class="index_recommend">
+            <div class="title">
+                <h2>时令推荐</h2>
+                <p>Selected Product</p>
+            </div>
+
+            <div class="img_list">
+                <div class="img_line">
+                    <ul>
+                        <li class="con">
+                            <div class="content"><img src="./img/10017.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10018.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10019.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10020.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10021.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10022.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10023.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="con">
+                            <div class="content"><img src="./img/10024.jpg" alt=""></div>
+                            <div class="unionPrice">
+                                <h4><a href="">半月湾行政沙发</a></h4>
+                                <p><span class="realPrice">￥<i>4760</i>起</span><span class="prevPrice">￥6699起</span></p>
+                                <p><label>8月特推</label><label>三色可选</label></p>
+                            </div>
+
+                            <div class="li_cover">
+                                <div class="bor_cover">
+                                    <p>坐入海的臂弯，拥抱片刻逃离的私密海景</p>
+                                </div>
+                                <div class="text_cover">
+                                    <h4>Yonoh Creative Studio</h4>
+                                    <p> Spain | Valencia</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <script>
+                var _con = document.querySelectorAll(".con");
+
+
+
+                _con.forEach(function (tag) {
+                    var _li_cover = tag.lastElementChild;
+                    tag.onmouseover = function () {
+
+                        _li_cover.style.display = "block";
+                        this.style.opacity = 0.3
+                        this.children[1].style.display = "none"
+                    }
+                    tag.onmouseout = function () {
+                        _li_cover.style.display = "none";
+                        this.style.opacity = 1
+                        this.children[1].style.display = "block"
+                    }
+
+                })
+
+            </script>
 
         </div>
-    </header>
-    
+        <!-- ***************** -->
+        <div class="index_story">
+            <div class="story_content">
+                <div class="title">
+                    <h2>Inspirations&Stories 灵感与故事</h2>
+                    <p>5个空间案例，1个品牌故事，带你了解造作</p>
+                </div>
+                <div class="anli">
+                    <ul>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10025.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10026.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10025.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10026.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10025.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_container">
+                                <img src="./img/10027.jpg" alt="">
+                            </div>
+                            <div class="anli_text">
+                                <h3><a href="">城市大型公寓及别墅 150-300平米适用</a></h3>
+                                <p>由来自意大利和荷兰的三位顶尖国际大师通力创作</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="index_designer">
+            <div class="designer_container">
+                <div class="designer_left"><img src="./img/10028.jpg" alt=""></div>
+                <div class="designer_right">
+                    <div class="right_top">
+                        <div><img src="./img/10029.jpg" alt=""></div>
+                        <div><img src="./img/10030.jpg" alt=""></div>
+                    </div>
+                    <div class="right_bottom"><img src="./img/10031.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="live_designer">
+            <div class="live_designer">
+                <div class="live_center">
+                    <div class="live_container">
+                        <i></i>
+                        <p>27国大师签名</p>
+                        <b>设 计 正 品</b>
+                    </div>
+                    <div class="live_container">
+                        <i></i>
+                        <p>100%手工品检</p>
+                        <b>欧 标 制 造</b>
+                    </div>
+                    <div class="live_container">
+                        <i></i>
+                        <p>全场满199</p>
+                        <b>免 费 送 装</b>
+                    </div>
+                    <div class="live_container">
+                        <i></i>
+                        <p>全网30天保价</p>
+                        <b>优 价 保 障</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <script>
+
+        var _border_bottom = document.querySelector(".nav_out");
+        var _lis = _border_bottom.children;
+        console.log(_lis)
+        Array.from(_lis).forEach(function (tag) {
+            var _a = tag.firstElementChild;
+            var _navInner = tag.lastElementChild;
+            tag.onmouseover = function () {
+                // console.log(_a.innerText)
+                _a.style.borderBottom = "3px solid black";
+                _navInner.style.display = "flex"
+                _navInner.style.left = "50px"
+            }
+            tag.onmouseout = function () {
+                _a.style.borderBottom = "none";
+                _navInner.style.display = "none"
+            }
+
+        })
+
+
+
+    </script>
+
 </body>
+
 </html>
