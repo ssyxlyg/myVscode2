@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.outter{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outter"></div>
+		<script>
+			//事件绑定
+			var _outter=document.querySelector(".outter");
+			// _outter.onclick=function(){
+			// 	_outter.style.backgroundColor="red";
+			// }
+			// //等同于行间，会覆盖前面的样式
+			// _outter.onclick=function(){
+			// 	console.log("66666");
+			// }
+			//取消事件绑定  ""/null/false
+			// _outter.onclick="";
+			// _outter.onclick=null;
+			// _outter.onclick=false;
+			
+			
+			
+			
+			//监听事件_outter.addEventListener('change',fn,默认false)
+			//可以同时响应多个事件
+			_outter.addEventListener('click',function(){
+				_outter.style.backgroundColor="red";
+			})
+			// 先写函数后调用
+			function  test(){
+				console.log("66666");
+			}
+			//调用函数一定不能加括号
+			_outter.addEventListener('click',test);
+			
+			//监听事件取消必须先声明函数， 
+			//_outter.removeEventListener('click',函数名)
+			_outter.removeEventListener('click',test);
+		</script>
+	</body>
+</html>

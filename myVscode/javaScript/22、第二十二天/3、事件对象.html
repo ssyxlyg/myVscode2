@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.outer {
+			width: 300px;
+			height: 300px;
+			border: 1px solid black;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="outer"></div>
+	<script type="text/javascript">
+		var _outer = document.querySelector(".outer");
+		_outer.onclick = function (event) {
+			// event:事件对象，记录事件相关信息
+			console.log(event);
+			//获取事件源，点击的目标元素
+			var tar = event.srcElement || event.target;
+			console.log(tar);
+			//获取鼠标落点坐标(距离浏览器左上角)
+			console.log(event.clientX, event.clientY);
+
+			//获取鼠标落点坐标(距离屏幕左上角)
+			console.log(event.screenX, event.screenY);
+		}
+	</script>
+</body>
+
+</html>

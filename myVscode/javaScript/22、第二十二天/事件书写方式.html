@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">
+
+    </div>
+    <script>
+        var _first = document.querySelector(".first");
+
+
+        _first.onclick = function () {
+            this.style.backgroundColor = "red";
+        }
+        // _first.onclick = "";
+        _first.onclick = null;
+        _first.onclick = false;
+
+        function text() {
+            console.log("11111");
+        }
+        _first.addEventListener('click', text);
+
+        _first.removeEventListener('click', text);
+        人工智能
+
+    </script>
+</body>
+
+</html>

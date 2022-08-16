@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        .outer {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+    <script src=""></script>
+</head>
+
+<body>
+    <div class="outer">
+
+    </div>
+    <script>
+        var _outer = document.querySelector(".outer");
+
+        _outer.onmousemove = function () {
+            console.log("鼠标移动");
+        }
+        _outer.onmouseup = function () {
+            console.log("鼠标弹起");
+        }
+        _outer.onmousedown = function (event) {
+            console.log("鼠标按下");
+            console.log(event.button);
+
+        }
+        _outer.onmouseover = function () {
+            console.log("鼠标悬浮");
+
+        }
+        _outer.onmouseout = function () {
+            console.log("鼠标移出");
+
+        }
+        _outer.oncontextmenu = function () {
+            console.log("右菜单栏")
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.outer{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				background-color: red;
+			}
+			.inner{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				background-color: blue;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+		   <div class="inner">
+		   	
+		   </div>
+		</div>
+		<script type="text/javascript">
+			var _outer=document.querySelector(".outer");
+			var _inner=document.querySelector(".inner");
+			
+			//事件由子元素传播至父元素，事件冒泡
+			_outer.addEventListener('click',function(){
+				  console.log("outer");
+			},false)
+			
+			_inner.addEventListener('click',function(event){
+				 //阻止事件冒泡
+				  event.stopPropagation();
+				  console.log("inner");
+			},false)   //inner  outer
+			
+			//如果冒泡和捕获同时存在，先捕获后冒泡
+			
+			//事件捕获：事件由父元素传播至子元素
+			// _outer.addEventListener('click',function(){
+			// 	  console.log("outer");
+			// },true)
+			
+			// _inner.addEventListener('click',function(){
+			// 	  console.log("inner");
+			// },true)   //outer  inner
+		</script>
+	</body>
+</html>

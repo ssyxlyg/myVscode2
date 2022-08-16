@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.outer {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="outer"></div>
+	<script>
+		/* 
+		click,  点击事件
+		mousemove,鼠标移动
+		mouseup,  鼠标弹起
+		mousedown, 鼠标摁下
+		contextmenu  右键菜单
+		mouseover,mouseout,鼠标悬浮离开
+		mouseenter,mouseleave H5新增，鼠标悬浮离开 
+		*/
+		document.onmousedown = function (event) {
+			console.log("鼠标摁下发生");
+			//左键0，滚轮1  右键2
+			console.log(event.button);
+		}
+		document.onmouseup = function () {
+			console.log("鼠标弹起发生");
+		}
+		// document.onmousemove=function(){
+		// 	console.log("鼠标移动发生");
+		// }
+		document.oncontextmenu = function () {
+			console.log("右键菜单发生");
+		}
+
+		var _outer = document.querySelector(".outer");
+		_outer.onmouseover = function () {
+			console.log("鼠标悬浮时发生");
+		}
+		_outer.onmouseout = function () {
+			console.log("鼠标离开时发生");
+		}
+
+			//onclick只能监听鼠标左键 0，mousedown，mouseup可监听左右键
+			// document.onclick=function(event){
+			// 	console.log(event.button);
+			// }
+	</script>
+</body>
+
+</html>

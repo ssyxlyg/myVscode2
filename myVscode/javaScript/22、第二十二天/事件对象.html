@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .outer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer"></div>
+
+    <script>
+        var _outer = document.querySelector(".outer");
+
+        _outer.onclick = function (event) {
+            console.log(event);
+            var tar = event.srcElement || event.target;
+            console.log(tar);
+
+            console.log(event.clientX, event.clientY);
+
+            console.log(event.screenX, event.screenY);
+
+        }
+    </script>
+
+</body>
+
+</html>

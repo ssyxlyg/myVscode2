@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+
+        document.onmousemove = function (event) {
+            var _div = document.createElement("div");
+            var random = Math.floor(Math.random() * 30) + 10;
+            // console.log(random)
+            _div.style.height = random + "px";
+            _div.style.width = random + "px";
+            _div.style.borderRadius = "50%";
+            _div.style.backgroundColor = randomColor();
+            _div.style.position = "absolute";
+            _div.style.left = (event.clientX - random / 2) + "px";
+            _div.style.top = (event.clientY - random / 2) + "px";
+
+            this.body.appendChild(_div)
+
+            setTimeout(function () {
+                _div.remove();
+
+            }, 500)
+
+
+
+        }
+        function randomColor() {
+            var random1 = Math.floor(Math.random() * 256);
+            var random2 = Math.floor(Math.random() * 256);
+            var random3 = Math.floor(Math.random() * 256);
+            return `rgb(${random1},${random2},${random3})`;
+
+        }
+    </script>
+</body>
+
+</html>

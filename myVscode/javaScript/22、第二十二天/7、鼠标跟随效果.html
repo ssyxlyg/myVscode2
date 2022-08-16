@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			document.onmousemove=function(event){
+				//1、创建div
+				var _div=document.createElement("div");
+				//生成随机的宽高
+				var random=Math.floor(Math.random()*30)+10;
+				_div.style.width=random+"px";
+				_div.style.height=random+"px";
+				_div.style.borderRadius="50%";
+				_div.style.backgroundColor=randomColor();
+				//2、定位div
+				_div.style.position="absolute";
+				_div.style.left=(event.clientX-random/2)+"px";
+				_div.style.top=(event.clientY-random/2)+"px";
+				//3、追加div
+				document.body.appendChild(_div);
+				//4、延迟删除div
+				setTimeout(function(){
+					_div.remove();
+				},500)
+			}
+			
+			function randomColor(){
+				var random1=Math.floor(Math.random()*256);
+				var random2=Math.floor(Math.random()*256);
+				var random3=Math.floor(Math.random()*256);
+				return `rgb(${random1},${random2},${random3})`
+			}
+		</script>
+	</body>
+</html>
