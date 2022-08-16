@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 900px;
+            /* height: 350px; */
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+
+        .container {
+            width: 6300px;
+            display: flex;
+        }
+
+        img {
+            width: 900px;
+
+        }
+
+        .btn {
+            display: flex;
+            width: 200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            justify-content: space-around;
+        }
+
+        .btn span {
+            display: block;
+            width: 30px;
+            height: 5px;
+            border-radius: 2px;
+            border: 1px solid black;
+            /* background-color: black; */
+        }
+
+        .active {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <img src="./img/10011.jpg" alt="">
+            <img src="./img/10012.jpg" alt="">
+            <img src="./img/10013.jpg" alt="">
+            <img src="./img/10014.jpg" alt="">
+            <img src="./img/10015.jpg" alt="">
+            <img src="./img/10016.jpg" alt="">
+            <img src="./img/10011.jpg" alt="">
+        </div>
+
+    </div>
+    <div class="btn">
+        <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <script>
+        var _wrapper = document.querySelector(".wrapper");
+
+        var _span = document.querySelectorAll(".btn span");
+
+        var index = 0;
+
+        var num = setInterval(function () {
+            var moveLength = 0;
+            var id = setInterval(function () {
+                _wrapper.scrollLeft += 12;
+                moveLength += 12;
+                if (moveLength >= 900) {
+                    clearInterval(id);
+                }
+            }, 20)
+            spots();
+            index++;
+            if (index >= 7) {
+                index = 0;
+                _wrapper.scrollLeft = 0;
+            }
+
+        }, 4000)
+
+        function spots() {
+            for (var i = 0; i < _span.length; i++) {
+                if (i == index) {
+                    _span[i].className = "active";
+                    if (i == 7) {
+                        _span[6].className = "active"
+                    }
+                } else {
+                    _span[i].className = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

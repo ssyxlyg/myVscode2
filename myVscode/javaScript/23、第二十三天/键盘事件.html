@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="get">
+        密码：<input type="text" class="pwd" name="pwd">
+        <input type="submit" value="提交">
+    </form>
+
+    <script>
+        // document.onkeydown = function () {
+        //     console.log("onkeydown");
+        // }
+        // document.onkeypress = function () {
+        //     console.log("onkeypress");
+        // }
+        // document.onkeyup = function () {
+        //     console.log("onkeyup");
+        // }
+
+        var _pwd = document.querySelector(".pwd");
+        var _form = document.querySelector("form");
+        _pwd.onkeydown = function (event) {
+            if (event.keyCode == 13) {
+                _form.submit();
+            }
+            console.log(event.keyCode);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="招聘月薪季10000+">
+
+    <script>
+        var _input = document.querySelector("input");
+        var a = 0;
+
+
+
+        _input.onfocus = function () {
+            this.placeholder = "";
+        }
+        _input.onblur = function () {
+            if (this.value == "") {
+                this.placeholder = "招聘月薪季10000+";
+
+            }
+        }
+        _input.oninput = function () {
+            console.log(this.value);
+        }
+    </script>
+</body>
+
+</html>

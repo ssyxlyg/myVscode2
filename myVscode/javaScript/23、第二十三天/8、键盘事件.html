@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<form action="#" method="GET">
+		密码:<input type="text" name="pwd" class="pwd" />
+		<input type="submit" value="提交">
+	</form>
+	<script>
+		var _input = document.querySelector(".pwd");
+		var _form = document.querySelector("form");
+
+		_input.onkeydown = function (event) {
+			if (event.keyCode == 13) {
+				//点击回车需要验证正确性
+				if (test()) {
+					_form.submit();
+				}
+
+			}
+		}
+
+		//点击提交需要验证数据正确性
+		_form.onsubmit = function () {
+			test();
+		}
+		// function test() {
+		// 	if () {
+		// 		return false;
+		// 	}
+		// 	return true;
+		// }
+
+
+		/* 
+		键盘事件:
+		keydown:键盘摁下   
+		keyup:键盘弹起     
+		keypress:一直摁 
+		*/
+
+		document.onkeydown = function (event) {
+			//判断是否是enter键
+			if (event.keyCode == 13) {
+				console.log("onkeydown");
+			}
+		}
+
+		/* 
+		 keydown可以响应任意键盘按键，
+		 keypress只可以响应字符类键盘按键 
+		 */
+
+		document.onkeypress = function () {
+			console.log("onkeypress");
+		}
+		document.onkeyup = function () {
+			console.log("onkeyup");
+		}
+	</script>
+</body>
+
+</html>

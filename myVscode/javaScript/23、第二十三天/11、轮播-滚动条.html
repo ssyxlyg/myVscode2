@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.wrapper {
+			width: 900px;
+			height: 350px;
+			overflow: hidden;
+			overflow: auto;
+			margin: 0 auto;
+		}
+
+		img {
+			width: 900px;
+			height: 350px;
+		}
+
+		.contain {
+			display: flex;
+			width: 5400px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="contain">
+			<img src="./img/10011.jpg" />
+			<img src="./img/10012.jpg" />
+			<img src="./img/10013.jpg" />
+			<img src="./img/10014.jpg" />
+			<img src="./img/10015.jpg" />
+			<img src="./img/10011.jpg" />
+		</div>
+	</div>
+	<script>
+		var _wrapper = document.querySelector(".wrapper");
+		var index = 0;
+		var num = setInterval(function () {
+			//滚动一张
+			var moveLength = 0; //用标识是否走完一张
+			var id = setInterval(function () {
+				_wrapper.scrollLeft += 12;
+				moveLength += 12
+				if (moveLength >= 900) {
+					clearInterval(id);
+				}
+			}, 20) //一张需要2250毫秒
+			index++;
+			// 走完所有下标和滚动都要从0开始
+			if (index >= 6) {
+				index = 0;
+				_wrapper.scrollLeft = 0;
+			}
+
+		}, 3000)
+
+	</script>
+</body>
+
+</html>

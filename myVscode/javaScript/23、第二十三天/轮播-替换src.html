@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 900px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            display: flex;
+            /* position: relative; */
+            width: 200px;
+            /* height: 20px; */
+            justify-content: space-around;
+            position: absolute;
+            bottom: 10px;
+
+            /* position: absolute; */
+        }
+
+        .btn span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+
+            left: 0;
+        }
+
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="./img/10011.jpg" alt="">
+
+        <div class="btn">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+    </div>
+    <script>
+        var _wrapper = document.querySelector(".wrapper");
+        var _img = document.querySelector("img");
+        var _span = document.querySelectorAll("span");
+
+        var images = ["./img/10011.jpg", "./img/10012.jpg", "./img/10013.jpg", "./img/10014.jpg", "./img/10015.jpg", "./img/10016.jpg"];
+
+        var index = 1;
+        autoSrc();
+        function autoSrc() {
+            var id = setInterval(function () {
+                _img.src = images[index];
+                circle();
+                index++;
+                if (index >= 5) {
+                    index = 0;
+                }
+            }, 2000)
+        }
+
+        function circle() {
+            for (var i = 0; i < _span.length; i++) {
+                if (i == index) {
+                    _span[i].className = "active";
+                } else {
+                    _span[i].className = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

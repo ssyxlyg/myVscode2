@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.wrapper {
+			width: 900px;
+			height: 350px;
+			overflow: hidden;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		img {
+			width: 900px;
+			height: 350px;
+		}
+
+		.contain {
+			display: flex;
+			width: 4500px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.btn {
+			width: 150px;
+			display: flex;
+			justify-content: space-around;
+			position: absolute;
+			left: 375px;
+			bottom: 10px;
+		}
+
+		.btn span {
+			display: block;
+			width: 15px;
+			height: 15px;
+			border: 3px solid white;
+			border-radius: 50%;
+		}
+
+		.wrapper a {
+			text-decoration: none;
+			font-size: 50px;
+			color: red;
+			position: absolute;
+			top: 35%;
+		}
+
+		.wrapper a:nth-of-type(1) {
+			left: 10px;
+
+		}
+
+		.wrapper a:nth-of-type(2) {
+			right: 10px;
+		}
+
+		.active {
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="contain">
+			<img src="./img/10011.jpg" />
+			<img src="./img/10012.jpg" />
+			<img src="./img/10013.jpg" />
+			<img src="./img/10014.jpg" />
+			<img src="./img/10015.jpg" />
+		</div>
+		<div class="btn">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<a href="javascript:void(0);">&lt;</a>
+		<a href="javascript:void(0);">&gt;</a>
+	</div>
+	<script>
+		var _wrapper = document.querySelector(".wrapper");
+		var _contain = document.querySelector(".contain");
+		//下一张按钮
+		var _nextPic = document.querySelector(".wrapper a:nth-of-type(2)");
+		// 上一张按钮
+		var _prevPic = document.querySelector(".wrapper a:nth-of-type(1)");
+		//获取所有小圆点
+		var _spots = document.querySelectorAll(".btn span");
+
+
+		// 下一张
+		_nextPic.onclick = function () {
+			next_pic();
+		}
+		var index = 0;
+		function next_pic() {
+			_contain.style.left = _contain.offsetLeft - 900 + "px";
+			if (_contain.offsetLeft <= -4500) {
+				_contain.style.left = 0;
+			}
+			index++;
+			if (index > 4) {
+				index = 0;
+			}
+			spots();
+		}
+
+		// 上一张
+		_prevPic.onclick = function () {
+			prev_pic();
+		}
+		function prev_pic() {
+			_contain.style.left = _contain.offsetLeft + 900 + "px";
+			if (_contain.offsetLeft > 0) {
+				_contain.style.left = -3600 + "px";
+			}
+			index--;
+			if (index < 0) {
+				index = 4;
+			}
+			spots();
+		}
+
+		//自动轮播
+		autoplay();
+		var id;
+		function autoplay() {
+			id = setInterval(function () {
+				next_pic();
+			}, 2000)
+		}
+
+		//小圆点变化
+		function spots() {
+			for (var i = 0; i < _spots.length; i++) {
+				if (i == index) {
+					_spots[i].className = "active"
+				} else {
+					_spots[i].className = ""
+				}
+			}
+		}
+
+		//悬停控制
+		_wrapper.onmouseover = function () {
+			clearInterval(id);
+		}
+		_wrapper.onmouseout = function () {
+			autoplay();
+		}
+	</script>
+</body>
+
+</html>
