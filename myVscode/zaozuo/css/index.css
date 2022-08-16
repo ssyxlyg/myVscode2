@@ -178,14 +178,17 @@ main .index_recommend .img_list .img_line ul li .unionPrice label {
   padding: 6px 7px;
   font-size: 12px;
   margin: 4px 2px;
-}
-main .index_recommend .img_list .img_line ul li .unionPrice label:nth-of-type(1) {
   background: #ffeded;
   color: #e56a69;
 }
-main .index_recommend .img_list .img_line ul li .unionPrice label:nth-of-type(2) {
+main .index_recommend .img_list .img_line ul li .unionPrice em {
+  display: inline-block;
+  padding: 6px 7px;
+  font-size: 12px;
+  margin: 4px 2px;
   background: #f6f6f6;
   color: #707070;
+  font-style: normal;
 }
 main .index_recommend .img_list .img_line ul li .li_cover {
   position: absolute;
@@ -213,6 +216,25 @@ main .index_recommend .img_list .img_line ul li .li_cover .text_cover {
   font-size: 14px;
   padding-top: 15px;
   border-top: 1px solid lightgray;
+}
+main .index_recommend .img_list .img_line #more_sofa {
+  width: 120px;
+  height: 120px;
+  border: 7px solid #A0A0A0;
+  margin: 96px auto;
+}
+main .index_recommend .img_list .img_line #more_sofa:hover {
+  opacity: 0.7;
+}
+main .index_recommend .img_list .img_line #more_sofa a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+main .index_recommend .img_list .img_line #more_sofa a p {
+  width: 40px;
+  margin: 39px auto;
 }
 main .index_story {
   width: 100%;
@@ -355,4 +377,86 @@ main .live_designer .live_designer .live_center .live_container:nth-of-type(4) i
 }
 main .live_designer .live_designer .live_center .live_container:nth-of-type(4) i:hover {
   background: url(../img/xb.png) no-repeat -200px -64px;
+}
+main .oldGoods {
+  width: 100%;
+  padding-top: 60px;
+}
+main .oldGoods .sofa_title {
+  padding-top: 40px;
+  width: 1035px;
+  margin: 0 auto;
+  line-height: 46px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #D2D2D2;
+}
+main .oldGoods .sofa_title div:nth-of-type(1) {
+  font-size: 20px;
+  font-weight: bold;
+  color: #313131;
+}
+main .oldGoods .sofa_title div:nth-of-type(2) {
+  font-size: 14px;
+}
+main .index_order {
+  width: 100%;
+  padding-top: 60px;
+}
+main .index_order .order_container {
+  width: 100%;
+  margin: 0 auto;
+}
+main .index_order .order_container ul {
+  display: flex;
+}
+main .index_order .order_container ul li {
+  position: relative;
+  width: 20%;
+  margin-right: 10px;
+}
+main .index_order .order_container ul li:hover .cover {
+  display: block;
+}
+main .index_order .order_container ul li:hover ._img {
+  opacity: 0.3;
+}
+main .index_order .order_container ul li img {
+  width: 100%;
+}
+main .index_order .order_container ul li .cover {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+main .index_order .order_container ul li .cover .tx {
+  width: 60px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+main .index_order .order_container ul li .cover .tx img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+main .index_order .order_container ul li .cover .text {
+  font-size: 12px;
+  width: 55%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+main .index_order .order_container ul li .cover .coupon {
+  box-sizing: border-box;
+  width: 55%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 3px;
+  font-size: 12px;
+  border: 5px solid #e9c16f;
 }

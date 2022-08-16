@@ -234,17 +234,21 @@ main {
                                 padding: 6px 7px;
                                 font-size: 12px;
                                 margin: 4px 2px;
-                            }
-
-                            label:nth-of-type(1) {
                                 background: #ffeded;
                                 color: #e56a69;
                             }
 
-                            label:nth-of-type(2) {
+                            em {
+                                display: inline-block;
+                                padding: 6px 7px;
+                                font-size: 12px;
+                                margin: 4px 2px;
                                 background: #f6f6f6;
                                 color: #707070;
+                                font-style: normal;
                             }
+
+
                         }
 
                         .li_cover {
@@ -256,14 +260,9 @@ main {
                             height: 326px;
                             display: none;
 
-
-
-
-
                             .bor_cover {
 
                                 height: 248px;
-
                                 overflow: hidden;
 
                                 p {
@@ -288,6 +287,35 @@ main {
                             }
                         }
                     }
+                }
+
+                #more_sofa {
+                    // line-height: 326px;
+                    width: 120px;
+                    height: 120px;
+                    border: 7px solid #A0A0A0;
+                    margin: 96px auto;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+
+
+
+                        p {
+                            width: 40px;
+                            margin: 39px auto;
+                        }
+                    }
+
+
                 }
             }
         }
@@ -502,6 +530,110 @@ main {
                 }
             }
 
+        }
+    }
+
+    .oldGoods {
+        width: 100%;
+        padding-top: 60px;
+
+        .sofa_title {
+            padding-top: 40px;
+            width: 1035px;
+            margin: 0 auto;
+            line-height: 46px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #D2D2D2;
+
+            div:nth-of-type(1) {
+                font-size: 20px;
+                font-weight: bold;
+                color: #313131;
+            }
+
+            div:nth-of-type(2) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .index_order {
+        width: 100%;
+        padding-top: 60px;
+
+        .order_container {
+            width: 100%;
+            margin: 0 auto;
+
+            ul {
+                display: flex;
+
+
+                li {
+                    position: relative;
+                    width: 20%;
+                    margin-right: 10px;
+
+                    &:hover .cover {
+                        display: block;
+                    }
+
+                    &:hover ._img {
+                        opacity: 0.3;
+                    }
+
+                    img {
+                        width: 100%;
+                        // height: 192px;
+                    }
+
+                    .cover {
+                        width: 100%;
+                        height: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid black;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        display: none;
+
+
+                        .tx {
+                            width: 60px;
+                            margin: 0 auto;
+
+                            padding-top: 5px;
+
+                            img {
+                                width: 60px;
+                                height: 60px;
+                                border-radius: 50%;
+
+                            }
+                        }
+
+                        .text {
+                            font-size: 12px;
+                            width: 55%;
+                            margin: 0 auto;
+                            padding-top: 10px;
+                            padding-bottom: 5px;
+                        }
+
+                        .coupon {
+                            box-sizing: border-box;
+                            width: 55%;
+                            text-align: center;
+                            margin: 0 auto;
+                            padding: 3px;
+                            font-size: 12px;
+                            border: 5px solid rgb(233, 193, 111);
+                        }
+
+                    }
+                }
+            }
         }
     }
 
