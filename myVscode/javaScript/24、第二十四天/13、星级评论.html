@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.active{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<span class="active">❤</span>
+			<span>❤</span>
+			<span>❤</span>
+			<span>❤</span>
+			<span>❤</span>
+		</div>
+		密码:<input type="password"><button>切换</button>
+		<script>
+			var _wrapper=document.querySelector(".wrapper");
+			var _spans=document.querySelectorAll("span");
+			_wrapper.onclick=function(event){
+				//寻找事件源
+				var target=event.srcElement||event.target;
+				if(target.nodeName=="SPAN"){
+					//找到span对应点击的index
+					var index=Array.from(_spans).findIndex(function(tag){
+						return tag==target;
+					})
+					//index之前的添加active，index之后的取消
+					for (var i = 0; i < _spans.length; i++) {
+						if(i<=index){
+							_spans[i].className="active";
+						}else{
+							_spans[i].className="";
+						}
+					}
+				}
+			}
+			
+			//明文密文切换
+			var _button=document.querySelector("button");
+			var _input=document.querySelector("input");
+			_button.onclick=function(){
+				if(_input.type=="password"){
+					_input.type="text";
+				}else{
+					_input.type="password";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.little {
+			width: 640px;
+			height: 400px;
+			border: 1px solid black;
+			position: relative;
+		}
+
+		/* 小图 */
+		.little img {
+			width: 640px;
+			height: 400px;
+		}
+
+		/* 小放大镜 */
+		.little .mark {
+			width: 320px;
+			height: 200px;
+			background-color: yellow;
+			opacity: 0.5;
+			position: absolute;
+			left: 0;
+			top: 0;
+			/* 默认隐藏 */
+			display: none;
+		}
+
+		/* 大放大镜 */
+		.great {
+			width: 960px;
+			height: 600px;
+			border: 1px solid red;
+			overflow: hidden;
+			position: relative;
+			/* 默认隐藏 */
+			display: none;
+		}
+
+		.great img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 
+		   1、原图宽高比例=缩略图宽高比=放大镜的宽高比 
+		   2、大放大镜与小放大镜的倍数=原图与缩略图的倍数
+		   3、默认两个放大镜与图片都是左上角重叠
+		   4、原图相对于小放大镜反方向移动相应倍数的距离
+		-->
+
+	<div class="wrapper">
+		<!-- 小图:640*400,缩小3倍 -->
+		<div class="little">
+			<img src="./img/xhr.jpg" alt="">
+			<!-- 放大镜：320*200 -->
+			<div class="mark"></div>
+		</div>
+
+		<!-- 大放大镜 -->
+		<div class="great">
+			<!-- 大图:1920*1200 -->
+			<img src="./img/xhr.jpg" alt="">
+		</div>
+
+	</div>
+
+	<script>
+		var _little = document.querySelector(".little"); //小图框
+		var _mark = document.querySelector(".mark");  //小放大镜
+		var _great = document.querySelector(".great"); //大放大镜
+		var _img = document.querySelector(".great img"); //大图
+
+		_little.onmouseover = function () {
+			_great.style.display = "block";
+			_mark.style.display = "block";
+		}
+		_little.onmouseout = function () {
+			_great.style.display = "none";
+			_mark.style.display = "none";
+		}
+		_little.onmousemove = function (event) {
+			//计算小放大镜的x，y
+			var dx = event.pageX - _little.offsetLeft - _mark.offsetWidth / 2;
+			var dy = event.pageY - _little.offsetTop - _mark.offsetHeight / 2;
+			//到左边
+			if (dx <= 0) {
+				dx = 0;
+			}
+			// 到最右边
+			if (dx >= _little.offsetWidth - _mark.offsetWidth) {
+				dx = _little.offsetWidth - _mark.offsetWidth;
+			}
+			_mark.style.left = dx + "px";
+			//到上边
+			if (dy <= 0) {
+				dy = 0;
+			}
+			//到下边
+			if (dy >= _little.offsetHeight - _mark.offsetHeight) {
+				dy = _little.offsetHeight - _mark.offsetHeight;
+			}
+			_mark.style.top = dy + "px";
+
+			_img.style.left = -3 * dx + "px";
+			_img.style.top = -3 * dy + "px";
+		}
+	</script>
+</body>
+
+</html>

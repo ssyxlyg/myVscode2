@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>鼠标</td>
+            <td><a href="javascript:void(0);">删除</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>键盘</td>
+            <td><a href="javascript:void(0);">删除</a></td>
+        </tr>
+    </table>
+
+    <script>
+        var _table = document.querySelector("table");
+
+        var _tr = document.querySelectorAll("tr");
+
+        var _input = document.querySelector("input");
+        var index = 2;
+        _input.onkeydown = function (event) {
+            if (event.keyCode == 13) {
+                var tr = document.createElement("tr");
+                tr.innerHTML = ` <td>${++index}</td>
+                                <td>${_input.value}</td>
+                                <td><a href="javascript:void(0);">删除</a></td>`;
+                _table.appendChild(tr);
+                _input.value = "";
+            }
+        }
+
+        _table.onclick = function (event) {
+            var target = event.srcElement || event.target;
+            console.log(target.parentNode.parentNode)
+            if (target.nodeName == "A") {
+                if (confirm("确认删除？")) {
+                    // target.parentNode.parentNode.remove();
+                    target.parentNode.parentNode.remove();
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

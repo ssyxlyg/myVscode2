@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .little {
+            width: 480px;
+            height: 300px;
+            /* margin: 0 auto; */
+        }
+
+        .little img {
+            width: 480px;
+            height: 300px;
+            position: relative;
+        }
+
+        .little .mark {
+            width: 240px;
+            height: 150px;
+            background-color: skyblue;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .great {
+            width: 960px;
+            height: 600px;
+            border: 1px solid black;
+            overflow: hidden;
+            position: relative;
+            display: none;
+            /* margin: 0 auto; */
+        }
+
+        .great img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="little">
+            <img src="./img/xhr.jpg" alt="">
+            <div class="mark">
+
+            </div>
+        </div>
+        <div class="great">
+            <img src="./img/xhr.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var _little = document.querySelector(".little");
+        var _mark = document.querySelector(".mark");
+        var _great = document.querySelector(".great");
+        var _img = document.querySelector(".great img");
+
+        _little.onmouseover = function () {
+            _mark.style.display = "block";
+            _great.style.display = "block";
+        }
+        _little.onmouseout = function () {
+            _mark.style.display = "none";
+            _great.style.display = "none";
+        }
+
+        _little.onmousemove = function (event) {
+            var dx = event.pageX - _little.offsetLeft - _mark.offsetWidth / 2 + _little.offsetLeft;
+            var dy = event.pageY - _little.offsetTop - _mark.offsetHeight / 2 + _little.offsetTop;
+            console.log(dx);
+            console.log(event.clientX);
+
+            //右边
+            if (dx >= _little.offsetWidth - _mark.offsetWidth + _little.offsetLeft) {
+                dx = _little.offsetWidth - _mark.offsetWidth + _little.offsetLeft;
+            }
+            if (dx <= _little.offsetLeft) {
+                dx = _little.offsetLeft;
+            }
+            if (dy >= _little.offsetHeight - _mark.offsetHeight + _little.offsetTop) {
+                dy = _little.offsetHeight - _mark.offsetHeight + _little.offsetTop
+            }
+            if (dy <= _little.offsetTop) {
+                dy = _little.offsetTop;
+            }
+            _mark.style.left = dx + "px";
+            _mark.style.top = dy + "px";
+
+            // _img.style.top = _great.offsetTop - _little.offsetHeight + (-4 * dy) + "px";
+            // _img.style.left = - 4 * dx + "px";
+
+            _img.style.top = -4 * dy + "px";
+            _img.style.left = - 4 * dx + "px";
+
+        }
+    </script>
+</body>
+
+</html>

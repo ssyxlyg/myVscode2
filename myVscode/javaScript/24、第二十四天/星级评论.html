@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+
+        span {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+    </div>
+    <script>
+        var _wrapper = document.querySelector(".wrapper");
+        var _span = document.querySelectorAll("span");
+
+        _wrapper.onclick = function (event) {
+            var target = event.srcElement || event.target;
+
+            if (target.nodeName == "SPAN") {
+                var index = Array.from(_span).findIndex(function (tag) {
+                    return tag == target;
+                })
+                for (var i = 0; i < _span.length; i++) {
+                    if (i <= index) {
+                        _span[i].className = "active";
+                    } else {
+                        _span[i].className = "";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

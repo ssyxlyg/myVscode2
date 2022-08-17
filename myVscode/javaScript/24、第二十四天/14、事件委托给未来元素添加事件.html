@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+		<table>
+			<tr><th>编号</th><th>名称</th><th>操作</th></tr>
+			<tr><td>1</td><td>鼠标</td><td><a href="javascript:void(0);">删除</a></td></tr>
+			<tr><td>2</td><td>键盘</td><td><a href="javascript:void(0);">删除</a></td></tr>
+		</table>
+		<script>
+			var _input=document.querySelector("input");
+			var _table=document.querySelector("table");
+			var index=2;
+			_input.onkeydown=function(event){
+				if(event.keyCode==13){
+					//添加tr
+					var tr=document.createElement("tr");
+					tr.innerHTML=`<td>${++index}</td><td>${_input.value}</td><td><a href="javascript:void(0);">删除</a></td>`
+					_table.append(tr);
+					
+				}
+			}
+			
+			//事件委托给未来元素添加事件
+			_table.onclick=function(event){
+				var target=event.srcElement||event.target;
+				if(target.nodeName=="A"){
+					if(confirm("确认删除吗?")){
+						target.parentNode.parentNode.remove();
+					}
+				}
+			}
+			
+		/* 	
+		//不能删除未来元素
+		var _as=document.getElementsByTagName("a");
+			Array.from(_as).forEach(function(tag){
+				tag.onclick=function(){	
+					if(confirm("确认删除吗?")){
+						tag.parentNode.parentNode.remove();
+					}
+					
+				}
+			}) */
+		</script>
+	</body>
+</html>

@@ -88,10 +88,13 @@
 	<script>
 		var _wrapper = document.querySelector(".wrapper");
 		var _contain = document.querySelector(".contain");
+		var _btn = document.querySelector(".btn");
 		//下一张按钮
 		var _nextPic = document.querySelector(".wrapper a:nth-of-type(2)");
 		// 上一张按钮
 		var _prevPic = document.querySelector(".wrapper a:nth-of-type(1)");
+
+		var _btn = document.querySelector(".btn");
 		//获取所有小圆点
 		var _spots = document.querySelectorAll(".btn span");
 
@@ -118,7 +121,7 @@
 			prev_pic();
 		}
 		function prev_pic() {
-			_contain.style.left = _contain.offsetLeft + 900 + "px";
+			_contain.style.left = _contain.offsetLeft + 600 + "px";
 			if (_contain.offsetLeft > 0) {
 				_contain.style.left = -3600 + "px";
 			}
@@ -156,6 +159,26 @@
 		_wrapper.onmouseout = function () {
 			autoplay();
 		}
+
+
+		//悬浮小圆点更新图片
+		_btn.onmouseover = function (event) {
+			//获取悬浮的小圆点
+			var target = event.srcElement || event.target;
+			if (target.nodeName == 'SPAN') {
+				//查询小圆点下标
+				var n = Array.from(_spots).findIndex(function (tag) {
+					return tag == target
+				})
+				//更新下标
+				index = n;
+				//更新位移
+				_contain.style.left = -900 * n + "px";
+				//更新颜色
+				spots();
+			}
+		}
+
 	</script>
 </body>
 
