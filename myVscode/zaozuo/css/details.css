@@ -1,0 +1,279 @@
+header nav .head2 {
+  display: none;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  z-index: 1000;
+}
+header nav .head2 .head2_nav {
+  width: 1050px;
+  margin: 0 auto;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+header nav .head2 .head2_nav .prev {
+  height: 50px;
+  width: 422px;
+  display: flex;
+  justify-content: space-around;
+}
+header nav .head2 .head2_nav .prev li {
+  width: 103px;
+  text-align: center;
+  position: relative;
+}
+header nav .head2 .head2_nav .prev li i {
+  display: block;
+  position: absolute;
+  top: 9px;
+  right: 16px;
+  font-size: 12px;
+  font-style: normal;
+}
+header nav .head2 .head2_nav .prev li a {
+  display: block;
+  margin-top: 15px;
+  border-right: 1px solid #fff;
+  height: 20px;
+  color: #fff;
+}
+header nav .head2 .head2_nav .prev li:nth-of-type(4) i {
+  right: 20px;
+}
+header nav .head2 .head2_nav .prev li:nth-of-type(4) a {
+  border: none !important;
+}
+header nav .head2 .head2_nav .head2_btn {
+  display: flex;
+  justify-content: space-around;
+}
+header nav .head2 .head2_nav .head2_btn li {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+header nav .head2 .head2_nav .head2_btn li button {
+  color: #fff;
+  width: 100%;
+  height: 30px;
+  outline: none;
+  position: relative;
+}
+header nav .head2 .head2_nav .head2_btn li button i {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+header nav .head2 .head2_nav .head2_btn li button label {
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 12px;
+  border-radius: 7px;
+  background-color: #e56a69;
+  top: 2px;
+  left: 32px;
+  font-size: 12px;
+}
+header nav .head2 .head2_nav .head2_btn li:nth-of-type(1) button {
+  width: 130px;
+  background: #e56a69;
+  border: 1px solid #e56a69;
+}
+header nav .head2 .head2_nav .head2_btn li:nth-of-type(2) button {
+  width: 107px;
+  background: #000;
+  border: 1px solid #fff;
+}
+main .item_header {
+  margin-top: 50px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+main .item_header .img_details {
+  width: 1134px;
+  margin: 0 auto;
+  display: flex;
+  z-index: -1;
+}
+main .item_header .img_details .img_container img {
+  width: 750px;
+  height: 415px;
+}
+main .item_header .img_details .sofa_data {
+  width: 375px;
+}
+main .item_header .img_details .sofa_data ._title {
+  font-size: 26px;
+  padding-bottom: 10px;
+}
+main .item_header .img_details .sofa_data ._title span:nth-of-type(2) {
+  border-left: 1px solid black;
+  padding-left: 8px;
+}
+main .item_header .img_details .sofa_data .price {
+  padding-bottom: 20px;
+}
+main .item_header .img_details .sofa_data .price span:nth-of-type(1) {
+  color: #e56a69;
+  font-size: 28px;
+}
+main .item_header .img_details .sofa_data .price span:nth-of-type(2) {
+  color: #a0a0a0;
+  text-decoration: line-through;
+  padding-right: 10px;
+}
+main .item_header .img_details .sofa_data .jump {
+  padding-bottom: 15px;
+}
+main .item_header .img_details .sofa_data .jump button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+  width: 100%;
+  background: #e56a69;
+}
+main .item_header .img_details .sofa_data .saledesc,
+main .item_header .img_details .sofa_data .expresstime {
+  z-index: -1;
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 14px;
+  color: #313131;
+  background: #ffebe8;
+}
+main .item_header .img_details .sofa_data .saledesc span,
+main .item_header .img_details .sofa_data .expresstime span {
+  display: block;
+  padding: 10px 15px;
+}
+main .item_header .img_details .sofa_data .expresstime {
+  background: #f9f9f9;
+}
+main .item_header .img_details .sofa_data .expresstime label {
+  font-weight: 700;
+  color: #e56a69;
+}
+main .item_header .img_details .sofa_data .sofa_color,
+main .item_header .img_details .sofa_data .skudesc_box {
+  z-index: -1;
+  padding-top: 35px;
+}
+main .item_header .img_details .sofa_data .sofa_color span,
+main .item_header .img_details .sofa_data .skudesc_box span {
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  margin-right: 5px;
+  position: relative;
+}
+main .item_header .img_details .sofa_data .sofa_color span i,
+main .item_header .img_details .sofa_data .skudesc_box span i {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  border-radius: 1px;
+}
+main .item_header .img_details .sofa_data .sofa_color span img,
+main .item_header .img_details .sofa_data .skudesc_box span img {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+}
+main .item_header .img_details .sofa_data .sofa_color .text,
+main .item_header .img_details .sofa_data .skudesc_box .text {
+  width: 75px;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+}
+main .item_header .img_details .sofa_data .skudesc_box span:not(.text) {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  border: 1px dashed lightgray;
+}
+main .item_header .img_details .sofa_data .skudesc_box span:nth-of-type(4) {
+  margin-left: 85px;
+  margin-top: 10px;
+}
+main .item_header .img_details .sofa_data ._count {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+main .item_header .img_details .sofa_data ._count .get_count {
+  display: flex;
+  width: 75px;
+  border: 2px solid black;
+}
+main .item_header .img_details .sofa_data ._count .get_count input {
+  display: block;
+  width: 50px;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+main .item_header .img_details .sofa_data ._count .get_count .btn button {
+  display: block;
+  border: none;
+  outline: none;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: #fff;
+}
+main .item_header .img_details .sofa_data ._count .get_count .btn button:nth-of-type(2) {
+  border-bottom: none;
+}
+main .item_header .img_details .sofa_data ._count .shop_now,
+main .item_header .img_details .sofa_data ._count .add_gwc {
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  border: 2px solid black;
+  text-align: center;
+}
+main .item_header .img_details .sofa_data ._count .shop_now {
+  width: 110px;
+}
+main .item_header .img_details .sofa_data ._count .shop_now:hover {
+  color: #fff;
+  background-color: #000;
+}
+main .item_header .img_details .sofa_data ._count .add_gwc {
+  width: 145px;
+  color: #fff;
+  background-color: #000;
+}
+main .details_01 {
+  width: 100%;
+}
+main .details_01 .details_01_bg {
+  width: 100%;
+  position: relative;
+}
+main .details_01 .details_01_bg img {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
