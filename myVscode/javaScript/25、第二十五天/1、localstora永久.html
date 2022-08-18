@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//本地存储只接收字符串
+		// localStorage:本地永久存储，除非手动删除
+		//存储变量
+		localStorage.setItem("name","张三");
+		localStorage.age=20;
+		//存储数组
+		var hobbys=['购物','看电影','编程']
+		localStorage.hobbys=JSON.stringify(hobbys);
+		console.log(JSON.parse(localStorage.hobbys));
+		
+		//存储对象
+		var zs={'name':'张三','age':20}
+		localStorage.zs=JSON.stringify(zs);
+		console.log(JSON.parse(localStorage.zs));
+		
+		//存储对象数组
+		var ary=[
+			     {'name':'张三','age':20},
+		         {'name':'李四','age':30}
+		        ]
+		localStorage.ary=JSON.stringify(ary);
+		console.log(JSON.parse(localStorage.ary));
+		
+		//取数据
+		//根据key获取value
+		  console.log(localStorage.name);
+		  console.log(JSON.parse(localStorage.getItem("hobbys")));
+		  
+		  //根据下标获取对应的key名
+		  console.log(localStorage.key(3));
+		  //根据key删除
+		  localStorage.removeItem("age");
+		  
+		  //清空
+		  localStorage.clear();
+		</script>
+	</body>
+</html>

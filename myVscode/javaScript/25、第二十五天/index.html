@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<h3>欢迎您:<span></span></h3>
+	<script>
+		var _span = document.querySelector("span");
+		if (localStorage.name == undefined) {
+			_span.innerHTML = "";
+		} else {
+			_span.innerHTML = localStorage.name;
+		}
+	</script>
+</body>
+
+</html>

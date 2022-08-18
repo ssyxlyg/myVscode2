@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.cookie = "name=张三";
+        document.cookie = "age=20";
+        document.cookie = "height=199;max-age=10";
+
+        var times = new Date(new Date().getTime() + 10 * 1000);
+        times = times.toUTCString();
+        console.log(times);
+
+        document.cookie = "weight=120;expires" + times
+    </script>
+</body>
+
+</html>

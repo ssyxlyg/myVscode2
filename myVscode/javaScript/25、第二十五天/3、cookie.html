@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			localStorage:永久存储，除非手动删除
+			sessionStorage:会话存储，关闭页面就会失效 
+			cookie:可以设置过期时间,如果不设置关闭浏览器就会失效
+			*/
+		   //cookie存储数据
+		   // document.cookie="name=张三;";
+		   // document.cookie="age=20;";
+		   /* 过期时间设置
+		      max-age:秒 
+			  expires:格林尼治时间
+			  toUTCString()
+			*/ 
+		   document.cookie="pwd=123456;max-age=10"
+		   document.cookie="height=183;max-age=60"
+		   //10秒以后过期
+		   var times=new Date(new Date().getTime()+10*1000);
+		   times=times.toUTCString();
+		   // document.cookie="hobby=购物;expires="+times
+		   document.cookie=`hobby=购物;expires=${times}`
+		   
+		   //cookie删除
+		    document.cookie="pwd=;max-age=0" 
+		    document.cookie="hobby=;expires="+new Date().toUTCString();
+			
+			//cookie获取
+			console.log(document.cookie);
+		</script>
+	</body>
+</html>

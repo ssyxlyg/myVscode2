@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        localStorage.setItem("name", "张三");
+        localStorage.age = 20;
+
+        var hobby = ['吃饭', '睡觉', '打豆豆'];
+        localStorage.hobby = JSON.stringify(hobby);
+        console.log(JSON.parse(localStorage.hobby));
+
+        var ary = { "name": "张三", "age": "20" };
+        localStorage.ary = JSON.stringify(ary);
+        console.log(JSON.parse(localStorage.ary));
+
+        var ary2 = [
+            { 'name': '张三', 'age': 20 },
+            { 'name': '李四', 'age': 30 }
+        ]
+        localStorage.ary2 = JSON.stringify(ary2);
+        console.log(JSON.parse(localStorage.ary2));
+
+        console.log(localStorage.name);
+        console.log(JSON.parse(localStorage.getItem("hobby")));
+
+        console.log(localStorage.key(3));
+        localStorage.removeItem("age");
+        console.log(localStorage.key(3));
+
+        // localStorage.clear();
+    </script>
+</body>
+
+</html>
