@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 1;
+        var str2 = str.toString().padStart(2, "0");
+        console.log(str2)
+        function setCookie(key, value, expires) {
+            var times = new Date().getTime() + expires * 24 * 60 * 60 * 1000;
+            times = new Date(times).toUTCString();
+            document.cookie = `${key}=${value};expires=${times}`;
+        }
+        setCookie("name", "张三", 1);
+        setCookie("age", 20, 1);
+        setCookie("weight", 150, 1);
+
+        function delCookie(key) {
+            document.cookie = `${key}=;expires=new Date().getTime()`;
+        }
+        delCookie("age");
+
+        function getCookie(key) {
+            var str = document.cookie;
+            var arr1 = str.split(";");
+            // console.log(arr1);
+            for (var item of arr1) {
+                var arr2 = item.split("=");
+                if (arr2[0].trim() == key) {
+                    return arr2[1];
+                }
+            }
+            return "";
+        }
+
+        console.log(getCookie("weight"));
+
+    </script>
+</body>
+
+</html>

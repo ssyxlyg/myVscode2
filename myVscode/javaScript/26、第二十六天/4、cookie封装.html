@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//设置cookie
+			function setCookie(key,value,exdays){
+				var times=new Date().getTime()+exdays*24*60*60*1000;
+				times=new Date(times).toUTCString();
+				document.cookie=`${key}=${value};expires=${times}`
+			}
+			setCookie("name","张三",1)
+			setCookie("age",20,1)
+			
+			//删除
+			function delCookie(key){
+				document.cookie=`${key}=;expires=${new Date().toUTCString()}`
+			}
+			// delCookie("age");
+			
+			//获取
+			function  getCookie(key){
+				// `name=张三;age=20;max-age=20`
+				var str=document.cookie;
+				//按照分号拆分为数组
+				//["name=张三","age=20","max-age=20"]
+				var arr=str.split(";");
+				for (var item of arr) {
+					var ary=item.split("="); //["name","张三"]
+					console.log(ary[0]);
+					if(ary[0].trim()==key){
+						return ary[1];
+					}
+				}
+			}
+			console.log(getCookie("name"));
+			console.log(getCookie("age"));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.wrapper {
+				width: 450px;
+				background-color: lightgray;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			.wrapper>input {
+				width: 100%;
+				height: 30px;
+				font-size: 20px;
+				margin-bottom: 20px;
+			}
+
+			ul {
+				width: 100%;
+				list-style: none;
+				font-size: 25px;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			ul>li {
+				margin-bottom: 15px;
+			}
+
+			ul>li>a {
+				float: right;
+			}
+
+			ul>li>input {
+				height: 20px;
+				width: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<input type="text" placeholder="请输入任务">
+			<div class="active">
+				<h3>已完成</h3>
+				<ul class="task"></ul>
+				<h3>未完成</h3>
+				<ul class="untask"></ul>
+			</div>
+
+		</div>
+
+		<script>
+			var _input = document.querySelector("input");
+			var _task = document.querySelector(".task");  //已完成
+			var _untask = document.querySelector(".untask");  //未完成
+			//获取最新的下标
+			var nextId = localStorage.nextId || 0;
+			var ary;
+			//添加数据
+			_input.onkeydown = function(event) {
+				if (event.keyCode == 13) {
+					if (this.value != "") {
+						ary = getInfo();
+						//先将数据放入数组
+						var obj = {
+							nextId: nextId++,
+							title: this.value,
+							status: false //false未完成，true已完成
+						}
+						ary.unshift(obj);
+
+						//更新数据和id
+						updateInfo();
+
+						//渲染
+						show();
+					}
+                    this.value = "";
+				}
+				
+			}
+
+			// 更新数据
+			function updateInfo() {
+				//更新数据
+				localStorage.taskList = JSON.stringify(ary);
+				//更新nextId
+				localStorage.nextId = nextId;
+			}
+
+			//获取数据
+			function getInfo() {
+				// 考虑第一次没有，需要定义空数组
+				//从localstroge中取出
+				return localStorage.taskList == undefined ? [] : JSON.parse(localStorage.taskList);
+			}
+
+			//查询数据
+			//首次进来就要渲染
+			show();
+			function show() {
+				var ary = getInfo();
+				//渲染前先清空
+				_task.innerHTML = "";
+				_untask.innerHTML = "";
+				for (var item of ary) {
+					var _li = document.createElement("li");
+					_li.innerHTML = `<input type="checkbox" value=${item.nextId} ${item.status==true?"checked":""}>
+					<span>${item.title}</span>
+					<a href="javascript:void(0);">删除</a>`;
+					if(!item.status){
+						_task.appendChild(_li);
+					}else{
+						_untask.appendChild(_li);
+					}
+					
+				}
+			}
+
+			//修改状态
+			var _active = document.querySelector(".active");
+			_active.onclick = function(event) {
+				var target = event.srcElement || event.target;
+				ary = getInfo();
+				var nextId;
+				if (target.nodeName == "INPUT") {
+					//拿到的当前点击的nextId
+					nextId = target.value;
+					// 根据nextId找到对应的对象
+					var obj = ary.find(function(item) {
+						return item.nextId == nextId;
+					})
+					//修改选中状态
+					obj.status=target.checked;
+				}else if(target.nodeName == "A"){
+					if(confirm("确认删除吗?")){
+						nextId = target.parentNode.children[0].value;
+						// 根据nextId找到对应的对象index
+						var index = ary.findIndex(function(item) {
+							return item.nextId == nextId;
+						})
+						ary.splice(index,1);
+						target.parentNode.remove();
+					}
+				}
+				//更新本地数据
+				updateInfo();
+				//从新渲染
+				show();
+			}
+		</script>
+	</body>
+</html>

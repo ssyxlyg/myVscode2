@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <ul></ul>
+    <script>
+        var _input = document.querySelector("input");
+        var _ul = document.querySelector("ul");
+
+        var names = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+
+        _input.onkeydown = function (event) {
+            if (event.keyCode == 13 && this.value != "") {
+                names.unshift(this.value);
+                localStorage.names = JSON.stringify(names);
+
+                var arr = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+                _ul.innerHTML = "";
+                for (var item of arr) {
+                    var _li = document.createElement("li");
+                    _li.innerHTML = item;
+                    _ul.appendChild(_li);
+                }
+                this.value = ""
+            }
+        }
+        show();
+        function show() {
+            var arr = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+            _ul.innerHTML = "";
+            for (var item of arr) {
+                var _li = document.createElement("li");
+                _li.innerHTML = item;
+                _ul.appendChild(_li);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

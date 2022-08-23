@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <ul></ul>
+    <script>
+        var _input = document.querySelector("input");
+        var _ul = document.querySelector("ul");
+
+        //获取localstorge.name,不存在则创建一个空数组；
+        var names = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+        // console.log(names);
+
+        _input.onkeydown = function (event) {
+            //enter键判断
+            if (event.keyCode == 13) {
+                if (this.value != "") {
+                    //最前面添加元素
+                    names.unshift(this.value);
+                    // console.log(names);
+                    //将数组传入localStorge中
+                    localStorage.names = JSON.stringify(names);
+                    //渲染
+                    show();
+                }
+            }
+            this.value = ""
+
+        }
+        //初始化渲染
+        show();
+        function show() {
+            //获取localstorge.name,不存在则创建一个空数组；
+            var ary = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+            //执行前ul置空
+            _ul.innerHTML = ""
+            //遍历添加li
+            for (var item of ary) {
+                var _li = document.createElement("li");
+                _li.innerHTML = item;
+                _ul.appendChild(_li);
+            }
+        }
+    </script>
+</body>
+
+</html>

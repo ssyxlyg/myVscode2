@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 450px;
+            background-color: lightgray;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .wrapper>input {
+            width: 100%;
+            height: 30px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            width: 100%;
+            list-style: none;
+            font-size: 25px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul>li {
+            margin-bottom: 15px;
+        }
+
+        ul>li>a {
+            float: right;
+        }
+
+        ul>li>input {
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input type="text">
+        <div class="active">
+            <h3>已完成</h3>
+
+            <ul class="task">
+                <li>
+                    <input type="checkbox">
+                    <span>吃饭</span>
+                    <a href="javascript:void(0);">删除</a>
+                </li>
+            </ul>
+            <h3>未完成</h3>
+
+            <ul class="untask">
+                <li>
+                    <input type="checkbox">
+                    <span>吃饭</span>
+                    <a href="javascript:void(0);">删除</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var _input = document.querySelector("input");
+        var _task = document.querySelector(".task");
+        var _untask = document.querySelector(".untask");
+
+
+        var ary;
+        var nextId = localStorage.nextId || 0;
+
+        _input.onkeydown = function (event) {
+            //enter键判断
+            if (event.keyCode == 13) {
+                if (this.value != "") {
+                    ary = getInfo();
+
+                    var obj = {
+                        nextId: nextId++,
+                        title: this.value,
+                        status: false
+                    }
+                    ary.unshift(obj);
+                    update();
+                    //渲染
+                    show();
+                }
+            }
+            this.value = ""
+
+        }
+        //获取数据
+        function getInfo() {
+            return localStorage.taskList == undefined ? [] : JSON.parse(localStorage.taskList);
+
+        }
+
+        //更新数据
+        function update() {
+            localStorage.taskList = JSON.stringify(ary);
+            localStorage.nextId = nextId;
+        }
+        //初始化渲染
+        show();
+        //渲染
+        function show() {
+            ary = getInfo();
+            //执行前ul置空
+            _task.innerHTML = "";
+            _untask.innerHTML = "";
+
+            //遍历添加li
+            for (var item of ary) {
+                var _li = document.createElement("li");
+                _li.innerHTML = `<li>
+                    <input type="checkbox" value="${item.nextId}" ${item.status == true ? "checked" : ""}>
+                    <span>${item.title}</span>
+                    <a href="javascript:void(0);">删除</a>
+                 </li>`
+                if (item.status) {
+                    _task.appendChild(_li);
+
+                } else {
+                    _untask.appendChild(_li)
+                }
+            }
+        }
+        var _active = document.querySelector(".active");
+
+        _active.onclick = function (event) {
+            var target = event.srcElement || target;
+            var nextId;
+            ary = getInfo();
+            if (target.nodeName == "INPUT") {
+                nextId = target.value;
+                console.log(nextId);
+
+                var obj = ary.find(function (item) {
+                    // console.log(item.nextId + "111")
+                    return item.nextId == nextId;
+
+                })
+                // console.log(target.checked);
+                // console.log(obj);
+                // console.log(obj.status);
+
+                obj.status = target.checked;
+
+
+            } else if (target.nodeName == "A") {
+                if (confirm("确认删除吗啊")) {
+                    nextId = target.parentNode.children[0].value;
+
+                    var index = ary.findIndex(function (item) {
+                        return item.nextId == nextId;
+                    })
+                    ary.splice(index, 1);
+                    target.parentNode.remove();
+                }
+            }
+            update();
+            show();
+        }
+    </script>
+</body>
+
+</html>
