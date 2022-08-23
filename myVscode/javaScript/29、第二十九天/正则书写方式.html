@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /abc/;
+        var str = "12abc1ABC";
+        console.log(reg.test(str));
+
+        console.log(reg.exec(str));
+
+        console.log(str.match(reg));
+
+        console.log(str.search(reg));
+
+
+        var reg2 = /AbC/igm;
+        var str2 = "1abCaBc";
+        console.log(str2.match(reg2));
+
+
+        var reg3 = /^abc/igm;
+        var str3 = "abc\nABC";
+        console.log(str3.match(reg3));
+    </script>
+</body>
+
+</html>

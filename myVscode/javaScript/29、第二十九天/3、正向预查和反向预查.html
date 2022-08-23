@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//贪婪匹配：能匹配多，就不匹配少
+			var reg=/\w{2,3}/g; // ['1ab', 'c4a', 'bg']
+			var str="1abc4abg";
+			console.log(str.match(reg));
+			//非贪婪匹配：能匹配少，就不匹配多
+			var reg=/\w{2,3}?/g;
+			var str="1abc4abg";
+			console.log(str.match(reg)); //['1a', 'bc', '4a', 'bg']
+			
+			//正向预查
+			//正向正预查
+			var reg=/\d{2}(?=s)/g   //返回后边是s的2位数字
+			var str="as13s2ab";
+			console.log(str.match(reg)); //['13']
+			//正向负预查
+			var reg=/\d{2}(?!s)/g   //返回后边不是s的2位数字
+			var str="as13s26ab";
+			console.log(str.match(reg)); //['26']
+			
+			//反向预查
+			//反向正预查
+			var reg=/(?<=s)\d{2}/g   //返回前边是s的2位数字
+			var str="as13s2ab";
+			console.log(str.match(reg)); //['13']
+			//反向负预查
+			var reg=/(?<!s)\d{2}/g   //返回前边不是s的2位数字
+			var str="as13sab26";
+			console.log(str.match(reg)); //['26']
+			
+			// 字母数字汉字组合6-20位
+			var reg8 =/^(?!([a-zA-Z]+|\d+|[\u4E00-\u9FA5]+)$)[\u4E00-\u9FA5a-zA-Z\d]{6,20}$/;
+			
+			
+			//一切字符
+			var reg=/\w|\W/g;
+			var reg=/\d|\D/g;
+			//匹配 "AABB"
+			var str="aaqw11dd";
+			//反向引用: \数字对应前面相应的括号
+			var reg=/(\d)\1([a-z])\2/g;
+			console.log(str.match(reg)); //['11dd']
+		</script>
+	</body>
+</html>

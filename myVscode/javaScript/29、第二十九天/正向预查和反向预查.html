@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /\w{2,3}/g;
+        var str = "1abc4asd";
+        console.log(str.match(reg));
+
+        var reg = /\w{2,3}?/g;
+        var str = "1abc4asd";
+        console.log(str.match(reg));
+
+        var reg = /\d{2}(?=s)/;
+        var str = "as13s21ab";
+        console.log(str.match(reg));
+
+        var reg = /\d{2}(?!s)/;
+        var str = "as13s21ab";
+        console.log(str.match(reg));
+
+        var reg = /(?<=s)\d{2}/;
+        var str = "as13s21ab";
+        console.log(str.match(reg));
+
+        var reg = /(?<!s)\d{2}/;
+        var str = "as13s21ab12";
+        console.log(str.match(reg));
+
+
+        var reg = /(\w)\1(\w)\2/
+        var str = "aaqw11dd";
+        console.log(str.match(reg))
+    </script>
+</body>
+
+</html>
