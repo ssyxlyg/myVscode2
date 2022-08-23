@@ -165,12 +165,14 @@ main .item_header .img_details .sofa_data .expresstime label {
   color: #e56a69;
 }
 main .item_header .img_details .sofa_data .sofa_color,
-main .item_header .img_details .sofa_data .skudesc_box {
+main .item_header .img_details .sofa_data .skudesc_box,
+main .item_header .img_details .sofa_data .skudesc_box2 {
   z-index: -1;
   padding-top: 35px;
 }
 main .item_header .img_details .sofa_data .sofa_color span,
-main .item_header .img_details .sofa_data .skudesc_box span {
+main .item_header .img_details .sofa_data .skudesc_box span,
+main .item_header .img_details .sofa_data .skudesc_box2 span {
   display: inline-block;
   border: 1px solid lightgray;
   border-radius: 2px;
@@ -178,7 +180,8 @@ main .item_header .img_details .sofa_data .skudesc_box span {
   position: relative;
 }
 main .item_header .img_details .sofa_data .sofa_color span i,
-main .item_header .img_details .sofa_data .skudesc_box span i {
+main .item_header .img_details .sofa_data .skudesc_box span i,
+main .item_header .img_details .sofa_data .skudesc_box2 span i {
   display: none;
   position: absolute;
   right: 0;
@@ -193,30 +196,35 @@ main .item_header .img_details .sofa_data .skudesc_box span i {
   border-radius: 1px;
 }
 main .item_header .img_details .sofa_data .sofa_color span img,
-main .item_header .img_details .sofa_data .skudesc_box span img {
+main .item_header .img_details .sofa_data .skudesc_box span img,
+main .item_header .img_details .sofa_data .skudesc_box2 span img {
   width: 32px;
   height: 32px;
   padding: 3px;
 }
 main .item_header .img_details .sofa_data .sofa_color .text,
-main .item_header .img_details .sofa_data .skudesc_box .text {
+main .item_header .img_details .sofa_data .skudesc_box .text,
+main .item_header .img_details .sofa_data .skudesc_box2 .text {
   width: 75px;
   height: 40px;
   line-height: 40px;
   border: none;
 }
-main .item_header .img_details .sofa_data .skudesc_box span:not(.text) {
+main .item_header .img_details .sofa_data .skudesc_box span:not(.text),
+main .item_header .img_details .sofa_data .skudesc_box2 span:not(.text) {
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
   border: 1px dashed lightgray;
 }
-main .item_header .img_details .sofa_data .skudesc_box span:nth-of-type(4) {
+main .item_header .img_details .sofa_data .skudesc_box span:nth-of-type(4),
+main .item_header .img_details .sofa_data .skudesc_box2 span:nth-of-type(4) {
   margin-left: 85px;
   margin-top: 10px;
 }
 main .item_header .img_details .sofa_data ._count {
   width: 100%;
+  margin-top: 20px;
   display: flex;
   justify-content: space-around;
 }
@@ -267,6 +275,7 @@ main .item_header .img_details .sofa_data ._count .add_gwc {
 }
 main .details_01 {
   width: 100%;
+  color: #fff;
 }
 main .details_01 .details_01_bg {
   width: 100%;
@@ -276,4 +285,84 @@ main .details_01 .details_01_bg img {
   width: 100%;
   position: absolute;
   z-index: -1;
+}
+main .details_01 .container {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin: 0 auto;
+}
+main .details_01 .container .content_left .tx {
+  padding-top: 90px;
+}
+main .details_01 .container .content_left .tx img {
+  width: 104px;
+  height: 104px;
+}
+main .details_01 .container .content_left h4 {
+  line-height: 56px;
+  font-size: 28px;
+}
+main .details_01 .container .content_left p {
+  font-size: 24px;
+}
+main .details_01 .container .content_left a {
+  display: block;
+  margin-top: 20px;
+  width: 96px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 10px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0.9375rem;
+  font-size: 0.875rem;
+}
+main .details_01 .container .content_left a:hover {
+  color: #000;
+  background-color: #fff;
+}
+main .details_01 .container .content_right {
+  box-sizing: border-box;
+  margin-top: 200px;
+  width: 430px;
+  font-size: 12px;
+  padding: 0 15px;
+}
+main .details_01 .container .content_right span {
+  line-height: 1.8;
+}
+.download {
+  position: fixed;
+  right: 0;
+  bottom: 80px;
+  font-size: 14px;
+  color: #707070;
+}
+.download ul {
+  border: 1px solid black;
+  width: 69px;
+}
+.download ul li {
+  width: 69px;
+  height: 85px;
+  text-align: center;
+}
+.download ul li label {
+  display: inline-block;
+  border-bottom: 1px solid #707070;
+  width: 45px;
+  margin: 0 auto;
+}
+.download ul li div {
+  overflow: hidden;
+}
+.download ul li span {
+  display: block;
+}
+.download ul li .fa-heart-o {
+  margin-top: 15px;
+}
+.download ul li .icon-kefu {
+  margin-top: 15px;
 }

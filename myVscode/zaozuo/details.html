@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/details.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./font_3604443_53cpn0af47n/iconfont.css">
+
 
 </head>
 
@@ -292,7 +294,7 @@
                         <span><label>行政版</label><i></i></span>
                         <span><label>精简版</label><i></i></span>
                     </div>
-                    <div class="skudesc_box">
+                    <div class="skudesc_box2">
                         <span class="text">高&nbsp;&nbsp;矮&nbsp;&nbsp;背：</span>
                         <span><label>三人座</label><i></i></span>
                         <span><label>转角四人座左扶手</label><i></i></span>
@@ -301,37 +303,70 @@
 
                     </div>
                     <script>
-                        var _skudesc_box = document.querySelectorAll(".skudesc_box");
+                        var _skudesc_box = document.querySelector(".skudesc_box");
+                        var _skudesc_box2 = document.querySelector(".skudesc_box2");
 
-                        _skudesc_box.forEach(function (item) {
-                            // var _span2 = document.querySelectorAll(".skudesc_box span:not(.text)");
+                        var _span2 = document.querySelectorAll(".skudesc_box span:not(.text)");
+                        var _span22 = document.querySelectorAll(".skudesc_box2 span:not(.text)");
 
-                            item.onclick = function (event) {
-                                console.log(item)
 
-                                var _span2 = item.children;
-                                console.log(_span2 + "1111");
-                                var target = event.srcElement || event.target;
-                                // console.log(target)
+                        _skudesc_box.onclick = function () {
+                            demo1(event);
+                        }
+                        _skudesc_box2.onclick = function () {
+                            console.log("1111")
+                            demo2(event);
+                        }
+                        function demo1(event) {
 
-                                if (target.nodeName == "LABEL") {
-                                    var index = Array.from(_span2).findIndex(function (tag) {
-                                        return tag.children[0] == target;
-                                    })
-                                    // console.log(index);
-                                    for (var i = 0; i < _span2.length; i++) {
-                                        if (i == index) {
-                                            _span2[i].style.border = "2px solid black";
-                                            _span2[i].children[1].style.display = "block"
 
-                                        } else {
-                                            _span2[i].style.border = "1px dashed lightgray";
-                                            _span2[i].children[1].style.display = "none"
-                                        }
+                            // console.log(_span2 + "1111");
+                            var target = event.srcElement || event.target;
+
+
+                            if (target.nodeName == "LABEL") {
+                                var index = Array.from(_span2).findIndex(function (tag) {
+                                    return tag.children[0] == target;
+                                })
+                                // console.log(index);
+                                for (var i = 0; i < _span2.length; i++) {
+                                    if (i == index) {
+                                        _span2[i].style.border = "2px solid black";
+                                        _span2[i].children[1].style.display = "block"
+
+                                    } else {
+                                        _span2[i].style.border = "1px dashed lightgray";
+                                        _span2[i].children[1].style.display = "none"
                                     }
                                 }
                             }
-                        })
+                        }
+                        function demo2(event) {
+
+
+                            // console.log(_span2 + "1111");
+                            var target = event.srcElement || event.target;
+
+
+                            if (target.nodeName == "LABEL") {
+                                var index = Array.from(_span22).findIndex(function (tag) {
+                                    return tag.children[0] == target;
+                                })
+                                // console.log(index);
+                                for (var i = 0; i < _span22.length; i++) {
+                                    if (i == index) {
+                                        _span22[i].style.border = "2px solid black";
+                                        _span22[i].children[1].style.display = "block"
+
+                                    } else {
+                                        _span22[i].style.border = "1px dashed lightgray";
+                                        _span22[i].children[1].style.display = "none"
+                                    }
+                                }
+                            }
+                        }
+
+
                     </script>
 
                     <div class="_count">
@@ -370,10 +405,6 @@
                                     _btn[1].disabled = false;
 
                                 }
-
-                                // console.log(num);
-
-
                             }
                         })
 
@@ -384,13 +415,56 @@
         </div>
 
         <div class="details_01">
+
             <div class="details_01_bg">
                 <img src="./img/details_01.jpg" alt="">
             </div>
-            <div></div>
+            <div class="container">
+                <div class="content_left">
+                    <div class="tx">
+                        <img src="./img/d_x.jpg" alt="">
+                    </div>
+                    <h4>Yonoh Creative Studio</h4>
+                    <p>Spain | Valencia</p>
+                    <a href="">
+                        了解更多
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="content_right">
+                    <label for=""></label>
+                    <span>由知名设计师Clara del Portillo和Alex Selma共同创立的，西班牙著名的多学科创意设计工作室</span>
+                    <span>与全球众多精尖品牌合作，作品涵盖家具、产品、室内设计等众多领域，并屡获Red Dot、IF、EDIDA等30多项国际重量级设计大奖</span>
+                    <span>2014年起担任瓦伦西亚 Cardenal Herrera CEU University教授 2017年荣获ADCV浴室类金奖</span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </main>
+    <div class="download">
+        <ul>
+            <li>
+                <div><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></div>
+                <p>下载APP</p>
+                <label for=""></label>
+            </li>
+            <li>
+                <div><i class="fa fa-heart-o fa-2x" aria-hidden="true"></i></div>
+                <p>收藏</p>
+                <label for=""></label>
+            </li>
+            <li>
+                <div><span class="iconfont icon-kefu"></span></div>
+                <p>客服</p>
 
+            </li>
+            <!-- <li><span class="iconfont icon-jiantou_xiangshang"></span> -->
+            <!-- </li> -->
+        </ul>
+    </div>
+    <script>
+        
+    </script>
 </body>
 
 </html>
