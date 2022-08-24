@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		/* [[scope]]：每个javascript函数都是一个对象，对象中有些属性我们可以访问，
+					 但是有些不可以，这些属性仅供javascript引擎存取，[[scope]]就是其中一个。
+		  [[scope]]：指的就是我们所说的作用域，其中存储了运行期上下文的集合。
+		  作用域链：[[scope]]中所存储的执行期上下文对象的集合，这个集合呈链式链接，
+					我们把这种链式链接叫做作用域链。
+		  如果当前作用域没有找到属性或方法，会向上层作用域查找，直至全局函数，这种形式就是作用域链
+		*/
+		/* 
+		SCOPE：作用域，存储的是运行期上下文的集合
+		2	GO{
+				glob:undefined  100
+				test5:	function test5(){}
+			}
+		1	test5-AO{
+				a:undefined  123
+				b:function b(){}
+			}
+		 0 	b-AO{
+				b:undefined  234
+			} 
+	  */
+
+		function test5() {
+			function b() {
+				var b = 234;
+			}
+			var a = 123;
+			b();
+			console.log(b);   //function b(){}
+		}
+		var glob = 100;
+		test5();
+		console.dir(test5)
+	</script>
+</body>
+
+</html>

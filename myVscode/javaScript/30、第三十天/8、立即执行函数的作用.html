@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>点了<span></span>次</div>
+		<button>点击</button>
+		<script>
+			/* 
+			  立即执行函数/闭包：
+			     防止污染全局变量
+				 块级作用域
+				 属性私有化
+			*/
+				 
+			var _button=document.querySelector("button");
+			var _span=document.querySelector("span");
+			(function(){
+				var count=0; //次数
+				_button.onclick=function(){
+					count++;
+					_span.innerHTML=count;
+				}
+				_button=null;
+			}());
+			// count=9; 无法篡改count的值
+			
+			var array=[];
+			for (var i = 0; i <3; i++) {
+				array[i]=function(){
+					console.log(i);
+				}
+			}
+			// array[0],array[1],array[2]=function(){
+			// 		console.log(i);
+			// 	}
+			array[0]()  //3
+			array[1]()  //3
+			
+		
+			for (var i = 0; i <3; i++) {
+				(function(j){
+					console.log(j);
+				}(i))
+			}
+			
+		</script>
+	</body>
+</html>

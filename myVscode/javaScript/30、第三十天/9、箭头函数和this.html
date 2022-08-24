@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var nums = [10, 20, 30];
+			nums.forEach(function(item, index) {
+				console.log(item, index);
+			})
+			nums.forEach((item, index) => {
+				console.log(item, index);
+			})
+			nums.forEach(item => console.log(item))
+			var num = nums.find(item =>item == 20)
+			console.log(num);
+			// 1、箭头函数 (参数列表)=>{函数体}
+			//2、如果只有一个参数，参数列表的括号可省略
+			//3、如果函数体只有一句话，函数体的括号可省略
+			//3、如果函数体只有一句话并且是return，函数体的括号和return都可省略
+			
+			// 1、全局的this指window
+			//2、函数的this指window
+			//3、闭包的this指window
+			//4、事件的this指事件源
+			//5、对象的this指向对象本身
+			//6、箭头函数的this指向window
+			console.log(this);
+			function test(){
+				console.log(this);
+				function add(){
+					console.log(this);
+				}
+				return add;
+			}
+			test();
+			test()()
+			
+			var zs={
+				"name":"张三",
+				"show":function(){
+					console.log(this); //zs
+				},
+				"show2":()=>{
+					console.log(this); 
+				}
+			}
+			zs.show();
+			zs.show2();
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* AO(执行期上下文)预编译过程
+          1、AO对象
+          2、找形参和变量声明，值赋undefine
+          3、将实参和形参统一
+          4、找函数声明，值赋函数体
+          5、执行 */
+        /* AO{
+          a:undefine 1 function a() {} 123
+          b:undefine function() {}
+          d:undefine function d() {}
+        } */
+        test2(1);
+        function test2(a) {
+            console.log(a); //function a() {}
+            var a = 123;
+            console.log(a); //123
+            function a() { };
+            console.log(a); //123 
+            var b = function () { }
+            console.log(b);  //function() {}
+            function d() { }
+            console.log(d);  //function d() {}
+        }
+
+        /* AO{
+           a:undefine 1 function a() { } 123
+           b:undefine 234 function () { };
+        }	 */
+        test3(1);
+        function test3(a, b) {
+            console.log(a);//function a() { }
+            console.log(b);//undefine 
+            var b = 234;
+            console.log(b);//234
+            a = 123;
+            console.log(a);//123
+            function a() { };
+            var a;
+            var b = function () { };
+            console.log(a);//123
+            console.log(b);//function () { };
+        }
+    </script>
+</body>
+
+</html>

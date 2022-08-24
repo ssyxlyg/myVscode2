@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>点了<span></span>下</div>
+    <button>点击</button>
+    <script>
+        var _button = document.querySelector("button");
+        var _span = document.querySelector("span");
+        (function () {
+            var count = 0;
+            _button.onclick = function () {
+                count++;
+                _span.innerHTML = count;
+            }
+            _button = null;
+        }());
+
+        count = 9;
+
+
+        var arr = [];
+        for (var i = 0; i < 3; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[0]()
+
+        for (var i = 0; i < 3; i++) {
+            (function (j) {
+                console.log(j)
+            }(i))
+        }
+    </script>
+</body>
+
+</html>

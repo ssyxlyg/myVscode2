@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        hello world!
+    </div>
+    <script>
+        function demo() {
+            var count = 0;
+            function add(param) {
+                count += param;
+                return count;
+            }
+
+            return add;
+        }
+        console.log(demo()(6));
+
+        function demo2() {
+            var _div = document.querySelector("div");
+
+            var info = _div.innerText;
+            _div.onclick = function () {
+                alert(info)
+            }
+            _div = null;
+        }
+        demo2();
+    </script>
+
+</body>
+
+</html>

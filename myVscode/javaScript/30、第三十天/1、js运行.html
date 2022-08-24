@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// console.log(a);  //a is not defined
+			//所有var声明的变量默认提升到逻辑的前边
+			//1、var b,变量声明提升;
+			console.log(b);   //undefined
+			var b=3;
+			//2、函数整体提升，无论函数写在哪，都会整体提升到逻辑最前端
+			test()
+			function test(){
+				console.log(666);
+			}
+			
+			/* 
+			java：.java----->.class(编译)--->运行
+			js:  .js--->运行， 边解释边执行的脚本语言
+			js运行三部曲:
+			     语法分析(通篇扫描语法错误)
+				 预编译
+				 执行 
+			*/
+		</script>
+	</body>
+</html>

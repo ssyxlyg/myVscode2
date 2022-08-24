@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function test() {
+				console.log(666);
+			}
+			test();
+
+			//立即执行函数，自我执行的函数,注意最后需要加分号
+			var test2 = function() {
+				console.log(666);
+			}();
+			// test2();
+			//匿名函数：+ - ~
+			~ function(a) {
+				console.log(a);
+			}(6);
+
+			(function(a,b) {
+				console.log(a+b);
+			}(6,8));  //w3c推荐
+			
+			(function() {
+				console.log(888);
+			})()
+		</script>
+	</body>
+</html>

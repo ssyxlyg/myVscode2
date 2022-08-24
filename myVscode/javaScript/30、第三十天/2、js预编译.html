@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* GO预编译过程:
+			    1、GO对象
+				2、找变量声明，值赋undefine
+				3、找函数声明，值赋函数体
+				4、执行
+				
+			 //函数执行的前一刻，生成AO
+			 AO(执行期上下文)预编译过程
+			   1、AO对象
+			   2、找形参和变量声明，值赋undefine
+			   3、将实参和形参统一
+			   4、找函数声明，值赋函数体
+			   5、执行 
+			   */
+		   /* GO{
+				C:undefined   10
+				test:function test(){}
+			}
+			AO{
+				b:undefined  1   2
+			} */
+
+			console.log(c);  //undefined
+			var c = 10;
+			console.log(c);
+			function test(b) {
+				b = b + 1;
+				console.log(b);  //2
+			}
+			test(1);
+		</script>
+	</body>
+</html>
