@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<p></p>
+		<script>
+			// 1. 给 字符串类型 扩展一个 is_tel 方法，判断字符串是否是手机号
+			
+			function is_tel(str){
+				var reg=/^(13|15|17)\d{9}$/g
+				return reg.test(str);	
+			}
+			console.log(is_tel("13567898567"));
+			
+			String.prototype.is_tel=function(){
+				//this：谁调用指谁
+				var reg=/^(13|15|17)\d{9}$/g
+				return reg.test(this);	
+			}
+			console.log("13567898567".is_tel());
+			
+		    // 2.给 日期类型扩展一个format方法format 返回一个标准日期格式,
+			Date.prototype.format=function(pattern){
+				 var date=new Date();
+				// pattern:用户定义的格式
+				var year=date.getFullYear(); //年
+				var month=date.getMonth()+1;
+				month=month<10?"0"+month:month  //月
+				var day=date.getDate();
+				day=day<10?"0"+day:day   //日
+				return pattern
+				      .replace("yyyy",year)
+				      .replace("MM",month)
+					  .replace("dd",day)
+			}
+			
+			 var date=new Date();
+			 console.log( date.format("yyyy-MM-dd"));
+			
+			
+			// 3、给元素节点封装css方法
+			
+			// HTMLDivElement->HTMLElement->Element->node->eventTarget->object->null
+			var _div=document.querySelector("div");
+			var _p=document.querySelector("p");
+			//null
+		    console.log(_p.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__); 
+			
+				
+			HTMLElement.prototype.css=function(obj){
+				for (var key in obj) {
+					this.style[key]=obj[key]
+				}
+				// _div.style.width="300px";
+				// _div.style.height="300px";
+				// _div.style.backgroundColor="red";
+			}
+			
+			_div.css({
+					width:"300px",
+					height:"300px",
+					backgroundColor:"red"
+				})
+			
+			
+			
+		</script>
+	</body>
+</html>
