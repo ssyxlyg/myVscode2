@@ -208,7 +208,7 @@
                             </div>
                         </li>
                         <li class="del">
-                            <span>修改</span>
+                            <span>删除</span>
                             <span>删除</span>
                         </li>
                     </ul>
@@ -250,7 +250,7 @@
                             </div>
                         </li>
                         <li class="del">
-                            <span>修改</span>
+                            <span>删除</span>
                             <span>删除</span>
                         </li>
                     </ul>
@@ -291,7 +291,7 @@
                             </div>
                         </li>
                         <li class="del">
-                            <span>修改</span>
+                            <span>删除</span>
                             <span>删除</span>
                         </li>
                     </ul>
@@ -309,10 +309,10 @@
                     </li>
                 </ul>
                 <ul class="back">
-                    <li><span><label>商品合计：</label><i class="real_price">¥3200</i></span>
-                        <span><label>已选优惠：</label><i class="real_price2">¥3200</i></span>
+                    <li><span><label>商品合计：</label><i class="real_price">¥0</i></span>
+                        <span><label>已选优惠：</label><i class="real_price2">¥0</i></span>
                     </li>
-                    <li><span>实付：<i class="shifu">¥3200</i></span>
+                    <li><span>实付：<i class="shifu">¥0</i></span>
                         <span>以满足包邮条件</span>
                     </li>
                     <li>
@@ -385,7 +385,7 @@
                 </div>
             </li>
             <li class="del">
-                <span>修改</span>
+                <span>删除</span>
                 <span>删除</span>
             </li>
         `
@@ -393,6 +393,7 @@
                 _cartIndex.appendChild(_ul);
                 _inputs = document.querySelectorAll(".cart-index input[type=checkbox]");
                 // updateInfo();
+                // show();
             }
             show();
             /**************************/
@@ -410,10 +411,12 @@
                         return item.nextId == nextId;
                     })
                     ary.splice(index, 1);
-                    console.log(target.parentNode.parentNode)
+                    console.log(target.parentNode.parentNode);
+
                     target.parentNode.parentNode.remove();
                     updateInfo();
                     show();
+
                 }
             }
 
@@ -540,13 +543,15 @@
             /*删除商品*/
             var _del = document.querySelectorAll(".del");
             _del.forEach(function (tag) {
+                _inputs = document.querySelectorAll(".cart-index input[type=checkbox]");
                 tag.lastElementChild.onclick = function () {
-                    if (confirm("确认删除吗？"))
+                    if (confirm("确认删除吗？")) {
                         tag.parentElement.remove();
-                    sum();
-                    _inputs = document.querySelectorAll(".cart-index input[type=checkbox]");
-                    show();
+                        sum();
 
+
+                    }
+                    // show();
                 }
 
             })
