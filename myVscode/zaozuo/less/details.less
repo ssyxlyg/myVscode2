@@ -2,12 +2,14 @@ header {
     nav {
         .head2 {
             display: none;
-
             width: 100%;
             height: 50px;
             background-color: #000;
             color: #fff;
-            z-index: 1000;
+            position: relative;
+            // z-index: 1000;
+
+
 
             .head2_nav {
                 width: 1050px;
@@ -15,6 +17,7 @@ header {
                 font-size: 14px;
                 display: flex;
                 justify-content: space-between;
+                position: relative;
                 z-index: 100;
 
                 .prev {
@@ -135,14 +138,74 @@ main {
 
 
             .img_container {
-                img {
-                    width: 750px;
-                    height: 415px;
+                width: 750px;
+                // position: relative;
+                // z-index: -1;
+
+
+                .wrapper {
+                    margin-top: 80px;
+                    margin-left: 100px;
+
+                }
+
+                .little {
+                    width: 540px;
+                    height: 300px;
+                    /* border: 1px solid black; */
+                    position: relative;
+                    // z-index: -1;
+                }
+
+                /* 小图 */
+                .little img {
+                    width: 540px;
+                    height: 300px;
+                }
+
+                /* 小放大镜 */
+                .little .mark {
+                    width: 270px;
+                    height: 150px;
+                    background-color: skyblue;
+                    opacity: 0.5;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    /* 默认隐藏 */
+                    display: none;
+                }
+
+                /* 大放大镜 */
+                .no {
+                    position: absolute;
+                }
+
+                .great {
+                    width: 810px;
+                    height: 450px;
+                    /* border: 1px solid red; */
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 1000;
+                    /* 默认隐藏 */
+                    display: none;
+                    background-color: #fff;
+                }
+
+                .great img {
+                    width: 1620px;
+                    height: 900px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                 }
             }
 
             .sofa_data {
                 width: 375px;
+                // position: relative;
+                // z-index: 1;
 
                 ._title {
                     font-size: 26px;
@@ -358,79 +421,155 @@ main {
 
     .details_01 {
         width: 100%;
+        height: 450px;
+
         color: #fff;
 
 
         .details_01_bg {
             width: 100%;
-            position: relative;
+            height: 450px;
+
+            // position: relative;
+            background: url(../img/details_01.jpg) no-repeat center top;
+            background-size: 100% 100%;
+            z-index: -1;
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                width: 900px;
+                margin: 0 auto;
+                // position: absolute;
+                // top: 0;
+
+
+                .content_left {
+                    // width: 900px;
+                    // height: 110px;
+
+                    // border: 1px solid #fff;
+                    .tx {
+                        padding-top: 90px;
+
+                        img {
+                            width: 104px;
+                            height: 104px;
+                        }
+                    }
+
+                    h4 {
+                        line-height: 56px;
+                        font-size: 28px;
+                    }
+
+                    p {
+                        font-size: 24px;
+                    }
+
+                    a {
+                        display: block;
+                        margin-top: 20px;
+                        width: 96px;
+                        line-height: 30px;
+                        text-align: center;
+                        padding: 0 10px;
+                        color: #fff;
+                        border: 2px solid #fff;
+                        border-radius: 0.9375rem;
+                        font-size: .875rem;
+
+                        &:hover {
+                            color: #000;
+                            background-color: #fff;
+                        }
+                    }
+                }
+
+                .content_right {
+                    box-sizing: border-box;
+                    margin-top: 200px;
+                    width: 430px;
+                    font-size: 12px;
+                    padding: 0 15px;
+
+                    span {
+
+                        line-height: 1.8;
+                    }
+                }
+            }
+        }
+    }
+
+    .details_02 {
+        width: 100%;
+        margin-top: 50px;
+
+        .details {
+            width: 1000px;
+            margin: 0 auto;
 
             img {
-                width: 100%;
-                position: absolute;
-                z-index: -1;
+                width: 1000px;
+                height: 563px;
+
             }
         }
 
         .container {
-            display: flex;
-            justify-content: space-between;
-            width: 900px;
-            margin: 0 auto;
+            width: 100%;
+            margin-top: 40px;
 
-            .content_left {
-                // width: 900px;
-                // height: 110px;
+            .img_container {
+                width: 1200px;
 
-                // border: 1px solid #fff;
-                .tx {
-                    padding-top: 90px;
+                display: flex;
+                justify-content: left;
+                flex-wrap: wrap;
+                margin: 0 auto;
+                padding: 0 30px;
+                box-sizing: border-box;
+
+                li {
+                    width: 120px;
+                    margin: 0 20px;
+                    text-align: center;
 
                     img {
-                        width: 104px;
-                        height: 104px;
+                        width: 90px;
+                        height: 90px;
                     }
-                }
 
-                h4 {
-                    line-height: 56px;
-                    font-size: 28px;
-                }
+                    p {
+                        font-size: 12px;
+                        width: 100%;
+                        text-align: center;
+                    }
 
-                p {
-                    font-size: 24px;
-                }
-
-                a {
-                    display: block;
-                    margin-top: 20px;
-                    width: 96px;
-                    line-height: 30px;
-                    text-align: center;
-                    padding: 0 10px;
-                    color: #fff;
-                    border: 2px solid #fff;
-                    border-radius: 0.9375rem;
-                    font-size: .875rem;
-
-                    &:hover {
-                        color: #000;
-                        background-color: #fff;
+                    span {
+                        display: inline-block;
+                        // width: 3px;
+                        // width: 33%;
+                        border-bottom: 3px solid #a0a0a0;
                     }
                 }
             }
+        }
 
-            .content_right {
-                box-sizing: border-box;
-                margin-top: 200px;
-                width: 430px;
-                font-size: 12px;
-                padding: 0 15px;
 
-                span {
+    }
 
-                    line-height: 1.8;
-                }
+    .details_03 {
+        width: 100%;
+
+        div {
+            width: 100%;
+            margin: 20px 0;
+
+            // margin: 0 auto;
+            img {
+                width: 100%
             }
         }
     }
@@ -438,10 +577,12 @@ main {
 
 .download {
     position: fixed;
-    right: 0;
+    right: -1px;
     bottom: 80px;
     font-size: 14px;
     color: #707070;
+    background-color: #fff;
+    opacity: 0.7;
     // width: 100px;
     // height: 100px;
 
@@ -464,6 +605,11 @@ main {
 
             }
 
+            .kf {
+                display: none;
+                margin-top: 15px;
+            }
+
             div {
                 overflow: hidden;
             }
@@ -480,6 +626,22 @@ main {
                 margin-top: 15px;
             }
 
+            a {
+                color: #707070;
+            }
+
+            &:hover {
+                color: #000;
+            }
+
+            &:hover a {
+                color: #000;
+            }
+
+        }
+
+        .toTop {
+            display: none;
         }
     }
 

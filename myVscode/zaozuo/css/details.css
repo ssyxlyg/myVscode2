@@ -4,7 +4,7 @@ header nav .head2 {
   height: 50px;
   background-color: #000;
   color: #fff;
-  z-index: 1000;
+  position: relative;
 }
 header nav .head2 .head2_nav {
   width: 1050px;
@@ -12,6 +12,7 @@ header nav .head2 .head2_nav {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
+  position: relative;
   z-index: 100;
 }
 header nav .head2 .head2_nav .prev {
@@ -99,9 +100,57 @@ main .item_header .img_details {
   display: flex;
   z-index: -1;
 }
-main .item_header .img_details .img_container img {
+main .item_header .img_details .img_container {
   width: 750px;
-  height: 415px;
+  /* 小图 */
+  /* 小放大镜 */
+  /* 大放大镜 */
+}
+main .item_header .img_details .img_container .wrapper {
+  margin-top: 80px;
+  margin-left: 100px;
+}
+main .item_header .img_details .img_container .little {
+  width: 540px;
+  height: 300px;
+  /* border: 1px solid black; */
+  position: relative;
+}
+main .item_header .img_details .img_container .little img {
+  width: 540px;
+  height: 300px;
+}
+main .item_header .img_details .img_container .little .mark {
+  width: 270px;
+  height: 150px;
+  background-color: skyblue;
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* 默认隐藏 */
+  display: none;
+}
+main .item_header .img_details .img_container .no {
+  position: absolute;
+}
+main .item_header .img_details .img_container .great {
+  width: 810px;
+  height: 450px;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  position: relative;
+  z-index: 1000;
+  /* 默认隐藏 */
+  display: none;
+  background-color: #fff;
+}
+main .item_header .img_details .img_container .great img {
+  width: 1620px;
+  height: 900px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 main .item_header .img_details .sofa_data {
   width: 375px;
@@ -275,38 +324,37 @@ main .item_header .img_details .sofa_data ._count .add_gwc {
 }
 main .details_01 {
   width: 100%;
+  height: 450px;
   color: #fff;
 }
 main .details_01 .details_01_bg {
   width: 100%;
-  position: relative;
-}
-main .details_01 .details_01_bg img {
-  width: 100%;
-  position: absolute;
+  height: 450px;
+  background: url(../img/details_01.jpg) no-repeat center top;
+  background-size: 100% 100%;
   z-index: -1;
 }
-main .details_01 .container {
+main .details_01 .details_01_bg .container {
   display: flex;
   justify-content: space-between;
   width: 900px;
   margin: 0 auto;
 }
-main .details_01 .container .content_left .tx {
+main .details_01 .details_01_bg .container .content_left .tx {
   padding-top: 90px;
 }
-main .details_01 .container .content_left .tx img {
+main .details_01 .details_01_bg .container .content_left .tx img {
   width: 104px;
   height: 104px;
 }
-main .details_01 .container .content_left h4 {
+main .details_01 .details_01_bg .container .content_left h4 {
   line-height: 56px;
   font-size: 28px;
 }
-main .details_01 .container .content_left p {
+main .details_01 .details_01_bg .container .content_left p {
   font-size: 24px;
 }
-main .details_01 .container .content_left a {
+main .details_01 .details_01_bg .container .content_left a {
   display: block;
   margin-top: 20px;
   width: 96px;
@@ -318,26 +366,81 @@ main .details_01 .container .content_left a {
   border-radius: 0.9375rem;
   font-size: 0.875rem;
 }
-main .details_01 .container .content_left a:hover {
+main .details_01 .details_01_bg .container .content_left a:hover {
   color: #000;
   background-color: #fff;
 }
-main .details_01 .container .content_right {
+main .details_01 .details_01_bg .container .content_right {
   box-sizing: border-box;
   margin-top: 200px;
   width: 430px;
   font-size: 12px;
   padding: 0 15px;
 }
-main .details_01 .container .content_right span {
+main .details_01 .details_01_bg .container .content_right span {
   line-height: 1.8;
+}
+main .details_02 {
+  width: 100%;
+  margin-top: 50px;
+}
+main .details_02 .details {
+  width: 1000px;
+  margin: 0 auto;
+}
+main .details_02 .details img {
+  width: 1000px;
+  height: 563px;
+}
+main .details_02 .container {
+  width: 100%;
+  margin-top: 40px;
+}
+main .details_02 .container .img_container {
+  width: 1200px;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+main .details_02 .container .img_container li {
+  width: 120px;
+  margin: 0 20px;
+  text-align: center;
+}
+main .details_02 .container .img_container li img {
+  width: 90px;
+  height: 90px;
+}
+main .details_02 .container .img_container li p {
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+}
+main .details_02 .container .img_container li span {
+  display: inline-block;
+  border-bottom: 3px solid #a0a0a0;
+}
+main .details_03 {
+  width: 100%;
+}
+main .details_03 div {
+  width: 100%;
+  margin: 20px 0;
+}
+main .details_03 div img {
+  width: 100%;
 }
 .download {
   position: fixed;
-  right: 0;
+  right: -1px;
   bottom: 80px;
   font-size: 14px;
   color: #707070;
+  background-color: #fff;
+  opacity: 0.7;
 }
 .download ul {
   border: 1px solid black;
@@ -354,6 +457,10 @@ main .details_01 .container .content_right span {
   width: 45px;
   margin: 0 auto;
 }
+.download ul li .kf {
+  display: none;
+  margin-top: 15px;
+}
 .download ul li div {
   overflow: hidden;
 }
@@ -365,4 +472,16 @@ main .details_01 .container .content_right span {
 }
 .download ul li .icon-kefu {
   margin-top: 15px;
+}
+.download ul li a {
+  color: #707070;
+}
+.download ul li:hover {
+  color: #000;
+}
+.download ul li:hover a {
+  color: #000;
+}
+.download ul .toTop {
+  display: none;
 }

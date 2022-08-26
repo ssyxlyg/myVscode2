@@ -4,8 +4,11 @@ body {
 header .head_top {
   width: 100%;
   height: 36px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   background-color: #313131;
-  color: red;
+  color: #fff;
 }
 header .head_top ul {
   display: flex;
@@ -25,6 +28,11 @@ header .head_top ul li {
 header .head_top ul li span {
   font-size: 10px;
 }
+header .head_top ul li span:nth-of-type(2) {
+  color: red;
+  position: relative;
+  top: -5px;
+}
 header .head_top ul a {
   display: inline-block;
   height: 30px;
@@ -39,7 +47,7 @@ header .head_top ul a:hover {
 header .title {
   width: 1035px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 90px;
   height: 36px;
 }
 header .title .logo {
@@ -59,19 +67,19 @@ header .title .login_wrapper i {
   height: 25px;
   margin-left: 25px;
 }
-header .title .login_wrapper i:nth-of-type(1) {
+header .title .login_wrapper a:nth-of-type(1) i {
   background: url("../img/10009.jpg") no-repeat center center;
   background-size: 25px 25px;
 }
-header .title .login_wrapper i:nth-of-type(1):hover {
+header .title .login_wrapper a:nth-of-type(1) i:hover {
   background: url("../img/10010.jpg") no-repeat center center;
   background-size: 25px 25px;
 }
-header .title .login_wrapper i:nth-of-type(2) {
+header .title .login_wrapper a:nth-of-type(2) i {
   background: url("../img/gowuche.png") no-repeat center center;
   background-size: 25px 25px;
 }
-header .title .login_wrapper i:nth-of-type(2):hover {
+header .title .login_wrapper a:nth-of-type(2) i:hover {
   background: url("../img/10008.jpg") no-repeat center center;
   background-size: 25px 25px;
 }
@@ -79,7 +87,15 @@ header nav {
   width: 100%;
   margin-top: 40px;
 }
-header nav .nav_out {
+header nav .wrapper {
+  display: none;
+  position: relative;
+}
+header nav .nav_top {
+  width: 1349px;
+  margin: 0 auto;
+}
+header nav .nav_top .nav_out {
   font-size: 14px;
   padding-bottom: 10px;
   font-family: 'Microsoft YaHei';
@@ -88,29 +104,43 @@ header nav .nav_out {
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  position: relative;
 }
-header nav .nav_out li {
+header nav .nav_top .nav_out li {
   height: 30px;
+  border-bottom: 3px solid #fff;
 }
-header nav .nav_out li a {
+header nav .nav_top .nav_out li a {
   color: #000;
   display: block;
   line-height: 24px;
 }
-header nav .nav_out li .nav_inner {
+header nav .nav_top .nav_out li:hover {
+  border-bottom: 3px solid black;
+}
+header nav .nav_top .nav_out li:hover .nav_inner {
+  display: flex;
+}
+header nav .nav_top .nav_out li .nav_inner {
   position: absolute;
   z-index: 100;
+  left: 0;
   display: none;
-  width: 800px;
-  justify-content: space-around;
+  width: 1349px;
+  margin: 0 auto;
+  justify-content: center;
   margin-top: 10px;
   background-color: #fafafa;
 }
-header nav .nav_out li .nav_inner a {
+header nav .nav_top .nav_out li .nav_inner a {
   display: block;
   width: 100%;
+  line-height: 40px;
   color: #9b9b9b;
+}
+header nav .nav_top .nav_out li .nav_inner li {
+  height: 40px;
+  margin: 0 40px;
+  border: none;
 }
 main .title {
   width: 1035px;
@@ -459,4 +489,57 @@ main .index_order .order_container ul li .cover .coupon {
   padding: 3px;
   font-size: 12px;
   border: 5px solid #e9c16f;
+}
+.download {
+  position: fixed;
+  z-index: 1000;
+  right: -1px;
+  bottom: 80px;
+  font-size: 14px;
+  color: #707070;
+  background-color: #fff;
+  opacity: 0.7;
+}
+.download ul {
+  border: 1px solid black;
+  width: 69px;
+}
+.download ul li {
+  width: 69px;
+  height: 85px;
+  text-align: center;
+}
+.download ul li label {
+  display: inline-block;
+  border-bottom: 1px solid #707070;
+  width: 45px;
+  margin: 0 auto;
+}
+.download ul li .kf {
+  display: none;
+  margin-top: 15px;
+}
+.download ul li div {
+  overflow: hidden;
+}
+.download ul li span {
+  display: block;
+}
+.download ul li .fa-heart-o {
+  margin-top: 15px;
+}
+.download ul li .icon-kefu {
+  margin-top: 15px;
+}
+.download ul li a {
+  color: #707070;
+}
+.download ul li:hover {
+  color: #000;
+}
+.download ul li:hover a {
+  color: #000;
+}
+.download ul .toTop {
+  display: none;
 }
