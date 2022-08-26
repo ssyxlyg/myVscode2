@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		function Employee(name,code){
+			this.name="wangli";
+			this.code="A001";
+		}
+		var emp=new Employee("zhangming","A002");
+		console.log(emp.name+","+emp.code); //wangli 
+
+	
+			function Person(name,age,sex){
+				var a=0;
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+				this.say=function(){
+					a++;
+					document.write(a);
+				};
+			}
+			
+			var person1=new Person();
+			person1.say();  //1 
+			person1.say();  //2
+			var person2=new Person();
+			person2.say();  //1
+			
+			
+			//百度
+			var x=1, y=z=0;
+			function add(n){
+				return n=n+1;
+			}
+			y=add(x);   //4
+			function add(n){  
+				return n=n+3;
+			}
+			z=add(x); //4
+			console.log(x,y,z); //1 4 4
+			
+			
+			var a=3;
+			var ary=[1,2,a];
+			ary[2]=10
+			console.log(a); //3
+			
+			
+			var str="abc";
+			str+=1;
+			var ss=typeof(str);  //"string"
+			if(ss.length==6){
+				// new String("string").sign=""
+				ss.sign="typeof的返回结果可能为String";
+			}
+			console.log(ss.sign); //undefined
+			
+		</script>
+	</body>
+</html>

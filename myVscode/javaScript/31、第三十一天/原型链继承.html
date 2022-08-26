@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+            1、原型链继承
+            2、原型式继承
+            3、借用构造函数继承
+            4、寄生组合式继承 
+        	
+            总结:
+                原型:每一个函数都有一个名为prototype的属性，这个属性指向函数的原型对象;
+                __proto__:每一个对象都有一个隐式的__proto__属性，指向该对象的构造函数的原型对象;
+               原型链：当一个对象调用的属性或方法自身不存在时，就会去自己__proto__关联的前辈prototype
+               对象上找，直到找到object/null,从而形成了所谓的"原型链"; 
+           */
+        function Father(fatherName) {
+            this.fatherName = fatherName;
+        }
+        Father.prototype.position = "故宫";
+        function Son(name) {
+            this.name = name;
+        }
+        Son.prototype = new Father();
+
+        var yZ = new Father("雍正");
+        // console.log(yZ.fatherName)
+        var qL = new Son("乾隆");
+        console.log(qL.position);
+        // console.log(qL.fatherName)
+        console.log(qL.__proto__ === Son.prototype);
+        console.log(Son.prototype.__proto__ === Father.prototype);
+        console.log(Father.prototype.__proto__);
+
+        console.log(Father.prototype.__proto__.__proto__);
+    </script>
+</body>
+
+</html>

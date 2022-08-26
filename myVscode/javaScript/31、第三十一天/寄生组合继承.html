@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Father.prototype.height = "183cm"
+        function Father(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Son.prototype = Object.create(Father.prototype);
+        Son.prototype.constructor = Son;
+        function Son(name, age, sex) {
+            // Father.call(this, name, age);
+            Father.apply(this, [name, age])
+            Father.bind(this, age, sex);
+            this.sex = sex;
+        }
+        var zs = new Son("张三", 20, "男");
+        console.log(zs.name);
+        console.log(zs.height);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Father.prototype.gugong = "故宫";
+        function Father() {
+            this.fatherName = "康熙"
+        }
+        var yongzheng = new Father("雍正");
+
+        //原型式继承
+        Son.prototype = Object.create(Father.prototype);
+        Son.prototype.constructor = Son   //恢复构造函数指向
+        function Son(name) {
+            // var  this={
+            //  __proto__:Son.prototype
+            // }
+            this.name = name;
+        }
+        var qianlong = new Son("乾隆");
+        console.log(qianlong.gugong);   //故宫
+        console.log(qianlong.fatherName); //undefined
+        console.log(qianlong.constructor); //SOn
+        console.log(qianlong.__proto__ === Son.prototype); //true
+        console.log(Son.prototype.__proto__ === Father.prototype);  //true
+        console.log(Father.prototype.__proto__.__proto__);  //null
+    </script>
+</body>
+
+</html>

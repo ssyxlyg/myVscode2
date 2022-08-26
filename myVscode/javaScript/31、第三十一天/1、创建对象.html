@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1、直接创建
+			var  zs={
+				name:"张三",
+				show:function(){
+					console.log(this.name);
+				}
+			}
+			zs.show(); //张三
+			//2、先创建对象
+			// var lisi=new Object();
+			var lisi={};
+			lisi.name="李四"
+			lisi.show=function(){
+				console.log(this.name);
+			}
+			lisi.show(); //李四
+			
+			//3、工厂模式:批量生产对象
+			function student(name){
+				var obj={};
+				obj.name=name
+				obj.show=function(){
+					console.log(this.name);
+				}
+				return obj;
+			}
+			var zs=student("张三");
+			zs.show();
+			var lisi=student("李四");
+			lisi.show();
+			
+			//4、构造函数
+			function Person(name){
+				// var this={};  构造函数new时隐式生成
+				this.name=name
+				this.showName=function(){
+					console.log(this.name);
+				}
+				// return this; 隐式生成
+			}
+			
+			//构造函数的this,谁调用指谁
+			var zs2=new Person("张三");
+			zs2.showName();
+			var lisi2=new Person("李四");
+			lisi2.showName();
+			
+		/* 	new Array(10,20,30)
+			new Date("2022-11-08")
+			new Object()
+			new String("hellow") */
+			
+		</script>
+	</body>
+</html>

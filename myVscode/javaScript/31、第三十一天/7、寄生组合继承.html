@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/* 
+			1、原型链继承
+			       原型链继承，Son除了继承Father的原型对象属性外，还继承了Father本身的属性
+			       无法向父类构造函数传参
+			       父类的所有属性被共享，只要一个实例修改了属性，其他所有的子类实例都会被影响 
+			     
+			2、原型式继承
+			        只能继承父级的原型属性
+			3、借用构造函数继承
+			        可以重用代码,继承函数的属性，无法继承原型的属性
+			4、寄生组合式继承 
+			       可自由选择继承，目前最推荐使用的
+			*/
+			Father.prototype.color="红色";
+			function Father(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Son.prototype=Object.create(Father.prototype);
+			Son.prototype.constructor=Son;
+			function Son(name,age,sex){
+				// this.name=name;
+				// this.age=age;
+				//三个区别:作用相同，传参方式不同
+				// Father.call(this,name,age);
+				// Father.apply(this,[name,age]);
+				Father.bind(this,name,age)();
+				this.sex=sex;
+			}
+			var zs=new Son("张三",20,"男");
+			console.log(zs.name);
+			console.log(zs.color); //undefined
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			// prototype:原型，当前函数创造的所有对象的祖先
+			Emei.prototype.master="灭绝师太";
+			Emei.prototype.test=function(){
+				// this:谁调用指谁
+				console.log(`教${this.name}降龙十八掌`);
+			};
+			Emei.prototype.MieJue={
+				masterName:"灭绝师太",
+				teach:function(){
+					//this指MieJue
+					console.log(`${this.masterName}教降龙十八掌`);
+				}
+			}
+			function Emei(name,age){
+				this.name=name;
+				this.age=age;
+				this.show=function(){
+					console.log(this.name,this.age);
+				}
+			}
+			var zhouziruo=new Emei("周芷若",20);
+			zhouziruo.show();
+			console.log(zhouziruo.master);
+			zhouziruo.test();
+			zhouziruo.MieJue.teach();
+			var jingxin=new Emei("静心",30);
+			jingxin.show();
+			console.log(jingxin.master);
+			jingxin.test();
+			zhouziruo.MieJue.teach();
+			
+			//访问方式
+			//查询对象是由谁构造的
+			console.log(zhouziruo.constructor);
+			
+			var _div=document.querySelector("div");
+			console.dir(_div.constructor);
+		</script>
+	</body>
+</html>
