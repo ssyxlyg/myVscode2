@@ -1,94 +1,100 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<style>
-			.wrapper{
-				width: 600px;
-				height: 350px;
-				margin: 0 auto;
-				position: relative;
-			}
-			img{
-				width: 100%;
-				height: 100%;
-			}
-			.btn{
-				width:150px;
-				display: flex;
-				justify-content: space-around;
-				position: absolute;
-				left:225px;
-				bottom:10px;
-			}
-			
-			.btn span{
-				display: block;
-				width:15px;
-				height:15px;
-				border: 3px solid white;
-				border-radius: 50%;
-			}
-			.active{
-				background-color: red;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="wrapper">
-			<img src="./imgs/1.png" alt="">
-			<div class="btn">
-				<span class="active"></span>
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.wrapper {
+			width: 600px;
+			height: 350px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.btn {
+			width: 150px;
+			display: flex;
+			justify-content: space-around;
+			position: absolute;
+			left: 225px;
+			bottom: 10px;
+		}
+
+		.btn span {
+			display: block;
+			width: 15px;
+			height: 15px;
+			border: 3px solid white;
+			border-radius: 50%;
+		}
+
+		.active {
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<img src="./imgs/1.png" alt="">
+		<div class="btn">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
 		</div>
-		<script>
-			var _img=document.querySelector("img");
-			var _wrapper=document.querySelector(".wrapper");
-			var _spots=document.querySelectorAll(".btn span");
-			var imgs=['./imgs/1.png','./imgs/2.png','./imgs/3.png','./imgs/4.png','./imgs/5.png']
-			
+	</div>
+	<script>
+		var _img = document.querySelector("img");
+		var _wrapper = document.querySelector(".wrapper");
+		var _spots = document.querySelectorAll(".btn span");
+		var imgs = ["./img/10011.jpg", "./img/10012.jpg", "./img/10013.jpg", "./img/10014.jpg", "./img/10015.jpg", "./img/10016.jpg"];
+
 			//自动播放
 			autoplay();
-			var id;
-			var index=1;
-			function autoplay(){
-				id=setInterval(function(){
-					_img.src=imgs[index];
-					//控制小圆点
-					spots();
-					index++;
-					if(index>=5){
-						index=0;
-					}
-					
-				},2000)
-				
-			}
-			
-			//小圆点变化
-			function spots(){
-				for (var i = 0; i < _spots.length; i++) {
-					if(i==index){
-						_spots[i].className="active"
-					}else{
-						_spots[i].className=""
-					}
+		var id;
+		var index = 1;
+		function autoplay() {
+			id = setInterval(function () {
+				_img.src = imgs[index];
+				//控制小圆点
+				spots();
+				index++;
+				if (index >= 5) {
+					index = 0;
+				}
+
+			}, 2000)
+
+		}
+
+		//小圆点变化
+		function spots() {
+			for (var i = 0; i < _spots.length; i++) {
+				if (i == index) {
+					_spots[i].className = "active"
+				} else {
+					_spots[i].className = ""
 				}
 			}
-			
-			//悬浮时停止
-			_wrapper.onmouseover=function(){
-				clearInterval(id);
-			}
-			//离开时继续
-			_wrapper.onmouseout=function(){
-				autoplay();
-			}
-		</script>
-	</body>
+		}
+
+		//悬浮时停止
+		_wrapper.onmouseover = function () {
+			clearInterval(id);
+		}
+		//离开时继续
+		_wrapper.onmouseout = function () {
+			autoplay();
+		}
+	</script>
+</body>
+
 </html>
