@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper>p {
+            display: none;
+            /* visibility: hidden; 不包含*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>奇酷</div>
+        <div></div>
+        <div>
+            <p>奇酷</p>
+        </div>
+        <div><span></span></div>
+
+        <p>111</p>
+        <p>222</p>
+        <form action="">
+            <input type="text" value="张三">
+            <input type="text" disabled value="李四">
+            <input type="checkbox" value="1">
+            <input type="checkbox" value="2">
+            <input type="checkbox" value="2">
+            <select name="" id="">
+                <option value="1">郑州</option>
+                <option value="2">开封</option>
+            </select>
+        </form>
+    </div>
+    <script src="../0_jQuery/jquery-3.6.0.min.js"></script>
+    <script>
+        console.log($(".wrapper div:contains('奇酷')"));
+
+        console.log($(".wrapper div:empty"));
+
+        console.log($(".wrapper div:has(p)"));
+
+        console.log($(".wrapper div:parent"));
+
+        console.log($(".wrapper>p:hidden"));
+
+        console.log($(".wrapper>div:visible"));
+
+        $("input[type=checkbox]").click(function () {
+            var ch = $("input:checked");
+            console.log(ch.length);
+        });
+        $("select").change(function () {
+            console.log($(":selected").val());
+            console.log($(":selected").html())
+        })
+    </script>
+</body>
+
+</html>

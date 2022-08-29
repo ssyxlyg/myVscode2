@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>爱好:</h2>
+
+    <input type="checkbox" value="游泳" id="hobby1"><label for="hobby1">游泳</label>
+    <input type="checkbox" value="爬山" id="hobby2"><label for="hobby2">爬山</label>
+    <input type="checkbox" value="听音乐" id="hobby3"><label for="hobby3">听音乐</label>
+    <input type="checkbox" value="学web" id="hobby4"><label for="hobby4">学web</label>
+
+    <h3>当前选中的爱好：<span></span></h3>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var arr = [];//定义空数组存放checked=true的元素
+            var span = $("span");  //获取span节点
+
+            $("input").click(function () {
+                if (this.checked == true) {
+                    arr.push(this.value);
+                } else {
+                    arr.pop(this.value);
+                }
+                span.get(0).innerText = ""
+                arr.forEach(item => {
+                    span.get(0).innerText += item + ",";
+                })
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>

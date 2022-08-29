@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="checkbox" class="all">全选
+    </p>
+
+    <p>
+        <input type="checkbox" value="游泳" id="hobby1"><label for="hobby1">游泳</label>
+        <input type="checkbox" value="爬山" id="hobby2"><label for="hobby2">爬山</label>
+        <input type="checkbox" value="听音乐" id="hobby3"><label for="hobby3">听音乐</label>
+        <input type="checkbox" value="学web" id="hobby4"><label for="hobby4">学web</label>
+
+    </p>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var _all = $(".all")//获取全选框节点
+            var _inputs = $("input:not('.all')");//获取反选框节点
+            var arr = [];//定义空数组存放checked=true的元素
+            // 全选
+            _all.click(function () {
+
+                var status = _all.get(0).checked;//获取全选框的状态
+                // console.log(_all.checked);
+                _inputs.prop("checked", status);//反选框同步
+            })
+            // 反选
+            _inputs.click(function () {
+                // 判断反选框状态，存入数组
+                if (this.checked == true) {
+                    arr.push(this.value);
+                } else {
+                    arr.pop(this.value);
+                }
+                _all.prop("checked", arr.length == _inputs.length)
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

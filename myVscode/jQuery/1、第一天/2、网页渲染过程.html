@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#app{
+				width: 200px;
+				height: 200px;
+				background-color:red;
+			}
+		</style>
+		<!--js延迟加载 两者只适用于外部脚本文件
+		1、HTML 4.01:defer,脚本会被延迟到整个页面都解析完毕之后再执行 
+		                    等于告诉浏览器立即下载，但延迟执行
+		2、HTML5:async属性,不让页面等待脚本下载和执行，从而异步加载页面其他内容
+		                   异步脚本一定会在页面 load 事件前执行。 
+		-->
+		<!-- h4 -->
+		<!-- <script src="js/test.js" defer></script> -->
+		<!-- h5 -->
+		<script src="js/test.js" async></script>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			/* 
+			window.onload：
+				 执行时机:dom树加载完成(css文件，图片、视频)
+				 window.onload如果有多个，后者会覆盖前者
+				 没有简写 
+			$(function(){})：
+				执行时机:dom树加载完成(不需要等css文件，图片、视频加载)
+				$(function(){})可以有多个
+				有简写
+			*/
+		    window.onload=function(){
+				var _app=document.querySelector("#app");
+				console.log(_app.innerHTML);
+			}
+			window.onload=function(){
+				console.log(666);
+			}
+			
+			$(function(){
+				console.log($("#app").html());
+			})
+			$(function(){
+				console.log(888);
+			})
+		</script>
+		
+	</head>
+	 <!-- 1、下载html代码生成dom树
+	  2、下载css生成css树
+	  3、dom树个css树生成渲染树
+	  4、开始渲染页面,遇到js阻塞 -->
+	<body>
+		<div id="app">奇酷教育</div>
+		
+	</body>
+</html>

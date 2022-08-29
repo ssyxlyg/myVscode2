@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper>p{
+				display: none;
+				/* visibility: hidden; 不包含*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div>奇酷</div>
+			<div></div>
+			<div><p>奇酷</p></div>
+			<div><span></span></div>
+			
+			<p>111</p>
+			<p>222</p>
+			<form action="">
+				<input type="text" value="张三">
+				<input type="text" disabled value="李四">
+				<input type="checkbox" value="1">
+				<input type="checkbox" value="2">
+				<input type="checkbox" value="2">
+				<select name="" id="">
+					<option value="1">郑州</option>
+					<option value="2">开封</option>
+				</select>
+			</form>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script type="text/javascript">
+			/* 
+			内容过滤选择器
+			可见过滤选择器
+			表单对象过滤选择器
+			     :enabled  选取所有可用元素 
+			     :disabled 选取所有不可用元素 
+			     :checked  选取所有被选中的元素（单元框、复选框
+			     :selected 选取所有被选中的选项元素（下拉列表 
+			*/
+		   // $(“div:contains(‘奇酷’)”)选择内容里包含我的所有div
+		     console.log($(".wrapper div:contains('奇酷')"));
+		   // $(“div:empty”)选择不包含子元素（含文本）的所有div元素
+		    console.log($(".wrapper div:empty"));
+		   // $(“div:has(p)”)选择含有p元素的所有div元素
+		    console.log($(".wrapper div:has(p)"));
+		   // $(“div:parent”)选择拥有子元素（包含文本）的所有div元素
+		   console.log($(".wrapper div:parent"));
+		   
+		   // $(“:hidden”)选择所有不可见元素，
+		   console.log($(".wrapper>p:hidden"));
+		   // $(“div:visible”)选取所有可见的div元素 
+		   console.log($(".wrapper>div:visible"));
+		   
+		   // :enabled  选取所有可用元素
+		   console.log($("input:enabled"));
+		   // :disabled 选取所有不可用元素 
+		   console.log($("input:disabled"));
+		   // :checked  选取所有被选中的元素（单元框、复选框）
+		   $("input[type=checkbox]").click(function(){
+			   var ch=$("input:checked");//获取所有被选中的元素
+			   console.log(ch.length);
+		   })
+		   // :selected 选取所有被选中的选项元素（下拉列表 ）
+		   $("select").change(function(){
+			   // html()  text()  val()
+			   console.log($(":selected").val());
+			   console.log($(":selected").html());
+		   })
+		</script>
+	</body>
+</html>

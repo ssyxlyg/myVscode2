@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		#app {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">奇酷教育</div>
+	<!-- 
+		1、官网下载jquery.js
+		2、script引入 
+		3、使用jquery
+		-->
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script>
+		/* 
+		 jQuery简写为$
+		  1、jQuery对象只能调用jquery相关方法
+		  2、js对象只能调用原生js对象的方法
+		  3、jquery入口函数写法 
+			 $(document).ready(function(){})
+			 jQuery(function(){})
+			 $(function(){})
+		*/
+		// jquery入口函数
+		jQuery(function () {
+			console.log($("#app")); //jquery对象
+			console.log($("#app").text());
+			console.log($("#app").text());
+		})
+		var _app = document.querySelector("#app");
+		console.log(_app); //原生js对象
+		
+
+
+	</script>
+</body>
+
+</html>

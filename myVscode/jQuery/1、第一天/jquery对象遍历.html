@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script src="../0_jQuery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+
+            var $app = $("#app");
+            console.log($app);
+
+            var _app = document.querySelector("#app");
+            console.log(_app);
+
+            // jq转js
+            console.log($app[0]);
+            console.log($app.get(0));
+
+            // js转jq
+            console.log($(_app));
+
+            // 数组遍历
+            var $li = $("li");
+            lis = $li.get();
+            console.log(lis);
+            lis.forEach(item => console.log(item.innerHTML))
+
+            $li.each(function () {
+                console.log($(this).html());
+            })
+
+            $.forEach($li, function (item, index) {
+                console.log(item, index);
+            })
+
+            $("li").click(function () {
+                alert(this.innerHTML);
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

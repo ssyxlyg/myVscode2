@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#app{
+				width: 200px;
+				height: 200px;
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">奇酷教育</div>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				// JQuery对象
+				var $app=$("#app");
+				console.log($app);
+				//原生js对象
+				var _app=document.querySelector("#app")
+				console.log(_app);
+				
+				// JQuery对象转换为原生js对象
+				console.log($app[0]);
+				console.log($app.get(0));
+				//原生js对象转换为 JQuery对象
+				console.log($(_app));
+				
+				
+				/* 数组遍历:
+					   fori  
+					   for i in ary  
+					   for item of ary
+					   forEach() 
+				   jquery对象遍历方式:
+				      1、转换为数组
+					       Array.from($li)
+						   $li.get()
+					  2、特有一个each
+				*/
+				var $li=$("li");
+				lis=$li.get();
+				console.log(lis);
+				lis.forEach((item)=>{
+					console.log(item)
+				})
+				
+				// $li.each(function(index,item){
+				// 	console.log(index,item);
+				// })
+				$li.each(function(index){
+					//this指代当前遍历到的对象，是js原生对象
+					console.log($(this).html());
+				})
+				// $.each($li,function(index,item){
+				// 	console.log(index,item);
+				// })
+				
+				//js写法
+				//获取原生js对象li
+				// var _li=document.querySelectorAll("li");
+				// for (var tag of _li) {
+				// 	tag.onclick=function(){
+				// 		alert(this.innerHTML)
+				// 	}
+				// }
+				//jquery写法
+				$("li").click(function(){
+					//this:点击谁指谁
+					alert(this.innerHTML);
+				})
+			})
+		</script>
+	</body>
+</html>

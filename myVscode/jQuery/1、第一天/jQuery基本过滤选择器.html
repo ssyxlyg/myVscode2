@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../0_jQuery/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>7777</h1>
+    <h2>7777</h2>
+    <h3>7777</h3>
+    <ul>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li class="active">1111111</li>
+        <li class="active">1111111</li>
+        <li>1111111</li>
+    </ul>
+    <script>
+        $("li:first").css({ "background-color": "red" });
+        $("li:last").css({ "background-color": "green" });
+
+        $("li:even").css({ "background-color": "pink" });
+        $("li:odd").css({ "background-color": "orange" });
+
+        $("li:eq(2)").css({ "background-color": "yellow" });
+
+        $("li:gt(2)").css({ "color": "white" });
+        $("li:lt(2)").css({ "color": "skyblue" });
+
+        $("li:not(.active)").css({ "font-size": "20px" })
+
+        console.log($(":header"));
+
+
+
+    </script>
+</body>
+
+</html>
