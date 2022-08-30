@@ -30,7 +30,8 @@
                 if (this.checked == true) {
                     arr.push(this.value);
                 } else {
-                    arr.pop(this.value);
+                    var index = arr.indexOf(this.value)
+                    arr.splice(index, 1);
                 }
                 span.get(0).innerText = ""
                 arr.forEach(item => {
