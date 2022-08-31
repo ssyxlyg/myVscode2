@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>添加</button>
+		<div class="wrapper">
+			<p>111</p>
+		</div>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				$("button").click(function(){
+					$(".wrapper").append("<p>666</p>")
+				})
+				$("button").on("click",function(){
+					$(".wrapper").append("<p>666</p>")
+				})
+				
+				//jQuery事件委托
+				$(".wrapper").on('click','p',function(){
+					alert(this.innerHTML)
+				})
+				
+				//文档包裹
+				//给ul添加父元素div
+				$("ul").wrap("<div></div")
+				//删除ul的父元素
+				$("ul").unwrap()
+				//给指定元素添加父元素
+				$("ul li").wrapAll("<p></p>")
+				//给指定元素添加子元素
+				$("ul li").wrapInner("<p></p>")
+			})
+		</script>
+	</body>
+</html>

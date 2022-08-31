@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            position: relative;
+        }
+
+        li:nth-of-type(6) {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <p>999</p>
+        <li>666</li>
+        <li>888</li>
+        <li>
+            <p><span>6888</span></p>
+        </li>
+    </ul>
+    <script src="../0_jQuery/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+            console.log($("li:eq(2)").next());
+
+            console.log($("li:eq(2)").nextAll());
+
+            console.log($("li:eq(2)").nextAll("li"));
+
+            console.log($("li:eq(2)").nextUntil("li:eq(4)"));
+
+            console.log($("li:eq(2)").siblings());
+
+            console.log($("span").parents());
+            
+            console.log($("span").parents("ul"));
+          
+            console.log($("span").parent());
+          
+            console.log($("span").closest("li"));
+       
+            console.log($("ul").children());
+
+            console.log($("ul").children("p"));
+      
+            console.log($("ul").find("p"));
+
+            console.log($("span").offsetParent());
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>

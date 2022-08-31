@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 790px;
+            margin: 0 auto;
+        }
+
+        tr {
+            width: 600px;
+            text-align: center;
+
+        }
+
+        td,
+        th {
+            width: 100px;
+        }
+
+        .btn input,
+        .id input {
+            width: 20px;
+        }
+
+        p {
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <table border="0">
+            <tr class="title">
+                <th>id</th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>购买价格</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td class="id"><input type="text" disabled></td>
+                <td class="name"><input type="text"></td>
+                <td class="date"><input type="date"></td>
+                <td class="price"><input type="number"></td>
+                <td class="btn">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </td>
+                <td class="add"><button>添加</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="作业03_gwc.html">查看添加数据</a></td>
+            </tr>
+        </table>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $(".btn").on('click', 'button', function () {
+                var count = $(this).parent().children("input")
+                count.val(eval(count.val() + this.innerText + 1));
+                // console.log(count.prev().text())
+                if (count.val() <= 1) {
+                    count.prev().prop("disabled", true);
+                } else {
+                    count.prev().prop("disabled", false);
+                }
+
+            })
+
+
+            var nextId = localStorage.nextId || 0;
+
+            var ary;
+            // 更新数据
+            function updateInfo() {
+                //更新数据
+                localStorage.taskList = JSON.stringify(ary);
+                //更新nextId
+                localStorage.nextId = nextId;
+            }
+
+            //获取数据
+            function getInfo() {
+                // 考虑第一次没有，需要定义空数组
+                //从localstroge中取出
+                return localStorage.taskList == undefined ? [] : JSON.parse(localStorage.taskList);
+            }
+
+            $(".add").on('click', 'button', function () {
+                ary = getInfo();
+                var obj = {
+                    nextId: nextId++,
+                    name: $(".name").children("input").val(),
+                    date: $(".date").children("input").val(),
+                    price: $(".price").children("input").val(),
+                    count: $(".btn").children("input").val()
+                }
+                ary.unshift(obj);
+
+                updateInfo();
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

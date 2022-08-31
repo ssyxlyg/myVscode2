@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p class="active">1111</p>
+    </div>
+    <script src="../0_jQuery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            //创建节点
+            var $div = $("<div></div>")
+            // var $p=$("<p>奇酷教育</p>")
+            $div.html("<p>奇酷教育</p>");
+            //末尾追加节点
+            // $(".wrapper").append($div);
+            //开头追加节点
+            $(".wrapper").prepend($div);
+
+            //插入节点
+            var $p1 = $("<p>web前端</p>")
+            var $p2 = $("<p>web前端</p>")
+            //在active前后插入一个节点
+            $(".active").before($p1);
+            // $p1.insertBefore($(".active"));
+            $(".active").after($p2);
+
+            //替换节点
+            $(".active").replaceWith("<p class='active'>大数据开发</p>")
+            // ($("<p>大数据开发</p>")).replaceAll($(".active"))
+
+            //false:不克隆事件 true:克隆事件
+            $(".wrapper").append($(".active").clone(false))
+
+        })
+
+    </script>
+</body>
+
+</html>

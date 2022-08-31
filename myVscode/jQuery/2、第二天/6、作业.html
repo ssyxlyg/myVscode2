@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>爱好:</h1>
+		<input type="checkbox" id="all" value="全选">全选  <br>
+		<input type="checkbox" name="" id="" value="游泳" />游泳
+		<input type="checkbox" name="" id="" value="爬山" />爬山
+		<input type="checkbox" name="" id="" value="听音乐" />听音乐
+		<input type="checkbox" name="" id="" value="学WEB" />学web
+		
+		<p>当前选中的爱好:<b id="hobby">[]</b></p>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				var ary=[]  //存放当前的爱好
+				$(":checkbox").click(function(){
+					if(this.checked){
+						ary.push(this.value);
+					}else{
+						//获取取消的爱好在数组中的下标
+						var index=ary.indexOf(this.value); 
+						ary.splice(index,1);
+					}
+					var str='['
+					for (var s of ary) {
+						str+=s+"、"
+					}
+					str+=']'
+					$("b").html(str)
+				})
+				
+				
+				//全选
+				$("#all").click(function(){
+					$(":checkbox").prop("checked",this.checked)
+				})
+				
+				//反选
+				$(":checkbox:not(#all)").click(function(){
+					var status=$(":checked:not(#all)").length==$(":checkbox:not(#all)").length;
+					$("#all").prop("checked",status)
+				})
+			})
+		</script>
+	</body>
+</html>

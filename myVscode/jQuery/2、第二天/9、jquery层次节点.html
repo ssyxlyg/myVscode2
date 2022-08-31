@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{
+				position: relative;
+			}
+			li:nth-of-type(6){
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<p>999</p>
+			<li>666</li>
+			<li>888</li>
+			<li><p><span>6888</span></p></li>
+		</ul>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				//下边的第一个兄弟
+				console.log($("li:eq(2)").next().html());
+				//下边的所有兄弟
+				console.log($("li:eq(2)").nextAll());
+				console.log($("li:eq(2)").nextAll("li"));
+				//获取区间内的元素，两边不闭合
+				console.log($("li:eq(2)").nextUntil("li:eq(4)"));
+				//prev()  prevAll()   prevUtil()
+				//获取除了它本身之外的所有兄弟
+			    console.log($("li:eq(2)").siblings());
+				
+				//获取span所有祖先
+				console.log($("span").parents());
+				console.log($("span").parents("ul"));
+				//获取span的父元素
+				console.log($("span").parent());
+				//获取span的最近的祖先li
+				console.log($("span").closest("li"));
+				
+				//获取所有子元素
+				console.log($("ul").children());
+				console.log($("ul").children("p"));
+				//查找所有符合的子孙元素
+				console.log($("ul").find("p"));
+				
+				//获取最近的定位的祖先元素
+				console.log($("span").offsetParent());
+			})
+		</script>
+	</body>
+</html>

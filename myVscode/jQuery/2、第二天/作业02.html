@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 180px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        span {
+            display: inline-block;
+            /* margin-right: 30px; */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <button>添加</button>
+    <ul>
+        <li>
+            <!-- <span></span>
+            <label for="">删除</label> -->
+        </li>
+    </ul>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var ary = [];
+            // 考虑第一次没有，需要定义空数组
+            function getInfo() {
+                return names = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+            }
+
+            function update() {
+                localStorage.names = JSON.stringify(ary);
+            }
+
+            $("button").on('click', function () {
+
+                names.unshift($("input").val());
+                //将数组放入localstorage
+                localStorage.names = JSON.stringify(names);
+                show();
+            })
+
+            show();
+            function show() {
+                ary = getInfo();
+                $("ul").html("");
+                for (var item of ary) {
+                    var $li = $("<li></li>");
+                    var span = $("<span></span>");
+                    var label = $("<label>删除</label>")
+                    span.html(item);
+                    $("input").val("");
+                    $li.append(label);
+                    $li.prepend(span);
+                    $("ul").prepend($li);
+                }
+            }
+            $("ul").on('click', 'label', function () {
+                // console.log("111")
+                // console.log(this.parentNode.firstElementChild.innerText)
+                var index = ary.findIndex(item => item == this.parentNode.firstElementChild.innerText);
+                // console.log(index);
+                if (confirm("确认删除吗？")) {
+                    ary.splice(index, 1);
+                    this.parentNode.remove();
+                }
+                update();
+                // console.log(ary);
+            })
+        })
+
+
+
+
+        // _input.onkeydown = function (event) {
+        //     if (event.keyCode == 13) {
+        //         if (this.value != "") {
+        //             //先将数据放入数组
+        //             names.unshift(this.value);
+        //             //将数组放入localstorage
+        //             localStorage.names = JSON.stringify(names);
+        //             //渲染
+        //             show();
+        //         }
+
+        //     }
+        //     this.value = "";
+        // }
+
+
+        // //首次进来就要渲染
+        // show();
+        // function show() {
+        //     //从localstroge中取出
+        //     var ary = localStorage.names == undefined ? [] : JSON.parse(localStorage.names);
+        //     //渲染前先清空
+        //     _ul.innerHTML = "";
+        //     for (var item of ary) {
+        //         var _li = document.createElement("li");
+        //         _li.innerHTML = item;
+        //         _ul.appendChild(_li);
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.first,.second{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			.active{
+				background-color: mediumaquamarine;
+			}
+			.test{
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first">奇酷教育</div>
+		<div class="second"></div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				$(".first").click(function(){
+					// //判断是否有某个类名
+					// if($(".first").hasClass("active test")){
+					// 	//删除类名
+					// 	$(".first").removeClass("active test")
+					// }else{
+					// 	//添加类名
+					// 	$(".first").addClass("active test")
+					// }
+					
+					$(".first").toggleClass("active test")
+					// $(".first").toggleClass("active test",true)  //添加
+					// $(".first").toggleClass("active test",false)  //删除
+					
+				})
+				
+				// $(".second").mouseover(function(){
+				// 	$(".second").toggleClass("active test",true)
+				// })
+				// $(".second").mouseout(function(){
+				// 	$(".second").toggleClass("active test",false)
+				// })
+				
+				$(".second").hover(function(){
+					
+					$(".second").toggleClass("active test");
+				})
+				
+			})
+		</script>
+	</body>
+</html>

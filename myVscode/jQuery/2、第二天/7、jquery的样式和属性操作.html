@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+			</ul>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function() {
+				//设置css
+				$(".wrapper").css({
+					"width": "200px",
+					"height": "200px",
+					"border": "1px solid red"
+				})
+				$("li:first").css("background-color", "lightblue")
+				//获取css
+				//js获取
+				// document.defaultView.getComputedStyle("#app",null).width
+				console.log($("li:first").css("background-color"));
+				
+				//设置属性
+				// js设置属性:  _app.setAttribute(属性名，属性值)
+				$(".wrapper").attr("age","20");
+				//获取属性
+				// js获取属性:  _app.getAttribute(属性名)
+				console.log($(".wrapper").attr("age"));
+				//删除属性
+				$(".wrapper").removeAttr("age","20");
+				// 官方建议具有 true 和 false 两个属性的属性
+				// prop("属性名","属性值");    .prop(“checked”) 获取表单的选中属性
+			})
+		</script>
+	</body>
+</html>

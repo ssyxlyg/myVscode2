@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+
+        }
+
+        .title span {
+            display: block;
+            width: 200px;
+            line-height: 80px;
+            text-align: center;
+            /* display: none; */
+
+        }
+
+        p {
+            margin-top: 20px;
+            width: 796px;
+            height: 500px;
+            border: 2px solid red;
+            line-height: 500px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            display: none;
+        }
+
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">
+            <span>动态组件一</span>
+            <span>动态组件二</span>
+            <span>动态组件三</span>
+            <span>动态组件四</span>
+
+        </div>
+        <div>
+            <p>组件一</p>
+            <p>组件二</p>
+            <p>组件三</p>
+            <p>组件四</p>
+
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $("span").on('click', function () {
+                $(this).css("box-shadow", "10px 10px 10px lightgray")
+                $(this).siblings().css("box-shadow", "none");
+                var index = $(this).index();
+                $("p").eq(index).addClass("active");
+                $("p").eq(index).siblings().removeClass("active")
+            })
+
+        })
+    </script>
+</body>
+
+</html>

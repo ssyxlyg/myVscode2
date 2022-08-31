@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        tr {
+            width: 600px;
+            text-align: center;
+
+        }
+
+        td,
+        th {
+            width: 100px;
+        }
+
+        input {
+            width: 20px;
+        }
+
+        p {
+            width: 200px;
+            text-align: center;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <table border="0">
+            <tr class="title">
+                <th>id</th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>购买价格</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+
+            <!-- <tr>
+                <td class="id">1</td>
+                <td>小绿书</td>
+                <td>2002-9</td>
+                <td class="price">$100.00</td>
+                <td class="btn">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </td>
+                <td class="del"><button>移除</button></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>小绿书</td>
+                <td>2002-9</td>
+                <td class="price">$100.00</td>
+                <td class="btn">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </td>
+                <td class="del"><button>移除</button></td>
+            </tr> -->
+
+        </table>
+        <div class="bottom">
+            <p>总价格：<span></span></p>
+            <p><a href="作业03_details.html">去添加数据</a></p>
+        </div>
+
+
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var nextId;
+            var ary;
+            function updateInfo() {
+                //更新数据
+                localStorage.taskList = JSON.stringify(ary);
+                //更新nextId
+                localStorage.nextId = nextId;
+            }
+
+            //获取数据
+            function getInfo() {
+                // 考虑第一次没有，需要定义空数组
+                //从localstroge中取出
+                return localStorage.taskList == undefined ? [] : JSON.parse(localStorage.taskList);
+            }
+            show();
+            function show() {
+                ary = getInfo();
+                //渲染前先清空
+
+                for (var item of ary) {
+                    var tr = $("<tr></tr>");
+                    tr.html(`
+                    <td>${item.nextId}</td>
+                <td>${item.name}</td>
+                <td>${item.date}</td>
+                <td class="price">$${item.price}</td>
+                <td class="btn">
+                    <button>-</button>
+                    <input type="text" value="${item.count}">
+                    <button>+</button>
+                </td>
+                <td class="del"><button>移除</button></td>`);
+
+                    $("table").append(tr);
+                    console.log(tr)
+
+                }
+            }
+
+
+            // console.log($("tr:not(.title)"))
+            $("tr:not(.title)").each(function (index) {
+                var cal = $(this).children(".btn");
+                cal.on('click', 'button', function () {
+                    var count = $(this).parent().children("input")
+                    count.val(eval(count.val() + this.innerText + 1));
+                    // console.log(count.prev().text())
+                    if (count.val() <= 0) {
+                        count.prev().prop("disabled", true);
+                    } else {
+                        count.prev().prop("disabled", false);
+                    }
+                    sum();
+                    // ary = getInfo();
+                    // nextId = this.parentNode.parentNode.firstElementChild.innerText;
+                    // console.log(nextId)
+                    // var i = ary.find(function (item) {
+                    //     return item.nextId == nextId;
+                    // })
+                    // console.log(i);
+                    // i.count = count.val();
+                    // updateInfo();
+
+                })
+            })
+            sum()
+            function sum() {
+                console.log($(".price"))
+                var s = 0;
+                var total;
+                $(".price").each(function () {
+                    var count = $(this).next().children("input").val();
+                    var unionPrice = $(this).text().slice(1);
+                    console.log(unionPrice);
+                    console.log(count)
+                    total = count * unionPrice;
+                    console.log(total)
+                    s += total
+                })
+                $("span").text(s)
+            }
+            $(".del").on('click', function () {
+                if (confirm("确认删除吗?")) {
+                    console.log(this.parentNode.firstElementChild.innerText);
+                    nextId = this.parentNode.firstElementChild.innerText;
+                    var index = ary.findIndex(function (item) {
+                        return item.nextId == nextId;
+                    })
+                    ary.splice(index, 1);
+                    updateInfo();
+                    console.log($(this).parent())
+                    $(this).parent().remove();
+                    sum();
+                }
+
+            })
+
+
+
+            // 根据nextId找到对应的对象index
+            // var index = ary.findIndex(function (item) {
+            //     return item.nextId == nextId;
+            // })
+            // ary.splice(index, 1);
+            // target.parentNode.remove();
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
