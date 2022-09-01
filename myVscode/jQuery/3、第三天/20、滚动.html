@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.wrapper {
+				width: 300px;
+				height: 356px;
+				border: 1px solid;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+
+			ul {
+				width: 100%;
+				background-color: lightblue;
+				position: absolute;
+			}
+
+			li {
+				list-style: none;
+				height: 50px;
+				border-bottom: 1px dotted;
+				text-align: center;
+				line-height: 50px;
+			}
+
+			p {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">开始</button>
+		<div class="wrapper">
+			<ul>
+				<li>张三</li>
+				<li>李四</li>
+				<li>王五</li>
+				<li>赵六</li>
+				<li>黄磊</li>
+				<li>玛丽</li>
+				<li>多啦</li>
+				<li>琪琪</li>
+			</ul>
+		</div>
+		<p>中华人民共和国中央人民政府</p>
+		<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				play();
+				var id;
+
+				function play() {
+					id = setInterval(function() {
+						$("ul").animate({
+							"top": "-52px"
+						}, 1000, function() {
+							$(this).append($("li:first"));
+							$(this).css("top", "0");
+						});
+					}, 2000)
+
+				}
+
+				$(".wrapper").hover(
+						function() {
+							clearInterval(id)
+						}, 
+						function() {
+							play();
+						}
+				)
+				
+				//跑马灯
+				setInterval(function(){
+					var str=$("p").html();
+					$("p").html(str.slice(1).concat(str.charAt(0)));
+				},1000)
+			})
+		</script>
+	</body>
+</html>

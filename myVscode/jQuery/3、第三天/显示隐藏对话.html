@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+
+    <style>
+        .wrapper {
+            background-color: black;
+        }
+
+        .nav {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 一级li浮动 */
+        .nav>li {
+            float: left;
+            /*1、 ………………………………………………………………………… */
+            position: relative;
+
+        }
+
+        /* =========所有li的公共样式================ */
+        .nav li {
+            width: 100px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            background-color: black;
+        }
+
+        .nav li>a {
+            color: white;
+        }
+
+        .nav li:hover {
+            background-color: magenta;
+        }
+
+        .nav li:hover>a {
+            color: gray;
+        }
+
+        /* ======================================= */
+
+        /* 默认二级隐藏 */
+        .nav>li .subnav {
+            display: none;
+            /*2、 ………………………………………………………………………………………… */
+            position: absolute;
+            left: 0;
+            top: 38px;
+
+        }
+
+        /* 二级显示 */
+        /* .nav>li:hover .subnav{
+            display: block;
+        } */
+        /* 4、………………………………………………………………………………………………………………………… */
+        .subnav>li {
+            position: relative;
+        }
+
+        /* 3、…………………………………………………………………………………………………………………… */
+        .subnav>li .innernav {
+            display: none;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+
+        /* 三级显示 */
+        /* .subnav>li:hover .innernav{
+            display: block;
+        } */
+        .active {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="nav clearf">
+            <li><a href="#">首页</a></li>
+            <li>
+                <a href="#">极速免税店</a>
+                <ul class="subnav">
+                    <li>
+                        <a href="#">我的订单</a>
+                        <ul class="innernav">
+                            <li><a href="#">html</a></li>
+                            <li><a href="#">web前端</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">我的现金券</a>
+                        <ul class="innernav">
+                            <li><a href="#">淘宝</a></li>
+                            <li><a href="#">京东</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">我的红包</a></li>
+                </ul>
+            </li>
+            <li><a href="#">母婴特卖</a></li>
+            <li>
+                <a href="#">美妆商城</a>
+                <ul class="subnav">
+                    <li><a href="#">我的余额</a></li>
+                    <li>
+                        <a href="#">我的收藏</a>
+                        <ul class="innernav">
+                            <li><a href="#">奇酷教育</a></li>
+                            <li><a href="#">非常好</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">我的会员中心</a></li>
+                </ul>
+            </li>
+            <li><a href="#">国际轻奢</a></li>
+            <li><a href="#">品牌专场</a></li>
+            <li><a href="#">合作招商</a></li>
+        </ul>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            // $("ul li").mouseover(function () {
+            //     // $(this).children("ul").show();
+            //     // $(this).children("ul").stop(true).fadeIn();
+            //     $(this).children("ul").stop(true).slideDown();
+
+
+
+            // })
+
+            // $("ul li").mouseout(function () {
+            //     // $(this).children("ul").hide();
+            //     // $(this).children("ul").stop(true).fadeOut();
+            //     $(this).children("ul").stop(true).slideUp();
+
+
+
+            // })
+                
+            $("ul li").hover(function () {
+                // $(this).children("ul").toggle();
+                // $(this).children("ul").fadeToggle();
+                $(this).children("ul").slideToggle();
+
+
+
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

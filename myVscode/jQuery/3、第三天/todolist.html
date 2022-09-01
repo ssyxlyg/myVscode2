@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="add">添加</button>
+    <div class="container">
+        <p><span>111</span><button class="del">X</button></p>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        // 1、获取数据
+        var list = localStorage.list == undefined ? [] : JSON.parse(localStorage.list);
+        // 2、添加数据
+        $(".add").click(function () {
+
+            list.push($("input").val());
+            $("input").val("");
+            // 3、更新数据
+            localStorage.list = JSON.stringify(list);
+
+            show();
+        })
+
+        // 4、渲染
+        show();
+        function show() {
+            list = localStorage.list == undefined ? [] : JSON.parse(localStorage.list);
+            $(".container").html("")
+            for (var item of list) {
+                $(".container").append(`<p><span>${item}</span><button>X</button></p>`);
+            }
+        }
+
+        $("p").on('click', 'button', function () {
+            // list = localStorage.list == undefined ? [] : JSON.parse(localStorage.list);
+            var title = $(this).prev().html();
+            var index = list.indexOf(title);
+            list.splice(index, 1);
+            localStorage.list = JSON.stringify(list);
+            show();
+        })
+
+    </script>
+</body>
+
+</html>

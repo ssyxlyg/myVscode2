@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            box-sizing: border-box;
+            position: relative;
+            width: 1349px;
+            margin: 0 auto;
+            padding-left: 175px;
+        }
+
+        .wrapper .add {
+            width: 110px;
+            line-height: 35px;
+            border-radius: 8px;
+            background-color: #327AB7;
+            color: #fff;
+            /* font-size: 18px;
+            font-weight: bold; */
+            text-align: center;
+        }
+
+        .top {
+            margin-top: 10px;
+        }
+
+        .top input {
+            line-height: 35px;
+        }
+
+        .top button {
+            line-height: 35px;
+            width: 80px;
+            background-color: #327AB7;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        table tr {
+            width: 1000px;
+            text-align: left;
+            border-bottom: 1px solid lightgray;
+            /* background-color: #F9F9F9; */
+        }
+
+        th,
+        td {
+            width: 250px;
+            line-height: 50px;
+            float: left;
+            border-bottom: 1px solid lightgray;
+        }
+
+        tr span {
+            display: inline-block;
+            width: 60px;
+            line-height: 25px;
+            text-align: center;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        tr .update {
+
+            background-color: #5CB75C;
+
+        }
+
+        tr .del {
+
+            background-color: #D9534F;
+
+        }
+
+        .bg1,
+        .bg2 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .addList,
+        .updateList {
+            position: relative;
+            z-index: 100;
+            /* top: 200px;
+            left: 200px;  */
+            width: 400px;
+            height: 230px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            /* display: none; */
+            background-color: #fff;
+            margin-left: 450px;
+            margin-top: 200px;
+            z-index: 100;
+        }
+
+        .addList input,
+        .updateList input {
+
+            /* outline: none; */
+            width: 380px;
+            line-height: 25px;
+            margin-top: 20px;
+            margin-left: 8px;
+            outline: skyblue;
+            /* border-radius: 3px; */
+            /* margin: 0 auto; */
+        }
+
+        .addList .title,
+        .updateList .title {
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .addList .btn,
+        .updateList .btn {
+            text-align: right;
+            margin-top: 10px;
+            padding-top: 10px;
+            padding-right: 10px;
+            border-top: 1px solid lightgray;
+            font-size: 14px;
+        }
+
+        .addList .btn .close,
+        .updateList .btn .close {
+            display: inline-block;
+            width: 50px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 2px;
+            border: 1px solid gray;
+        }
+
+        .addList .btn .qr,
+        .updateList .btn .qr {
+            display: inline-block;
+            width: 80px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 2px;
+            border: 1px solid gray;
+            background-color: #327AB7;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="add">
+            <i class="fa fa-plus"></i><span>添加记录</span>
+        </div>
+        <div class="top">
+            <input type="text" placeholder="请输入用户名">
+            <button><i class="fa fa-search" aria-hidden="true"></i><span>查询</span></button>
+        </div>
+        <table border="0">
+            <tr class="first">
+                <th>id</th>
+                <th>username</th>
+                <th>password</th>
+                <th>操作</th>
+            </tr>
+            <!-- <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>123456</td>
+                <td><span class="update"><i class="fa fa-pencil" aria-hidden="true"></i>修改</span><span class="del"><i
+                            class="fa fa-trash" aria-hidden="true"></i>删除</span></td>
+
+            </tr> -->
+        </table>
+        <div class="bg1">
+            <div class="addList">
+                <div class="title">
+                    添加记录
+                </div>
+                <div class="username">
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div class="pwd">
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <div class="btn">
+                    <span class="close">关闭</span>
+                    <span class="qr">确认添加</span>
+                </div>
+            </div>
+        </div>
+        <div class="bg2">
+            <div class="updateList">
+                <div class="title">
+                    修改记录
+                </div>
+                <div class="username">
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <div class="pwd">
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <div class="btn">
+                    <span class="close">关闭</span>
+                    <span class="qr">确认修改</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            //模态窗高度自动充满整个屏幕
+            $(window).scroll(function () {
+                var height = $(window).outerHeight();
+                var scroll = $(document).scrollTop();
+                $(".bg1").css("height", `${height + scroll}px`)
+                $(".bg2").css("height", `${height + scroll}px`)
+            })
+
+
+            //添加点击事件
+            $(".add").click(function () {
+                $(".bg1").stop(true).fadeIn();
+
+            })
+            //关闭点击事件
+            $(".bg1 .addList .close").click(function () {
+                $(".bg1").stop(true).fadeOut();
+            })
+            //修改点击事件
+            $("table").on('click', '.update', function () {
+                $(".bg2").stop(true).fadeIn();
+            })
+            //关闭点击事件
+            $(".updateList .close").click(function () {
+                $(".bg2").stop(true).fadeOut();
+            })
+
+            /**************************/
+
+
+            var ary;//声明用来接收本地存储的数组
+            var nextId = localStorage.nextId || 0;//nextId放与本地存储中
+            // 1、获取本地存储
+            function getInfo() {
+                return localStorage.list == undefined ? [] : JSON.parse(localStorage.list);
+            }
+
+            //加载时渲染
+            show();
+            // 2、添加本地存储
+            $(".addList .qr").click(function () {
+                //获取本地存储的内容
+                ary = getInfo();
+                // 定义对象，存入数据
+                var obj = {
+                    nextId: nextId++,
+                    username: $(".addList .username").children("input").val(),
+                    password: $(".addList .pwd").children("input").val()
+                }
+                //存入数组
+                ary.push(obj);
+                //更新本地存储
+                updateInfo();
+                // 渲染
+                show();
+                //清空
+                $(".addList input").val("");
+                //隐藏
+                $(".bg1").stop(true).fadeOut();
+                //tr背景色
+                bgColor();
+                alert("添加成功");
+
+            })
+            // 3、更新本地存储
+            function updateInfo() {
+                localStorage.list = JSON.stringify(ary);
+                ary = getInfo();
+                ary.forEach(function (item) {
+                    if (item.nextId == nextId) {
+                        nextId++;
+                        localStorage.nextId = nextId;
+                    } else {
+                        localStorage.nextId = nextId;
+                    }
+                })
+
+            }
+            // 4、渲染
+
+            function show() {
+                ary = getInfo();
+                //清空除了表头的tr内容
+                $("tr:not(.first)").hide();
+                //遍历添加tr
+                for (var item of ary) {
+                    var tr = $(`<tr>
+                <td class="id">${item.nextId}</td>
+                <td>${item.username}</td>
+                <td>${item.password}</td>
+                <td><span class="update"><i class="fa fa-pencil" aria-hidden="true"></i>修改</span><span class="del"><i
+                            class="fa fa-trash" aria-hidden="true"></i>删除</span></td>
+
+            </tr>`)
+                    $("table").append(tr);
+                }
+            }
+            // 查询
+            $(".top button").click(function () {
+                //得到输入框的内容
+                var val = $(this).prev().val();
+                //过滤出符合的数组对象
+                var ary1 = ary.filter(function (item) {
+                    // return JSON.stringify(item).includes(val) == true;
+                    return item.username.includes(val) == true;
+
+                })
+                //清空
+                $("tr:not(.first)").hide();
+
+                //渲染查询出来的数据
+                for (var tag of ary1) {
+                    var tr = $(`<tr>
+                <td class="id">${tag.nextId}</td>
+                <td>${tag.username}</td>
+                <td>${tag.password}</td>
+                <td><span class="update"><i class="fa fa-pencil" aria-hidden="true"></i>修改</span><span class="del"><i
+                            class="fa fa-trash" aria-hidden="true"></i>删除</span></td>
+
+           </tr> `)
+                    $("table").append(tr);
+
+                    // $(".first").css("background-color", "#FEFEFE");
+
+                }
+                bgColor();
+            })
+            //删除
+            $("table").on('click', '.del', function () {
+                // 得到点击对象的nextId
+                nextId = this.parentNode.parentNode.firstElementChild.innerText;
+                // 获取其在数组中的下标
+                var index = ary.findIndex(item => item.nextId == nextId);
+
+                if (confirm("确认删除吗？")) {
+                    //从数组中删除
+                    ary.splice(index, 1);
+                    updateInfo();
+                    //从页面中删除
+                    this.parentNode.parentNode.remove();
+                    show();
+                    bgColor();
+                }
+
+            })
+            // 修改
+
+            $("table").on('click', '.update', function () {
+                //得到修改数据的nextId
+                var getId = this.parentNode.parentNode.firstElementChild.innerText;
+                //存入到本地存储
+                localStorage.getId = JSON.stringify(getId);
+                //将数据事先加载到修改框中
+                for (var item of ary) {
+                    if (item.nextId == getId) {
+                        $(".updateList .username").children("input").val(item.username)
+                        $(".updateList .pwd").children("input").val(item.password)
+
+                    }
+                }
+
+                $(".bg2").stop(true).fadeIn();
+
+            })
+
+            $(".updateList .qr").click(function () {
+                //拿到修改数据的nextId
+                var num = JSON.parse(localStorage.getId);
+                // 遍历数组找到目标数据，并进行修改
+                for (var item of ary) {
+                    if (item.nextId == num) {
+                        item.username = $(".updateList .username").children("input").val();
+                        item.password = $(".updateList .pwd").children("input").val();
+                        $(".updateList .username").children("input").val("")
+                        $(".updateList .pwd").children("input").val("");
+                    }
+                };
+                updateInfo();
+                show();
+                bgColor();
+                // $(".updateList").stop(true).fadeOut();
+                $(".bg2").stop(true).fadeOut();
+            })
+
+
+
+            //tr背景色
+            bgColor();
+            function bgColor() {
+
+                $("tr:even").css("background-color", "#FEFEFE");
+                $("tr:odd").css("background-color", "#F9F9F9");
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>

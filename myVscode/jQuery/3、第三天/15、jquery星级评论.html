@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.active {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<span class="active">❤</span>
+		<span>❤</span>
+		<span>❤</span>
+		<span>❤</span>
+		<span>❤</span>
+	</div>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script>
+		$("span").click(function () {
+			$(this).addClass("active");
+			$(this).prevAll().addClass("active");
+			$(this).nextAll().removeClass("active");
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="./css/common.css">
+		<style>
+			.wrapper{
+				background-color:black;
+			}
+			.nav{
+				width: 700px;
+				margin: 0 auto;
+			}
+			/* 一级li浮动 */
+			.nav>li{
+				float: left;
+				/*1、 ………………………………………………………………………… */
+				position: relative;    
+				
+			}
+			/* =========所有li的公共样式================ */
+			.nav li{
+				width: 100px;
+				height: 38px;
+				line-height: 38px;
+				text-align: center;
+				background-color: black;
+			}
+			.nav li>a{
+				color: white;
+			}
+			
+			.nav li:hover{
+				background-color: magenta;
+			}
+			.nav li:hover >a{
+				color: gray;
+			}
+			/* ======================================= */
+			
+			/* 默认二级隐藏 */
+			.nav>li .subnav{
+				display: none;
+				/*2、 ………………………………………………………………………………………… */
+				position: absolute;
+				left: 0;
+				top:38px;
+				
+			}
+			/* 二级显示 */
+			/* .nav>li:hover .subnav{
+				display: block;
+			} */
+			/* 4、………………………………………………………………………………………………………………………… */
+			.subnav>li{
+				position: relative;
+			}
+			
+			/* 3、…………………………………………………………………………………………………………………… */
+			.subnav>li .innernav{
+				display: none;
+				position: absolute;
+				left: 100px;
+				top: 0;
+			}
+			/* 三级显示 */
+			/* .subnav>li:hover .innernav{
+				display: block;
+			} */
+			.active{
+				display: block!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul class="nav clearf">
+				<li><a href="#">首页</a></li>
+				<li>
+					<a href="#">极速免税店</a>
+					<ul class="subnav">
+						<li>
+							<a href="#">我的订单</a>
+							<ul class="innernav">
+								<li><a href="#">html</a></li>
+								<li><a href="#">web前端</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">我的现金券</a>
+							<ul class="innernav">
+								<li><a href="#">淘宝</a></li>
+								<li><a href="#">京东</a></li>
+							</ul>
+						</li>
+						<li><a href="#">我的红包</a></li>
+					</ul>
+				</li>
+				<li><a href="#">母婴特卖</a></li>
+				<li>
+					<a href="#">美妆商城</a>
+					<ul class="subnav">
+						<li><a href="#">我的余额</a></li>
+						<li>
+							<a href="#">我的收藏</a>
+							<ul class="innernav">
+								<li><a href="#">奇酷教育</a></li>
+								<li><a href="#">非常好</a></li>
+							</ul>
+						</li>
+						<li><a href="#">我的会员中心</a></li>
+					</ul>
+				</li>
+				<li><a href="#">国际轻奢</a></li>
+				<li><a href="#">品牌专场</a></li>
+				<li><a href="#">合作招商</a></li>
+			</ul>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			/* 如果快速不断地将鼠标移入移出菜单（即，当菜单下拉动画未完成时，鼠标又移出了菜单）
+			  就会产生“动画积累"，当鼠标停止移动后，积累的动画还会持续执行，直到动画序列执行完毕。
+			.stop([bool1][,bool2])
+			         bool1: 布尔值，默认是 false;此值处理是相关的动画队列是否移除，
+			                如果为 false 时，则停止当前的动画，后面的动画按队列进行。
+			                如果为 true,则全部移除动画
+			         bool2:布尔值，默认是 false,
+			              此值处理的是相关动画是立即完成还是按队列顺序完成，
+					      如果为 false,则按队列顺序完成，如果为 true,即立即完成完成队列的动画
+			  slideDown(speed);speed:持续时间 
+			  delay(speed);speed:延迟时间 
+			  */
+			$("ul li").mouseover(function(){
+				// $(this).children("ul").toggleClass("active",true);
+				// $(this).children("ul").show();  //显示
+				// $(this).children("ul").stop(true).fadeIn();  //淡入
+				$(this).children("ul").stop(true).slideDown(1000,function(){
+					alert("动画完成");
+				});  //滑入
+			})
+			
+			$("ul li").mouseout(function(){
+				// $(this).children("ul").toggleClass("active",false);
+				// $(this).children("ul").hide(); //隐藏
+				// $(this).children("ul").stop(true).fadeOut(); //淡出
+				$(this).children("ul").stop(true).slideUp(); //滑出
+			})
+			// $("ul li").hover(function(){
+			// 	// $(this).children("ul").toggleClass("active");
+			// 	// $(this).children("ul").toggle();   //show+hide
+			// 	// $(this).children("ul").fadeToggle();   //fadeIn+fadeOut
+			// 	$(this).children("ul").slideToggle(); //slideDown+slideUp
+			// })
+		</script>
+	</body>
+</html>

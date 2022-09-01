@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				height: 1200px;
+			}
+			.wrapper{
+				width: 300px;
+				height: 300px;
+				border: 5px solid red;
+				padding: 10px;
+				margin: 10px;
+				position: absolute;
+				left: 200px;
+				top: 100px;
+				overflow: auto;
+			}
+			.inner{
+				width: 200px;
+				height: 800px;
+				background-color: blue;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="inner"></div>
+		</div>
+		<script src="../js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				//可视宽度 :内容+padding  
+				 // js:clientWidth clientHeight
+				console.log($(".wrapper").innerWidth(),$(".wrapper").innerHeight());
+				
+				//控件宽度 :内容+padding+border
+				 // js:offsetWidth offsetHeight
+				console.log($(".wrapper").outerWidth(),$(".wrapper").outerHeight());
+				//控件宽度 :内容+padding+border+margin
+				console.log($(".wrapper").outerWidth(true),$(".wrapper").outerHeight(true));
+				
+				//定位的偏移量
+				 // js:没有
+				console.log($(".wrapper").position().left,$(".wrapper").position().top);
+				
+				//相对于文档的左上角的距离
+				//js:e.pageX,e.pageY
+				console.log($(".wrapper").offset().left,$(".wrapper").offset().top);
+				console.log($(".inner").offset().left,$(".inner").offset().top);
+				
+				//内容宽度 :内容
+				console.log($(".wrapper").width(),$(".wrapper").height());
+				
+				//滚动距离
+				//js:scrollTOP   scrollLeft
+				$(document).scroll(function(){
+					console.log($(document).scrollLeft(),$(document).scrollTop());
+				})
+				
+				$(".wrapper").scroll(function(){
+					console.log($(this).scrollLeft(),$(this).scrollTop());
+				})
+				
+			})
+			
+		</script>
+	</body>
+</html>

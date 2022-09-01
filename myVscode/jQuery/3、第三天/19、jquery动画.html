@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper{
+				width: 100px;
+				height: 30px;
+				background-color: red;
+				position: absolute;
+				/* animation: mybox 2s linear; */
+			}
+			/* @keyframes mybox{
+				0%{
+				  width: 30px;	
+				  transform: translate(200px);
+				}
+				50%{
+				  width: 60px;	
+				  transform: translate(500px);
+				}
+				100%{
+				  width: 90px;	
+				  transform: translate(800px);
+				}
+			} */
+		</style>
+	</head>
+	<body>
+		<button>停止动画</button>
+		<div class="wrapper"></div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			// $(this).animate(css样式，持续时间，函数),相当于一帧
+			$(function(){
+				$(".wrapper").click(function(){
+					$(this).animate({"width":"+=30","left":"+=300"},2000,function(){
+						$(this).trigger("click");
+					})
+				})
+				
+				$("button").click(function(){
+					$(".wrapper").stop(true);
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1200px;
+        }
+
+        .wrapper {
+            width: 300px;
+            height: 300px;
+            border: 5px solid red;
+            padding: 10px;
+            margin: 10px;
+            position: relative;
+            left: 200px;
+            top: 100px;
+            overflow: auto;
+        }
+
+        .inner {
+            width: 200px;
+            height: 800px;
+            background-color: blue;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner"></div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            console.log($(".wrapper").innerHeight(), $(".wrapper").innerWidth())
+
+            console.log($(".wrapper").outerHeight(), $(".wrapper").outerWidth())
+
+            console.log($(".wrapper").outerHeight(true), $(".wrapper").outerWidth(true))
+
+
+            console.log($(".wrapper").position().top, $(".wrapper").position().left)
+
+            console.log($(".wrapper").offset().top, $(".wrapper").offset().left)
+
+            console.log($(".inner").offset().top, $(".inner").offset().left)
+
+            console.log($(".wrapper").width(), $(".wrapper").height())
+
+            $(document).scroll(function () {
+                console.log($(document).scrollLeft(), $(document).scrollTop());
+            })
+
+            $(".wrapper").scroll(function () {
+                console.log($(this).scrollLeft(), $(this).scrollTop());
+            })
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 300px;
+            height: 356px;
+            border: 1px solid;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 100%;
+            background-color: lightblue;
+            position: absolute;
+        }
+
+        li {
+            list-style: none;
+            height: 50px;
+            border-bottom: 1px dotted;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        p {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">开始</button>
+    <div class="wrapper">
+        <ul>
+            <li>张三</li>
+            <li>李四</li>
+            <li>王五</li>
+            <li>赵六</li>
+            <li>黄磊</li>
+            <li>玛丽</li>
+            <li>多啦</li>
+            <li>琪琪</li>
+        </ul>
+    </div>
+    <p>中华人民共和国中央人民政府</p>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            autoPlay();
+            var id;
+            function autoPlay() {
+                id = setInterval(function () {
+                    $("ul").animate({ "top": "-52px" }, 1000, function () {
+                        $(this).append($("li:first"));
+                        $(this).css("top", 0)
+                    })
+                }, 2000)
+            }
+            $(".wrapper").hover(function () {
+                clearInterval(id);
+            }, function () {
+                autoPlay();
+            })
+            setInterval(function () {
+                $("p").html($("p").html().slice(1).concat($("p").html().charAt(0)))
+            }, 500)
+        })
+    </script>
+</body>
+
+</html>

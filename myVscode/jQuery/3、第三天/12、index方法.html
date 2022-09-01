@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.content{
+				display: none;
+			}
+			.active{
+				background-color: red;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span>888</span>
+			<p>111</p>
+			<p class="active">222</p>
+			<p>333</p>
+		</div>
+		<div class="btns">
+			<button>tab1</button>
+			<button>tab2</button>
+			<button>tab3</button>
+		</div>
+		<div class="contents">
+			<div class="content">内容1</div>
+			<div class="content">内容2</div>
+			<div class="content">内容3</div>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				// $("p").click(function(){
+				// 	//返回当前元素在同辈中的下标
+				// 	console.log($(this).index());
+				// })
+				
+				$(".active").click(function(){
+					//返回当active在p标签中的下标
+					console.log($("p").index($(this)));
+				})
+				
+				
+				$("button").click(function(){
+					//改变按钮背景颜色
+					 $(this).addClass("active");
+					 $(this).siblings().removeClass("active");
+					//对下标的内容也要显示
+					var index=$(this).index();
+					$(".content").eq(index).addClass("show");
+					$(".content").eq(index).siblings().removeClass("show");
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<input type="text"><button class="add">添加</button>
+			<div class="list">
+				
+			</div>
+		</div>
+		<script></script>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				//1、获取数组
+				var ary=localStorage.ary==undefined?[]:JSON.parse(localStorage.ary)
+				$(".add").click(function(){
+					//2、向数组添加最新的数据
+					ary.unshift($("input").val());
+					//3、本地存储更新
+					localStorage.ary=JSON.stringify(ary);
+					//4、渲染页面
+					show();
+					//5、清空input
+					$("input").val("");
+				})
+				
+				//渲染页面
+				show();  //第一次进入页面调用
+				function show(){
+					$(".list").html("");
+					ary=JSON.parse(localStorage.ary);
+					ary.forEach(item=>{
+						$(".list").append(`<p><span>${item}</span><button class="del">X</button></p>`)
+					})
+				}
+				
+				//删除
+				$(".list").on("click",".del",function(){
+					//获取对应标题
+					var title=$(this).prev().html();
+					var index=ary.indexOf(title);
+					//删除当前数据
+					ary.splice(index,1);
+					// 本地存储更新
+					localStorage.ary=JSON.stringify(ary);
+					//渲染页面
+					show();
+				})
+				
+			})
+		</script>
+	</body>
+</html>
