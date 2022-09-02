@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <ul></ul>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        /* 接口地址: https://520mg.com/mi/list.php
+            请求类型：get
+            请求参数：page:页码
+            响应数据：{result:[{summary:xxxx1},{summary:xxxx1}]} 
+        */
+        $(function () {
+            /********************************/
+            // $.get({
+            //     url: "https://520mg.com/mi/list.php",
+            //     data: "page=1",
+            // }).then(function (res) {
+            //     console.log(res);
+            //     res.result.forEach(obj => {
+            //         $("ul").append(`<li>${obj.summary}</li>`)
+            //     });
+
+            // }).catch(function (err) {
+            //     console.log(err)
+            // })
+            /*********************************/
+            // $.getJSON({
+            //     url: "https://520mg.com/mi/list.php",
+            //     data: "page=2",
+
+            // }).then(function (res) {
+            //     console.log(res);
+            //     res.result.forEach(obj => {
+            //         $("ul").append(`<li>${obj.summary}</li>`)
+            //     })
+            // })
+            /***********************************/
+            // $.ajax({
+            //     method: "get",
+            //     url: "https://520mg.com/mi/list.php",
+            //     data: "page=1",
+            // }).then(function (res) {
+            //     console.log(res);
+            //     res.result.forEach(obj => {
+            //         $("ul").append(`<li>${obj.summary}</li>`)
+            //     }).catch(function (err) {
+            //         console.log(err);
+            //     });
+            // })
+            /*************************/
+            $.post({
+                url: "https://520mg.com/mi/list.php",
+                data: "page=1",
+            }).then(function (res) {
+                console.log(res);
+                res.result.forEach(obj => {
+                    $("ul").append(`<li>${obj.summary}</li>`)
+                })
+            })
+            /*************************/
+            $("div").load("./111.txt");
+            $.getScript("./js/text.js");
+
+
+        })
+    </script>
+</body>
+
+</html>

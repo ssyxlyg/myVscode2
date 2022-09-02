@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button">点击发送ajax</button>
+    <div></div>
+    <script>
+        /*
+                         接口文档
+                         请求类型:post
+                         地址:https://520mg.com/ajax/echo.php
+                         参数:name:姓名
+                             age:年龄 
+                         返回值示例:你好张三!20是个好年纪 
+            */
+        var _btn = document.querySelector("button");
+        var _div = document.querySelector("div");
+        _btn.onclick = function () {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("post", "https://520mg.com/ajax/echo.php", true);
+
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xhr.send("name=张三&age=21");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    _div.innerHTML = xhr.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

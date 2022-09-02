@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		ul li {
+			list-style: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+	<ul></ul>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script>
+		/* 接口地址: https://520mg.com/mi/list.php
+			请求类型：get
+			请求参数：page:页码
+			响应数据：{result:[{summary:xxxx1},{summary:xxxx1}]} 
+		*/
+		// $.ajax({
+		// 	method: "get",
+		// 	url: "https://520mg.com/mi/list.php",
+		// 	data: "page=2",
+		// }).then(function(res) {
+		// 	console.log(res.result);
+		// 	res.result.forEach(obj => {
+		// 		$("ul").append(`<li>${obj.summary}</li>`)
+		// 	})
+		// }).catch(function(err) {
+		// 	console.log(err);
+		// })
+
+		// $.get({
+		// 	url: "https://520mg.com/mi/list.php",
+		// 	data: "page=3",
+		// }).then(function (res) {
+		// 	console.log(res.result);
+		// 	res.result.forEach(obj => {
+		// 		$("ul").append(`<li>${obj.summary}</li>`)
+		// 	})
+		// }).catch(function (err) {
+		// 	console.log(err);
+		// })
+		// $.getJSON({
+		// 	url: "https://520mg.com/mi/list.php",
+		// 	data: "page=2",
+		// }).then(function(res) {
+		// 	console.log(res.result);
+		// 	res.result.forEach(obj => {
+		// 		$("ul").append(`<li>${obj.summary}</li>`)
+		// 	})
+		// }).catch(function(err) {
+		// 	console.log(err);
+		// })
+
+
+		//get请求
+		// $("div").load("./js/qiku.txt h1")
+		// $.getScript("./js/test.js");
+
+		//post写法，没有postjson
+		// $.post({
+		// 	"url":"",
+		// 	"data":""
+		// }).then(function(res){})
+		// .catch(function(){})
+
+
+		// $.post("https://520mg.com/ajax/echo.php", "name=张三&age=20")
+		// 	.then(function (res) {
+		// 		console.log(res);
+		// 	})
+		// 	.catch(function (err) {
+		// 		console.log(err);
+		// 	})
+	</script>
+</body>
+
+</html>

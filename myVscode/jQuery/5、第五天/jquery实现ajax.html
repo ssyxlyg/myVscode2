@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="first">点击get</button>
+    <button class="second">点击post</button>
+
+    <div></div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+
+
+            $(".first").click(function () {
+                $.ajax({
+                    "method": "get",
+                    "url": "./111.txt",
+                    "data": "name=张三&age=20",
+                    // "dataType": "json",
+                    success: function (res) {
+                        $("div").html(res);
+                    },
+                    error: function () {
+                        console.log("请求失败")
+                    }
+                })
+            })
+            $(".second").click(function () {
+                $.ajax({
+                    "method": "post",
+                    "url": "https://520mg.com/ajax/echo.php",
+                    "data": "name=张三&age=20",
+                    success: function (res) {
+                        $("div").html(res);
+                    },
+                    error: function () {
+                        console.log("请求失败")
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
