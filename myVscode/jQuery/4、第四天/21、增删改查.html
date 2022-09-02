@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.wrapper{
+				width: 600px;
+				margin: 0 auto;
+			}
+			.modal{
+				width: 100%;
+				height: 100vh;
+				background-color:rgba(0, 0, 0, 0.5);
+				position: absolute;
+				display: none;
+			}
+			
+			.modal .form{
+				width: 500px;
+				height: 300px;
+				background-color: #fff;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				padding: 20px;
+				box-sizing: border-box;
+			}
+			.modal .form input{
+				width: 100%;
+				height:35px;
+				margin-bottom: 20px;
+			}
+			.modal div span:nth-of-type(2){
+				float: right;
+			}
+			.modal .form div:nth-of-type(4){
+				width:100%;
+				text-align: center;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<!-- 模态窗 -->
+		<div class="modal">
+			<div class="form">
+				<div><span>修改记录</span><span class="closeModal">X</span></div>
+				<hr>
+				<div><input type="text" class="username" placeholder="用户名"></div>
+				<div><input type="password" class="pwd" placeholder="密码"></div>
+				<div><button class="closeModal">关闭</button>&emsp;&emsp;<button class="addInfo">确认添加</button></div>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div>
+				<input type="search" value="">
+				<button class="search">查询</button>
+				<button class="add">增加</button>
+			</div>
+			<div class="tb">
+				<table border="1" width="500">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>username</th>
+							<th>password</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr>
+							<td>1</td>
+							<td>张三</td>
+							<td>123456</td>
+							<td>
+								<button class="update">修改</button>
+								<button class="del">删除</button>
+							</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function(){
+				//模态窗显示隐藏
+				$(".add").click(function(){
+					$(".modal").fadeIn();
+				})
+				$(".closeModal").click(function(){
+					$(".modal").fadeOut();
+				})
+				
+				//唯一标识id
+				var nextId=localStorage.nextId==undefined?0:localStorage.nextId*1;
+				//获取数组
+				var userArr=localStorage.userList==undefined?[]:JSON.parse(localStorage.userList);
+				//添加
+				function addInfo(){
+					userArr=localStorage.userList==undefined?[]:JSON.parse(localStorage.userList);
+					//1、获取用户名、密码
+					var username=$(".username").val();
+					var pwd=$(".pwd").val();
+					//2、封装对象(id,用户名、密码)
+					var obj={
+						id:nextId++,
+						username:username,
+						password:pwd
+					}
+					//3、添加数组
+					userArr.push(obj);
+					//4、清空表单				
+					$(".username").val("");
+					$(".pwd").val("")
+					//5、将数组更新到本地存储
+					localStorage.userList=JSON.stringify(userArr);
+					localStorage.nextId=nextId;
+					//6、渲染
+					show();
+				}
+				
+				
+			    $(".addInfo").click(function(){
+				   addInfo();
+				   //关闭模态窗
+				   $(".modal").fadeOut();
+			    })
+				
+				//渲染查询所有
+				show();
+				function show(filterArr){
+					$("tbody").html("");
+					//从本地存储获取最新数据
+					userArr=localStorage.userList==undefined?[]:JSON.parse(localStorage.userList);
+					console.log(filterArr);
+					//如果是条件查询，filterArr覆盖userArr
+					if(filterArr!=undefined){
+						userArr=filterArr;
+					}
+					console.log(userArr);
+					userArr.forEach(obj=>{
+						$("tbody").prepend(`<tr>
+							<td>${obj.id}</td>
+							<td>${obj.username}</td>
+							<td>${obj.password}</td>
+							<td>
+								<button class="update">修改</button>
+								<button class="del">删除</button>
+							</td>
+						</tr>`)
+					})
+				}
+			
+			//删除
+			$(".tb").on('click','.del',function(){
+				if(confirm("确认删除吗?")){
+					userArr=localStorage.userList==undefined?[]:JSON.parse(localStorage.userList);
+					//获取id值
+					var id=$(this).parent().parent().children().eq(0).text();
+					//通过id找到对应的下标
+					var index=userArr.findIndex(obj=>{
+						return obj.id==id;
+					})
+					//从数组中删除
+					userArr.splice(index,1);
+					//将数组更新到本地存储
+					localStorage.userList=JSON.stringify(userArr);
+					//渲染
+					show();
+				}
+			})	
+			
+			//条件查询
+			function  filterInfo(param){
+				userArr=localStorage.userList==undefined?[]:JSON.parse(localStorage.userList);
+				//返回符合查询条件的数组
+				var filterArr=userArr.filter(obj=>{
+					 return obj.username.includes(param);
+				})
+				show(filterArr);
+			}
+			
+			$(".search").click(function(){
+				//获取查询关键词
+				var info=$("input[type=search]").val();
+				filterInfo(info);
+				$("input[type=search]").val("");
+			})
+				
+			})
+			
+		</script>
+	</body>
+</html>
