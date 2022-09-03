@@ -71,10 +71,13 @@
         .content .top {
             font-size: 24px;
             margin-bottom: 10px;
+            /* /* position: relative;
+            z-index: 100; */
         }
 
         .content ul {
             width: 100%;
+            position: absolute;
         }
 
         .content ul li {
@@ -93,6 +96,12 @@
 
         a {
             text-decoration: none;
+        }
+
+        .content .text {
+            position: relative;
+            height: 270px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -113,13 +122,17 @@
             </div>
             <div class="content">
                 <p class="top">吐槽回复</p>
-                <ul>
-                    <!-- <li>
+                <div class="text">
+
+
+                    <ul>
+                        <!-- <li>
                         <span>汤姆</span>说：<span>妈妈我想吃烤山药</span> <a href="javascript:void(0)">删除</a> 
                     </li> -->
-                    <!-- <li><span>汤姆</span>说：<span>妈妈我想吃烤山药</span> <a href="javascript:void(0)">删除</a> </li> -->
+                        <!-- <li><span>汤姆</span>说：<span>妈妈我想吃烤山药</span> <a href="javascript:void(0)">删除</a> </li> -->
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -131,12 +144,15 @@
                 addInfo();
                 clearInfo();
                 showInfo();
+                clearInterval(id);
+                autoPlay();
             })
             // 点击删除
             $("ul").on('click', 'a', function () {
                 var id = $(this).next().val();
                 delInfo(id);
                 showInfo();
+                // autoPlay(2000);
             })
 
             // 本地存储
@@ -163,7 +179,6 @@
                 }
                 ary.push(obj);
                 updateInfo();
-                showInfo();
             }
             // 删除
             function delInfo(id) {
@@ -182,7 +197,7 @@
                 ary = getInfo();
                 $("ul").html("");
                 ary.forEach(obj => {
-                    $("ul").append(`<li><span>${obj.username}</span>说：<span>${obj.content}</span> <a href="javascript:void(0)">删除</a> <input type="hidden" val="${obj.nextId}"></li>`)
+                    $("ul").prepend(`<li><span>${obj.username}</span>说：<span>${obj.content}</span> <a href="javascript:void(0)">删除</a> <input type="hidden" value="${obj.nextId}"></li>`);
                 });
             }
             // 清空输入栏
@@ -190,6 +205,38 @@
                 $(".val input").val("");
                 $(".val textarea").val("");
             }
+
+            // 自动滚播
+            // console.log($("ul").children("li").length);
+            autoPlay();
+            function autoPlay() {
+                if ($("ul").children("li").length > 5) {
+                    play();
+                }
+            }
+
+            var id;
+            // 滚播
+            function play() {
+                id = setInterval(function () {
+                    $("ul").animate({
+                        "top": "-52px"
+                    }, 1000, function () {
+                        $(this).append($("li:first"));
+                        $(this).css("top", "0");
+                    });
+                }, 2000)
+
+            }
+            // 悬浮停止，离开继续
+            $(".text").hover(
+                function () {
+                    clearInterval(id)
+                },
+                function () {
+                    autoPlay(2000);
+                }
+            )
         })
 
     </script>
