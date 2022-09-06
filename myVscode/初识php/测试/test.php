@@ -9,6 +9,7 @@
 <body>
     <?php
     echo "hello world!";
+    echo "<br>";
 
     //数据类型
 
