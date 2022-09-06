@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        ul {
+            width: 250px;
+
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>注册</h1>
+        <ul>
+            <li>
+                <div>用户名：</div>
+                <div class="username"><input type="text"></div>
+            </li>
+            <li>
+                <div>密码：</div>
+                <div class="pwd"><input type="text"></div>
+            </li>
+            <li>
+                <button>注册</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        /* 接口地址: http://dida100.com:8888/api/register
+        请求类型：post
+        contentType: "application/json",
+        请求参数："{'name': 'zeng8', 'password': 'zmm123'}"
+        响应数据：{code: 0, data: {name: "熊尔尔",password: "123"}} */
+        $(function () {
+            $("button").click(function () {
+                $.ajax({
+                    method: "post",
+                    url: "http://dida100.com:8888/api/register",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        name: $(".username").children("input").val(),
+                        password: $(".pwd").children("input").val()
+                    })
+                }).then(res => {
+                    console.log(res)
+                    if (res.code === 0) {
+                        alert("注册成功");
+                        location.href = "./login.html"
+                    } else {
+                        alert(res.msg);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

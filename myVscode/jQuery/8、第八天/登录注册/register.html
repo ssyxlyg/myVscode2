@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1>注册</h1>
+		<div>用户名:<input type="text" value="" class="userName" /></div>
+		<div>密码:<input type="text" value="" class="pwd" /></div>
+		<div><button>注册</button></div>
+	</div>
+
+	<script src="./js/jquery-3.6.0.js"></script>
+	<script>
+		/* 接口地址: http://dida100.com:8888/api/register
+		请求类型：post
+		contentType: "application/json",
+		请求参数："{'name': 'zeng8', 'password': 'zmm123'}"
+		响应数据：{code: 0, data: {name: "熊尔尔",password: "123"}} */
+		$(function () {
+			$("button").click(function () {
+				$.ajax({
+					"url": "http://dida100.com:8888/api/register",
+					"method": "post",
+					"contentType": "application/json",
+					"data": JSON.stringify({
+						"name": $(".userName").val(),
+						"password": $(".pwd").val()
+					}),
+				}).then(res => {
+					console.log(res)
+					//code为0代表成功
+					if (res.code === 0) {
+						location.href = "./login.html";
+						alert("注册成功");
+					} else {
+						//其他为失败，弹出失败提示信息
+						alert(res.msg);
+					}
+				})
+			})
+
+		})
+	</script>
+</body>
+
+</html>

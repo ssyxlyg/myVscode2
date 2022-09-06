@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.wrapper {
+			/* background-color:lightgray; */
+			height: 100vh;
+		}
+
+		.list p {
+			padding: 10px;
+			box-shadow: 4px 3px 1px gray;
+		}
+
+		.btn {
+			text-align: center;
+		}
+
+		.loading {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(123, 123, 123, 0.3);
+			display: none;
+
+		}
+
+		.loading div {
+			font-size: 25px;
+			padding: 10px;
+			background-color: #fff;
+			width: 150px;
+			height: 30px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- 数据列表 -->
+		<div class="list"></div>
+		<div class="btn"><button>加载更多</button></div>
+		<div class="loading">
+			<div>加载更多.....</div>
+		</div>
+	</div>
+
+	<script src="./js/jquery-3.6.0.js"></script>
+	<script>
+		/* 接口地址: https://520mg.com/mi/list.php
+			请求类型：get
+			请求参数：page:页码
+			响应数据：{result:[{summary:xxxx1},{summary:xxxx1}]} 
+		*/
+		getInfo()  //第一次调用
+		var page = 1;  //默认显示第一页,每页显示20条
+		var flag;
+		function getInfo() {
+			flag = true;  //标识显示
+			$.ajax({
+				"method": "get",
+				"url": "https://520mg.com/mi/list.php?page=" + page,
+				"beforeSend": function () {
+					$(".loading").show();  //加载更多显示
+				},
+				"complete": function () {
+					flag = true;  //标识隐藏
+					$(".loading").hide();  //加载更多隐藏
+				}
+			}).then(function (res) {
+				console.log(res.result);
+				res.result.forEach(obj => {
+					$(".list").append(`<p>${obj.summary}</p>`)
+				})
+			}).catch(function (err) {
+				console.log(err);
+			})
+			page++;   //加载完更新页码
+		}
+
+		$("button").click(function () {
+			if (flag) {
+				getInfo();
+			}
+
+		})
+	</script>
+</body>
+
+</html>

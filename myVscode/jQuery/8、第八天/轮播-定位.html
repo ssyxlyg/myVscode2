@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .wrapper {
+            width: 600px;
+            height: 350px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        img {
+            width: 600px;
+            height: 350px;
+        }
+
+        .contain {
+            display: flex;
+            width: 3000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .btn {
+            width: 150px;
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            left: 225px;
+            bottom: 10px;
+        }
+
+        .btn span {
+            display: block;
+            width: 15px;
+            height: 15px;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        .wrapper a {
+            text-decoration: none;
+            font-size: 50px;
+            color: red;
+            position: absolute;
+            top: 35%;
+        }
+
+        .wrapper a:nth-of-type(1) {
+            left: 10px;
+
+        }
+
+        .wrapper a:nth-of-type(2) {
+            right: 10px;
+        }
+
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="contain">
+            <img src="./img/10011.jpg" />
+            <img src="./img/10012.jpg" />
+            <img src="./img/10013.jpg" />
+            <img src="./img/10014.jpg" />
+            <img src="./img/10015.jpg" />
+        </div>
+        <div class="btn">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a class="prev" href="javascript:void(0);">&lt;</a>
+        <a class="next" href="javascript:void(0);">&gt;</a>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            var index = 0;
+            function next_pic() {
+
+                $(".contain").animate({ "left": "-600" }, 1000, function () {
+                    $(this).append($("img:first"));
+                    $(this).css("left", 0);
+                })
+                index++;
+                if (index > $("img").length - 1) {
+                    index = 0
+                }
+                addStyle();
+            }
+            $(".next").click(function () {
+                // console.log("111");
+                next_pic();
+                clearInterval(id);
+            })
+            function prev_pic() {
+                $(".contain").prepend($("img:last"));
+                $(".contain").css("left", "-600px");
+                $(".contain").animate({
+                    "left": "0"
+                }, 1000);
+                index--;
+                if (index < 0) {
+                    index = $("img").length - 1;
+                }
+                addStyle();
+            }
+            $(".prev").click(function () {
+                prev_pic();
+                clearInterval(id);
+            })
+
+            var id;
+            autoplay();
+            function autoplay() {
+                id = setInterval(function () {
+                    next_pic();
+                }, 2000)
+            }
+            function addStyle() {
+                $("span").eq(index).addClass("active");
+                $("span").eq(index).siblings().removeClass("active");
+            }
+
+            $(".contain").mouseover(function () {
+                clearInterval(id);
+            })
+            $(".contain").mouseout(function () {
+                autoplay();
+            })
+        })
+    </script>
+</body>
+
+</html>

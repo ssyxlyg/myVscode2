@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        欢迎您：<span class="userName"></span>|积分：<span class="score"></span>|
+        <a href="javascript:void(0)" class="del">退出</a>
+    </div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $(".del").click(function () {
+                localStorage.removeItem("token");
+                info();
+            })
+            info();
+            function info() {
+                if (localStorage.token) {
+                    var user = JSON.parse(localStorage.user);
+                    $(".userName").html(user.name);
+                    $(".score").html(user.score);
+                } else {
+                    var a = $("<a href='login.html'>请登录</a>")
+                    $(".wrapper").html(a)
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

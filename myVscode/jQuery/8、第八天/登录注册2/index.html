@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .title {
+            width: 1000px;
+            background-color: lightgray;
+            line-height: 200px;
+            font-size: 32px;
+            text-indent: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 1000px;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .val {
+            width: 300px;
+        }
+
+        .val input {
+            width: 280px;
+            line-height: 25px;
+            text-indent: 5px;
+        }
+
+        .val p {
+            line-height: 30px;
+        }
+
+        .val textarea {
+            width: 280px;
+        }
+
+        .val button {
+            float: right;
+            margin-right: 30px;
+            width: 50px;
+            line-height: 25px;
+        }
+
+        .content {
+            width: 550px;
+            margin-left: 50px;
+        }
+
+        .content .top {
+            font-size: 24px;
+            margin-bottom: 10px;
+            /* /* position: relative;
+            z-index: 100; */
+        }
+
+        .content ul {
+            width: 100%;
+            position: absolute;
+        }
+
+        .content ul li {
+            line-height: 50px;
+            border: 1px solid lightgray;
+            margin: 2px 0;
+            border-radius: 2px;
+            padding: 0 5px;
+            box-sizing: border-box;
+
+        }
+
+        .content ul li a {
+            float: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .content .text {
+            position: relative;
+            height: 270px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">
+            欢迎您<span class="uname"></span>来到吐槽大厅|<a href="javascript:void(0)">退出</a>
+        </div>
+
+        <div class="container">
+            <div class="val">
+                <input type="hidden" class="getId">
+                <p>用户名</p>
+                <input type="text" placeholder="用户名" class="uname2" disabled>
+                <p>吐槽内容</p>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button>提交</button>
+            </div>
+            <div class="content">
+                <p class="top">吐槽回复</p>
+                <div class="text">
+
+                    <ul>
+                        <!-- <li>
+                        <span>汤姆</span>说：<span>妈妈我想吃烤山药</span> <a href="javascript:void(0)">删除</a> 
+                    </li> -->
+                        <!-- <li><span>汤姆</span>说：<span>妈妈我想吃烤山药</span> <a href="javascript:void(0)">删除</a> </li> -->
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        $(function () {
+            $(".wrapper a").click(function () {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user")
+                loginSuccess();
+
+            })
+            loginSuccess();
+            function loginSuccess() {
+                if (localStorage.token) {
+                    var user = JSON.parse(localStorage.user);
+                    $(".uname").html(user.name)
+                    $(".uname2").val(user.name)
+
+                    //查询，获取信息
+                    getInfo();
+
+                    function getInfo(currentPage = 1) {
+                        $.ajax({
+                            url: "http://dida100.com:8888/api/feed",
+                            method: "get",
+                            data: "current=" + currentPage,
+                            headers: {
+                                "Authorization": `Bearer ${localStorage.token}`
+                            }
+                        }).then(res => {
+                            // $(".list").html("");
+                            // console.log(res);
+                            $("ul").html("")
+                            if (res.code == 0) {
+                                res.data.forEach(obj => {
+                                    $("ul").append(`<li>
+<span>${obj.name}</span>说：<span>${obj.msg}</span><a href="javascript:void(0)" class="update">修改</a> <a href="javascript:void(0)" class="del">删除</a> 
+<input type="hidden" value="${obj.id}" class="id">
+</li>`)
+                                });
+                            } else {
+                                alert("请求失败！")
+                            }
+
+                        })
+                    }
+
+                    // 点击添加
+                    $(".val button").click(function () {
+                        var id = $(".getId").val();
+                        if (id == "" || id == undefined) {
+                            addInfo();
+
+                        } else {
+                            updateInfo2(id);
+                            $(".getId").val("");
+                        }
+                        $("textarea").val("")
+                        getInfo();
+                        $(".getId").val("");
+
+
+                    })
+                    // 增加
+                    function addInfo() {
+                        var user = JSON.parse(localStorage.user);
+                        var name = user.name;
+                        var msg = $("textarea").val();
+                        $.ajax({
+                            url: "http://dida100.com:8888/api/feed",
+                            method: "post",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                name: name,
+                                msg: msg
+                            }),
+                            headers: {
+                                "Authorization": `Bearer ${localStorage.token}`
+
+                            }
+                        }).then(res => {
+                            console.log(res)
+                        })
+                        // $(":hidden").val("");
+                    }
+                    // 点击删除
+                    $("ul").on('click', '.del', function () {
+                        if (confirm("确认删除吗？")) {
+                            var id = $(this).next().val();
+                            console.log(id)
+                            delInfo(id);
+                            getInfo();
+                        }
+                    })
+                    // 删除
+                    function delInfo(id) {
+                        $.ajax({
+                            url: `http://dida100.com:8888/api/feed/${id}`,
+                            method: "delete",
+                            headers: {
+                                "Authorization": `Bearer ${localStorage.token}`
+
+                            }
+                        }).then(res => {
+                            console.log(res);
+                        })
+                    }
+
+                    /* 修改渲染：根据id查询信息
+                    $.ajax({
+                           url: `http://dida100.com:8888/api/feed/${id}`,
+                           method: "get",
+                           headers: {
+                               "Authorization": `Bearer ${localStorage.token}`
+                           }
+                       })
+                    
+                    //更新
+                    $.ajax({
+                           url: `http://dida100.com:8888/api/feed/${id}`,
+                           method: "put",
+                           contentType: "application/json",
+                           data: JSON.stringify({
+                               "name": name,
+                               "msg": msg
+                           }),
+                           headers: {
+                               "Authorization": `Bearer ${localStorage.token}`
+                           }
+                       }) */
+                    //  点击修改
+                    $("ul").on('click', '.update', function () {
+                        var id = $(this).next().next().val();
+                        // console.log(id);
+                        updateInfo(id);
+
+
+                    })
+                    // 修改
+
+                    function updateInfo(id) {
+
+                        $.ajax({
+                            url: `http://dida100.com:8888/api/feed/${id}`,
+                            method: "get",
+                            headers: {
+                                "Authorization": `Bearer ${localStorage.token}`
+                            }
+                        }).then(res => {
+                            console.log(res)
+                            res.data.forEach(item => {
+                                $("textarea").val(item.msg);
+                                $(".getId").val(item.id)
+
+                            })
+                        })
+
+                    }
+                    function updateInfo2(id) {
+                        var user = JSON.parse(localStorage.user);
+                        var msg = $("textarea").val();
+                        var name = user.name;
+                        $.ajax({
+                            url: `http://dida100.com:8888/api/feed/${id}`,
+                            method: "put",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                "name": name,
+                                "msg": msg
+                            }),
+                            headers: {
+                                "Authorization": `Bearer ${localStorage.token}`
+                            }
+                        })
+                    }
+
+
+
+
+                } else {
+                    $(".uname").html("");
+                    $(".title").html("<a href=login.html>请登录</a>")
+                }
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

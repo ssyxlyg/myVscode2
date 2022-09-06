@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper {
+				width: 600px;
+				height: 350px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			img {
+				width: 600px;
+				height: 350px;
+			}
+
+			.contain {
+				display: flex;
+				width: 3000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+			.btn {
+				width: 150px;
+				display: flex;
+				justify-content: space-around;
+				position: absolute;
+				left: 225px;
+				bottom: 10px;
+			}
+
+			.btn span {
+				display: block;
+				width: 15px;
+				height: 15px;
+				border: 3px solid white;
+				border-radius: 50%;
+			}
+
+			.wrapper a {
+				text-decoration: none;
+				font-size: 50px;
+				color: red;
+				position: absolute;
+				top: 35%;
+			}
+
+			.wrapper a:nth-of-type(1) {
+				left: 10px;
+
+			}
+
+			.wrapper a:nth-of-type(2) {
+				right: 10px;
+			}
+
+			.active {
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="contain">
+				<img src="./imgs/1.png" />
+				<img src="./imgs/2.png" />
+				<img src="./imgs/3.png" />
+				<img src="./imgs/4.png" />
+				<img src="./imgs/5.png" />
+			</div>
+			<div class="btn">
+				<span class="active"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<a class="prev" href="javascript:void(0);">&lt;</a>
+			<a class="next" href="javascript:void(0);">&gt;</a>
+		</div>
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			$(function() {
+				var index=0;  //默认显示第一个
+				function next_pic() {
+					$(".contain").animate({
+						"left": "-600"
+					}, 1000, function() {
+						//将第一张移动到末尾，将left改为0
+						$(this).append($("img:first"));
+						$(this).css("left", 0)
+					})
+					index++;
+					if(index>4){
+						index=0;
+					}
+					//控制小圆点
+					addStyle();
+				}
+				
+				$(".next").click(function() {
+					next_pic();
+				})
+				
+				
+				function prev_pic() {
+					//先将末尾图片移动到第一张前
+					$(".contain").prepend($("img:last"));
+					$(".contain").css("left","-600px");
+					$(".contain").animate({
+						"left": "0"
+					}, 1000)
+					
+					index--;
+					if(index<0){
+						index=4;
+					}
+					//控制小圆点
+					addStyle();
+				}
+				
+				$(".prev").click(function() {
+					prev_pic();
+				})
+				
+				//自动滚动
+				var id;
+				autoplay();
+				function autoplay(){
+					id=setInterval(function(){
+						next_pic();
+					},2000)
+				}
+				
+				$(".wrapper").mouseover(function(){
+					clearInterval(id);
+				})
+				$(".wrapper").mouseout(function(){
+					autoplay();
+				})
+				
+				//控制图片显示隐藏，小圆点背景色
+				function addStyle(){
+					$("span").eq(index).addClass("active");
+					$("span").eq(index).siblings().removeClass("active");
+				}
+			})
+		</script>
+		
+	</body>
+</html>

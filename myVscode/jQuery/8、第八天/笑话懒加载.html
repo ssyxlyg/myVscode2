@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            /* background-color:lightgray; */
+            height: 100vh;
+        }
+
+        .list p {
+            padding: 10px;
+            box-shadow: 4px 3px 1px gray;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .loading {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(123, 123, 123, 0.3);
+            /* display: none; */
+
+        }
+
+        .loading div {
+            font-size: 25px;
+            padding: 10px;
+            background-color: #fff;
+            width: 150px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- 数据列表 -->
+        <div class="list"></div>
+        <div class="btn"><button>加载更多</button></div>
+        <div class="loading">
+            <div>加载更多.....</div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        getInfo()
+        var page = 1;
+        var flag;
+        function getInfo() {
+            flag = false;
+            $.ajax({
+                method: "get",
+                url: "https://520mg.com/mi/list.php",
+                data: "page=" + page,
+                beforeSend: function () {
+                    $(".loading").show();
+                },
+                complete: function () {
+                    flag = true;
+                    $(".loading").hide();
+                }
+
+            }).then(res => {
+                res.result.forEach(obj => {
+                    $(".list").append(`<p>${obj.summary}</p>`)
+                });
+            }).catch(err => {
+                console.log(err)
+            })
+            page++;
+
+        }
+        $("button").click(function () {
+            if (flag) {
+                getInfo(page);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

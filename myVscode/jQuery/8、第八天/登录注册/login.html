@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<!-- 
+			1.客户端使用用户名跟密码请求登录
+			2.服务端收到请求，去验证用户名与密码
+			3.验证成功后，服务端会签发一个 Token，再把这个 Token 发送给客户端
+			4.客户端收到 Token 以后可以把它存储起来，比如放在 Cookie 里或者 LocalStorage 里
+			5.客户端每次向服务端请求资源的时候需要带着服务端签发的Token
+			6.服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据
+			7、退出即删除token即可
+		
+		生成机制:用户第一次登录，服务器通过数据库校验其UserId和Password合法，
+		       则再根据随机数字+userid+当前时间戳再经过DES加密生成一个token串
+		特点:
+		    服务器只计算不存储,每次请求都会计算一个新的token与用户传过来token比较
+		    token是一种客户端认证机制，是一个经过加密的字符串，安全性强，支持跨域
+			Token，就是令牌，最大的特点就是随机性，不可预测。一般黑客或软件无法猜测出来
+			 -->
+	<div class="wrapper">
+		<h1>登录</h1>
+		<div>用户名:<input type="text" value="" class="userName" /></div>
+		<div>密码:<input type="text" value="" class="pwd" /></div>
+		<div><button>登录</button></div>
+	</div>
+	<script src="./js/jquery-3.6.0.js"></script>
+	<script>
+		/* 接口地址: http://dida100.com:8888/api/login
+			 请求类型：post
+			 请求参数：{"name": "zeng8", "password": "zmm123" }
+		*/
+		$(function () {
+			$("button").click(function () {
+				$.ajax({
+					"url": "http://dida100.com:8888/api/login",
+					"method": "post",
+					"dataType": "json",
+					"contentType": "application/json",
+					"data": JSON.stringify({
+						"name": $(".userName").val(),
+						"password": $(".pwd").val()
+					})
+				}).then(res => {
+					console.log(res);
+					// code为200代表成功
+					if (res.code === 200) {
+						location.href = "./index.html";
+						//登录成功存储token和user
+						localStorage.token = res.token;
+						localStorage.user = JSON.stringify(res.user);
+					}
+					alert(res.msg);
+				})
+			})
+		})
+	</script>
+</body>
+
+</html>

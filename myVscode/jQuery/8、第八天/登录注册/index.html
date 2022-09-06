@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div class="wapper">
+		<h1>首页</h1>
+		<div class="info">
+			<span>欢迎您：</span><span class="userName"></span>|<span>积分：</span><span class="score"></span>
+			|<a href="">退出</a>
+		</div>
+		<hr>
+		<div class="form">
+			<div>
+				留言: <textarea class="msg" cols="30" rows="3"></textarea>
+			</div>
+			<button class="sure">确认</button>
+			<hr>
+		</div>
+		<div class="list">
+		</div>
+	</div>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script>
+		$(function () {
+			if (localStorage.token) {
+				var user = JSON.parse(localStorage.user);
+				$(".userName").html(user.name);
+				$(".score").html(user.score);
+			}
+
+			//查询，获取信息
+			getInfo();
+
+			function getInfo(currentPage = 1) {
+				$.ajax({
+					url: "http://dida100.com:8888/api/feed",
+					method: "get",
+					data: "current=" + currentPage,
+					headers: {
+						"Authorization": `Bearer ${localStorage.token}`
+					}
+				}).then(function (res) {
+					$(".list").html("");
+					console.log(res);
+					if (res.code == 0) {
+						//通过隐藏域存放id
+						res.data.forEach(obj => {
+							$(".list").append(`<div>
+                          		 <p>
+								 <input type="hidden" value="${obj.id}">  
+								 <span>${obj.name}说:</span><span>${obj.msg}</span>
+								 <button class='update'>修改</button><button  class='del'>删除</button>
+								 </p>
+                          		 <hr>
+                          	 </div>`)
+						})
+					} else {
+						alert("请求失败!")
+					}
+
+				})
+			}
+
+
+			$(".list").on("click", ".del", function () {
+				if (confirm("确认删除吗?")) {
+					var id = this.parentNode.firstElementChild.value;
+					delInfo(id);
+					//刷新
+					getInfo();
+				}
+
+			})
+			//删除
+			function delInfo(id) {
+				$.ajax({
+					url: `http://dida100.com:8888/api/feed/${id}`,
+					method: "delete",
+					headers: {
+						"Authorization": `Bearer ${localStorage.token}`
+					}
+				}).then(res => {
+					console.log(res);
+				})
+			}
+
+			//点击确认添加
+			$(".sure").click(function () {
+				addInfo();//添加
+				getInfo();  //刷新
+			})
+
+			//增加
+			function addInfo() {
+				var user = JSON.parse(localStorage.user);
+				var name = user.name;
+				var msg = $(".msg").val();
+				$.ajax({
+					url: "http://dida100.com:8888/api/feed",
+					method: "post",
+					contentType: "application/json",
+					data: JSON.stringify({
+						"name": name,
+						"msg": msg
+					}),
+					headers: {
+						"Authorization": `Bearer ${localStorage.token}`
+					}
+				}).then(res => {
+					console.log(res);
+				})
+			}
+		})
+
+
+		/* 修改渲染：根据id查询信息
+		$.ajax({
+				url: `http://dida100.com:8888/api/feed/${id}`,
+				method: "get",
+				headers: {
+					"Authorization": `Bearer ${localStorage.token}`
+				}
+			})
+		
+		//更新
+		$.ajax({
+				url: `http://dida100.com:8888/api/feed/${id}`,
+				method: "put",
+				contentType: "application/json",
+				data: JSON.stringify({
+					"name": name,
+					"msg": msg
+				}),
+				headers: {
+					"Authorization": `Bearer ${localStorage.token}`
+				}
+			}) */
+	</script>
+</body>
+
+</html>
