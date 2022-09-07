@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/lightbox.css"/>
+		<style type="text/css">
+		    /* 初始缩略图大小 */
+			img{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 步骤:
+		    1、引用lightbox.css
+			2、引用lightbox.min.js和jquery-1.11.0.min.js
+			3、注意拷贝img中X和>图片
+			4、设置img缩略图大小; -->
+			
+		<!-- 
+		  data-lightbox="example-set":值一致，为一组，加入切换范围
+		 -->
+		<div>
+			<div class="image-set">
+				<a  href="img/demopage/1.png" data-lightbox="roadtrip">
+					图片
+				</a>
+				<a  href="img/demopage/2.png" data-lightbox="roadtrip">
+					<img  src="img/demopage/2.png" />
+				</a>
+				<a href="img/demopage/3.png" data-lightbox="roadtrip">
+					<img src="img/demopage/3.png" />
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="./js/lightbox.min.js"></script>
+	</body>
+</html>

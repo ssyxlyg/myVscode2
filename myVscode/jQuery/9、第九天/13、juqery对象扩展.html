@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div></div>
+	<script src="./js/jquery-3.6.0.js"></script>
+	<script>
+		/* 将src1，src2，....合并到target中，并返回target对象
+		   合并时遇到相同属性，后者覆盖前者
+		   false:不进行递归扩展
+		  var obj=$.extend(bool,target,src1,src2,.....)
+		 */
+		var obj1 = { "name": "张三", "age": 30, "user": { "a": 1, "c": 3 } }
+		var obj2 = { "name": "李四", "age": 20, "sex": "男", "user": { "b": 2 } }
+		//obj1和obj2合并
+		var target = {}; //合并后的目标对象
+		var obj = $.extend(true, target, obj1, obj2);
+		console.log(obj === target); //true
+		console.log(obj);
+		var obj = $.extend(obj1, obj2); //true
+		console.log(obj1 === obj);
+		console.log(obj2);
+
+
+		_div = document.querySelector("div");
+		HTMLElement.prototype.css = function (obj) {
+			for (var key in obj) {
+				// this.style.width="200px"
+				this.style[key] = obj[key];
+			}
+		}
+		// _div.css({"width":"200px","height":"200px","backgroundColor":"red"})
+
+		//给jquery扩展方法
+		$.fn.extend({
+			addCss: function () {
+				$(this).css({ "width": "200px", "height": "200px", "background-color": "red" })
+			},
+			max: function (a, b) {
+				$(this).click(function () {
+					console.log(Math.max(a, b));
+				})
+			}
+		})
+		$("div").addCss();
+		$("div").max(6, 8);
+	</script>
+</body>
+
+</html>

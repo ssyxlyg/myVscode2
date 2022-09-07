@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        /* 将src1，src2，....合并到target中，并返回target对象
+               合并时遇到相同属性，后者覆盖前者
+               false:不进行递归扩展
+              var obj=$.extend(bool,target,src1,src2,.....)
+        */
+        var obj1 = { "userName": "张三", "age": 30, "user": { "a": 1, "c": 3 } }
+        var obj2 = { "name": "李四", "age": 20, "sex": "男", "user": { "b": 2 } }
+        var target = {};
+        var obj = $.extend(true, target, obj1, obj2);
+
+        console.log(obj === target); //true
+        console.log(obj);
+        var obj = $.extend(obj1, obj2); //true
+        console.log(obj1 === obj);
+        console.log(obj2);
+
+        var _div = document.querySelector("div");
+        HTMLElement.prototype.css = function (obj) {
+            for (var key in obj) {
+                this.style[key] = obj[key];
+            }
+        }
+        // _div.css({ "width": "200px", "height": "200px", "backgroundColor": "red" })
+
+
+        $.fn.extend({
+            addCss: function () {
+                $(this).css({ "width": "200px", "height": "200px", "background-color": "red" })
+            }
+        })
+        $("div").addCss();
+    </script>
+</body>
+
+</html>

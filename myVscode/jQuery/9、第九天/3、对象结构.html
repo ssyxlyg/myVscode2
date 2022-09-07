@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 对象结构
+			// var user={"name":"张三","age":20};
+			// let{name,age}=user;
+			// console.log(name,age);
+			let citys={
+				name:"中国",
+				code:"100000",
+				citys:{
+					name:"河南",
+					code:"410000",
+					citys:{
+						name:"郑州",
+						code:"410100"
+					}
+				}
+			}
+			
+			// let{name,code}=citys;
+			// console.log(name,code);
+			
+			// let{citys:{name,code}}=citys;
+			// console.log(name,code);
+			
+			let{citys:{citys:{name,code}}}=citys;
+			console.log(name,code);
+		</script>
+	</body>
+</html>

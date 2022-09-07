@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		//开头末尾追加:unshift/push
+		//开头末尾删除:shift/pop
+		//根据下标删除:splice(index,length)
+		var array = [20, 10, 30, 50];
+		array.forEach((item, index, self) => { })
+		//返回处理后的新数组
+		var ary = array.map((item, index, self) => {
+			return item * item
+		})
+		console.log(ary);
+
+		//res：是每一次遍历后的处理结果
+		var res = array.reduce((res, item, index, self) => {
+			return res += item;
+		})
+		console.log(res);
+
+		//返回符合条件的第一个元素
+		var num = array.find((item, index, self) => {
+			return item > 20;
+		})
+		console.log(num); //30
+		var users = [{ "name": "张三", "age": 20 }, { "name": "李四", "age": 30 }];
+		var user = users.find(obj => {
+			return obj.name == "张三"
+		})
+		console.log(user); //{name: '张三', age: 20}
+
+		//返回符合条件的第一个元素下标
+		var index = array.findIndex((item, index, self) => {
+			return item > 20;
+		})
+		console.log(index);  //2
+
+		//返回符合条件的元素数组
+		var newAry = array.filter((item, index, self) => {
+			return item > 20;
+		})
+		console.log(newAry);  //[30, 50]
+
+			//every  some
+	</script>
+</body>
+
+</html>

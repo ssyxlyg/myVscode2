@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>登录</h1>
+        <div>用户名:<input type="text" value="" class="userName" /></div>
+        <div>密码:<input type="text" value="" class="pwd" /></div>
+        <div><button>登录</button></div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                $.ajax({
+                    url: "http://dida100.com:8888/api/login",
+                    method: "post",
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        name: $(".userName").val(),
+                        password: $(".pwd").val()
+                    })
+                }).then(res => {
+                    console.log(res);
+
+                    if (res.code == 200) {
+                        location.href = "index.html";
+                        localStorage.token = res.token;
+                        localStorage.user = JSON.stringify(res.user);
+                    }
+                    alert(res.msg);
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

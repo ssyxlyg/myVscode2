@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" class="file">
+    <button>上传</button>
+    <img src="" alt="">
+    <script>
+        /*
+            请求类型:post
+            地址:https://520mg.com/ajax/file.php
+            参数:formData
+            返回值:
+        */
+        var _button = document.querySelector("button");
+        var _file = document.querySelector(".file");
+        var _img = document.querySelector("img");
+        _button.onclick = function () {
+            var file = _file.files[0];
+            var formData = new FormData();
+            formData.append("file", file);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", "https://520mg.com/ajax/file.php", true);
+            xhr.send(formData);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var res = JSON.parse(xhr.responseText);
+                    console.log(res);
+                    _img.src = "https://520mg.com" + res.pic;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="file" class="file">
+		<button>上传</button>
+		<img src="" alt="">
+		<script src="./js/jquery-3.6.0.js"></script>
+		<script>
+			/*
+				请求类型:post
+				地址:https://520mg.com/ajax/file.php
+				参数:formData
+				返回值:
+			*/
+			$("button").click(function() {
+				var files = $(".file").prop("files");
+				var file = files[0];
+				 // 打包到formdata对象
+				 var formData = new FormData();
+				 formData.append("file", file);
+				$.ajax({
+					"method": "post",
+					"url": "https://520mg.com/ajax/file.php",
+					"data": formData,
+					"dataType": "json",
+					"cache": false, //缓存
+					"processData": false,
+					"contentType": false,
+				}).then(res => {
+					$("img").attr("src", "https://520mg.com" + res.pic);
+				})
+			})
+		</script>
+	</body>
+</html>

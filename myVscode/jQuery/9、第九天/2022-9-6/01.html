@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div></div>
+	<script src="./jquery-3.6.0/jquery-3.6.0.js"></script>
+	<script>
+		var arr = [
+			{ name: '访问量', time: '2021-03-01', count: 1000 },
+			{ name: '访问量', time: '2021-03-02', count: 1500 },
+			{ name: '访问量', time: '2021-03-03', count: 1200 },
+			{ name: '点赞数', time: '2021-03-01', count: 70 },
+			{ name: '点赞数', time: '2021-03-02', count: 100 },
+			{ name: '点赞数', time: '2021-03-03', count: 1100 },
+			{ name: '评论数', time: '2021-03-01', count: 800 },
+			{ name: '评论数', time: '2021-03-02', count: 900 },
+			{ name: '评论数', time: '2021-03-03', count: 1000 },
+		];
+
+		function ary(arr) {
+			var a = []//新数组
+			arr.forEach(item => {
+				var b = item;
+				if (a.length > 0) {
+					var c = a.filter(first => {
+						return first.name == b.name;
+					})
+					if (c.length > 0) {
+						a.forEach(second => {
+							if (second.name == c[0].name) {
+								second.time = `${c[0].time},${b.time}`
+							}
+							if (second.name == c[0].name) {
+								second.count = `${c[0].count},${b.count}`
+							}
+						})
+					} else {
+						a.push(b);
+					}
+				} else {
+					a.push(b);
+				}
+			})
+			return a;
+		}
+		ary(arr);
+		console.log(ary(arr));
+		$("div").html(ary(arr))
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let [a, b] = [1, 2];
+        console.log(a, b)
+
+        // 不定参解构
+        let [c, d] = [1, 2, 3, 4]
+        console.log(c, d)
+        let [e, ...f] = [1, 2, 3, 4]
+        console.log(e, f)
+        let [g, h, ...i] = [1, 2, 3, 4]
+        console.log(g, h, i);
+
+        let [j, , , k] = [1, 2, 3, 4]
+        console.log(j, k)
+        // 默认值
+        let [l, m = 4] = [2, 8]
+        console.log(l, m)
+
+        let arr = [7, 10, 9]
+        console.log(Math.max(...arr))
+    </script>
+</body>
+
+</html>

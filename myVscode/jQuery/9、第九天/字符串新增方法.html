@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "hello";
+        console.log(str.startsWith("he"));
+        console.log(str.endsWith("o"));
+        console.log(str.includes("l"));
+
+        let ss = " 123 qwe ";
+        console.log(ss.trim());
+        console.log(ss.trimLeft());
+        console.log(ss.trimRight());
+
+        console.log(ss.replace(/\d+/, "1"));
+        console.log(ss.repeat(3));
+
+        let num = "9";
+        console.log(num.padStart(3, "0"));
+        console.log(num.padEnd(3, "0"));
+    </script>
+</body>
+
+</html>

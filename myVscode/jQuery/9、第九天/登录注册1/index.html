@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        欢迎您：<span class="userName"></span>|积分：<span class="score"></span>|
+        <a href="javascript:void(0)" class="del">退出</a>
+        <hr>
+        <div class="form">
+            <input type="hidden" class="userId">
+            <div>
+                留言: <textarea class="msg" cols="30" rows="3"></textarea>
+            </div>
+            <button class="sure">确认</button>
+            <hr>
+        </div>
+        <div class="list">
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $(".del").click(function () {
+                localStorage.removeItem("token");
+                info();
+            })
+            info();
+            function info() {
+                if (localStorage.token) {
+                    var user = JSON.parse(localStorage.user);
+                    $(".userName").html(user.name);
+                    $(".score").html(user.score);
+                } else {
+                    var a = $("<a href='login.html'>请登录</a>")
+                    $(".wrapper").html(a)
+                }
+            }
+            showInfo()
+            function showInfo(currentPage = 1) {
+                $.ajax({
+                    method: "get",
+                    url: "http://dida100.com:8888/api/feed",
+                    data: "current=" + currentPage,
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.token}`
+
+                    }
+                }).then(res => {
+
+                    $(".list").html("");
+
+                    if (res.code == 0) {
+                        //通过隐藏域存放id
+                        res.data.forEach(obj => {
+                            $(".list").append(`<div>
+                          		 <p>
+								 <input type="hidden" value="${obj.id}">  
+								 <span>${obj.name}说:</span><span>${obj.msg}</span>
+								 <button class='update'>修改</button><button  class='del'>删除</button>
+								 </p>
+                          		 <hr>
+                          	 </div>`)
+                        })
+                    } else {
+                        alert("请求失败!")
+                    }
+                })
+            }
+            // 点击添加
+            $(".sure").click(function () {
+                addInfo();
+                showInfo();
+            })
+            // 添加
+            function addInfo() {
+                var user = JSON.parse(localStorage.user);
+                var name = user.name;
+                var msg = $(".msg").val();
+                $.ajax({
+                    method: "post",
+                    url: "http://dida100.com:8888/api/feed",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        name: name,
+                        msg: msg
+                    }),
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.token}`
+
+                    }
+
+                }).then(res => {
+                    console.log(res)
+                })
+            }
+            // 点击删除
+            $("list").on('click', '.del', function () {
+                if (confirm("确认删除吗？")) {
+                    var id = $(this).parent().children("input").val();
+                    delInfo(id);
+                    showInfo();
+                }
+            })
+
+            // 删除
+            function delInfo(id) {
+                $.ajax({
+                    method: "delete",
+                    url: `http://dida100.com:8888/api/feed/${id}`,
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.token}`
+                    }
+                })
+            }
+
+        })
+    </script>
+</body>
+
+</html>

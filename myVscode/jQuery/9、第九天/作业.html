@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <div>
+        <ul></ul>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+
+
+            let arr = [
+                { name: '访问量', time: '2021-03-01', count: 1000 },
+                { name: '访问量', time: '2021-03-02', count: 1500 },
+                { name: '访问量', time: '2021-03-03', count: 1200 },
+                { name: '点赞数', time: '2021-03-01', count: 70 },
+                { name: '点赞数', time: '2021-03-02', count: 100 },
+                { name: '点赞数', time: '2021-03-03', count: 1100 },
+                { name: '评论数', time: '2021-03-01', count: 800 },
+                { name: '评论数', time: '2021-03-02', count: 900 },
+                { name: '评论数', time: '2021-03-03', count: 1000 },
+            ]
+            let newArr = []
+            arr.forEach(item => {
+                if (!newArr.includes(item.name)) {
+                    newArr.push(item.name)
+                }
+            })
+            console.log(newArr)
+
+            let arr1 = []
+            let arr2 = []
+            let arr3 = []
+            arr.forEach(item => {
+
+                if (item.name == newArr[0]) {
+                    arr1.push(item)
+                }
+                if (item.name == newArr[1]) {
+                    arr2.push(item)
+                }
+
+                if (item.name == newArr[2]) {
+                    arr3.push(item)
+                }
+
+
+            })
+            console.log(arr1)
+            console.log(arr2)
+            console.log(arr3)
+
+            let arr4 = arr1.map(item => {
+                // arr1.name = item.name;
+                arr1.time += item.time
+                arr1.count += item.count
+                return arr1
+            })
+            console.log(arr4)
+            // for (let i = 0; i < newArr.length; i++) {
+            //     console.log(newArr[i])
+            // }
+
+            // arr.forEach(item => {
+            //     for (let i = 0; i < newArr.length; i++) {
+            //         // console.log(newArr[i])
+            //         if (item.name == newArr[i]) {
+            //             newArr2[i] = item
+            //         }
+            //     }
+            // })
+            // let time = [];
+            // let count = [];
+            // let newArr2 = { "name": [], "time": [], "count": [] }
+
+            // arr.forEach(item => {
+            //     for (let i = 0; i < newArr.length; i++) {
+            //         // console.log(newArr[i])
+            //         if (item.name == newArr[i]) {
+            //             newArr2.time = item.time;
+            //             // count.push(item.count)
+            //         }
+
+
+            //     }
+
+            // })
+            // console.log(time)
+            // console.log(count)
+            // let str1 = [];
+            // str.forEach(item => {
+            //     str1[item.name] = [];
+            // })
+            // console.log(str1)
+            // str.forEach(item => {
+            //     for (let o in str1) {
+            //         if (item.name == o) {
+            //             // delete item.name;
+            //             str1[o].push(item);
+
+
+            //         }
+            //     }
+            // });
+
+            // console.log(str1);
+            // let str2 = Array.from(str1)
+            // console.log(str2)
+
+
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

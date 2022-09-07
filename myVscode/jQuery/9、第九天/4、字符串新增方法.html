@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str="hello";
+			console.log(str.startsWith("he")); //true
+			console.log(str.endsWith("o")); //true
+			console.log(str.includes("aa")); //false
+			let ss=" 123asd ";
+			console.log(ss.trim());
+			console.log(ss.trimLeft());  //去除左边空格
+			console.log(ss.trimRight());  //去除右边空格
+			console.log(ss); //" 123asd "
+			//replacet替换
+			console.log(ss.replace(/\d+/,"ss"));
+			console.log(ss.repeat(3));
+			let num="9";
+			console.log(num.padStart(3,"0")); //不足三位前面拼0
+			console.log(num.padEnd(3,"0")); //不足三位后面拼0
+		</script>
+	</body>
+</html>

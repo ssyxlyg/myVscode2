@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //普通数组
+        var arr = [1, 2, 3, 3, 2, 1, 1, 2, 3];
+        var obj = {};
+        arr.forEach(item => {
+            obj[item] = item;
+        });//利用对象去重
+        console.log(obj);
+        for (var o in obj) {
+            obj[o] = []
+        }
+        console.log(obj);
+        //上面两步可以简写为下面一个步骤
+        /*arr.forEach((item)=>{
+                obj[item] = [];
+        })*/
+        //将数组中相同的元素放入同一个数组
+        arr.forEach(item => {
+            console.log(item);
+            for (var o in obj) {
+                if (item == o) {
+                    obj[o].push(item);
+                }
+            }
+        });
+        console.log(obj);
+        //如果是比较复杂的数据，下面以数组对象为例，subId相同的分为一组
+        var datas = JSON.parse(JSON.stringify({
+            "datas": [{
+                "pId": "2211380240034753",
+                "subId": "-7629697887759678641",
+                "logType": "1",
+                "date": "2021-07-02"
+            }, {
+                "pId": "2211380240034753",
+                "subId": "-7629697887759678641",
+                "logType": "1",
+                "date": "2021-07-02"
+            }, {
+                "pId": "2211380240034753",
+                "subId": "278923639442458524",
+                "logType": "1",
+                "date": "2021-07-02"
+            }, {
+                "pId": "2211380240034753",
+                "subId": "278923639442458524",
+                "logType": "1",
+                "date": "2021-07-02"
+            }, {
+                "pId": "2211380240034753",
+                "subId": "278923639442458524",
+                "logType": "1",
+                "date": "2021-07-02"
+            }, {
+                "pId": "2211380240034753",
+                "subId": "-7629697887759678641",
+                "logType": "1",
+                "date": "2021-07-02"
+            }]
+        }));
+        console.log(datas);
+
+        var obj1 = {};
+
+        datas.datas.forEach(item => {
+            obj1[item.subId] = [];
+        });
+        console.log(obj1);
+        datas.datas.forEach(item => {
+            for (let o in obj1) {
+                if (item.subId == o) {
+                    obj1[o].push(item);
+                }
+            }
+        });
+        console.log(obj1);
+        var arrObj = [];
+        let i = 0;
+        for (let o in obj1) {
+            arrObj[i] = {};
+            arrObj[i].name = '文本';
+            arrObj[i].display = 'haha';
+            arrObj[i].newValue = '文本1';
+            arrObj[i].oldValue = '文本';
+            arrObj[i].children = obj1[o];
+            i++;
+        }
+
+        console.log(arrObj);
+    </script>
+</body>
+
+</html>
