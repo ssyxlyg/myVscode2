@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// promise:对象，可以接收异步编程的信息
+			// promise三种状态:初始状态(未完成) 成功状态(已完成) 失败状态(拒绝)
+			
+			//发起承诺
+			var promise=new Promise((resolve,reject)=>{
+				var random=Math.random();
+				if(random>0.5){
+					resolve("买房结婚呢");  //承诺完成
+				}else{
+					reject("分手")   //失败
+				}
+			})
+			
+			//拿到承诺结果
+			promise.then(res=>{
+				console.log(res);
+			}).catch(err=>{
+				console.log(err);
+			})
+		</script>
+	</body>
+</html>

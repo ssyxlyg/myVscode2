@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+			用户名:<input type="text" class="userName" value="" /><br>
+			密码:<input type="password" class="pwd" value="" /><br>
+			<button>注册</button>
+		</div>
+		<script src="./js/axios.js"></script>
+		<script>
+			var _button = document.querySelector("button");
+			var _userName = document.querySelector(".userName");
+			var _pwd = document.querySelector(".pwd");
+			_button.onclick = function() {
+				var name = _userName.value;
+				var pwd = _pwd.value;
+				axios.post("http://dida100.com:8888/api/register",
+				           JSON.stringify({"name":name,"password":pwd}),
+						   {
+							   headers:{
+								   "Content-Type": "application/json"
+							   }
+						   }
+				).then(res=>{
+					console.log(res.data);  
+					if(res.data.code==0){
+						alert("注册成功!");
+						location.href="login.html";
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

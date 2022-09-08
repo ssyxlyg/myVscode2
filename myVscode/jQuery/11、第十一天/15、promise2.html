@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// promise:对象，可以接收异步编程的信息
+			// promise三种状态:初始状态(未完成) 成功状态(已完成) 失败状态(拒绝)
+			
+			//发起承诺
+			function ajax(method,url,data){
+				//return返回一个promise对象
+				return new Promise((resolve,reject)=>{
+					var xhr=new XMLHttpRequest();
+					xhr.open(method,url,true);
+					xhr.send();
+					xhr.onreadystatechange=function(){
+						if(xhr.readyState==4){
+							if(xhr.status==200){
+								resolve(xhr.responseText)
+							}else{
+								reject("请求失败")
+							}
+						}
+					}
+				})
+			}
+			
+			// ajax("get","./test.txt"):得到返回的promise对象
+			//拿到兑现结果
+			ajax("get","./test.txt").then(res=>{
+				console.log(res);
+			}).catch(err=>{
+				console.log(err);
+			})
+		
+		</script>
+	</body>
+</html>

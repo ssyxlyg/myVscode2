@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 请求后台数据:
+			1、 xhr(麻烦)
+			2、 jquery是对xhr的封装(80 % 封装的是对dom的操作， vue主要减少dom操作)
+			3、 axios是对xhr的封装(基于promise风格, 支持请求拦截器和响应拦截器， 体积小是jq的1 / 4)
+			4、 fetch与xhr平级， 不是对xhr的封装， 是window内置的（ 基于promise风格, 返回数据包两层， IE不兼容）
+			*/
+			// 1、 jquery ajax
+			// 			$.getJson({
+			// 					"url": "",
+			// 					"data": "",
+			// 					"contentType": "application/json" / "application/x-www-form-urlencoded",
+			// 					"headers": {
+			// 						"Authorization": `Bearer ${localStorage.token}`
+			// 					}
+			// 				}).then(function(res) {})
+			// 				.catch(function() {})
+
+			// 			$.post({
+			// 					"url": "",
+			// 					"data": "",
+			// 					"dataType": "json",
+			// 					"contentType": "application/json" / "application/x-www-form-urlencoded",
+			// 					"headers": {
+			// 						"Authorization": `Bearer ${localStorage.token}`
+			// 					}
+			// 				}).then(function(res) {})
+			// 				.catch(function() {})
+			// 2、 es8提供 fetch
+			// 		get: fetch(url?参数).then(res => res.text()).then(data => {}).catch(err => {})
+			// 		post: fetch(url, {
+			// 			method: "POST",
+			// 			headers: {
+			// 				"Content-Type": "application/json"/ "application/x-www-form-urlencoded",
+			// 			},
+			// 			body: JSON.stringify({
+			// 				content: "留言内容"
+			// 			})
+			// 		}).then(res => res.json()).then(data => {}).catch(err => {})
+			// 3、 axios
+			// 		axios： ajax请求工具库
+			// 		axios.get(url?参数, config).then().catch()
+			// 		axios.post(url, data, config).then().catch()
+			// 		axios.put(url, data, config).then().catch()
+			// 		axios.delete(url, data, config).then().catch()
+				
+			// 		config: {
+			// 			headers: {
+			// 				"Content-Type": "application/json"/ "application/x-www-form-urlencoded",
+			// 				"Authorization": Token
+			// 			}
+			// 		},
+					
+					
+			// 		基本配置：
+			// 			配置默认请求域名:axios.defaults.baseURL = xxx
+			// 			配置默认的请求头: axios.defaults.headers = {
+			// 				"Authorization": `Bearer ${localStorage.token}`
+			// 			}
+		</script>
+	</body>
+</html>

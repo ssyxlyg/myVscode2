@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+		    fetch:基于promise的ajax请求，不是对promise的封装，是window内置的
+		     get: fetch(url ? 参数)
+			      .then(res=> res.text())
+			      .then(data=>{})
+				  .catch(err=>{})
+				  
+			post: fetch(url, {
+				method: "POST",
+				headers: {
+						"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					content: "留言内容"
+				})
+			})
+			.then(res=> res.json())
+			.then(data=>{})
+			.catch(err=>{}) 
+		-->
+		<script>
+			//结果是文本格式 res.text()拿到promise对象
+			fetch("./test.txt").then(res=>{
+				return res.text()  //返回prmise对象
+			}).then(data=>{
+				console.log(data); //承诺结果
+			}).catch(err=>{
+				console.log(err);
+			})
+			fetch("https://520mg.com/mi/list.php?page=1").then(res=>{
+				//结果是json res.json()拿到promise对象
+				return res.json()  //返回prmise对象
+			}).then(data=>{
+				console.log(data); //承诺结果
+			}).catch(err=>{
+				console.log(err);
+			})
+			
+			fetch("http://dida100.com:8888/api/login",{
+				 method:"post",
+				 headers: {
+						"Content-Type": "application/json ",
+				 },
+				 body:JSON.stringify({
+					 "name":"zeng",
+					 "password":"zmm123",
+				 })
+			}).then(res=>{
+				return res.json();
+			}).then(data=>{
+				console.log(data);
+			}).catch(err=>{
+				console.log(err);
+			})
+		
+		</script>
+	</body>
+</html>

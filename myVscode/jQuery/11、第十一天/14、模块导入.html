@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <script src="./test.js"></script> -->
+		<script type="module">
+			//默认导入与按需导入放一起
+			import ddd, {a,user,getInfo,b,str} from "./test.js";  //导入
+			console.log(a);
+			console.log(user.name);
+			console.log(getInfo(6,1));
+			console.log(b,str);
+			
+			//默认导入可以不加大括号，名字任意
+			// import ddd from "./test.js";  
+			console.log(ddd);
+			
+			//*代表到所有，排除默认导出的变量
+			//把所有导出的内容包裹到对象
+			import * as obj from "./test.js";
+			console.log(obj.a);
+			console.log(obj.user.name);
+			console.log(obj.getInfo(6,1));
+			console.log(obj.d);  //undefined，默认导出获取不到
+		</script>
+	</body>
+</html>

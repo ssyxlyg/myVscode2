@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        import ddd, { a, user, getInfo, b, str } from "./js/test.js";
+
+        console.log(ddd);
+        console.log(a);
+        console.log(user.name);
+        console.log(getInfo(1, 2));
+        console.log(b);
+        console.log(str);
+
+        import * as obj from "./js/test.js";
+        console.log(obj.a);
+        console.log(obj.user.name);
+    </script>
+</body>
+
+</html>

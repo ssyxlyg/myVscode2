@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>首页</h1>
+    用户名：<input type="text" class="userName">
+    内容：<textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>提交</button>
+    <script src="./js/axios.js"></script>
+    <script>
+        let userName = document.querySelector("input");
+        let content = document.querySelector("textarea");
+        let btn = document.querySelector("button")
+        axios.defaults.baseURL = "http://dida100.com:8888";
+        axios.defaults.headers = {
+            "Authorization": `Bearer ${localStorage.token}`,
+            "Content-Type": "application/json"
+        }
+        getInfo();
+        function getInfo() {
+            axios.get("/api/feed?current=2")
+                .then(res => {
+                    console.log(res.data)
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        }
+
+        btn.onclick = function () {
+            addInfo();
+        }
+        function addInfo() {
+            let name = userName.value;
+            let msg = content.value;
+            axios({
+                method: 'post',
+                url: "/api/feed",
+                data: {
+                    name: name,
+                    msg: msg
+                }
+            }).then(res => {
+                console.log(res.data)
+            })
+        }
+    </script>
+</body>
+
+</html>
