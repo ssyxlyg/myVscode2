@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let list = new Set([10, 20, 30, 10]);
+        console.log(list);
+        console.log(Array.from(list));
+
+        console.log(list.size);
+
+        list.add(60);
+
+        list.delete(10);
+
+        console.log(list.has(20));
+
+        console.log(list);
+
+        for (let item of list) {
+            console.log(item)
+        }
+        list.forEach(item => {
+            console.log(item)
+        })
+
+        let ary = Array.from(list);
+        for (let index = 0; index < ary.length; index++) {
+            console.log(ary[index])
+        }
+    </script>
+</body>
+
+</html>

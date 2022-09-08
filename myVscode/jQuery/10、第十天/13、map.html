@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//键值对(entry),键不可以重复，值可以重复
+			var list=new Map([["name","张三"],["age",20]]);
+			//添加数据
+			list.set("sex","男")
+			//获取数据，根据key获取value
+			console.log(list.get("name"));
+			//删除数据  根据key删除value
+			list.delete("sex");
+			console.log(list);
+			
+			for (let s of list) {
+				//s指每一个键值对
+				console.log(s);
+			}
+			
+			for (let [key,value] of list) {
+				//s指每一个键值对
+				console.log(key+":"+value);
+			}
+			// list.entries()获取所有的键值对
+			for (let [key,value] of list.entries()) {
+				//s指每一个键值对
+				console.log(key+":"+value);
+			}
+			// list.keys()获取到所有的键
+			for (let key of list.keys()) {
+				console.log(key+":"+list.get(key));
+			}
+			// list.values()获取到所有的值
+			for (let value of list.values()) {
+				console.log(value);
+			}
+		</script>
+	</body>
+</html>

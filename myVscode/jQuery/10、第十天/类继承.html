@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Father {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            show() {
+                console.log(this.name, this.age)
+            }
+        }
+        class Child extends Father {
+            constructor(name, age, sex) {
+                // this.name = name;
+                // this.age = age; 
+                super(name, age)
+                this.sex = sex
+            }
+            show() {
+                console.log(this.name, this.age, this.sex)
+            }
+        }
+        var ls = new Child("李四", 20, "男");
+        ls.show();
+    </script>
+</body>
+
+</html>

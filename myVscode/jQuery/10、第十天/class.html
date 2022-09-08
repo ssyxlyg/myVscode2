@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name,
+                this.age = age,
+                this.show = function () {
+                    console.log(this.name, this.age);
+                }
+        }
+        var person = new Person("张三", 20);
+        person.show()
+
+        // 类
+        class Student {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            set age(val) {
+                if (isNaN(val)) {
+                    alert("请输入数值");
+                    return;
+                }
+                this._age = val;
+            }
+            get age() {
+                return this._age;
+            }
+            show() {
+                console.log(this.name, this.age);
+            }
+        }
+        var ls = new Student("李四", 20);
+        ls.show()
+    </script>
+</body>
+
+</html>

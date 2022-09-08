@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function test(page = 1) {
+            console.log(page)
+        }
+        test();
+        // 拓展参数
+        getNum(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        function getNum(...num) {
+            console.log(num)
+        }
+        // 增强的对象字面量
+        function getObj(id, name, age) {
+            //如果属性名与属性值对应的变量名一致，可以简写
+            //如果属性名做运算加中括号
+            return {
+                id,
+                [id + ":" + name]: name,
+                age
+            }
+        }
+        console.log(getObj(1, "张三", 20))
+
+        var parent = {
+            age: 20
+        }
+        var child = {
+            __proto__: parent,
+            name: "张三"
+        }
+        console.log(child.age)
+    </script>
+</body>
+
+</html>

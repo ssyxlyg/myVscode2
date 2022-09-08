@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			 // var obj={}
+			 // var obj=new Object();
+			 //构造函数
+			 function Person(name,age){
+				 this.name=name;
+				 this.age=age;
+				 this.show=function(){
+					 console.log(this.name,this.age);
+				 }
+			 }
+			 var person=new Person("张三",20);
+			 person.show();
+			 
+			 //类
+			 class  Student{
+				 //构造器
+				 constructor(name,age){
+					 this.name=name
+					 this.age=age;  //自动调用set方法
+				 }
+				 //采用get set拦截属性的存取行为
+				 set age(val){
+					 if(isNaN(val)){
+						 alert("请输入数值");
+						 return;
+					 }
+					 //此处必须加_,代表本对象的私有属性
+					 this._age=val;
+				 }
+				 get age(){
+					 return this._age;
+				 }
+				 show(){
+					 console.log(this.name,this.age);
+				 }
+			 }
+			 var ls=new Student("黄蓉",20)  //自动调用constructor
+			 ls.show();
+			 console.log(ls.age);  //自动调用get方法
+		</script>
+	</body>
+</html>

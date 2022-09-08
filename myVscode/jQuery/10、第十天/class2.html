@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+
+            set age(val) {
+                if (isNaN(val)) {
+                    return
+                }
+                this._age = val;
+            }
+            get age() {
+                return this._age;
+            }
+
+            set name(val) {
+                this._name = val;
+            }
+            get name() {
+                return this._name
+            }
+
+            show() {
+                console.log(this.name, this.age);
+            }
+
+        }
+        var ls = new Student();
+        ls.name = "张三";
+        ls.age = 20;
+        console.log(ls.age);
+        ls.show();
+    </script>
+</body>
+
+</html>

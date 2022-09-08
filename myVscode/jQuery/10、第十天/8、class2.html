@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//类
+			class Student {
+				//如果不显式写构造器，会自动隐式生成
+				// constructor(){
+				// }
+				//采用get set拦截属性的存取行为
+				set age(val) {
+					if (isNaN(val)) {
+						alert("请输入数值");
+						return;
+					}
+					//此处必须加_,代表本对象的私有属性
+					this._age = val;
+				}
+				get age() {
+					return this._age;
+				}
+				set name(val) {
+					this._name = val;
+				}
+				get name() {
+					return this._name;
+				}
+				show() {
+					console.log(this.name, this.age);
+				}
+			}
+			var ls = new Student() //自动调用隐式的constructor
+			ls.name="张三";   //自动调用set name
+			ls.age=20       //自动调用set age
+			console.log(ls.age); //自动调用get方法
+			ls.show();
+			
+		</script>
+	</body>
+</html>

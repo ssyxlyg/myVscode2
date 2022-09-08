@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 基本类型:string number bool undefined null Symbol
+			引用类型: Array  Function Object  Set  Map */
+			// Symbol:表示独一无二的值
+			// var obj={"name":"张三","name":"李四"}
+			var obj2 = {
+				[Symbol("name")]:"张三",
+				[Symbol("name")]:"李四",
+				"age":20,
+				"sex":"男"
+			}
+			console.log(obj2);
+			//Symbol标记的属性不能被遍历
+			//可以把一些不需要对外操作和访问的属性使用Symbol来定义
+			for (let key in obj2) {
+				console.log(key,obj2[key]);
+			}
+
+			var s1 = Symbol("name");
+			var s2 = Symbol("name");
+			console.log(s1 == s2); //false
+			
+			//如果已经标记过就返回由给定的 key 找到的 symbol，
+			//否则就是返回新创建的 symbol。
+			var s3=Symbol.for("小红");
+			console.log(s3);
+			var s4=Symbol.for("小红");
+			console.log(s4);
+			console.log(s3===s4); //true
+		</script>
+	</body>
+</html>

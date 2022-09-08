@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		var arr = [{ "name": "张三" }, { "name": "李四" }, { "name": "张三" }];
+		var newArr = [];
+		//obj是arr中每一个对象
+		arr.forEach(obj => {
+			///如果newArr中不存在就push
+			//item是newArr中每一个对象
+			var o = newArr.find(item => {
+				return item.name == obj.name;
+			})
+			if (o == undefined) {
+				newArr.push(obj);
+			}
+
+		})
+		console.log(newArr);
+
+
+		var array = [
+			{ name: '访问量', time: '2021-03-01', count: 1000 },
+			{ name: '访问量', time: '2021-03-02', count: 1500 },
+			{ name: '访问量', time: '2021-03-03', count: 1200 },
+			{ name: '点赞数', time: '2021-03-01', count: 70 },
+			{ name: '点赞数', time: '2021-03-02', count: 100 },
+			{ name: '点赞数', time: '2021-03-03', count: 1100 },
+			{ name: '评论数', time: '2021-03-01', count: 800 },
+			{ name: '评论数', time: '2021-03-02', count: 900 },
+			{ name: '评论数', time: '2021-03-03', count: 1000 },
+		]
+
+		var newArray = [];
+		array.forEach(obj => {
+			///如果newArr中不存在就push
+			//item是newArr中每一个对象
+			var o = newArray.find(item => {
+				return item.name == obj.name;
+			})
+			if (o == undefined) {
+				// 第一次追加
+				var newObj = {
+					"name": obj.name,
+					"time": [obj.time],
+					"count": [obj.count]
+				}
+				newArray.push(newObj);
+			} else {
+				//如果存在继续追加time和count
+				o.time.push(obj.time);
+				o.count.push(obj.count);
+			}
+			
+
+		})
+		console.log(newArray);
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = [
+            { name: '访问量', time: '2021-03-01', count: 1000 },
+            { name: '访问量', time: '2021-03-02', count: 1500 },
+            { name: '访问量', time: '2021-03-03', count: 1200 },
+            { name: '点赞数', time: '2021-03-01', count: 70 },
+            { name: '点赞数', time: '2021-03-02', count: 100 },
+            { name: '点赞数', time: '2021-03-03', count: 1100 },
+            { name: '评论数', time: '2021-03-01', count: 800 },
+            { name: '评论数', time: '2021-03-02', count: 900 },
+            { name: '评论数', time: '2021-03-03', count: 1000 },
+        ]
+
+        let newArray = [];
+        // array.forEach(obj => {
+        //     var o = newArray.find(item => {
+        //         return obj.name == item.name
+        //     })
+        //     if (o == undefined) {
+        //         var newObj = {
+        //             name: obj.name,
+        //             time: [obj.time],
+        //             count: [obj.count]
+        //         }
+        //         newArray.push(newObj);
+        //     } else {
+        //         o.time.push(obj.time);
+        //         o.count.push(obj.count);
+        //     }
+        // })
+        let o = {}
+        array.forEach(obj => {
+            o = newArray.find(item => {
+                return obj.name == item.name;
+            })
+            if (o == undefined) {
+                var newObj = {
+                    name: obj.name,
+                    time: [obj.time],
+                    count: [obj.count]
+                }
+                newArray.push(newObj)
+            } else {
+                o.time.push(obj.time);
+                o.count.push(obj.count);
+            }
+
+        })
+        console.log(o)
+        console.log(newArray)
+    </script>
+</body>
+
+</html>

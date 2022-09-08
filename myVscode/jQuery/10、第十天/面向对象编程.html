@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            border: 1px solid black;
+            height: 500px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    </div>
+    <script>
+        var _wrapper = document.querySelector(".wrapper");
+
+        class Circle {
+            constructor(r, bac, left, bottom, speedX, speedY) {
+                this.r = r;
+                this.bac = bac;
+                this.left = left;
+                this.bottom = bottom;
+                this.speedX = speedX;
+                this.speedY = speedY;
+                this.init();
+                setInterval(() => {
+                    this.move();
+                }, 50)
+            }
+            init() {
+                var box = document.createElement("div");
+                box.style.width = 2 * this.r + "px";
+                box.style.height = 2 * this.r + "px";
+                box.style.borderRadius = "50%";
+                box.style.backgroundColor = this.bac;
+                box.style.position = "absolute";
+                box.style.bottom = this.bottom + "px";
+                box.style.left = this.left + "px";
+                _wrapper.appendChild(box);
+                this.box = box;
+            }
+            move() {
+                this.bottom += this.speedY;
+                this.left += this.speedX;
+                if (this.bottom >= _wrapper.clientHeight - this.box.offsetHeight) {
+                    this.bottom = _wrapper.clientHeight - this.box.offsetHeight;
+                    this.speedY *= -1;
+                }
+                if (this.bottom <= 0) {
+                    this.bottom = 0;
+                    this.speedY *= -1;
+                }
+                if (this.left >= _wrapper.clientWidth - this.box.offsetWidth) {
+                    this.left = _wrapper.clientWidth - this.box.offsetWidth;
+                    this.speedX *= -1;
+                }
+                if (this.left <= 0) {
+                    this.left = 0;
+                    this.speedX *= -1;
+                }
+                this.box.style.bottom = this.bottom + "px";
+                this.box.style.left = this.left + "px";
+
+            }
+        }
+        var circle1 = new Circle(10, "blue", 100, 10, 10, 8)
+        var circle2 = new Circle(10, "red", 20, 90, 8, 6)
+        var circle3 = new Circle(10, "yellow", 80, 20, 12, 10)
+        var circle4 = new Circle(10, "skyblue", 40, 50, 9, 15)
+    </script>
+</body>
+
+</html>
