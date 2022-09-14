@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+            /* border: 1px solid black; */
+        }
+
+        .wrapper p {
+            text-indent: 32px;
+            line-height: 30px;
+        }
+
+        img {
+            width: 600px;
+            height: 350px;
+            margin-left: 100px;
+        }
+
+        .content>p {
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Git 概述</h1>
+        <p>Git 是一个免费的、开源的分布式版本控制系统，可以快速高效地处理从小型到大型的各种 项目。</p>
+        <p>Git 易于学习，占地面积小，性能极快。 它具有廉价的本地库，方便的暂存区域和多个工作
+            流分支等特性。其性能优于 Subversion、CVS、Perforce 和 ClearCase 等版本控制工具。
+        </p>
+        <h2>何为版本控制</h2>
+        <p>版本控制是一种记录文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
+        <p>版本控制其实最重要的是可以记录文件修改历史记录，从而让用户能够查看历史版本，
+            方便版本切换。
+        </p>
+
+        <h3>Git 简史</h3>
+        <img src="./img/git简史.png" alt="">
+        <div class="content">
+            <p>查看版本</p>
+            <img src="./img/版本信息.png" alt="">
+            <p>全局范围的签名设置：</p>
+            <img src="./img/全局用户名.png" alt="">
+            <p>初始化本地库</p>
+            <img src="img/初始化.png" alt="">
+            <p>查看本地库状态</p>
+            <img src="./img/查看状态.png" alt="">
+            <p>新增文件(hello.txt)</p>
+            <img src="./img/vim创建文件.png" alt="">
+            <img src="./img/文件显示.png" alt="">
+            <p>再次查看（检测到未追踪的文件）</p>
+            <img src="./img/再次查看状态.png" alt="">
+            <p>将工作区的文件添加到暂存区</p>
+            <img src="./img/添加暂存区.png" alt="">
+            <p>查看状态（检测到暂存区有新文件）</p>
+            <img src="./img/查看暂存.png" alt="">
+            <p>将暂存区的文件提交到本地库</p>
+            <img src="./img/添加本地库.png" alt="">
+            <p>查看状态（没有文件需要提交）</p>
+            <img src="./img/查看状态.png" alt="">
+            <p>创建远程仓库</p>
+            <img src="./img/github首页.png" alt="">
+
+            <img src="./img/创建远程库.png" alt="">
+            <img src="./img/你的远程库.png" alt="">
+            <img src="./img/httpssh.png" alt="">
+
+            <p>创建远程仓库别名</p>
+            <img src="./img/分支别名.png" alt="">
+            <p>推送本地分支到远程仓库</p>
+            <img src="./img/推送远程库.png" alt="">
+            <p>此时发现已将我们 master 分支上的内容推送到 GitHub 创建的远程仓库。</p>
+            <img src="./img/推送成功.png" alt="">
+            <p>克隆远程仓库到本地</p>
+            <img src="./img/克隆.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
