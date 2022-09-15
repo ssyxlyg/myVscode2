@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .wrapper table {
+            width: 800px;
+            text-align: center;
+        }
+
+        table td,
+        th {
+            padding: 10px 20px;
+        }
+
+        .toobar {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <table border="1">
+            <thead>
+                <th>userId</th>
+                <th>userName</th>
+                <th>passWord</th>
+                <th>sex</th>
+                <th>address</th>
+                <th>phone</th>
+                <th>
+                    操作
+                </th>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>123</td>
+                    <td>男</td>
+                    <td>河南</td>
+                    <td>12345</td>
+                    <td>
+                        <button class="update">修改</button>
+                        <button class="del">删除</button>
+                    </td>
+                </tr> -->
+            </tbody>
+
+        </table>
+        <div class="toobar">
+            <button class="pre">上一页</button>
+            <button class="next">下一页</button>
+            <span class="page"></span>/<span class="totalPage"></span>
+        </div>
+    </div>
+    <script src="./js/axios.js"></script>
+    <script>
+        let tbody = document.querySelector("tbody");
+        let pre = document.querySelector(".pre");
+        let next = document.querySelector(".next");
+        let page = document.querySelector(".page");
+        let totalPage = document.querySelector(".totalPage");
+
+        getInfo();
+        function getInfo(currentPage = 1, size = 5) {
+
+            tbody.innerHTML = "";
+            axios.defaults.baseURL = "http://localhost:8086"
+            axios.get(`/api/userPage?currentPage=${currentPage}&size=${size}`)
+                .then(res => {
+                    // console.log(res.data)
+                    res.data.data.forEach(obj => {
+                        let tr = document.createElement("tr");
+                        tr.innerHTML = `<tr>
+                            <td>${obj.userId}</td>
+                            <td>${obj.userName}</td>
+                            <td>${obj.passWord}</td>
+                            <td>${obj.sex}</td>
+                            <td>${obj.address}</td>
+                            <td>${obj.phone}</td>
+                            <td>
+                                <button class="update">修改</button>
+                                <button class="del">删除</button>
+                            </td>
+                        </tr>`
+                        tbody.appendChild(tr)
+                    });
+                    var pageSupport = res.data.pageSupport;
+                    page.innerHTML = pageSupport.currentPage;
+                    totalPage.innerHTML = pageSupport.totalPage;
+                    isClick(pageSupport.currentPage);
+
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        }
+        next.onclick = function () {
+            let curPage = page.innerText * 1;
+            curPage++;
+            getInfo(curPage);
+            isClick(curPage);
+        }
+
+        pre.onclick = function () {
+            let curPage = page.innerText * 1;
+            curPage--;
+            getInfo(curPage);
+            isClick(curPage);
+        }
+
+        function isClick(page) {
+            let toPage = totalPage.innerText * 1
+            if (page <= 1) {
+                pre.disabled = true;
+            } else if (page < toPage) {
+                pre.disabled = false;
+                next.disabled = false;
+            } else {
+                next.disabled = true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
