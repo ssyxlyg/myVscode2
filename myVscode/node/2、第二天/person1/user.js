@@ -15,6 +15,7 @@ var app = express();
 app.use(express.json());
 app.use(express.static("./public")) //定义静态资源的位置
 var mysql = require('mysql');
+
 //导入cookie   npm i cookie-parser
 var cookieParser = require('cookie-parser');
 var cookie = cookieParser();
@@ -28,8 +29,6 @@ app.use(expressSession({
 	}, //1个小时过期
 	secret: "mdy" //秘钥
 }))
-
-
 
 var conn = mysql.createConnection({
 	"host": "localhost",
@@ -51,7 +50,7 @@ app.post('/api/login', function(req, res) {
 		if (!err) {
 			if (data.length > 0) {
 				//7天免登录，存cookie
-				// res.cookie("userName",req.body.userName,{maxAge:1000*60*60*24*7});
+				res.cookie("userName",req.body.userName,{maxAge:1000*60*60*24*7});
 				//session
 				req.session["userName"]=req.body.userName;
 				res.json({
@@ -74,6 +73,42 @@ app.post('/api/login', function(req, res) {
 		}
 	})
 })
+//注销接口
+app.post('/api/logout',function(req,res){
+	req.session.destroy(); //销毁session
+	res.json({
+		"errCode":0
+	})
+})
+//是否登录接口
+app.get('/api/isLogin',function(req,res){
+	if(req.session["userName"]){
+		var sql=`select * from user where userName=${req.session["userName"]}`
+		conn.query(sql,function(err,data){
+			if(!err){
+				res.json({
+					"errCode":0,
+					"data":data
+				})
+			}else{
+				res.json({
+					"errCode":2,
+					"msg":"用户还未注册"
+				})
+			}
+		})
+	}else{
+		res.json({
+			"errCode":1,
+			"msg":'用户未登录'
+		})
+	}
+})
+
+
+
+
+
 //查询接口
 app.get("/api/userList", function(req, res) {
 	var sql = 'select * from user';

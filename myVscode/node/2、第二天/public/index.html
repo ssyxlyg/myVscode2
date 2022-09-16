@@ -31,6 +31,8 @@
 
 <body>
     <div class="wrapper">
+        <b></b>
+        <a href="javascript:void(0)" class="logout">注销</a>
         <table border="1">
             <thead>
                 <th>userId</th>
@@ -64,20 +66,37 @@
             <button class="next">下一页</button>
             <span class="page"></span>/<span class="totalPage"></span>
         </div>
+        <div class="content">
+            <input type="hidden" class="uid"><br>
+            姓名：<input type="text" class="uname"><br>
+            密码：<input type="text" class="pwd2"><br>
+            地址：<input type="text" class="address"><br>
+            电话：<input type="text" class="phone"><br>
+            性别：<input type="text" class="sex">
+            <button type="button" class="submit">确认修改</button>
+
+        </div>
     </div>
     <script src="./js/axios.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
         let tbody = document.querySelector("tbody");
         let pre = document.querySelector(".pre");
         let next = document.querySelector(".next");
         let page = document.querySelector(".page");
         let totalPage = document.querySelector(".totalPage");
+        let b = document.querySelector("b");
+        let logout = document.querySelector(".logout");
+
+        axios.defaults.baseURL = "http://localhost:8086";
+        axios.defaults.withCredentials = true  //允许携带cookie
 
         getInfo();
+
         function getInfo(currentPage = 1, size = 5) {
 
             tbody.innerHTML = "";
-            axios.defaults.baseURL = "http://localhost:8086"
+
             axios.get(`/api/userPage?currentPage=${currentPage}&size=${size}`)
                 .then(res => {
                     // console.log(res.data)
@@ -131,6 +150,85 @@
             } else {
                 next.disabled = true;
             }
+        }
+        // 判断是否登录
+        isLogin();
+        function isLogin() {
+            axios.get('/api/isLogin').then(res => {
+                if (res.data.errCode == 0) {
+                    b.innerHTML = res.data.data[0].userName;
+                } else {
+                    location.href = "./login.html"
+                    alert("请登录")
+                }
+            })
+        }
+
+        // 删除
+
+        $("tbody").on('click', '.del', function () {
+
+            let id = this.parentNode.parentNode.firstElementChild.innerText;
+            console.log(id);
+            axios.delete(`/api/deleteUser/${id}`)
+                .then(res => {
+                    console.log(res)
+                    getInfo();
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+
+        })
+
+        // 修改
+        $("tbody").on('click', '.update', function () {
+            let uid = $(this).parent().parent().children().eq(0).text();
+            let uname = $(this).parent().parent().children().eq(1).text();
+            let pwd2 = $(this).parent().parent().children().eq(2).text();
+            let sex = $(this).parent().parent().children().eq(3).text();
+            let address = $(this).parent().parent().children().eq(4).text();
+            let phone = $(this).parent().parent().children().eq(5).text();
+
+            $(".uid").val(uid)
+            $(".uname").val(uname);
+            $(".pwd2").val(pwd2);
+            $(".address").val(address);
+            $(".phone").val(phone);
+            $(".sex").val(sex);
+
+        })
+
+        $(".submit").click(function () {
+            let id = $(".uid").val();
+            console.log(id);
+            console.log($(".uname").val());
+            axios.put(`/api/updateUser/${id}`, {
+                "userName": $(".uname").val(),
+                "passWord": $(".pwd2").val(),
+                "address": $(".address").val(),
+                "phone": $(".phone").val(),
+                "sex": $(".sex").val()
+            }).then(res => {
+                console.log(res.data)
+                getInfo();
+            }).catch(err => {
+                console.error(err);
+            })
+        })
+
+        // 注销
+        logout.onclick = function () {
+            axios.post("/api/logout")
+                .then(res => {
+                    // console.log(res)
+                    if (res.data.errCode == 0) {
+                        location.href = "./login.html"
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                })
         }
 
     </script>

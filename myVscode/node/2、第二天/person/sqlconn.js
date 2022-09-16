@@ -19,6 +19,20 @@ app.use(expressSession({
     },
     secret: "ssxy"
 }))
+/**********************跨域*************************************/
+//允许跨域
+app.use((req, res, next) => {
+    //设置请求头
+    res.set({
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Max-Age': 1728000,
+        'Access-Control-Allow-Origin': req.headers.origin || '*',
+        'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+        'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+        'Content-Type': 'application/json; charset=utf-8'
+    })
+    req.method === 'OPTIONS' ? res.status(204).end() : next()
+})
 /*******************************/
 // 创建链接数据库
 let sql = require('mysql');
@@ -37,6 +51,10 @@ conn.connect(function (err) {
         console.log("链接成功");
     }
 })
+
+/***********jsonp**************/
+
+
 // 登录接口
 app.post('/api/login', function (req, res) {
     let sql = `select * from user where userName='${req.body.userName}' and passWord='${req.body.passWord}'`
@@ -66,6 +84,40 @@ app.post('/api/login', function (req, res) {
             })
         }
     })
+})
+
+// 注销接口
+app.post('/api/logout', function (req, res) {
+    req.session.destroy();
+    res.json({
+        "errCode": 0
+    })
+})
+
+// 验证是否登录
+app.get('/api/isLogin', function (req, res) {
+    if (req.session["userName"]) {
+        let sql = `select * from user where userName='${req.session["userName"]}'`;
+        conn.query(sql, function (err, data) {
+            if (!err) {
+                res.json({
+                    "errCode": 0,
+                    "msg": "欢迎登录",
+                    "data": data
+                })
+            } else {
+                res.json({
+                    "errCode": 2,
+                    "msg": "查询错误"
+                })
+            }
+        })
+    } else {
+        res.json({
+            "errCode": 1,
+            "msg": '用户未登录'
+        })
+    }
 })
 // 查询接口--all
 app.get('/api/userList', function (req, res) {
@@ -179,7 +231,8 @@ app.get('/api/userPage', function (req, res) {
 
 app.post('/api/addUser', function (req, res) {
     // sql查询操作
-    let sql = `insert into user(userName,address,passWord,phone) value('${req.body.userName}','${req.body.address}','${req.body.passWord}','${req.body.phone}')`;
+
+    let sql = `insert into user(userName,address,passWord,phone,sex,email) value('${req.body.userName}','${req.body.address}','${req.body.passWord}','${req.body.phone}','${req.body.sex}','${req.body.email}')`;
     conn.query(sql, function (err, data) {
         if (!err) {
             res.json({
@@ -217,7 +270,8 @@ app.delete('/api/deleteUser/:id', function (req, res) {
 })
 // 修改接口
 app.put('/api/updateUser/:id', function (req, res) {
-    let sql = `update user set passWord=${req.body.passWord} where userId=${req.params.id}`
+
+    let sql = `update user set userName='${req.body.userName}',passWord='${req.body.passWord}',address='${req.body.address}',phone='${req.body.phone}',sex='${req.body.sex}' where userId=${req.params.id}`
     conn.query(sql, function (err, data) {
         if (!err) {
             res.json({
@@ -233,6 +287,7 @@ app.put('/api/updateUser/:id', function (req, res) {
     })
 })
 
+/*****************************/
 // 启动服务器
 app.listen(8086, function () {
     console.log("服务器启动成功");

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" class="uname"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="text" class="pwd"></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td><input type="text" class="sex"></td>
+        </tr>
+        <tr>
+            <td>地址：</td>
+            <td><input type="text" class="address"></td>
+        </tr>
+        <tr>
+            <td>电话：</td>
+            <td><input type="text" class="phone"></td>
+        </tr>
+        <tr>
+            <td>邮箱</td>
+            <td><input type="text" class="email"></td>
+        </tr>
+        <tr>
+            <td><button>提交</button></td>
+        </tr>
+    </table>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/axios.js"></script>
+    <script>
+        axios.defaults.baseURL = "http://localhost:8086"
+        $("button").click(function () {
+
+            axios.post("/api/addUser", JSON.stringify({
+                userName: $(".uname").val(),
+                passWord: $(".pwd").val(),
+                address: $(".address").val(),
+                sex: $(".sex").val(),
+                phone: $(".phone").val(),
+                email: $(".email").val()
+            }), {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(res => {
+                console.log(res.data);
+                if (res.data.errCode == 0) {
+                    // location.href = "./login.html"
+                    cls()
+                }
+            }).catch(err => {
+                console.error(err);
+            })
+        })
+        function cls() {
+            $(".uname").val("");
+            $(".pwd").val("");
+            $(".address").val("");
+            $(".sex").val("");
+            $(".phone").val("");
+            $(".email").val("");
+        }
+
+    </script>
+
+</body>
+
+</html>

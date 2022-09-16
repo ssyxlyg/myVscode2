@@ -12,6 +12,8 @@
 	</head>
 	<body>
 		<div class="wrapper">
+			<strong></strong>
+			<a href="javascript:void(0);" class="logout">注销</a>
 			<table border='1'>
 				<thead>
 					<tr>
@@ -42,6 +44,8 @@
 			var pre=document.querySelector(".pre");   //上一页
 			var totalPage=document.querySelector(".totalPage");   //总页码
 			var page=document.querySelector(".page");   //当前页页
+			var strong=document.querySelector("strong");   //显示用户名
+			var logout=document.querySelector(".logout");   //注销按钮
 			
 			getInfo();  //首次进来
 			function getInfo(currentPage=1,size=3){
@@ -78,7 +82,6 @@
 				})
 			}
 			
-			
 			//下一页	
 			next.onclick=function(){
 				//获取当前页码
@@ -110,6 +113,33 @@
 					next.disabled=true;
 				}
 			}
+		
+		
+		   //判断是否登录
+		   isLogin();
+		   function  isLogin(){
+			   axios.get("/api/isLogin").then(res=>{
+				   if(res.data.errCode==0){
+					   strong.innerHTML=res.data.data[0].userName
+				   }else{
+					   // strong.innerHTML="请登录";
+					   location.href="./login.html"
+				   }
+				   alert(res.data.msg);
+			   }).catch(err=>{
+				   console.log(err);
+			   })
+		   }
+		   
+		   logout.onclick=function(){
+			   axios.post('/api/logout').then(res=>{
+				   if(res.data.errCode==0){
+					   location.href="./login.html";
+				   }
+			   }).catch(err=>{
+				   console.log(err);
+			   })
+		   }
 		</script>
 	</body>
 </html>
