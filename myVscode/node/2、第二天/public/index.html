@@ -32,7 +32,8 @@
 <body>
     <div class="wrapper">
         <b></b>
-        <a href="javascript:void(0)" class="logout">注销</a>
+        <a href="javascript:void(0)" class="logout">注销</a><br>
+        <input type="search"> <button class="find">查询</button>
         <table border="1">
             <thead>
                 <th>userId</th>
@@ -90,9 +91,11 @@
 
         axios.defaults.baseURL = "http://localhost:8086";
         axios.defaults.withCredentials = true  //允许携带cookie
+        //修改框默认隐藏
+        $(".content").hide();
 
         getInfo();
-
+        // 渲染
         function getInfo(currentPage = 1, size = 5) {
 
             tbody.innerHTML = "";
@@ -172,8 +175,9 @@
             console.log(id);
             axios.delete(`/api/deleteUser/${id}`)
                 .then(res => {
-                    console.log(res)
-                    getInfo();
+                    console.log(res);
+                    let page = $(".page").text();
+                    getInfo(page);
                 })
                 .catch(err => {
                     console.error(err);
@@ -183,6 +187,7 @@
 
         // 修改
         $("tbody").on('click', '.update', function () {
+            $(".content").fadeIn();
             let uid = $(this).parent().parent().children().eq(0).text();
             let uname = $(this).parent().parent().children().eq(1).text();
             let pwd2 = $(this).parent().parent().children().eq(2).text();
@@ -211,10 +216,13 @@
                 "sex": $(".sex").val()
             }).then(res => {
                 console.log(res.data)
-                getInfo();
+                let page = $(".page").text();
+                getInfo(page);
+                cls();
             }).catch(err => {
                 console.error(err);
             })
+            $(".content").fadeOut();
         })
 
         // 注销
@@ -231,6 +239,51 @@
                 })
         }
 
+        // 姓名查找
+        $(".find").click(function () {
+            $("tbody").html("");
+            let uname = $("input[type=search]").val();
+            console.log(uname);
+            if (uname) {
+                axios.get('/api/userListByName?userName=' + uname)
+                    .then(res => {
+                        console.log(res.data.data)
+                        res.data.data.forEach(obj => {
+                            let tr = document.createElement("tr");
+                            tr.innerHTML = `<tr>
+                            <td>${obj.userId}</td>
+                            <td>${obj.userName}</td>
+                            <td>${obj.passWord}</td>
+                            <td>${obj.sex}</td>
+                            <td>${obj.address}</td>
+                            <td>${obj.phone}</td>
+                            <td>
+                                <button class="update">修改</button>
+                                <button class="del">删除</button>
+                            </td>
+                        </tr>`
+                            tbody.appendChild(tr)
+                        });
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })
+            } else {
+                getInfo();
+            }
+        })
+
+
+
+        // 清空
+        function cls() {
+            $(".uname").val("");
+            $(".pwd2").val("");
+            $(".address").val("");
+            $(".sex").val("");
+            $(".phone").val("");
+            $(".email").val("");
+        }
     </script>
 </body>
 

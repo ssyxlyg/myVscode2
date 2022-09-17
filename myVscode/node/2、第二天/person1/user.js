@@ -277,3 +277,21 @@ app.post("/api/addUser", function(req, res) {
 app.listen(8086, function() {
 	console.log("启动成功");
 })
+app.post('', function (req, res) {
+   let sql = `insert into ''`;
+   conn.query(sql, function (err, data) {
+	   if (!err) {
+		   res.json({
+			   errCode: 0,
+			   msg: '添加成功',
+			   data: data
+		   })
+	   } else {
+		   res.json({
+			   errCode: 1,
+			   msg: '添加失败',
+			   err: err
+		   })
+	   }
+   })
+})
