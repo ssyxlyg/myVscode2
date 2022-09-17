@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    姓名：<input type="text" class="uname"> <br>
+    密码：<input type="text" class="pwd"><br>
+    <button class="submit">登录</button>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script>
+        axios.defaults.baseURL = "http://localhost:8008";
+        axios.defaults.withCredentials = true  //允许携带cookie
+
+        $(".submit").click(function () {
+            let uname = $(".uname").val();
+            let password = $(".pwd").val()
+            axios.post('/api/login', {
+                sName: uname,
+                password: password
+            })
+                .then(res => {
+                    console.log(res)
+                    alert("登录成功");
+                    location.href = "./index.html"
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        })
+    </script>
+</body>
+
+</html>

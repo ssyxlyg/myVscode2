@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" class="uname"> </td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" class="pwd"></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td><input type="text" class="sex"></td>
+        </tr>
+        <tr>
+            <td>地址：</td>
+            <td><input type="text" class="address"></td>
+        </tr>
+        <tr>
+            <td>电话</td>
+            <td><input type="text" class="phone"></td>
+        </tr>
+        <tr>
+            <td><button class="submit">注册</button></td>
+            <!-- <td>
+                <input type="hidden" class="score" value="">
+            </td> -->
+        </tr>
+    </table>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script>
+        axios.defaults.baseURL = "http://localhost:8008";
+        axios.defaults.withCredentials = true;
+        $(".submit").click(function () {
+            let uname = $(".uname").val();
+            let password = $(".pwd").val();
+            let sex = $(".sex").val();
+            let address = $(".address").val();
+            let phone = $(".phone").val();
+            // let score = $(".score").val();
+            // console.log(score);
+            axios.post('/api/addInfo', JSON.stringify({
+                sName: uname,
+                password: password,
+                sex: sex,
+                address: address,
+                phone: phone,
+                score: 0
+
+            }), {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(res => {
+                console.log(res.data)
+                if (res.data.errCode == 0) {
+                    alert("注册成功")
+
+                }
+
+            }).catch(err => {
+                console.error(err);
+            })
+        })
+    </script>
+</body>
+
+</html>
