@@ -13,7 +13,7 @@
 var express = require("express");
 var app = express();
 app.use(express.json());
-app.use(express.static("./public")) //定义静态资源的位置
+app.use(express.static("./public/public")) //定义静态资源的位置
 var mysql = require('mysql');
 
 //导入cookie   npm i cookie-parser
@@ -33,30 +33,42 @@ app.use(expressSession({
 var conn = mysql.createConnection({
 	"host": "localhost",
 	"user": "root",
-	"password": "root",
+	"password": "123456",
 	"database": "feed"
 })
-conn.connect(function(err) {
+conn.connect(function (err) {
 	if (!err) {
 		console.log("链接成功");
 	}
 })
-
+//允许跨域
+app.use((req, res, next) => {
+   //设置请求头
+	res.set({
+		'Access-Control-Allow-Credentials': true,
+		'Access-Control-Max-Age': 1728000,
+		'Access-Control-Allow-Origin': req.headers.origin || '*',
+		'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+		'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+		'Content-Type': 'application/json; charset=utf-8'
+	})
+	req.method === 'OPTIONS' ? res.status(204).end() : next()
+})
 //登录接口
-app.post('/api/login', function(req, res) {
+app.post('/api/login', function (req, res) {
 	var sql = `select * from user 
 	where userName='${req.body.userName}' and password='${req.body.password}'`
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			if (data.length > 0) {
 				//7天免登录，存cookie
-				res.cookie("userName",req.body.userName,{maxAge:1000*60*60*24*7});
+				res.cookie("userName", req.body.userName, { maxAge: 1000 * 60 * 60 * 24 * 7 });
 				//session
-				req.session["userName"]=req.body.userName;
+				req.session["userName"] = req.body.userName;
 				res.json({
-					"errCode":0,
+					"errCode": 0,
 					"msg": "登录成功",
-					"data":data
+					"data": data
 				})
 			} else {
 				res.json({
@@ -74,33 +86,33 @@ app.post('/api/login', function(req, res) {
 	})
 })
 //注销接口
-app.post('/api/logout',function(req,res){
+app.post('/api/logout', function (req, res) {
 	req.session.destroy(); //销毁session
 	res.json({
-		"errCode":0
+		"errCode": 0
 	})
 })
 //是否登录接口
-app.get('/api/isLogin',function(req,res){
-	if(req.session["userName"]){
-		var sql=`select * from user where userName=${req.session["userName"]}`
-		conn.query(sql,function(err,data){
-			if(!err){
+app.get('/api/isLogin', function (req, res) {
+	if (req.session["userName"]) {
+		var sql = `select * from user where userName=${req.session["userName"]}`
+		conn.query(sql, function (err, data) {
+			if (!err) {
 				res.json({
-					"errCode":0,
-					"data":data
+					"errCode": 0,
+					"data": data
 				})
-			}else{
+			} else {
 				res.json({
-					"errCode":2,
-					"msg":"用户还未注册"
+					"errCode": 2,
+					"msg": "用户还未注册"
 				})
 			}
 		})
-	}else{
+	} else {
 		res.json({
-			"errCode":1,
-			"msg":'用户未登录'
+			"errCode": 1,
+			"msg": '用户未登录'
 		})
 	}
 })
@@ -110,9 +122,9 @@ app.get('/api/isLogin',function(req,res){
 
 
 //查询接口
-app.get("/api/userList", function(req, res) {
+app.get("/api/userList", function (req, res) {
 	var sql = 'select * from user';
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -130,15 +142,15 @@ app.get("/api/userList", function(req, res) {
 })
 
 //分页接口
-app.get("/api/userPage", function(req, res) {
+app.get("/api/userPage", function (req, res) {
 	var size = req.query.size || 3; //每页显示的条数
 	var currentPage = req.query.currentPage || 1; //当前页码
-	var sql = `select * from user limit ${(currentPage-1)*size},${size}`;
+	var sql = `select * from user limit ${(currentPage - 1) * size},${size}`;
 
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			var sql2 = "select count(*) as total from user";
-			conn.query(sql2, function(err2, data2) {
+			conn.query(sql2, function (err2, data2) {
 				if (!err2) {
 					// [{"total":total}]
 					var total = data2[0].total; //总条数
@@ -176,9 +188,9 @@ app.get("/api/userPage", function(req, res) {
 })
 
 //根据id查询接口
-app.get("/api/userList/:id", function(req, res) {
+app.get("/api/userList/:id", function (req, res) {
 	var sql = `select * from user where userId=${req.params.id}`;
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -196,9 +208,9 @@ app.get("/api/userList/:id", function(req, res) {
 })
 
 //根据姓名查询接口
-app.get("/api/userListByName", function(req, res) {
+app.get("/api/userListByName", function (req, res) {
 	var sql = `select * from user where userName like '%${req.query.userName}%'`;
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -216,9 +228,9 @@ app.get("/api/userListByName", function(req, res) {
 })
 
 //删除接口
-app.delete("/api/deleteUser/:id", function(req, res) {
+app.delete("/api/deleteUser/:id", function (req, res) {
 	var sql = `delete from user where userId=${req.params.id}`;
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -235,10 +247,10 @@ app.delete("/api/deleteUser/:id", function(req, res) {
 })
 
 //修改接口
-app.put("/api/updateUser/:id", function(req, res) {
+app.put("/api/updateUser/:id", function (req, res) {
 	var sql =
 		`UPDATE user SET userName ='${req.body.userName}', sex ='${req.body.sex}' , address = '${req.body.address}' , password = '${req.body.password}' , phone = '${req.body.phone}' WHERE userId = ${req.params.id}`;
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -255,10 +267,10 @@ app.put("/api/updateUser/:id", function(req, res) {
 })
 
 //添加接口
-app.post("/api/addUser", function(req, res) {
+app.post("/api/addUser", function (req, res) {
 	var sql =
 		`INSERT INTO user (userName, address, password, phone) VALUES ('${req.body.userName}', '${req.body.address}', '${req.body.password}', '${req.body.phone}')`;
-	conn.query(sql, function(err, data) {
+	conn.query(sql, function (err, data) {
 		if (!err) {
 			res.json({
 				"errCode": 0,
@@ -274,24 +286,24 @@ app.post("/api/addUser", function(req, res) {
 	})
 })
 
-app.listen(8086, function() {
+app.listen(8086, function () {
 	console.log("启动成功");
 })
 app.post('', function (req, res) {
-   let sql = `insert into ''`;
-   conn.query(sql, function (err, data) {
-	   if (!err) {
-		   res.json({
-			   errCode: 0,
-			   msg: '添加成功',
-			   data: data
-		   })
-	   } else {
-		   res.json({
-			   errCode: 1,
-			   msg: '添加失败',
-			   err: err
-		   })
-	   }
-   })
+	let sql = `insert into ''`;
+	conn.query(sql, function (err, data) {
+		if (!err) {
+			res.json({
+				errCode: 0,
+				msg: '添加成功',
+				data: data
+			})
+		} else {
+			res.json({
+				errCode: 1,
+				msg: '添加失败',
+				err: err
+			})
+		}
+	})
 })

@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>首页</title>
-		<style>
-			.wrapper{
-				width: 450px;
-				margin: 0 auto;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="wrapper">
-			<strong></strong>
-			<a href="javascript:void(0);" class="logout">注销</a>
-			<table border='1'>
-				<thead>
-					<tr>
-						<th>用户Id</th>
-						<th>姓名</th>
-						<th>密码</th>
-						<th>性别</th>
-						<th>地址</th>
-						<th>手机</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-                    
-				</tbody>
-			</table>
-			<div class="toobar" style="text-align: center;">
-				<button class="pre">上一页</button>
-				<button class="next">下一页</button>
-				<span class="page"></span>/<span class="totalPage"></span>
-			</div>
+
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<style>
+		.wrapper {
+			width: 450px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<strong></strong>
+		<a href="javascript:void(0);" class="logout">注销</a>
+		<table border='1'>
+			<thead>
+				<tr>
+					<th>用户Id</th>
+					<th>姓名</th>
+					<th>密码</th>
+					<th>性别</th>
+					<th>地址</th>
+					<th>手机</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+		<div class="toobar" style="text-align: center;">
+			<button class="pre">上一页</button>
+			<button class="next">下一页</button>
+			<span class="page"></span>/<span class="totalPage"></span>
 		</div>
-		<script src="./js/axios.js"></script>
-		<script>
-			axios.defaults.baseURL="http://localhost:8086";
-			var tbody=document.querySelector("tbody");
-			var next=document.querySelector(".next");  //下一页
-			var pre=document.querySelector(".pre");   //上一页
-			var totalPage=document.querySelector(".totalPage");   //总页码
-			var page=document.querySelector(".page");   //当前页页
-			var strong=document.querySelector("strong");   //显示用户名
-			var logout=document.querySelector(".logout");   //注销按钮
-			
-			getInfo();  //首次进来
-			function getInfo(currentPage=1,size=3){
-				tbody.innerHTML="";  //清空
-				axios.get(`/api/userPage?currentPage=${currentPage}&size=${size}`)
-				.then(res=>{
+	</div>
+	<script src="./js/axios.js"></script>
+	<script>
+		axios.defaults.baseURL = "http://localhost:8086";
+		axios.defaults.withCredentials = true;
+		var tbody = document.querySelector("tbody");
+		var next = document.querySelector(".next");  //下一页
+		var pre = document.querySelector(".pre");   //上一页
+		var totalPage = document.querySelector(".totalPage");   //总页码
+		var page = document.querySelector(".page");   //当前页页
+		var strong = document.querySelector("strong");   //显示用户名
+		var logout = document.querySelector(".logout");   //注销按钮
+
+		getInfo();  //首次进来
+		function getInfo(currentPage = 1, size = 3) {
+			tbody.innerHTML = "";  //清空
+			axios.get(`/api/userPage?currentPage=${currentPage}&size=${size}`)
+				.then(res => {
 					//渲染列表
-					res.data.data.forEach(obj=>{
-						var tr=document.createElement("tr");
-						tr.innerHTML=`<tr>
+					res.data.data.forEach(obj => {
+						var tr = document.createElement("tr");
+						tr.innerHTML = `<tr>
 						<td>${obj.userId}</td>
 						<td>${obj.userName}</td>
 						<td>${obj.password}</td>
@@ -69,77 +72,78 @@
 					</tr>`
 						tbody.append(tr);
 					})
-					
+
 					//渲染页码
-					var pageSupport=res.data.pageSupport;
-					console.log(pageSupport.currentPage);
-					page.innerHTML=pageSupport.currentPage;  //渲染当前页码
-					totalPage.innerHTML=pageSupport.totalPage;   //渲染总页码
+					var pageSupport = res.data.pageSupport;
+					// console.log(pageSupport.currentPage);
+					page.innerHTML = pageSupport.currentPage;  //渲染当前页码
+					totalPage.innerHTML = pageSupport.totalPage;   //渲染总页码
 					isAble(pageSupport.currentPage);  //第一次调用
-					
-				}).catch(err=>{
+
+				}).catch(err => {
 					console.log(err);
 				})
+		}
+
+		//下一页	
+		next.onclick = function () {
+			//获取当前页码
+			var curPage = page.innerText * 1;
+			curPage++;
+			getInfo(curPage);  //重新传入页码查询
+			isAble(curPage)
+		}
+
+		//上一页
+		pre.onclick = function () {
+			//获取当前页码
+			var curPage = page.innerText * 1;
+			curPage--;
+			getInfo(curPage);  //重新传入页码查询
+			isAble(curPage)
+		}
+
+		//控制翻页
+		function isAble(page) {
+			// 小于等于1上一页禁用
+			if (page <= 1) {
+				pre.disabled = true;
+			} else if (page < 4) {
+				pre.disabled = false;
+				next.disabled = false;
+			} else {
+				// 大于等于4下一页禁用
+				next.disabled = true;
 			}
-			
-			//下一页	
-			next.onclick=function(){
-				//获取当前页码
-				var curPage=page.innerText*1;
-				curPage++;
-				getInfo(curPage);  //重新传入页码查询
-				isAble(curPage)
-			}
-			
-			//上一页
-			pre.onclick=function(){
-				//获取当前页码
-				var curPage=page.innerText*1;
-				curPage--;
-				getInfo(curPage);  //重新传入页码查询
-				isAble(curPage)
-			}
-			
-			//控制翻页
-			function isAble(page){
-				// 小于等于1上一页禁用
-				if(page<=1){
-					pre.disabled=true;
-				}else if(page<4){
-					pre.disabled=false;
-					next.disabled=false;
-				}else{
-					// 大于等于4下一页禁用
-					next.disabled=true;
+		}
+
+
+		//判断是否登录
+		isLogin();
+		function isLogin() {
+			axios.get("/api/isLogin").then(res => {
+				if (res.data.errCode == 0) {
+					strong.innerHTML = res.data.data[0].userName
+				} else {
+					// strong.innerHTML="请登录";
+					location.href = "./login.html"
 				}
-			}
-		
-		
-		   //判断是否登录
-		   isLogin();
-		   function  isLogin(){
-			   axios.get("/api/isLogin").then(res=>{
-				   if(res.data.errCode==0){
-					   strong.innerHTML=res.data.data[0].userName
-				   }else{
-					   // strong.innerHTML="请登录";
-					   location.href="./login.html"
-				   }
-				   alert(res.data.msg);
-			   }).catch(err=>{
-				   console.log(err);
-			   })
-		   }
-		   
-		   logout.onclick=function(){
-			   axios.post('/api/logout').then(res=>{
-				   if(res.data.errCode==0){
-					   location.href="./login.html";
-				   }
-			   }).catch(err=>{
-				   console.log(err);
-			   })
-		   }
-		</script>
-	</body>
+				alert(res.data.msg);
+			}).catch(err => {
+				console.log(err);
+			})
+		}
+
+		logout.onclick = function () {
+			axios.post('/api/logout').then(res => {
+				if (res.data.errCode == 0) {
+					location.href = "./login.html";
+				}
+			}).catch(err => {
+				console.log(err);
+			})
+		}
+	</script>
+</body>
+
 </html>

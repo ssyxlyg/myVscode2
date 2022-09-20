@@ -1,0 +1,97 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-17 15:24:58
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-19 20:28:38
+ * @FilePath: \vsFile\myVscode\面试题练习\深浅拷贝.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 深拷贝
+        // function deepCopy(obj) {
+        //     var newObj = Array.isArray(obj) ? [] : {};
+        //     for (var key in obj) {
+        //         if (typeof (obj[key]) != "object") {
+        //             newObj[key] = obj[key];
+        //         } else {
+        //             //递归
+        //             var no = deepCopy(obj[key]);
+        //             newObj[key] = no;
+        //         }
+
+        //     }
+        //     return newObj;
+        // }
+
+        let obj2 = { "name": "lm", "sex": "男" };
+        let arr = [1, 2, 3, 4, 5]
+        console.log(typeof (obj2));
+        console.log(obj2[2]);
+        console.log(obj2 instanceof Array);
+        console.log(obj2 instanceof Object);
+
+        console.log(arr instanceof Array);
+
+        // function deeCopy(obj) {
+        //     if (typeof (obj) === "object" && obj !== null) {
+        //         var result;
+        //         if (obj instanceof Array) {
+        //             result = [];
+        //             for (var i = 0; i < obj.length; i++) {
+        //                 result[i] = deepCopy(obj[i])
+        //             }
+        //         } else {
+        //             result = {};
+        //             for (var k in obj) {
+        //                 result[k] = deepCopy(obj[k])
+        //             }
+        //         }
+        //         return result;
+        //     } else {
+        //         return obj;
+        //     }
+        // }
+
+        let obj = [1, 2, 3, 4, 5]
+        let arr2 = ["张三", "李四"]
+        console.log(typeof (obj[2]));
+        console.log(typeof (arr[2]));
+
+        function copy(obj) {
+            if (typeof (obj) == "object" && obj !== null) {
+                var newObj;
+                if (obj instanceof Array) {
+                    newObj = [];
+                    for (let i = 0; i < arr.length; i++) {
+                        newObj[i] = copy(obj[i])
+                    }
+                } else {
+                    newObj = {};
+                    for (let key of obj) {
+                        console.log(key);
+                        newObj[key] = copy(obj[key]);
+                    }
+                }
+                return newObj;
+            } else {
+                return obj
+            }
+        }
+        console.log(copy(obj));
+
+
+    </script>
+</body>
+
+</html>

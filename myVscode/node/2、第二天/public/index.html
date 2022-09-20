@@ -34,6 +34,7 @@
         <b></b>
         <a href="javascript:void(0)" class="logout">注销</a><br>
         <input type="search"> <button class="find">查询</button>
+        <button class="add">添加</button>
         <table border="1">
             <thead>
                 <th>userId</th>
@@ -129,20 +130,21 @@
                     console.error(err);
                 })
         }
+        // 下一页
         next.onclick = function () {
             let curPage = page.innerText * 1;
             curPage++;
             getInfo(curPage);
             isClick(curPage);
         }
-
+        // 上一页
         pre.onclick = function () {
             let curPage = page.innerText * 1;
             curPage--;
             getInfo(curPage);
             isClick(curPage);
         }
-
+        // 上下页是否可用
         function isClick(page) {
             let toPage = totalPage.innerText * 1
             if (page <= 1) {
@@ -205,23 +207,30 @@
         })
 
         $(".submit").click(function () {
+
             let id = $(".uid").val();
-            console.log(id);
-            console.log($(".uname").val());
-            axios.put(`/api/updateUser/${id}`, {
-                "userName": $(".uname").val(),
-                "passWord": $(".pwd2").val(),
-                "address": $(".address").val(),
-                "phone": $(".phone").val(),
-                "sex": $(".sex").val()
-            }).then(res => {
-                console.log(res.data)
-                let page = $(".page").text();
-                getInfo(page);
-                cls();
-            }).catch(err => {
-                console.error(err);
-            })
+            if (id) {
+                console.log(id);
+                console.log($(".uname").val());
+                axios.put(`/api/updateUser/${id}`, {
+                    "userName": $(".uname").val(),
+                    "passWord": $(".pwd2").val(),
+                    "address": $(".address").val(),
+                    "phone": $(".phone").val(),
+                    "sex": $(".sex").val()
+                }).then(res => {
+                    console.log(res.data)
+                    let page = $(".page").text();
+                    getInfo(page);
+                    cls();
+                }).catch(err => {
+                    console.error(err);
+                })
+            } else {
+                addUser();
+                getInfo();
+            }
+
             $(".content").fadeOut();
         })
 
@@ -273,7 +282,27 @@
             }
         })
 
+        // 添加
+        $(".add").click(function () {
+            $(".content").fadeIn();
+        })
 
+        function addUser() {
+            axios.post('/api/addUser', {
+                userName: $(".uname").val(),
+                passWord: $(".pwd2").val(),
+                address: $(".address").val(),
+                phone: $(".phone").val(),
+                sex: $(".sex").val(),
+            }).then(res => {
+                if (res.data.errCode == 0) {
+                    $(".content").fadeOut();
+                }
+                console.log(res.data);
+            }).catch(err => {
+                console.error(err);
+            })
+        }
 
         // 清空
         function cls() {
