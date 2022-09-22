@@ -1,0 +1,419 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-21 17:25:19
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-21 20:59:10
+ * @FilePath: \vsFile\myVscode\echarts\作业.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .wrapper .chart {
+            width: 650px;
+            height: 400px;
+            border: 1px solid red;
+            margin-top: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="chart1 chart"></div>
+        <div class="chart2 chart"></div>
+        <div class="chart3 chart"></div>
+        <div class="chart4 chart"></div>
+        <div class="chart5 chart"></div>
+
+    </div>
+    <script src="./js/echarts.min.js"></script>
+    <script>
+        let chart1 = document.querySelector(".chart1");
+        let chart2 = document.querySelector(".chart2");
+        let chart3 = document.querySelector(".chart3");
+        let chart4 = document.querySelector(".chart4");
+        let chart5 = document.querySelector(".chart5");
+        let myChart1 = echarts.init(chart1, "dark");
+        let myChart2 = echarts.init(chart2, "dark");
+        let myChart3 = echarts.init(chart3, "dark");
+        let myChart4 = echarts.init(chart4, "dark");
+        let myChart5 = echarts.init(chart5, "dark");
+
+
+        let option1 = {
+            // 标题
+            title: {
+                text: "前端大讲堂数据"
+            },
+            // 悬浮提示
+            tooltip: {
+                formatter: '{b}:{c}'
+            },
+            // 图例说明
+            legend: {
+                data: ["人数", "人气", "年龄分布"]
+            },
+            // x坐标
+            xAxis: {
+                data: ["12-1", "12-2", "12-3", "12-4", "12-5"]
+            },
+            // y坐标
+            yAxis: {
+
+            },
+            series: [{
+                // 柱状图
+                name: "人数",
+                type: "bar",
+                data: [1000, 800, 500, 900, 1300]
+            }, {
+                // 折线图
+                name: "人气",
+                type: "line",
+                smooth: true,
+                data: [200, 350, 1500, 800, 1400]
+            }, {
+                // 饼柱图
+                name: "年龄分布",
+                type: "pie",
+                labelLine: {           //引导线设置
+                    normal: {
+                        length: 0,
+                        show: false,       //引导线不显示
+                    }
+                },
+                // 空心
+                radius: [40, 20],
+                // 圆心位置
+                center: ["50%", "45%"],
+
+                data: [{
+                    name: "少年",
+                    value: 400
+                }, {
+                    name: "青年",
+                    value: 1400
+                }, {
+                    name: "中年",
+                    value: 2000
+                }, {
+                    name: "老年",
+                    value: 200
+                }]
+            }]
+
+        }
+        let option2 = {
+            title: {
+                text: "前端大讲堂数据"
+            },
+            // 悬浮提示
+            tooltip: {
+                formatter: '{b}:{c}'
+            },
+            // 图例说明
+            legend: {
+                data: ["人数", "人气", "年龄分布"]
+            },
+            xAxis: {
+                data: ["12-1", "12-2", "12-3", "12-4", "12-5"]
+            },
+            yAxis: {
+
+            },
+            series: [{
+                name: "人数",
+                type: "bar",
+                // 柱体样式
+                itemStyle: {
+                    color: "rgb(111, 0, 167)",
+                },
+                // 高光样式
+                emphasis: {
+                    itemStyle: {
+                        color: "rgb(255, 0, 127)",
+                    },
+                },
+
+                data: [1000, 800, 500, 900, 1300]
+            }, {
+                name: "人气",
+                type: "line",
+                // 平滑曲线
+                smooth: true,
+                data: [200, 350, 1500, 800, 1400]
+            }, {
+                name: "年龄分布",
+                type: "pie",
+                radius: [40, 20],
+                center: ["50%", "45%"],
+                labelLine: {           //引导线设置
+                    normal: {
+                        length: 0,
+                        show: false,       //引导线不显示
+                    }
+                },
+                data: [{
+                    name: "少年",
+                    value: 400
+                }, {
+                    name: "青年",
+                    value: 1400
+
+                }, {
+                    name: "中年",
+                    value: 2000,
+                    itemStyle: {
+                        color: "rgb(255, 119, 0)"
+                    }
+                }, {
+                    name: "老年",
+                    value: 200
+                }]
+            }]
+
+        }
+        // 定义渐变色
+        let linear = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: 'rgb(0, 254, 255)'
+        },
+
+        {
+            offset: 1,
+            color: 'rgb(10, 51, 128)'
+        }
+        ])
+        let option3 = {
+            title: {
+                text: "工具箱"
+            },
+            legend: {
+                data: ["人数"]
+            },
+            tooltip: {
+                data: '{b}:{c}'
+            },
+            xAxis: {
+                data: ["12-1", "12-2", "12-3", "12-4", "12-5"]
+            },
+            yAxis: {
+
+            },
+            // 工具箱
+            toolbox: {
+                //是否显示
+                show: true,
+                feature: {
+                    dataZoom: {
+                        //x轴可缩放，y轴不可缩放
+                        yAxisIndex: 'none'
+                    },
+                    //数据可修改
+                    dataView: { readOnly: false },
+                    //可转换的类型
+                    magicType: { type: ['line', 'bar', 'stack'] },
+                    //可还原
+                    restore: {},
+                    //可保存为图片
+                    saveAsImage: {}
+                }
+            },
+            series: [{
+                name: "人数",
+                type: "bar",
+                // 柱体样式
+                itemStyle: {
+                    color: linear,
+                    barBorderRadius: [60, 60, 0, 0] //圆角
+
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: linear,
+                    },
+                },
+
+                data: [1000, 800, 500, 900, 1300]
+            }]
+        }
+        let option4 = {
+            title: {
+                text: "堆叠图"
+            },
+            legend: {
+                data: ["前端", "ui", "python"]
+            },
+            tooltip: {
+                trigger: "axis"
+            },
+            xAxis: {
+                data: [2019, 2020, 2021]
+            },
+            yAxis: {},
+            series: [{
+                name: "前端",
+                type: "line",
+                stack: "a",
+                showSymbol: true,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: 'blue',//阴影颜色
+                                textBorderWidth: "3"//阴影宽度
+                            }
+                        }
+                    }
+                },
+                data: [100, 50, 180]
+            }, {
+                name: "ui",
+                type: "line",
+                stack: "a",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: 'green',//阴影颜色
+                                textBorderWidth: "3"//阴影宽度
+                            }
+                        }
+                    }
+                },
+                data: [200, 100, 180]
+            }, {
+                name: "python",
+                type: "line",
+                stack: "a",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: 'rgb(184, 95, 13)',//阴影颜色
+                                textBorderWidth: "3",//阴影宽度
+                                textBorderType: 'dotted'
+                            }
+                        }
+                    }
+                },
+                data: [180, 150, 100]
+            }]
+        }
+        let option5 = {
+            title: {
+                text: "堆叠图"
+            },
+            legend: {
+                data: ["前端", "ui", "python"]
+            },
+            tooltip: {
+                trigger: "axis"
+            },
+            xAxis: {
+                data: [2019, 2020, 2021]
+            },
+
+            yAxis: {},
+            series: [{
+                name: "前端",
+                type: "line",
+                smooth: true,
+                stack: "a",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: 'rgb(184, 95, 13)',//阴影颜色
+                                textBorderWidth: "3"//阴影宽度
+                            }
+                        }
+                    }
+                },
+                areaStyle: {
+                    color: 'rgb(184, 95, 13)'
+                },
+                data: [{
+                    name: 2019,
+                    value: 100,
+
+                }, 50, 180]
+            }, {
+                name: "ui",
+                type: "line",
+                smooth: true,
+
+                stack: "a",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: 'green',
+                                textBorderWidth: "3"
+                            }
+                        }
+                    }
+                },
+                areaStyle: {
+                    color: 'green',
+                },
+                data: [200, 100, 180]
+            }, {
+                name: "python",
+                type: "line",
+                smooth: true,
+
+                stack: "a",
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true,
+                            formatter: "{a}:{c}",
+                            textStyle: { //数值样式
+                                textBorderColor: '#65ABE7',
+                                textBorderWidth: "3"
+                            }
+                        }
+                    }
+                },
+                areaStyle: {
+                    color: 'blue'
+                },
+                data: [180, 150, 100]
+            }]
+        }
+        myChart1.setOption(option1);
+        myChart2.setOption(option2);
+        myChart3.setOption(option3);
+        myChart4.setOption(option4);
+        myChart5.setOption(option5);
+
+    </script>
+</body>
+
+</html>

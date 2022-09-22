@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main {
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script src="./js/echarts.js"></script>
+		<script>
+			var _main = document.getElementById("main")
+			var mychart = echarts.init(_main, 'dark')
+			var option = {
+				// 标题配置
+				title: {
+					text: "通用配置",
+					//主标题样式
+					textStyle: {
+						color: "red",
+						fontWeight: "bolder"
+					},
+					subtext: "副标题"
+				},
+
+				//{a}:legend的data，{b}:坐标轴的data，{c}:series的data
+				tooltip: {
+					// position:["50%",'50%'],
+					formatter: '{b}{c}'
+				},
+				//图例说明
+				legend: {
+					data: ['销量'],
+					left: "right",
+					textStyle: {
+						color: 'green'
+					}
+				},
+				//x,y轴数据
+				xAxis: {
+					data: ['羊毛衫', '衬衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+				},
+				yAxis: {},
+				series: [{
+					name: "销量",
+					type: "bar",
+					data: [30, 10, 36, 50, 78, 46],
+					//显示的标签样式
+					label:{
+						show:true,
+						formatter:"{b}{c}",
+						color:"white"
+					},
+					
+					// 柱条样式
+					itemStyle:{
+						color:"green",
+						// opacity:0.5
+						barBorderRadius:[80,80,0,0] //圆角
+					},
+					//高亮样式
+					emphasis:{
+						itemStyle:{
+							color:"pink",
+						},
+					}
+				}]
+			}
+			mychart.setOption(option);
+		</script>
+	</body>
+</html>

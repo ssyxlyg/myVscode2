@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main{
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script src="./js/echarts.js"></script>
+		<script>
+			//渐变色，方向:右  下   左   上   0-1
+			var linear = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+					offset: 0,
+					color: '#4e13ff'
+				},
+				{
+					offset:0.5,
+					color: '#00aa00'
+				},
+				{
+					offset:1,
+					color: '#d8d8d8'
+				}
+			])
+			
+			
+			var _main=document.getElementById("main")
+			var mychart=echarts.init(_main,"dark");
+			var option={
+				title:{text:"平滑和区域"},
+				tooltip:{},
+				legend:{data:["销量"]},
+				xAxis:{data:['羊毛衫','衬衫','雪纺衫','裤子','高跟鞋','袜子']},
+				yAxis:{},
+				series:[{
+					name:"销量",
+					type:"line",
+					smooth:true,   //平滑
+					areaStyle:{    //区域面积
+						color:linear,  //区域颜色
+						opcity:0.2
+					},
+					data:[30,20,50,48,70,56]
+				}]
+			};
+			mychart.setOption(option);
+		</script>
+	</body>
+</html>

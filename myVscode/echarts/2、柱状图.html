@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main{
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+		<!--
+		1、引用js
+		2、创建容器
+		3、初始化图表实例
+		4、创建配置项
+		5、使用配置项 
+		-->
+	</head>
+	<body>
+		<div id="main"></div>
+		<script src="./js/echarts.js"></script>
+		<script>
+			// var mychart=echarts.init(dom,"light/dark")
+			var _main=document.getElementById("main")
+			var mychart=echarts.init(_main,"dark")
+			var option={
+				//标题
+				title:{text:'柱状图'},
+				//悬浮提示
+				tooltip:{},
+				//图例说明
+				legend:{data:['销量','库存','总量']},
+				//x,y轴数据
+				xAxis:{data:['羊毛衫','衬衫','雪纺衫','裤子','高跟鞋','袜子']},
+				yAxis:{},
+				series:[{
+					name:"销量",
+					// 图表类型 bar(柱状图)
+					type:"bar",
+					//值相同的将进行堆叠
+					stack:'a',
+					data:[30,10,36,50,78,46]
+				},{
+					name:"库存",
+					// 图表类型 bar(柱状图)
+					type:"bar",
+					stack:'a',
+					data:[20,5,18,25,36,20]
+				},
+				,{
+					name:"总量",
+					// 图表类型 bar(柱状图)
+					type:"bar",
+					stack:'b',
+					data:[50,60,35,38,20,70]
+				}]
+			}
+			
+			mychart.setOption(option);
+		</script>
+		
+	</body>
+</html>

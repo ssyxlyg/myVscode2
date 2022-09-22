@@ -1,0 +1,107 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-21 13:48:53
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-21 15:01:57
+ * @FilePath: \vsFile\myVscode\echarts\柱状图.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 800px;
+            height: 600px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+		1、引用js
+		2、创建容器
+		3、初始化图表实例
+		4、创建配置项
+		5、使用配置项 
+		-->
+    <div id="main"></div>
+    <script src="./js/echarts.min.js"></script>
+    <script>
+        //渐变色，方向:右  下   左   上   0-1
+        let linear = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: '#4e13ff'
+        },
+        {
+            offset: 0.5,
+            color: '#00aa00'
+        },
+        {
+            offset: 1,
+            color: '#d8d8d8'
+        }
+        ])
+        let _main = document.getElementById("main");
+        let myChart = echarts.init(_main, "dark");
+        let option = {
+            //标题
+            title: { text: "折线图" },
+            // 悬浮提示
+            tooltip: {},
+            //图例说明
+            legend: { data: ["销量", "库存"] },
+            //x,y轴数据
+            xAxis: { data: ["羊毛衫", "衬衫", "雪纺衫", "裤子", "高跟鞋", "袜子"] },
+
+            yAxis: {},
+            grid: {
+                show: true,
+                containLabel: true
+            },
+
+            series: [{
+                name: "销量",
+                type: "line",
+                smooth: true,
+                // stack: "a",
+                data: [30, 50, 40, 100, 40, 80],
+                areaStyle: {
+                    color: linear,
+                    // opcity: 0.2
+                    opacity: 0.1
+
+
+                }
+
+
+            }, {
+                name: "库存",
+                type: "line",
+                smooth: true,
+
+                // stack: "a",
+                data: [40, 40, 80, 140, 60, 90],
+                areaStyle: {
+                    color: linear,
+                    // opcity: 0.2
+                    opacity: 0.1
+
+
+                }
+
+
+            }]
+        }
+
+        myChart.setOption(option)
+    </script>
+</body>
+
+</html>
