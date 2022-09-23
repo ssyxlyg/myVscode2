@@ -1,0 +1,100 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-22 12:19:40
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-23 09:17:43
+ * @FilePath: \vsFile\myVscode\echarts\代码雨.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+    <script>
+        // 获取对象
+        const cvs = document.getElementById("bg");
+        // 设置canvas画布宽高
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        cvs.width = width;
+        cvs.height = height;
+        // 返回一个用于在画布上绘图的环境
+        const ctx = cvs.getContext("2d");
+        // 定义每列的宽度
+        const columnWidth = 20;
+        // 生成的列数
+        const columnCount = Math.floor(window.innerWidth / columnWidth)
+        // 创建数组
+        const columnNextIndexes = new Array(columnCount);
+        // 全部用1填充
+        columnNextIndexes.fill(1);
+        // 绘画
+        function draw () {
+            // 背景颜色
+            ctx.fillStyle = 'rgba(240,240,240,0.2)';
+            // fillRect(x1, y1, width, width) 画图形
+            ctx.fillRect(0, 0, width, height);
+            // 设置颜色
+            ctx.fillStyle = getRandomColor();
+            const fz = 20;
+            // 字体样式
+            ctx.font = `${fz}px Calibri`;
+            for (let i = 0; i < columnCount; i++) {
+                // x坐标
+                const x = i * columnWidth;
+                // y坐标
+                const y = fz * columnNextIndexes[i];
+                // 填充内容
+                ctx.fillText(getRandomChar(), x, y);
+                // 判断是否超出可视范围
+                if (y > height && Math.random() > 0.99) {
+                    columnNextIndexes[i] = 0;
+
+                } else {
+                    columnNextIndexes[i]++
+                }
+            }
+        }
+        draw()
+        setInterval(draw, 40)
+        // 随机颜色
+        function getRandomColor () {
+            const fontColor = [
+                "#33b5e5",
+                "#0099cc",
+                "#aa66cc",
+                "#9933cc",
+                "#669900",
+                "#ffbb33",
+                "#ff8800",
+                "#ff4444",
+                "#cc0000"
+            ]
+            return fontColor[Math.floor(Math.random() * fontColor.length)]
+        }
+        // 随机字符
+        function getRandomChar () {
+            const str = "console.log('hello world')";
+            return str[Math.floor(Math.random() * str.length)]
+        }
+    </script>
+</body>
+
+</html>
