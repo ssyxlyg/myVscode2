@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main {
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+		<script src="./js/echarts.js"></script>
+		<script src="./js/data.js"></script>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script>
+			//引入肺炎的数据
+			console.log(data)
+			console.log(data.data.provinces)
+			var provinces = data.data.provinces.map(obj => {
+				obj.name = obj.province;
+				obj.value = obj.sure_cnt;
+				return obj;
+			})
+			console.log(provinces)
+
+
+			var myChart = echarts.init(document.getElementById('main'), 'dark');
+			var option = {
+				// 图表标题
+				title: {
+					text: '地图'
+				},
+				//悬浮提示
+				tooltip: {},
+				// 将点取消
+				// legend:{data:['china']},
+				visualMap: [
+					// { // 定义为连续型 visualMap
+					// 	type: 'continuous',
+					// 	min: 10,
+					// 	max: 2000,
+					// 	calculable: true, //是否显示手柄
+					// 	inRange: {
+					// 		color: ['#ffff00', 'rgba(255, 85, 0, 0.4)', 'red']
+					// 	}
+					// },
+					{
+						// 分段类型
+						type: "piecewise",
+						// 水平方向
+						orient: "horizontal",
+						// 显示标签
+						showLabel: true,
+						// 靠右显示
+						right: 0,
+						// 分段 min 最小 max最大，color颜色 symbol符号
+						pieces: [{
+								min: 1700,
+								color: "#6b0f03",
+								symbol: "circle"  //图元的图形类别
+							}, // 不指定 max，表示 max 为无限大（Infinity）。
+							{
+								min: 900,
+								max: 1700,
+								color: "#e65023",
+								symbol: "circle"
+							},
+							{
+								min: 310,
+								max: 1000,
+								color: "#eb9635",
+								symbol: "circle"
+							},
+							{
+								min: 100,
+								max: 300,
+								color: "#ffcb77",
+								symbol: "circle"
+							},
+							{
+								min: 10,
+								max: 100,
+								color: "#fdeed6",
+								symbol: "circle"
+							},
+							{
+								max: 5,
+								color: "#f0f0f0"
+							} // 不指定 min，表示 min 为无限大（-Infinity）。
+						]
+					}
+				],
+				//系列
+				series: [{
+					name: 'china2',
+					type: 'map', //地图
+					mapType: "china",
+					//显示省名
+					label: {
+						show: true
+					},
+					data: provinces
+				}],
+			};
+
+			//注册地图
+			fetch('./map/json/province/china.json').then(res => res.json())
+				.then(res => {
+					//key值与map2保持一致
+					echarts.registerMap('china', res);
+					myChart.setOption(option);
+				})
+		</script>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main {
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+		<script src="./js/echarts.js"></script>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script>
+		/* 	
+		  主题
+			   1、light和dark
+			   2、itemstyle
+			   3、全局调色盘或局部调色盘 
+			   4、主题编辑器
+		*/
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'));
+
+			// 指定图表的配置项和数据
+			var option = {
+				 // 全局调色盘。
+				  color: [
+				    '#00aa00',
+				    '#61a0a8',
+				    '#d48265',
+				    '#91c7ae',
+				    '#749f83',
+				    '#ca8622',
+				  ],
+
+				// 图表标题
+				title: {
+					text: 'ECharts 入门示例'
+				},
+				//悬浮提示
+				tooltip: {},
+				//图例说明
+				legend: {
+					data: ['销量',"剩余"]
+				},
+				//x轴数据
+				xAxis: {
+					data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+				},
+				//y轴数据
+				yAxis: {},
+				//系列
+				series: [{
+					name: '销量',
+					type: 'bar',   //柱状图
+					// 局部调色盘。
+					 color: [
+					   '#c23531',
+					   '#61a0a8',
+					   '#d48265',
+					   '#91c7ae',
+					   '#749f83',
+					   '#ca8622',
+					 ],
+					data: [5, 20, 36, 10, 10, 20]
+				},{
+					name: '剩余',
+					type: 'bar',   //柱状图
+					data: [1, 8, 10, 2, 1, 6]
+				}]
+			};
+
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+		</script>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		#main {
+			width: 800px;
+			height: 600px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main"></div>
+	<script src="./js/echarts.js"></script>
+	<script src="./map/js/data.js"></script>
+	<script>
+		//获取肺炎相关数据，	//将现有数据转换为echarts认识的数据
+		console.log(data);
+		var provinces = data.data.provinces.map(obj => {
+			obj.name = obj.province
+			obj.value = obj.sure_cnt
+			if (obj.province == '河南') {
+				obj.en = "henan";   //保证与json文件名一致
+			}
+			if (obj.province == '湖北') {
+				obj.en = "hubei";   //保证与json文件名一致
+			}
+			return obj;
+		})
+		console.log(provinces);
+
+		var mychart = echarts.init(document.getElementById("main"))
+		var option = {
+			title: { text: "地图" },
+			// legend:{data:['china']},
+			tooltip: {},
+			//视觉映射
+			visualMap: [
+				//      { // 定义为连续型 visualMap
+				//          type: 'continuous', 
+				//          min:1,    //手柄范围
+				// max:2000,
+				// calculable:true,   //是否显示手柄
+				// //自定义颜色
+				// inRange: {
+				//      color: ['#ecf447', 'rgba(50, 248, 28, 0.4)', 'red'],
+				//     }
+				//      },
+				{
+					// 分段类型
+					type: "piecewise",
+					// 水平方向
+					orient: "horizontal",
+					// 显示标签
+					showLabel: true,
+					// 靠右显示
+					right: "20%",
+					// 分段 min 最小 max最大，color颜色 symbol符号
+					pieces: [{
+						min: 1700,
+						color: "#6b0f03",
+						symbol: "circle"  //图元的图形类别
+					},
+					{
+						min: 900,
+						max: 1700,
+						color: "#e65023",
+						symbol: "circle"
+					},
+					{
+						min: 310,
+						max: 1000,
+						color: "#eb9635",
+						symbol: "circle"
+					},
+					{
+						min: 100,
+						max: 300,
+						color: "#ffcb77",
+						symbol: "circle"
+					},
+					{
+						min: 10,
+						max: 100,
+						color: "#fdeed6",
+						symbol: "circle"
+					},
+					{
+						max: 5,
+						color: "#f0f0f0"
+					}
+					]
+				}
+			],
+			series: [
+				{
+					name: 'china',
+					type: 'map',  //地图类型
+					mapType: "china",
+					label: {
+						show: true
+					},
+					// data:[{name:"河南",value:2000},{name:"湖北",value:5000}]
+					data: provinces
+				}
+			]
+		};
+
+		// {
+		// 	cure_cnt: 72
+		// 	die_cnt: 3
+		// 	like_cnt: 0
+		// 	name: "河南"
+		// 	province: "河南"
+		// 	sure_cnt: 914
+		// 	value: 914
+		// 	en:"henan"
+		// }
+
+		getMap();  //第一次所有省的数据
+		function getMap(obj = { en: "china" }) {
+			//如果没有值，转回china
+			if (!obj.en) {
+				obj.en = 'china'
+			}
+			//注册地图
+			fetch(`./map/json/province/${obj.en}.json`)
+				.then(res => res.json())
+				.then(res => {
+					//注册地图
+					//第一一个参数与maptype一致
+					echarts.registerMap(obj.en, res);
+					//设置mapType
+					option.series[0].mapType = obj.en;
+					option.series[0].name = obj.en;
+					//修改data数据
+					if (obj.en == 'china') {
+						option.series[0].data = provinces;
+					} else {
+						//所有市的数据
+						option.series[0].data = data.data.cities.filter(item => {
+							if (item.province == obj.province) {
+								item.name = item.city + "市";
+								item.value = item.sure_cnt;
+								return true;
+							}
+						})
+					}
+
+
+					//使用option选项
+					mychart.setOption(option);
+				})
+		}
+
+		//添加双击事件
+		mychart.on('dblclick', function (obj) {
+			// console.log(obj.data)  //当前点击的省对象的数据
+			getMap(obj.data)
+		})
+	</script>
+</body>
+
+</html>

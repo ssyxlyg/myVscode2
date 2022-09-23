@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#main{
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script src="./js/echarts.js"></script>
+		<script src="./map/js/data.js"></script>
+		<script>
+			//获取肺炎相关数据，	//将现有数据转换为echarts认识的数据
+			console.log(data);
+			var provinces=data.data.provinces.map(obj=>{
+				obj.name=obj.province
+				obj.value=obj.sure_cnt
+				return obj;
+			})
+			console.log(provinces);
+			
+			var mychart=echarts.init(document.getElementById("main"))
+			var option={
+				title:{text:"地图"},
+				// legend:{data:['china']},
+				tooltip:{},
+				series:[
+					{
+						name:'china',
+						type:'map',  //地图类型
+						mapType:"china",
+						label:{
+							show:true
+						},
+						// data:[{name:"河南",value:2000},{name:"湖北",value:5000}]
+						data:provinces
+					}
+				]
+			};
+			
+			//注册地图
+			
+			fetch('./map/json/province/china.json')
+			.then(res=>res.json())
+			.then(res=>{
+				//注册地图
+				//第一一个参数与maptype一致
+				echarts.registerMap('china',res);
+				//使用option选项
+				mychart.setOption(option);
+			})
+			
+			
+			
+			//将现有数据转换为echarts认识的数据
+			var arr=[{province:"河南",sure_cnt:100},{province:"湖北",sure_cnt:1000}]
+			var arr2=arr.map(obj=>{
+				obj.name=obj.province
+				obj.value=obj.sure_cnt
+				return obj;
+			})
+			console.log(arr2)
+			
+			var obj={
+				"name":"张三"
+			}
+			obj.age=20
+			console.log(obj);
+		</script>
+	</body>
+</html>

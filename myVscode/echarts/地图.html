@@ -1,0 +1,147 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-22 11:44:25
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-22 15:45:31
+ * @FilePath: \vsFile\myVscode\echarts\地图.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./map/js/data.js"></script>
+    <script>
+        // 获取数据
+        let provinces = data.data.provinces.map(obj => {
+            obj.name = obj.province;
+            obj.value = obj.sure_cnt;
+            if (obj.province == "河南") {
+                obj.en = "henan"
+            }
+            if (obj.province == "河北") {
+                obj.en = "hebei"
+            }
+            return obj;
+        })
+        console.log(provinces);
+
+        let main = document.getElementById("main");
+        let myChart = echarts.init(main);
+        let option = {
+            title: {
+                text: "带图"
+            },
+            tooltip: {},
+            visualMap: [{
+                //     // 定义为连续性visualMap
+                //     type: 'continuous',
+                //     min: 10,
+                //     max: 2000,
+                //     calculable: true, //是否显示手柄
+                //     inRange: {
+                //         color: ['#ffff00', 'rgba(255, 85, 0, 0.4)', 'red']
+                //     }
+                // }, {
+                // 分段类型
+                type: "piecewise",
+                // 水平方向
+                orient: "horizontal",
+                // 显示标签
+                showLabel: true,
+                // 靠右显示
+                right: 0,
+                // 分段 min 最小 max最大，color颜色 symbol符号
+                pieces: [{
+                    min: 1700,
+                    color: "#6b0f03",
+                    symbol: "circle"  //图元的图形类别
+                }, {
+                    min: 900,
+                    max: 1700,
+                    color: "#e65023",
+                    symbol: "circle"
+                }, {
+                    min: 310,
+                    max: 1000,
+                    color: "#eb9635",
+                    symbol: "circle"
+                }, {
+                    min: 100,
+                    max: 300,
+                    color: "#ffcb77",
+                    symbol: "circle"
+                }, {
+                    min: 10,
+                    max: 100,
+                    color: "#fdeed6",
+                    symbol: "circle"
+                }, {
+                    max: 5,
+                    color: "#f0f0f0"
+                }]
+            }]
+            ,
+            series: [{
+                name: "china",
+                type: "map",
+                mapType: "china",
+                label: {
+                    show: true
+                },
+                data: provinces
+            }]
+        }
+        // 注册
+        getMap();
+        function getMap(obj = { en: "china" }) {
+            if (!obj.en) {
+                obj.en = "china"
+            }
+            fetch(`./map/json/province/${obj.en}.json`)
+                .then(res => res.json()).then(res => {
+                    // 注册地图
+                    echarts.registerMap(obj.en, res);
+                    option.series[0].mapType = obj.en;
+                    option.series[0].name = obj.en
+                    if (obj.en == 'china') {
+                        option.series[0].data = provinces;
+                    } else {
+                        // console.log(data.data.cities);
+                        option.series[0].data = data.data.cities.filter(item => {
+                            if (item.province == obj.province) {
+                                item.name = item.city + "市";
+                                item.value = item.sure_cnt;
+                                return true
+                            }
+                        })
+                    }
+                    myChart.setOption(option)
+                })
+
+        }
+        myChart.on('dblclick', function (obj) {
+            getMap(obj.data)
+        })
+        // myChart.on('click', function (obj) {
+        //     getMap(obj.data)
+        // })
+
+    </script>
+</body>
+
+</html>
