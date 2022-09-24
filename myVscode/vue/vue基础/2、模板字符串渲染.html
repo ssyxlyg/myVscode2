@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- vue容器 -->
+		<div id="app">
+			<p>{{str}}</p>
+			<p>{{str.length}}</p>
+			<p>{{str.length>3?'a':'b'}}</p>
+			<p>{{3+3}}</p>
+			<p>{{str.split("").reverse().join("")}}</p>
+		</div>
+		<!-- 引入js -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// vue实例
+			new Vue({
+				el:'#app',  //载入的容器
+				data:{   //数据配置
+					str:'你好vue'
+				}
+			})
+		</script>
+	</body>
+</html>

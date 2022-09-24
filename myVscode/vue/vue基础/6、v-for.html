@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-for遍历 数组-->
+			<ul>
+				<li v-for="(item,index) in arr">
+					{{index+1}}--》{{item}}
+				</li>
+			</ul>
+			<!-- v-for遍历 字符串-->
+			<ul>
+				<li v-for="(item,index) in str">
+					{{index+1}}--》{{item}}
+				</li>
+			</ul>
+			<!-- v-for遍历 数字-->
+			<ul>
+				<li v-for="(item,index) in 5">
+					{{index+1}}--》{{item}}
+				</li>
+			</ul>
+			<!-- v-for遍历 对象-->
+			<ul>
+				<li v-for="(item,key) in obj">
+					{{key}}--》{{item}}
+				</li>
+			</ul>
+
+			<!-- v-for遍历 对象数组-->
+			<ul>
+				<li v-for="(obj,index) in arrobj">
+					{{index}}--》{{obj.name}}--->{{obj.age}}
+				</li>
+			</ul>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					status: false,
+					obj: {
+						name: "张三",
+						age: 20
+					},
+					arrobj: [{
+						name: "李四",
+						age: 26
+					}, {
+						name: "王五",
+						age: 28
+					}],
+					str: '你好奇酷',
+					arr: ["张三", '李四', '王五']
+				}
+			})
+		</script>
+	</body>
+</html>

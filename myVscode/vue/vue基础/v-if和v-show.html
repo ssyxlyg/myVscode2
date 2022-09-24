@@ -2,7 +2,7 @@
  * @Author: ssyx ssyx@gmail.com
  * @Date: 2022-09-23 11:40:00
  * @LastEditors: ssyx ssyx@gmail.com
- * @LastEditTime: 2022-09-23 11:42:07
+ * @LastEditTime: 2022-09-23 16:29:59
  * @FilePath: \vsFile\myVscode\vue\vue基础\v-if和v-show.html
  * -->
 <!DOCTYPE html>
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    
     <div id="app">
         <p v-if="status">v-if是依赖dom删除实现隐藏</p>
         <p v-show="status">
@@ -37,7 +38,6 @@
                 status: false,
                 arr: ["张三", "李四", "王五"]
             }
-
         })
     </script>
 </body>
