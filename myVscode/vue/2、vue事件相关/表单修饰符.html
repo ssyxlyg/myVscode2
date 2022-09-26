@@ -1,0 +1,44 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 14:31:49
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 14:39:25
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\表单修饰符.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <input type="text" v-model.lazy="str">{{str}}<br>
+        <input type="text" v-model.number="num">{{num+1}}<br>
+
+
+        <input type="text" v-model.trim="msg">{{msg.length}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                str: "哈哈哈",
+                num: 0,
+                msg: "    哈哈"
+
+            },
+            
+        })
+    </script>
+</body>
+
+</html>

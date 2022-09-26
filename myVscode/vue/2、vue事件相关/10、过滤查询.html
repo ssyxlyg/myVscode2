@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<input type="text" v-model='keywords'>
+			<p v-for="(item,index) in filList">
+				{{item}}
+			</p>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  keywords:'',
+				  list:["苹果","枇杷","山楂","梨","樱桃","李子","草莓","橘子","柚子","西瓜","香蕉","枣","葡萄","蓝莓","芒果","菠萝","枸杞","番石榴","山竹","椰子","槟榔","榴莲","荔枝","龙眼","火龙果","桑葚","柿子","杨梅"]  
+			   },
+			   computed:{
+				   //根据关键词过滤出新的list
+				   filList(){
+					   if(this.keywords.trim()==''){
+						   return this.list;
+					   }else{
+						   return this.list.filter(item=>{
+							   return item.includes(this.keywords)
+						   })
+					   }
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>

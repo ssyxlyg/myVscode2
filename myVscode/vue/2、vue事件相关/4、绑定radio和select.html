@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			 <input type="radio" v-model='sex' name="sex"  value="0" />男
+			 <input type="radio" v-model='sex' name="sex"  value="1" />女
+			 <input type="radio" v-model='sex' name="sex"  value="2" />保密 
+			 {{sex}}<br>
+			 
+			 <select v-model='province'>
+				 <option value="1">河南</option>
+				 <option value="2">河北</option>
+				 <option value="3">山东</option>
+			 </select>
+			 {{province}}
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  sex:0,   //接收选定的radio的值
+				  province:3   //接收下拉框的值
+			   }
+			})
+		</script>
+	</body>
+</html>

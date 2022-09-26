@@ -1,0 +1,52 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 17:24:57
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 17:32:12
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\过滤查询.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <input type="text" v-model="keyWord">
+        <h3 v-for="(item,index) in filterList">{{item}} </h3>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                keyWord: "",
+                list: ["苹果", "枇杷", "山楂", "梨", "樱桃", "李子", "草莓", "橘子", "柚子", "西瓜", "香蕉", "枣", "葡萄", "蓝莓", "芒果", "菠萝", "枸杞", "番石榴", "山竹", "椰子", "槟榔", "榴莲", "荔枝", "龙眼", "火龙果", "桑葚", "柿子", "杨梅"]
+            },
+            computed: {
+                filterList () {
+                    if (this.keyWord.trim() == '') {
+                        return this.list;
+                    } else {
+                        return this.list.filter(item => item.includes(this.keyWord))
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

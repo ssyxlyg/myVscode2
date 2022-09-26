@@ -1,0 +1,60 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 11:23:39
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 11:36:00
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\事件修饰符.html
+ *-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="outer" @click="outerTest">
+            <div class="inner" @click.stop="innerTest">
+                <a href="http://www.baidu.com" @click.prevent="sina">新浪</a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {},
+            methods: {
+                innerTest () {
+                    console.log("inner");
+                },
+                outerTest () {
+                    console.log("outer");
+                },
+                sina () {
+                    location.href = "http://www.sina.com"
+                }
+            }
+        })
+    </script> 
+    
+</body>
+
+</html>

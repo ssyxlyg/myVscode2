@@ -1,0 +1,53 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 18:51:57
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 19:33:01
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\作业-跑马灯.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <h3>{{content}}</h3>
+        <button @click="start">开始</button>
+        <button @click="changeId">暂停</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+            data: {
+                content: "中华人民共和国",
+                id: "id"
+            },
+            methods: {
+                start () {
+                    this.id = setInterval(() => {
+                        let start = this.content.slice(0, 1);
+                        let end = this.content.slice(1);
+                        this.content = end + start
+                    }, 200)
+                },
+                changeId () {
+                    clearInterval(this.id)
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

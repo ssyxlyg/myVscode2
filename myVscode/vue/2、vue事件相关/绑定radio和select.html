@@ -1,0 +1,48 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 14:04:16
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 14:12:40
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\绑定radio和select.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <!-- 单选框 -->
+        <input type="radio" v-model="sex" name="sex" value="0">女
+        <input type="radio" v-model="sex" name="sex" value="1">男
+        <input type="radio" v-model="sex" name="sex" value="2">保密
+        {{sex}}
+        <br>
+        <!-- 下拉框 -->
+        <select v-model="provinces">
+            <option value="0">河南</option>
+            <option value="1">河北</option>
+            <option value="2">广东</option>
+        </select>
+        {{provinces}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                sex: 0,
+                provinces: 2
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<input type="text" v-model='first' @input='cal'>
+			<select v-model='sym' @change='cal'>
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<input type="text" v-model='second' @input='cal'>=
+			{{res}}
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  first:1,
+				  second:1,
+				  sym:'+',
+				  res:2
+			   },
+			   methods:{
+				   cal(){
+					   this.res=eval(this.first+this.sym+this.second)
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>

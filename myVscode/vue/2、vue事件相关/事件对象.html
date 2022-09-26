@@ -1,0 +1,49 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 10:53:11
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 10:59:03
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\事件对象.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 隐式 -->
+        <button @click="add(3)">点击</button>
+        <!-- 显示 -->
+        <button @click="add2(5,$event)">点击</button>
+        <p>{{num}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                num: 1
+            },
+            methods: {
+                add (n) {
+                    console.log(event.target);
+                    this.num += n;
+                },
+                add2 (n, e) {
+                    console.log(e.target);
+                    this.num += n;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 17:49:35
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 21:35:15
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\作业-省市县三级联动.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <select v-model="city1" @change="changeA">
+            <option v-for=" obj in city" :value="obj">{{obj.name}}</option>
+        </select>
+        <select v-model="city2" @change="changeB">
+            <option v-for=" obj in city1.city" :value="obj">{{obj.name}}</option>
+        </select>
+        <select v-model="city3">
+            <option v-for=" obj in city2.area" :value="obj">{{obj.name}}</option>
+        </select>
+        <!-- <p>{{city}}</p> -->
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+    <!-- <script src="./js/city.json"></script> -->
+    <script>
+
+        fetch('./js/city.json').then(res => res.json()).then(data => {
+            console.log(data);
+            new Vue({
+                el: '#root',
+                data: {
+                    city: data,
+                    city1: data[0],
+                    city2: data[0].city[0],
+                    city3: data[0].city[0].area[0]
+
+                },
+                methods: {
+                    changeA () {
+                        this.city2 = this.city1.city[0];
+                        this.changeB();
+                    },
+                    changeB () {
+                        this.city3 = this.city2.area[0];
+                    }
+                }
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>

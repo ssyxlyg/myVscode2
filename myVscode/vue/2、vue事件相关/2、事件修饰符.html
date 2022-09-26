@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.outter {
+				width: 300px;
+				height: 300px;
+				background-color: lightblue;
+			}
+
+			.inner {
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<!-- 
+		  事件修饰符
+			once：事件只执行一次
+			stop:阻止事件冒泡
+			prevent:阻止默认事件
+			number:将字符串转换为数值类型 
+		-->
+		<div id="app">
+			<div class="outter" @click.once='outterTest'>
+				<div class="inner" @click.stop.once='innerTest'>
+					<a href="http://www.baidu.com" @click.prevent='sina'>新浪</a>
+					
+					<input type="text" v-model.number='num'>
+					{{num+1}}
+				</div>
+			</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				methods: {
+					innerTest() {
+						console.log("inner");
+					},
+					outterTest() {
+						console.log("outter");
+					},
+					sina(){
+						location.href='http://www.sina.com'
+					}
+				},
+				data: {
+                    num:1,
+				}
+			})
+		</script>
+	</body>
+</html>

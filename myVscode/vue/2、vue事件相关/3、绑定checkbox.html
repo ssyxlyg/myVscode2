@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<!-- 绑定普通表单 -->
+			<input type="text" v-model='num'>{{num}} <br>
+			<!-- 绑定多行文本域 -->
+			<textarea v-model='num'></textarea>{{num}} <br>
+			<!-- 绑定单个checkbox -->
+			<input type="checkbox" v-model='status'>{{status}}<br>
+			<!-- 绑定单个值是bool的属性 -->
+			<button :disabled='status'>同意</button><br>
+			
+			<!-- 绑定一组checkbox -->
+			<input type="checkbox" v-model='hobbys' name='hobbys' value="shopping">购物
+			<input type="checkbox" v-model='hobbys' name='hobbys' value="sport">运动
+			<input type="checkbox" v-model='hobbys' name='hobbys' value="study">学习
+			{{hobbys}}
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  num:1,
+				  status:true,
+				  hobbys:[]
+			   }
+			})
+		</script>
+	</body>
+</html>

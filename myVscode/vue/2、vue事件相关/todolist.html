@@ -1,0 +1,80 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 17:05:09
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 17:13:37
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\todolist.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <p>{{obj.title}}</p>
+        <input type="text" v-model='obj.title' @keyup.enter='addTask'>
+        <p>未完成{{unList.length}}</p>
+        <ul>
+            <li v-for="obj in unList" :key="obj.title">
+                <input type="checkbox" v-model='obj.done'>
+                {{obj.title}}
+                <button @click='delTask(obj)'>X</button>
+            </li>
+        </ul>
+
+        <p>已完成{{doneList.length}}</p>
+        <ul>
+            <li v-for="obj in doneList" :key="obj.title">
+                <input type="checkbox" v-model='obj.done'>
+                {{obj.title}}
+                <button @click='delTask(obj)'>X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+            data: {
+                //接收每一个对象的值
+                obj: {
+                    title: '',
+                    done: false
+                },
+                list: []    //存放人物列表
+            },
+            methods: {
+                addTask () {
+                    // this.list.unshift({title:this.obj.title,done:false});
+                    //将obj的属性全部拷贝到当前对象
+                    this.list.unshift({ ...this.obj });
+                    this.obj = { title: '', done: false };
+                },
+                delTask (obj) {
+                    // 获取删除的下标
+                    var index = this.list.indexOf(obj);
+                    this.list.splice(index, 1);
+                }
+            },
+            computed: {
+                doneList () {
+                    return this.list.filter(item => item.done)
+                },
+                unList () {
+                    return this.list.filter(item => !item.done)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

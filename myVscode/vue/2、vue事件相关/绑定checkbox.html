@@ -1,0 +1,38 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-26 11:50:36
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-26 11:55:06
+ * @FilePath: \vsFile\myVscode\vue\2、vue事件相关\绑定checkbox.html
+ * -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <div id="root">
+        <input type="checkbox" v-model="hobby" value="shopping" name="hobby">购物<br>
+        <input type="checkbox" v-model="hobby" value="study" name="hobby">购物<br>
+        <input type="checkbox" v-model="hobby" value="sport" name="hobby">运动<br>
+        {{hobby}}
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                hobby: []
+            },
+        })
+    </script>
+</body>
+
+</html>

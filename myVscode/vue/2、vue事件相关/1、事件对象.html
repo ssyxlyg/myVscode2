@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<!-- 显示传递事件对象,必须是$event -->
+			<button @click='add(2,$event)'>点击</button>
+			<!-- 隐式传递，接收必须是event -->
+			<button @click='add2(2)'>{{num}}</button>
+			{{num}}
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				data: {
+					num: 1,
+				},
+				
+				methods: {
+					// 显示接收
+					add(n, e) {
+						console.log(e.target)
+						this.num += n;
+					},
+					// 隐式接收，必须用event
+					add2(n) {
+						console.log(event.target.innerText);
+						this.num += n;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

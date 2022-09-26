@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<!-- lazy:事件由input转为change -->
+			<input type="text" v-model.lazy='str'>{{str}}<br>
+			<!-- number:将字符串转换为数值 -->
+			<input type="text" v-model.number='num'>{{num+1}}<br>
+			<!-- trim：两边的空格不算在字符内 -->
+			<input type="text" v-model.trim='msg'>
+			<p>{{msg.length}}</p>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  str:'你好',
+				  num:1,
+				  msg:'   学习vue '
+			   }
+			})
+		</script>
+	</body>
+</html>
