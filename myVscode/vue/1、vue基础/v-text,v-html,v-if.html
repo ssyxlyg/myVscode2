@@ -1,0 +1,47 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-22 16:59:22
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-22 18:47:09
+ * @FilePath: \vsFile\myVscode\vue\vue基础\v-text,v-html,v-if.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text="str"></p>
+        <p v-html="msg"></p>
+        <p v-if="flag">显示隐藏</p>
+
+        <p v-if="num>90">优</p>
+        <p v-else>良</p>
+
+
+        <p v-if="score>90">优</p>
+        <p v-else-if="score>80">良</p>
+        <p v-else>中</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                num: 60,
+                score: 80,
+                flag: false,
+                str: "你好",
+                msg: "<b>提示</b>"
+            }
+        })
+    </script>
+</body>
+
+</html>

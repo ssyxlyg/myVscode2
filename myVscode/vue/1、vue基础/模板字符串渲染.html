@@ -1,0 +1,37 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-22 16:38:22
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-22 16:38:27
+ * @FilePath: \vsFile\myVscode\vue\vue基础\模板字符串渲染.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{str}}</p>
+        <p>{{str.length}}</p>
+        <p>{{str.split("").reverse().join("")}}</p>
+        <p>{{3+3}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                str: '你好vue'
+            }
+        })
+    </script>
+</body>
+
+</html>
