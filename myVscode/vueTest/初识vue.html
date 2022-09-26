@@ -1,0 +1,36 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-22 19:51:16
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-23 13:53:15
+ * @FilePath: \vsFile\myVscode\vueTest\js\初识vue.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="./js/vue.js"></script>
+    <script>
+        function demo () {
+            console.log(111);
+        }
+        Vue.config.productionTip = false;
+        new Vue({
+            el: "#root",
+            data: {
+                name: "11"
+            }
+        })
+    </script>
+</body>
+
+</html>
