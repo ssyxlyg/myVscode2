@@ -62,7 +62,7 @@
         getInfo()
         var page = 1;
         var flag;
-        function getInfo() {
+        function getInfo () {
             flag = false;
             $.ajax({
                 method: "get",
@@ -78,6 +78,7 @@
 
             }).then(res => {
                 res.result.forEach(obj => {
+                    console.log(obj);
                     $(".list").append(`<p>${obj.summary}</p>`)
                 });
             }).catch(err => {
