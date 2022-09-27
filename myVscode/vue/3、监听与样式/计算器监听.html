@@ -1,0 +1,56 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 11:31:23
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 11:36:24
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\计算器监听.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <input type="text" v-model='obj.first'>
+        <select v-model='obj.sym'>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model='obj.second'>=
+        {{obj.res}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                obj: {
+                    first: 1,
+                    sym: "+",
+                    second: 1,
+                    res: 2
+                }
+            },
+            watch: {
+                obj: {
+                    deep: true,
+                    handler () {
+                        this.obj.res = eval(this.obj.first + this.obj.sym + this.obj.second)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 17:47:12
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 20:15:27
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\作业.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <!-- <p>{{obj.title}}</p> -->
+        <!-- 输入框 -->
+        <input type="text" v-model='obj.title' @keyup.enter='addTask'>
+        <h3>未完成{{unList.length}}</h3>
+        <ul>
+            <!-- 遍历 名字作为唯一标识（不能重名） -->
+            <li v-for="(item,index) in unList" :key='item.title'>
+                <input type="checkbox" v-model='item.done'>
+                <!-- 双击改变显示/隐藏状态 -->
+                <span v-show="item.flag==0" @dblclick="item.flag=1;newTitle=item.title">{{item.title}}</span>
+                <!-- inter键、失去焦点改变显示/隐藏状态 并确认修改 esc键放弃更改-->
+                <span><input type="text" v-show="item.flag==1" v-model="newTitle"
+                        @keyup.enter="item.flag=0;item.title=newTitle" @blur="item.flag=0;item.title=newTitle"
+                        @keyup.esc='item.flag=0;newTitle=item.title'></span>
+                <button @click='delTask(item)'>X</button>
+            </li>
+        </ul>
+        <h3>已完成{{doList.length}}</h3>
+        <ul>
+            <!-- 遍历 名字作为唯一标识（不能重名） -->
+            <li v-for=" (item,index) in doList" :key='item.title'>
+                <input type="checkbox" v-model='item.done'>
+                <!-- 双击改变显示/隐藏状态 -->
+                <span v-show="item.flag==0" @dblclick="item.flag=1;newTitle=item.title">{{item.title}}</span>
+                <!-- inter键、失去焦点改变显示/隐藏状态 并确认修改 esc键放弃更改-->
+                <span><input type="text" v-show="item.flag==1" v-model="newTitle"
+                        @keyup.enter="item.flag=0;item.title=newTitle" @blur="item.flag=0;item.title=newTitle"
+                        @keyup.esc='item.flag=0;newTitle=item.title'></span>
+                <button @click='delTask(item)'>X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+            data: {
+                newTitle: "",
+                //接收每一个对象的值
+                obj: {
+                    title: '',
+                    done: false,
+                    // 隐藏显示标识0/1
+                    flag: 0
+
+                },
+                list: localStorage.todoList == undefined ? [] : JSON.parse(localStorage.todoList) //存放人物列表
+            },
+            methods: {
+                addTask () {
+                    // this.list.unshift({title:this.obj.title,done:false});
+                    //将obj的属性全部拷贝到当前对象
+                    this.list.unshift({
+                        ...this.obj
+                    });
+
+                    this.obj = {
+                        title: '',
+                        done: false,
+                        flag: 0
+                    };
+                },
+                delTask (obj) {
+                    // 获取删除的下标
+                    var index = this.list.indexOf(obj);
+                    this.list.splice(index, 1);
+                },
+
+                demo () {
+
+                }
+
+            },
+            computed: {
+                //计算出未完成list
+                unList () {
+                    return this.list.filter(obj => {
+                        return !obj.done;
+                    })
+                },
+                //计算出已完成list
+                doList () {
+                    return this.list.filter(obj => {
+                        return obj.done;
+                    })
+                },
+            },
+            // 监听
+            watch: {
+                list: {
+                    deep: true,
+                    handler () {
+                        localStorage.todoList = JSON.stringify(this.list);
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

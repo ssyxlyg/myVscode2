@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<input type="text" v-model='obj.first'>
+			<select v-model='obj.sym'>
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<input type="text" v-model='obj.second' >=
+			{{obj.res}}
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  obj:{
+					  first:1,
+					  second:1,
+					  sym:'+',
+					  res:2
+				  }
+			   },
+			   watch:{
+				   //监听四个值的变化，自动重新计算
+				   obj:{
+					   deep:true,
+					   handler(nval){
+						   this.obj.res=eval(this.obj.first+this.obj.sym+this.obj.second)
+					   }
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>

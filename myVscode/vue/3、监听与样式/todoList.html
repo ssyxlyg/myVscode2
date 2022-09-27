@@ -1,0 +1,102 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 11:52:25
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 11:56:22
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\todoList.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <div id='root'>
+        <p>{{obj.title}}</p>
+        <input type="text" v-model='obj.title' @keyup.enter='addTask'>
+        <h3>未完成{{unList.length}}</h3>
+        <!-- 注意必须加唯一key值 -->
+        <ul>
+            <li v-for="(item,index) in unList" :key='item.title'>
+                <input type="checkbox" v-model='item.done'>
+                {{item.title}}
+                <button @click='delTask(item)'>X</button>
+            </li>
+        </ul>
+        <h3>已完成{{doList.length}}</h3>
+        <ul>
+            <li v-for="(item,index) in doList" :key='item.title'>
+                <input type="checkbox" v-model='item.done'>
+                {{item.title}}
+                <button @click='delTask(item)'>X</button>
+            </li>
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+
+            data: {
+                //接收每一个对象的值
+                obj: {
+                    title: '',
+                    done: false
+                },
+                //存放人物列表
+                list: localStorage.list == undefined ? [] : JSON.parse(localStorage.list)
+            },
+            methods: {
+                addTask () {
+                    // this.list.unshift({title:this.obj.title,done:false});
+                    //将obj的属性全部拷贝到当前对象
+                    this.list.unshift({
+                        ...this.obj
+                    });
+                    this.obj = {
+                        title: '',
+                        done: false
+                    };
+                },
+                delTask (obj) {
+                    // 获取删除的下标
+                    var index = this.list.indexOf(obj);
+                    this.list.splice(index, 1);
+
+                }
+            },
+            computed: {
+                //计算出未完成list
+                unList () {
+                    return this.list.filter(obj => {
+                        return !obj.done;
+                    })
+                },
+                //计算出已完成list
+                doList () {
+                    return this.list.filter(obj => {
+                        return obj.done;
+                    })
+                },
+            },
+            watch: {
+                list: {
+                    deep: true,
+                    handler () {
+                        localStorage.list = JSON.stringify(this.list);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

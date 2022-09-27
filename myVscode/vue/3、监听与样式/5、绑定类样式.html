@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	    <style type="text/css">
+	    	.active{
+				background-color: lightblue;
+			}
+			.test{
+				color: blue;
+			}
+	    </style>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='flag=!flag'>切换</button>
+			 <div class="active">直接绑定类名</div>
+			 <div :class="flag?'active':''">动态绑定类名</div>
+			 <div class="test active">直接绑定多个class</div>
+			 <div :class="classList">动态绑定class数组</div>
+			 <div :class="['active','test']">动态绑定class数组</div>
+			 <div :class="classObj">动态绑定class对象</div>
+			 <div :class="{'active':flag,'test':!flag}">动态绑定class对象</div>
+			 <div style="color:yellow;background-color: pink;">直接绑定style</div>
+			 <div :style="{'color':'yellow','background-color': 'pink','line-height':lineHeight+'px'}">动态绑定style</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  flag:false,
+				  classList:['active','test'],
+				  classObj:{'active':false,'test':true},
+				  lineHeight:100
+			   }
+			})
+		</script>
+	</body>
+</html>

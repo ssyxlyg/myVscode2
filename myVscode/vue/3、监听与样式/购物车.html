@@ -1,0 +1,109 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 14:28:19
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 16:40:03
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\购物车.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <table border="1">
+            <tr>
+                <th>
+                    <input type="checkbox" v-model="all" @change="checkAll">全选
+                </th>
+                <th>商品名称</th>
+                <th>价格</th>
+                <th>数量</th>
+            </tr>
+            <tr v-for="obj in list" :key="obj.name">
+                <td><input type="checkbox" v-model="obj.status"></td>
+                <td>{{obj.name}}</td>
+                <td>{{obj.price}}</td>
+                <td>
+                    <button @click="obj.count--">-</button>
+                    <input type="text" v-model="obj.count">
+                    <button @click="obj.count++">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">总价:{{totalPrice}}</td>
+                <td>总量:{{totalCount}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                all: false,
+                list: [{
+                    name: "js入门",
+                    price: 20,
+                    count: 1,
+                    status: false
+                }, {
+                    name: "vue基础",
+                    price: 17.5,
+                    count: 2,
+                    status: true
+                }]
+            },
+            computed: {
+                totalPrice () {
+                    let totalPrice = this.list.reduce((res, obj) => {
+                        if (obj.status) {
+                            res = res + obj.count * obj.price;
+                        }
+                        return res;
+                    }, 0)
+                    return totalPrice;
+                },
+                totalCount () {
+                    let totalCount = this.list.reduce((res, obj) => {
+                        if (obj.status) {
+                            res = res + obj.count
+                        }
+                        return res;
+                    }, 0)
+                    return totalCount;
+                }
+            },
+
+            methods: {
+                //全选，让每一项的状态与all保持一致
+                checkAll () {
+                    this.list.forEach(obj => {
+                        obj.status = this.all;
+                    })
+                }
+            },
+            watch: {
+                list: {
+                    deep: true,
+                    handler () {
+                        this.all = this.list.every(item => {
+                            return item.status
+                        })
+                    }
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

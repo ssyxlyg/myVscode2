@@ -1,0 +1,62 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 11:19:26
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 11:27:06
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\监听.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click="num++">{{num}}</button>
+        <button @click="num2++">{{num2}}</button>
+        <input type="checkbox" v-model="obj.status">
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+            data: {
+                num: 1,
+                num2: 1,
+                obj: {
+                    status: false
+                }
+            },
+            watch: {
+                num: {
+                    handler (n, o) {
+                        console.log(n, o);
+                    }
+                },
+                num2 (n, o) {
+                    console.log(n, o);
+
+                },
+
+                obj: {
+                    deep: true,
+                    handler (n) {
+                        console.log(n);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

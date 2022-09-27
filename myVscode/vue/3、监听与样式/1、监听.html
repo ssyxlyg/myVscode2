@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='num++'>{{num}}</button>
+			<input type="checkbox" v-model='obj.status'>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				data: {
+					num: 1,
+					obj: {
+						status: false
+					}
+				},
+				// 监听
+				watch: {
+					// 监听基本类型num
+					num: {
+						// handler(新值，旧值)函数名固定
+						handler(nval, oval) {
+							console.log(nval, oval);
+						}
+					},
+					// 监听引用类型obj
+					//引用类型必须深度监听,只能监听到最新的值
+					obj: {
+						deep:true,  
+						handler(nval) {
+							console.log(nval);
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

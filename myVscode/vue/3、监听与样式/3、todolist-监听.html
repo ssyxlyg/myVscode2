@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<p>{{obj.title}}</p>
+			<input type="text" v-model='obj.title' @keyup.enter='addTask'>
+			<h3>未完成{{unList.length}}</h3>
+			<!-- 注意必须加唯一key值 -->
+			<ul>
+				<li v-for="(item,index) in unList" :key='item.title'>
+					<input type="checkbox" v-model='item.done'>
+					{{item.title}}
+					<button @click='delTask(item)'>X</button>
+				</li>
+			</ul>
+			<h3>已完成{{doList.length}}</h3>
+			<ul>
+				<li v-for="(item,index) in doList" :key='item.title'>
+					<input type="checkbox" v-model='item.done'>
+					{{item.title}}
+					<button @click='delTask(item)'>X</button>
+				</li>
+			</ul>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				data: {
+				 //接收每一个对象的值
+					obj: {
+						title: '',
+						done: false
+					},
+					//存放人物列表
+					list: localStorage.list==undefined?[]:JSON.parse(localStorage.list)
+				},
+				methods: {
+					addTask() {
+						// this.list.unshift({title:this.obj.title,done:false});
+						//将obj的属性全部拷贝到当前对象
+						this.list.unshift({
+							...this.obj
+						});
+						this.obj = {
+							title: '',
+							done: false
+						};
+					},
+					delTask(obj) {
+						// 获取删除的下标
+						var index = this.list.indexOf(obj);
+						this.list.splice(index, 1);
+						
+					}
+				},
+				//深度监听list的status变化存储到本地
+				watch:{
+					list:{
+						deep:true,
+						handler(nval){
+							localStorage.list=JSON.stringify(this.list);
+						}
+					}
+				},
+				computed: {
+					//计算出未完成list
+					unList() {
+						return this.list.filter(obj => {
+							return !obj.done;
+						})
+					},
+					//计算出已完成list
+					doList() {
+						return this.list.filter(obj => {
+							return obj.done;
+						})
+					},
+				}
+			})
+
+
+			//浅拷贝，只有一层时互不影响
+			var obj = {
+				name: '张三',
+				a: {
+					b: 1
+				}
+			};
+			var obj1 = {
+				...obj
+			};
+			console.log(obj1);
+			obj1.name = '李四';
+			obj1.a.b = 6;
+			console.log(obj1);
+			console.log(obj);
+		</script>
+	</body>
+</html>

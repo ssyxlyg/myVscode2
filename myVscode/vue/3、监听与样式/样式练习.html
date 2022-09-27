@@ -1,0 +1,37 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-27 17:00:45
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-27 17:06:14
+ * @FilePath: \vsFile\myVscode\vue\3、监听与样式\样式练习.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+    <div id='root'>
+        <input type="color" v-model="bgColor">
+        <input type="range" v-model="height">
+        <div :style="{'background-color':bgColor,'line-height':height+'px'}">样式练习</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                bgColor: "#fff",
+                height: 50
+            }
+        })
+    </script>
+</body>
+
+</html>

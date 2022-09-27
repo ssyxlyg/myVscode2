@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<input type="color" v-model='bgcolor'>
+			<input type="range" v-model='height'>
+			<div :style="{'background-color':bgcolor,'line-height':height+'px'}">样式练习</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				 bgcolor:'#95ff43',
+				 height:30
+			   }
+			})
+		</script>
+	</body>
+</html>
