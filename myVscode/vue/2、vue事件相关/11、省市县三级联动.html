@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<select v-model='province' @change='changePro'>
+				<option v-for="obj in arrAll" :value="obj">{{obj.name}}</option>
+			</select>
+			<select v-model='city'  @change='changeCity'>
+				<option v-for="obj in province.city" :value="obj">{{obj.name}}</option>
+			</select>
+			<select v-model='county'>
+				<option v-for="obj in city.area" :value="obj">{{obj.name}}</option>
+			</select>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				// data中的数据不可以相互调用
+				data: {
+					arrAll: [], //所有对象
+					province: '', //当前选中的省对象
+					city: '', //当前选中的市对象
+					county: '' //当前选中的区县对象
+				},
+				mounted(){
+					this.getJson();
+				},
+				methods:{
+					changePro(){
+						// 切换省，市切换为默认第一个
+						//市对象默认第一个
+						this.city=this.province.city[0];
+						this.changeCity();
+					},
+					changeCity(){
+						// 切换市，县区切换为默认第一个
+						//县区对象默认第一个
+						this.county=this.city.area[1];
+					},
+					getJson(){
+						fetch('./js/city.json')
+						.then(res=>res.json())
+						.then(res=>{
+							//将获取的所有数据添加到arrAll
+							this.arrAll=this.arrAll.concat(res)
+							//省对象默认第一个
+							this.province=this.arrAll[0];
+							//市对象默认第一个
+							this.city=this.province.city[0];
+							//县区对象默认第一个
+							this.county=this.city.area[1];
+							
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
