@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img {
+				width: 500px;
+				height: 350px;
+			}
+
+			.active {
+				color: red;
+			}
+
+			#app>div {
+				width: 500px;
+				height: 350px;
+				position: relative;
+			}
+
+			#app>div .mark {
+				position: absolute;
+				bottom: 10px;
+				left: 45%;
+			}
+
+			#app>div a:nth-of-type(1) {
+				position: absolute;
+				top: 45%;
+				left: 10px;
+			}
+
+			#app>div a:nth-of-type(2) {
+				position: absolute;
+				top: 45%;
+				right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+               <!-- 3、使用组件 -->
+			   <!-- 父组件step传递arrimg和inteval---》子组件(props:接收arrimg和inteval)-----》直接使用遍历 -->
+			   <step  :arrimg='arrimg'  :inteval='inteval'></step>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 1、定义组件
+			var step = {
+				template: `	<div @mouseover='stopInd' @mouseout='autoplay'>
+				<img :src="arrimg[current]" alt="">
+				<!-- span的数量与img的个数相同 -->
+				<div class="mark">
+					<span :class="current===index?'active':''" v-for='(item,index) in arrimg.length'>{{item}}</span>
+				</div>
+				<a href="javascript:void(0);" @click='prepic'>&lt;</a>
+				<a href="javascript:void(0);" @click='nextpic'>&gt;</a>
+			</div>`,
+			    data(){
+					return{
+						current: 0, //当前图片的下标
+						ind: null, //定时器id
+					}
+				},
+				// props:['arrimg','inteval']
+				props:{
+					'arrimg':{
+						type:Array,
+						default(){
+							return [];
+						}
+					},
+					'inteval':{
+						type:Number,
+						default:1000
+					}
+				},
+				mounted() {
+					this.autoplay();
+				},
+				methods: {
+					//自动播放
+					autoplay() {
+						// 此处必须是箭头函数，否则this指向window
+						this.ind = setInterval(() => {
+							this.current++;
+							if (this.current >= this.arrimg.length) {
+								this.current = 0;
+							}
+						}, this.inteval)  //使用子组件传过来的间隔时间
+					},
+					//停止播放
+					stopInd() {
+						clearInterval(this.ind);
+					},
+					//上一张
+					prepic() {
+						this.current--;
+						if (this.current < 0) {
+							this.current = this.arrimg.length - 1;
+						}
+					},
+					//下一张
+					nextpic() {
+						this.current++;
+						if (this.current >= this.arrimg.length) {
+							this.current = 0;
+						}
+					}
+				}
+			}
+
+
+
+
+
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				//2、注册组件
+				components: {
+					step
+				},
+				data: {
+					arrimg: [
+						'https://img11.360buyimg.com/pop/s1180x940_jfs/t1/110139/32/32465/35809/6334746dEa2df499a/180fa62cc6135ced.jpg.avif',
+						'https://imgcps.jd.com/ling4/100019718275/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5f3a47329785549f6bc7a6e6/d1a7ecd9/cr/s/q.jpg',
+						'https://imgcps.jd.com/img-cubic/creative_server_cif_jdcloud/v2/2000366/100032473810/FocusFullshop/CkJqZnMvdDEvMjIzNTYzLzYvMTQ3OTEvNzQxODAvNjMzNDlmYWVFMWJjN2I2OTIvNGJiNzhiNjkwMGE5ODAzZi5wbmcSCTMtdHlfMF81NDACOO6LekIWChLpo57liKnmtabmmL7npLrlmagQAUIQCgzniannvo7ku7flu4kQAkIQCgznq4vljbPmiqLotK0QBkIKCgblipvojZAQB1jS1ZnT9AI/cr/s/q.jpg'
+					],
+					
+					inteval:2000
+				},
+				
+			})
+		</script>
+	</body>
+</html>

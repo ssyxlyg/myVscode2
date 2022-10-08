@@ -1,0 +1,76 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 17:09:07
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 17:30:36
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\13、组件实现 - 父传子.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <cir :len="len1" @change-len="len1=$event"></cir>
+        <cir :len="len2" @change-len="len2=$event"></cir>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const cir = {
+            template: `<div>
+				   <button @click='changeR'>切换大小</button>
+				   <div :style="{
+							'border': '1px solid red',
+							'border-radius':'50%',
+							'width': r+'px',
+							'height': r+'px'
+						}">
+			       </div>
+			   </div>`,
+            data () {
+                return {
+                    r: this.len
+                }
+            },
+            //子组件获取父组件传递的参数
+            //props的值是只读的，只能获取,如果需要更新，请用data接收一下
+            //default:如果是基本类型直接写，引用类型必须写成函数
+            props: {
+                //属性名与父组件保持一致
+                len: {
+                    type: Number,
+                    default: 60
+                }
+            },
+            methods: {
+                changeR () {
+                    this.r = Math.floor(Math.random() * 50 + 50);
+                    this.$emit("change-len", this.r)
+                }
+            }
+
+        }
+
+        new Vue({
+
+            el: '#root',
+            data: {
+                len1: 60,
+                len2: 80
+            },
+            components: {
+                cir
+            }
+        })
+    </script>
+</body>
+
+</html>

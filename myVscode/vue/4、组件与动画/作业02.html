@@ -1,0 +1,159 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 18:59:49
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-29 16:16:24
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\作业02.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        .wrapper {
+            margin: 0 auto;
+            width: 800px;
+            height: 500px;
+            position: relative;
+        }
+
+        .wrapper i:nth-of-type(1) {
+            position: absolute;
+            left: 30px;
+            top: 200px;
+            color: gray;
+            font-style: normal;
+            font-size: 40px;
+        }
+
+        .wrapper i:nth-of-type(2) {
+            position: absolute;
+            right: 30px;
+            top: 200px;
+            color: gray;
+            font-style: normal;
+            font-size: 40px;
+        }
+
+        .wrapper img {
+            width: 800px;
+            height: 500px;
+            border: 1px solid black;
+
+        }
+
+        .content {
+            position: absolute;
+            left: 350px;
+            bottom: 20px;
+        }
+
+        .content span {
+            display: inline-block;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: skyblue;
+            margin: 0 5px;
+        }
+
+        .active {
+            color: white;
+            background-color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <swiper :arrimgs="arrimg1"></swiper>
+        <swiper :arrimgs="arrimg2" :interval="1000"></swiper>
+
+
+
+        <!-- <swiper :index="2" :interval='4000'></swiper> -->
+        <!-- <swiper :arrimgs='arrImgs1'></swiper>
+        <swiper :arrimgs='arrImgs2' :inteval='2000'></swiper> -->
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const swiper = {
+            template: ` <div class="wrapper" @mouseover='stop' @mouseout='autoplay'>
+            <img :src="arrimgs[index]" alt="">
+            <div class="content" >
+                <span v-for="item in arrimgs.length" :class="index+1==item?'active':''">{{item}}</span>
+            </div>
+            <i @click='prev' class="fa fa-chevron-left"></i><i @click='next' class="fa fa-chevron-right"></i>
+        </div>`,
+            data () {
+                return {
+                    index: 0,
+                    id: "id"
+                }
+            },
+
+            props: {
+                arrimgs: {
+                    type: Array,
+                    default () {
+                        return []
+                    }
+                },
+                interval: {
+                    type: Number,
+                    default: 2000
+
+                }
+            },
+            mounted () {
+                this.autoplay()
+            }
+            ,
+            methods: {
+                autoplay () {
+                    this.id = setInterval(() => {
+                        this.next()
+                    }, this.interval)
+                },
+                next () {
+                    if (this.index >= this.arrimgs.length - 1) {
+                        this.index = 0
+                    } else {
+                        this.index++
+                    }
+
+                },
+                prev () {
+                    if (this.index <= 0) {
+                        this.index = this.arrimgs.length - 1
+                    } else {
+                        this.index--
+                    }
+
+                },
+                stop () {
+                    clearInterval(this.id)
+                }
+            }
+        };
+        new Vue({
+            el: '#root',
+            data: {
+                arrimg1: ['./img/nature-6.jpg', './img/nature-8.jpg', './img/nature-9.jpg', './img/nature-10.jpg'],
+                arrimg2: ['./img/2.jpg', './img/3.jpg', './img/4.jpg', './img/5.jpg'],
+            },
+            components: {
+                swiper
+            }
+        })
+    </script>
+</body>
+
+</html>

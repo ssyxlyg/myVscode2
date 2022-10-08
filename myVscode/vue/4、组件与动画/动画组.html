@@ -1,0 +1,41 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 11:46:21
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 11:48:41
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\动画组.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click="flag=!flag">点击</button><br>
+        <transition-group tag="" name="fade" enter-active-class="animated bounceIn"
+            leave-active-class="animated bounceOut">
+            <img v-show="flag" key="a" src="./img/sun.jpg" alt="">
+            <img v-show="!flag" key="b" src="./img/sun1.jpg" alt="">
+        </transition-group>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+
+            el: '#root',
+            data: {
+                flag: true
+            }
+        })
+    </script>
+</body>
+
+</html>

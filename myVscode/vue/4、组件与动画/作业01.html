@@ -1,0 +1,71 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 18:59:24
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 19:59:12
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\作业01.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <step :min='6' :max='18' :step='2' :num='6'></step>
+        <step :min='1' :max='10' :step='1' :num='5'></step>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const step = {
+            template: `<div>
+            <button @click="num1-=step" :disabled="num1<=min">-</button>
+            <span>{{num1}}</span>
+            <button @click="num1+=step" :disabled="num1>=max">+</button>
+        </div>`,
+            data () {
+                return {
+                    num1: this.num
+                }
+            },
+            props: {
+                min: {
+                    type: Number,
+                    default: 6
+                },
+                max: {
+                    type: Number,
+                    default: 18
+                },
+                step: {
+                    type: Number,
+                    default: 2
+                },
+                num: {
+                    type: Number,
+                    default: 6
+                }
+            },
+
+        }
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+            },
+            components: {
+                step
+            }
+        })
+        console.log(vm);
+    </script>
+</body>
+
+</html>

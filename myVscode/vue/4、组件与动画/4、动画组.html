@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入animate.css -->
+		<link rel="stylesheet" href="./css/animate.min.css">
+		<!-- http://www.animate.net.cn/ -->
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='flag=!flag'>切换</button><br>
+			<!-- 
+			  transition内只能有一个元素，
+			   如果需要过个元素过渡需要加入到transition-group动画组，
+			   并且，每一个元素必须有一个唯一标识key,key不要加冒号
+			-->
+			<transition-group name='fade' 
+			    enter-active-class='animated bounceInLeft' 
+			    leave-active-class='animated bounceOutRight'>
+				 <img v-if='flag' key='a' src="./img/sun.jpg" alt="">
+				 <img v-if='!flag' key='b' src="./img/sun1.jpg" alt="">
+			</transition-group>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				 flag:true 
+			   }
+			})
+		</script>
+	</body>
+</html>

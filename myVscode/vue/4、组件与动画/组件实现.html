@@ -1,0 +1,74 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 15:43:22
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 15:57:48
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\组件实现.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <btn></btn>
+        <cir></cir>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const btn = {
+            template: ` <div><button @click="num++">点击加1</button>{{num}} <br></div>`,
+            data () {
+                return {
+                    num: 1
+                }
+            }
+        }
+
+        const cir = {
+            template: `<div><button @click="changeR">改变圆大小</button>
+        <div :style=" {
+            'width':r+ 'px',
+            'height':r+ 'px',
+            'border-radius':' 50%',
+            'background-color': 'skyblue'
+        }"></div></div>`,
+            data () {
+                return {
+                    r: 100
+                }
+            },
+            methods: {
+                changeR () {
+                    this.r = Math.floor(Math.random() * 50 + 50);
+                }
+            }
+
+        }
+
+        new Vue({
+            el: '#root',
+            data: {
+
+            },
+            components: {
+                btn: btn,
+                cir: cir
+            }
+
+        })
+    </script>
+</body>
+
+</html>

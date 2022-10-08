@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <!--
+		 全局注册：当vue创建的时候，不管这个组件是否使用，都会被加载，这样的方式会比较占内存
+		 局部注册：当我们使用到某个组件，该组件才会被创建，如果不使用该组件，那么该组件不会被创建。 
+		-->
+    <div id="app">
+        <!-- 3、使用组件 -->
+        <btn></btn>
+        <cir></cir>
+    </div>
+    <!-- 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- <script src="./js/component.js"></script> -->
+    <script type='module'>
+        import { btn, cir } from './js/component.js'
+
+        //全局注册
+        Vue.component('btn', btn);
+        Vue.component('cir', cir);
+        const vm = new Vue({
+            el: '#app',
+            //局部注册
+            // components: {
+            // 	//属性名与属性值一致，可简写
+            // 	btn,
+            // 	cir
+            // },
+            data () {
+                return {
+                }
+            },
+        })
+        console.log(vm);
+    </script>
+</body>
+
+</html>

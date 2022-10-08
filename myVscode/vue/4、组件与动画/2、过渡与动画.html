@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 进入的动画 */
+			@keyframes fadeIn {
+				from{
+					opacity:0;
+					transform:rotate(0)
+				}
+				to{
+					opacity:1;
+					transform:rotate(360deg)
+				}
+			}
+			/* 离开的动画 */
+			@keyframes fadeOut {
+				from{
+					opacity:1;
+					transform:rotate(0)
+				}
+				to{
+					opacity:0;
+					transform:rotate(360deg)
+				}
+			}
+			
+			 /* 进入的过程 */
+			  .fade-enter-active{
+				 animation: fadeIn 0.5s linear
+			  }
+			  /* 离开的过程 */
+			 .fade-leave-active{
+			  	   animation: fadeOut 0.5s linear	  
+			   }
+			
+		</style>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='flag=!flag'>切换</button><br>
+			<transition name='fade'>
+				 <img v-if='flag' src="./img/sun.jpg" alt="">
+			</transition>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				 flag:true 
+			   }
+			})
+		</script>
+	</body>
+</html>

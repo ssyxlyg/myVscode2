@@ -1,0 +1,47 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 14:38:26
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 14:46:27
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\自定义指令.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="
+        ">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click="flag=!flag">点击</button>
+        <input v-focus="flag" type="text">
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                flag: false
+            },
+            directives: {
+                "focus": {
+                    update (el, binding) {
+                        console.log(el, binding);
+                        if (binding.value) {
+                            el.focus();  //当前dom获取焦点
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

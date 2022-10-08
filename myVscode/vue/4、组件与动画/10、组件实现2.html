@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+		  组件作用:
+			  1、封装可重用的代码，一个组件就是一个功能体
+			  2、使web前端代码实现“高内聚”和“低耦合”，使得前端开发的过程变成搭积木的过程。
+		  template模板特性：
+		     1、html中的template标签中的内容在页面中不会显示。它设置了display:none;属性。
+		     2、template属性中的dom结构只能有一个根元素
+			 3、在该属性对应的属性值中可以使用vue实例data、methods中定义的数据。
+		        组件中的data:
+		          组件中的data要以函数的形式书写，为了组件多次引用时数据不会相互干扰
+			      根节点中的data可以写成对象形式不用写成function形式，因为根组件不会被复用
+		-->
+		<!-- 创建容器 -->
+		<div id="app">
+             <!-- 3、使用组件 -->
+              <btn></btn>
+              <cir></cir>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<!-- <script src="./js/component.js"></script> -->
+		<script type='module'>
+			import {btn,cir} from './js/component.js'
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				//2、注册组件
+				components: {
+					btn:btn,
+					cir:cir
+				},
+				data(){
+					return{
+						
+					}
+				},
+
+			})
+		</script>
+	</body>
+</html>

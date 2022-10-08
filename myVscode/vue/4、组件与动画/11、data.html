@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj={
+				name:"张三",
+				age:20
+			}
+			obj.age=30;
+			
+			function getObj(){
+				return {
+					name:"张三",
+					age:20
+				}
+			}
+			// A组件修改
+			var obj=getObj();
+			obj.age=30;
+			console.log(obj.age);
+			//B组件获取不受影响
+			var obj2=getObj();
+			console.log(obj2.age);
+		</script>
+	</body>
+</html>

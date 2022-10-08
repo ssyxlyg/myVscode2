@@ -1,0 +1,44 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-28 15:43:22
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-28 16:29:40
+ * @FilePath: \vsFile\myVscode\vue\4、组件与动画\组件实现.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <btn></btn>
+        <cir></cir>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="module">
+        import { btn, cir } from './js/component.js'
+
+        new Vue({
+            el: '#root',
+            data: {},
+            components: {
+                btn: btn,
+                cir: cir
+            }
+
+        })
+    </script>
+</body>
+
+</html>

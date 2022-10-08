@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='flag=!flag'>获取焦点</button>
+			 <input type="text" v-focus='flag' />
+			 <div v-color>你好自定义指令</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  flag:false,
+			   },
+			   directives:{
+				   // focus:自定义指令名
+				   "focus":{
+					   /* 
+					      el:指当前dom元素,
+					      binding:指令相关信息 
+						  	bind：当指令绑定到button元素上后执行  
+						  	inserted 当指令绑定到button并且插入到父节点app中执行
+						  	update 组件更新前的状态,指令值更新时
+						  	componentUpdated 组件更新后的状态 
+						    注意:自定义指令的钩子里面没有vue实例，this指向window
+					   */
+					   update(el,binding){
+						   console.log(el,binding.value,this);
+						   if(binding.value){
+							   el.focus();  //当前dom获取焦点
+						   }
+					   }
+				   },
+				   'color':{
+					   bind(el,binding){
+						   console.log(el.parentNode);
+						   el.style.backgroundColor='red'
+					   }
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>
