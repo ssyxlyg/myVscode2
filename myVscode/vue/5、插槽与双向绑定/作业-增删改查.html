@@ -1,0 +1,113 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-09-29 18:31:07
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-09-29 19:30:00
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\作业-增删改查.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .title {
+            background-color: rgb(0, 99, 237);
+        }
+
+        table td,
+        th {
+            text-align: center;
+            width: 200px;
+            line-height: 35px;
+            /* float: left; */
+        }
+
+        th {
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <list :id1="i" :title1="ti" :author1="au" :date1="da">
+            <!-- <input type="text" placeholder="标题" v-model="title1">
+            <input type="text" placeholder="作者" v-model="author1">
+            <input type="date" v-model="date1"> -->
+        </list>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const list = {
+            template: `<div class="wrapper">
+            <div class="inp">
+               
+            </div>
+            <table>
+                <tr class="title">
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>作者</th>
+                    <th>日期</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(item,index) in info">
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}}</td>
+                    <td>{{item.date}}</td>
+                    <td>
+                        <button>删除</button>
+                        <button>修改</button>
+                    </td>
+                </tr>
+            </table>
+        </div>`,
+            data () {
+                return {
+                    info: [{
+                        id: this.id1,
+                        title: this.title1,
+                        author: this.author1,
+                        date: this.date1
+                    }]
+                }
+
+            },
+            props: ["id1", "title1", "author1", "date1",]
+        }
+        new Vue({
+            el: '#root',
+            data: {
+                i: [1],
+                ti: ["你好"],
+                au: ["小明"],
+                da: ["2022-09-09"]
+            },
+            components: {
+                list,
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//数据代理:一个对象代理另一个对象的属性
+			var  user1={
+				name:"张三",
+				age:20,
+			}
+			var user2={};
+			
+			// user2代理user1，vue2
+			Object.defineProperty(user2,"opt",{
+				set(val){
+					console.log("设置了opt属性");
+					user1.name=val;
+				},
+				get(){
+					console.log("读取了opt属性");
+					return user1.name;
+				}
+			})
+			//opt劫持name
+			console.log(user2.opt);  //张三
+			user2.opt='李四';
+			console.log(user2.opt);
+			console.log(user1.name);  //李四
+			
+			
+			//user4代理user3， vue3
+			var  user3={
+				name:"沈腾",
+				age:30,
+			}
+			
+			/* 
+			target:user3本身,
+			key:user3的每一个属性,
+			value：每一个key对应的属性值 
+			*/
+			var user4=new Proxy(user3,{
+				set(target,key,value){
+					console.log(target,key,value);
+					target[key]=value;
+				},
+				get(target,key){
+					return target[key];
+				}
+			})
+			
+			console.log(user4.name);
+			user4.name='马丽';
+			console.log(user3.name);
+			
+			user4.age='99';
+			console.log(user3.age);
+			
+			/* 
+			vue 在实例化的时候，使用 Object.definePropery() 方法或 Proxy 构造函数，
+			对 data 进行 getter 和 setter 的处理。在组件渲染时，若用到 data 里的某个数据，
+			这个数据就会被依赖收集进 watcher里。当数据更新，如果这个数据在 watcher 里，就会收到通知并更新，
+			否则不会更新——
+			vue 采用“数据劫持”+“观察者模式（发布者-订阅者模式）”相结合的方式实现了双向绑定——vue 的响应式原理 
+			*/
+		   
+		   /* 5、Vue实现数据双向绑定(响应式)的原理，
+		       数据代理
+		   		Object.defineProperty(obj, prop, descriptor)
+		   		数据代理：通过一个对象代理对另一个对象中属性的操作 读/写
+		   		vue中的数据代理:通过vm中的对象来代理data对象中属性的操作 读/写
+		   		基本原理:通过Object.defineProperty()把data对象中所有，
+		   				 为每一个添加到vm上的属性都指定一个getter/setter
+		   				 在getter/setter内部去操作读/写data中所对应的属性
+		   				 vm._data=options.data  数据劫持(做响应式)  
+						 vm._data.name访问 
+		   */
+		</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 17:36:18
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 17:47:29
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\Promise.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+        /*      
+            promise三种状态:
+            pending:等待完成
+            fulfilled:已成功
+            rejected:失败
+         */
+        var p1 = new Promise((resolve, reject) => {
+            if (Math.random() > 0.5) {
+                resolve('p1成功');
+            } else {
+                reject('p1失败')
+            }
+        })
+        var p2 = new Promise((resolve, reject) => {
+            if (Math.random() > 0.5) {
+                resolve('p2成功');
+            } else {
+                reject('p2失败')
+            }
+        })
+
+        p1.then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
+
+
+        //  res：返回节结果数组,前提是p1,p2结果都是fulfilled
+        Promise.all([p1, p2]).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
+
+        // 返回最快的一个
+        Promise.race([p1, p2]).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
+    </script>
+</body>
+
+</html>

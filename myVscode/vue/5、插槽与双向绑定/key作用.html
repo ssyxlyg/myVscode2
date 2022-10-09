@@ -1,0 +1,44 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 15:57:43
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 15:59:11
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\key作用.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click='add()'>添加</button>
+        <div v-for="(item,index) in names" :key='index'>
+            {{item}}
+            <input type="text">
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                names: ["张三", '李四', '王五']
+            },
+            methods: {
+                add () {
+                    this.names.unshift('赵六')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 14:38:53
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 14:50:14
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\js数据代理（数据劫持）.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'></div>
+    <script src="./js/vue.js"></script>
+    <script>
+        let user1 = {
+            name: '张三',
+            age: 20
+        }
+        let user2 = {
+
+        }
+        // vue2
+        Object.defineProperty(user2, 'opt', {
+            get () {
+                console.log('读取了opt属性');
+                return user1.name
+            },
+            set (val) {
+                console.log('设置了opt属性');
+                user1.name = val
+            }
+        })
+        console.log(user2.opt);
+        user2.opt = '李四'
+        // console.log(user2.opt);
+        console.log(user1.name);
+
+        // vue3
+        let user3 = {
+            name: '令狐冲',
+            age: 20
+        }
+        let user4 = new Proxy(user3, {
+            get (target, key) {
+                return target[key]
+            },
+            set (target, key, value) {
+                console.log(target, key, value);
+                target[key] = value
+            }
+        });
+
+        console.log(user4.name);
+        user4.name = '岳不群'
+        console.log(user4.name);
+
+        new Vue({
+            el: '#root',
+            data: {}
+        })
+    </script>
+</body>
+
+</html>

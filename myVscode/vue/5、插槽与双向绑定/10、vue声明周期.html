@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='num++'>{{num}}</button>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			var vm=new Vue({
+				el: '#app',
+				data: {
+					num: 1
+				},
+				beforeCreate() {
+					console.log("创建前,此时没有get set方法");
+				},
+			    created() {
+					console.log("创建后,此时有get set方法");
+				},
+				beforeMount() {
+					console.log("挂在前,此时为虚拟dom生成");
+				},
+				mounted() {
+			 	console.log("挂在后,此时为真实dom,dom渲染完成");
+				},
+				beforeUpdate() {
+					console.log("更新前,此时数据是新的，页面是旧的");
+				},
+				updated() {
+					console.log("更新后,此时数据是新的，页面也是新的");
+				},
+				beforeDestroy() {
+					console.log("将要销毁");
+				},
+				destroyed(){
+					console.log("销毁完毕");
+				}
+			})
+			
+			console.log(vm);
+		</script>
+	</body>
+</html>

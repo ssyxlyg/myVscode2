@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='add()'>添加</button>
+			<div v-for="(item,index) in names" :key='index'>
+				{{item}}
+				<input type="text">
+			</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				data: {
+					names: ["张三", '李四', '王五']
+				},
+				methods:{
+					add(){
+						this.names.unshift('赵六')
+					}
+				}
+			})
+			
+			/*
+			 虚拟DOM中key的作用:
+			    key是虚拟DOM对象的标识，当数据发生变化时，
+				Vue会根据【新数据】生成【新的虚拟DOM】 ,
+				随后Vue进行【新虚拟DOM】与【旧虚拟DOM】的差异比较，
+			   比较规则如下(diff算法思想):
+				(1).旧虚拟DOM中找到了与新虚拟DOM相同的key:
+					如果虚拟DOM中内容没变,直接使用之前的真实DOM ;
+					如果虚拟DOM中内容变了，则生成新的真实DOM，随后替换掉页面中之前的真实DOM;
+				(2).旧虚拟DOM中未找到与新虚拟DOM相同的key
+					 创建新的真实DOM，随后渲染到到页面。 
+			*/
+		</script>
+	</body>
+</html>

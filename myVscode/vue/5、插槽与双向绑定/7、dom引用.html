@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='changecolor'>点击修改字体颜色</button>
+			<div id="active">你好</div>
+			<div ref="active">你好</div>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   data:{
+				  
+			   },
+			   methods:{
+				   changecolor(){
+					   // 原生js写法
+					   var _active=document.getElementById('active');
+					   console.log(_active);
+					   _active.style.color='red';
+					   //vue引用写法
+					   this.$refs.active.style.color='green';
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>

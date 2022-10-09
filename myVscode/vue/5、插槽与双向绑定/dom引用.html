@@ -1,0 +1,43 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 14:05:53
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 14:10:14
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\dom引用.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click="changecolor">点击改变颜色</button>
+        <div id="active">hello world</div>
+        <div ref="active">hello world</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {},
+            methods: {
+                changecolor () {
+                    let _active = document.getElementById('active');
+                    _active.style.color = 'red';
+
+                    this.$refs.active.style.color = 'yellow'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

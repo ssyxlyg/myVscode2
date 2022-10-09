@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+
+			<p>{{msg}}</p>
+			<p v-text='msg'></p>
+			<p v-html='msg'></p>
+			<!-- 删除节点 -->
+			<p v-if='flag'>显示</p>
+			<!-- <p v-else-if=''>显示</p> -->
+			<p v-else>隐藏</p>
+			<!-- display:none -->
+			<p v-show='flag'>显示</p>
+
+			<ul>
+				<li v-for="(item,index) in list" :key='index'>
+					{{item.name}}-{{item.age}}
+				</li>
+			</ul>
+			<!-- v-bind：动态绑定属性，单向:数据---》页面 -->
+			<p v-bind:title='content'>标题</p>
+			<input type="text" :value='val'>
+			<!-- v-model：绑定表单属性，双向向:数据《---》页面 -->
+			<input type="text" v-model='val'> <br>
+
+			<!-- 事件 -->
+			<button @click='flag=!flag'>点击</button> <br>
+			<button @click='add($event,5)'>{{num}}</button>
+			<button @click='minus(2)'>{{num}}</button>
+
+			<!-- 
+			事件修饰符:
+			    @click.stop  阻止事件冒泡
+				@click.once  只执行一次
+				@click.prevent  阻止默认事件
+			表单修饰符:
+			    v-model.number 字符串转换为数值
+				v-model.trim   去掉两边空格
+				v-model.lazy   @input事件转换为@change事件 
+			-->
+			<!-- 绑定单个checkbox -->
+			<input type="checkbox" v-model='flag'>同意 <br>
+			<!-- 绑定多个checkbox -->
+			<input type="checkbox" name="hobbys" v-model='hobbys' value='shopping'>购物
+			<input type="checkbox" name="hobbys" v-model='hobbys' value="sport">运动
+			<input type="checkbox" name="hobbys" v-model='hobbys' value="study">学习
+			<!-- 绑定radio -->
+			<input type="radio" name="sex" v-model.number='sex' value='1'>男
+			<input type="radio" name="sex" v-model.number='sex' value="0">女
+			<!-- 绑定select -->
+			<select v-model='province'>
+				<option value="1">河南</option>
+				<option value="2">河北</option>
+				<option value="3">山东</option>
+			</select>
+			<!-- compute：计算属性，由现有属性计算加工为新的属性 
+			     只有初次和数据变化时才会执行，有缓存
+			-->
+			<p>{{remsg}}</p>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			// 初始化vue实例
+			new Vue({
+				// el:'#app',
+				data: {
+					msg: "<strong>你好</strong>",
+					flag: true,
+					content: "标题",
+					val: 'html',
+					num: 1,
+					hobbys: [],
+					sex: 1,
+					province: '2',
+					list: [{
+							name: "张三",
+							age: 20
+						},
+						{
+							name: "李四",
+							age: 30
+						},
+					]
+				},
+				methods: {
+					// 加
+					add(e, n) {
+						console.log(e.target.innerHTML);
+						this.num += n;
+						// e.target.innerHTML=e.target.innerHTML*1+n;
+					},
+					// 减
+					minus(n) {
+						// 隐式传递，直接event获取
+						console.log(event.target);
+						this.num -= n;
+					}
+				},
+				computed: {
+					remsg() {
+						return this.msg.split('').reverse().join('')
+					}
+				},
+				watch: {
+					// num: {
+					// 	deep:true,  //引用类型需要深度监听
+					// 	handler(nval, oval) {
+					// 		console.log(nval, oval);
+					// 	}
+					// },
+					// 如果不需要深度监听可简写
+					num(nval, oval) {
+						console.log(nval, oval);
+					}
+				}
+			}).$mount("#app")
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-09 10:41:55
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-09 10:46:25
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\async与await.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p1 = Promise.resolve(1);
+        console.log(p1);
+
+        async function test () {
+            return Promise.reject(66);
+        }
+        let p2 = test();
+        p2.then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
+
+        async function test2 () {
+            try {
+                let p = Promise.resolve(888);
+                console.log(await p);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        console.log(test2());
+    </script>
+</body>
+
+</html>

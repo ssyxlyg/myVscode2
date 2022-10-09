@@ -1,0 +1,68 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 11:10:38
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 13:58:14
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\动画与组件复习.html
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <btn :step="step" :num="num" @changenum="num=$event"></btn>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        // 定义组件
+        const btn = {
+            template: `<div>
+                <button @click="add(step)">{{n}}</button>
+                </div>`,
+            data () {
+                return {
+                    n: this.num,
+                }
+
+            },
+            props: {
+                step: {
+                    type: Number,
+                    default: 2
+                },
+                num: {
+                    type: Number,
+                    default: 1
+                }
+            },
+            methods: {
+                add (step) {
+                    this.n += step;
+                    this.$emit('changenum', this.n)
+                }
+            }
+        }
+        new Vue({
+            el: '#root',
+            data: {
+                num: 6,
+                step: 3
+            },
+            components: {
+                btn
+            },
+
+        })
+    </script>
+</body>
+
+</html>

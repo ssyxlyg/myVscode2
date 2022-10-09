@@ -1,0 +1,61 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-08 16:51:19
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-08 16:59:55
+ * @FilePath: \vsFile\myVscode\vue\5、插槽与双向绑定\vue生命周期.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style></style>
+</head>
+
+<body>
+
+    <div id='root'>
+        <button @click='num++'>{{num}}</button>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            // el: '#root',
+            data: {
+                num: 1
+            },
+            beforeCreate () {
+                console.log('创建前，此时没有get set方法');
+            },
+            created () {
+                console.log('创建后，此时有get set方法');
+            },
+            beforeMount () {
+                console.log('挂载前，此时为虚拟dom');
+            },
+            mounted () {
+                console.log('挂载后，此时为真实dom，dom渲染完成');
+            },
+            beforeUpdate () {
+                console.log('更新前，此时数据是新的，页面是旧的');
+            },
+            updated () {
+                console.log('跟新后，此时数据，页面都是新的');
+            },
+            beforeDestroy () {
+                console.log("将要销毁");
+            },
+            destroyed () {
+                console.log("销毁完毕");
+            }
+        }).$mount('#root')
+        console.log(vm);
+    </script>
+</body>
+
+</html>

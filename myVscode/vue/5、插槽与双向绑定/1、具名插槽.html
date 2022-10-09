@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<btn>
+				<!-- 填坑 -->
+				<template v-slot:pre>$</template>
+				<template v-slot:next>刀</template>
+			</btn>
+			<btn>
+				<!-- 填坑 -->
+				<template v-slot:pre>￥</template>
+				<template v-slot:next>元</template>
+			</btn>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			var btn = {
+				// 坑
+				template: `<div>			            
+				            <slot name='pre'></slot>
+				            <span>100</span>
+							<slot name='next'></slot>
+						  </div>`
+			}
+
+			// 初始化vue实例
+			new Vue({
+				el: '#app',
+				components: {
+					btn
+				},
+				data: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<!--
+		插槽 (slot):挖个坑,往里填
+			作用：让父组件可以往子组件指定位置插入 html 结构，也是组件的一种通信方式。
+			分类: 默认插槽，具名插槽，作用域插槽。
+			1、默认插槽：父传子
+			    在子组件中定义<slot></slot>即可
+				父:<template v-slot:pre>$</template>
+			2、具名插槽：父传子
+			    在子组件中定义<slot name="xxx"></slot>，其中xxx即为插槽的名字
+				父:<template>￥</template>
+			3、作用域插槽：子传父
+			    在子组件中定义<slot :aaa="xxx"></slot>，其中aaa为动态属性名，xxx为data中的数据名
+				父:<template v-slot:default='obj'>
+		-->
+		<div id="app">
+			  <btn>
+				  <template v-slot:default='obj'>
+					   <p>{{obj.na}}</p>
+					   <p>{{obj.age}}</p>
+				  </template>
+			  </btn>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			var btn = {
+				// 坑
+				template: `<div>			            
+				              <slot :na='name'  :age='age'></slot>
+						   </div>`,
+				data(){
+					return {
+						name:'张三',
+						age:20
+					}
+				}
+			}
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   components: {
+			   	btn
+			   },
+			   data:{
+				  
+			   }
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 进入的初始和结束状态 */
+			/* .fade-enter{
+				opacity: 0;
+				transform: rotate(0);
+			}
+			.fade-enter-to{
+				opacity:1;
+				transform: rotate(360deg);
+			} */
+			/* 离开的初始和结束状态 */
+			/* .fade-leave{
+				opacity:1;
+				transform: rotate(0deg);
+			}
+			.fade-leave-to{
+				opacity:0;
+				transform: rotate(360deg);
+			} */
+			
+			/* 替换为动画 */
+			@keyframes fade-in {
+				from{
+					opacity: 0;
+					transform: rotate(0);
+				}
+				to{
+				  opacity:1;
+				  transform: rotate(360deg);	
+				}
+			}
+			@keyframes fade-out {
+				from{
+					opacity: 1;
+					transform: rotate(0);
+				}
+				to{
+				  opacity:0;
+				  transform: rotate(360deg);	
+				}
+			}
+			/* 进入的过程 */
+			.fade-enter-active{
+				/* transition: all 2s linear; */
+				animation: fade-in 2s linear;
+			}
+			/* 离开的过程 */
+			.fade-leave-active{	
+			   /* transition: all 2s linear; */
+			   animation: fade-out 2s linear;
+			}
+			
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 创建容器 -->
+		<div id="app">
+			<button @click='flag=!flag'>点击</button>
+			<!-- <transition name='fade'> -->
+			<!-- 动画组 -->
+			<transition-group name='fade' enter-active-class='' leave-active-class=''>
+				<img key='a' v-if='flag' src="./img/sun.jpg" alt="">
+				<img key='b' v-if='flag' src="./img/sun1.jpg" alt="">
+			</transition-group>
+			
+			<p>{{23|fix}}</p>
+			<input type="text" v-focus='flag'><button @click='flag=true'>获取焦点</button><br>
+			
+			<!-- 3、使用组件 -->
+			<!-- 父组件给子组件传参 -->
+			<btn :step='step' :num='num' @changenum='num=$event'>
+				<template v-slot:pre>你好</template>
+			</btn>
+		</div>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<script>
+			//1、定义组件
+			const btn={
+				template:`<div>
+				   <slot name='pre'></slot><button @click='add(step)'>{{n}}</button>
+				</div>`,
+				data(){
+					return {
+						n:this.num,
+					}
+				},
+				//子组件接收父组件的参数,只读的
+				props:{
+					step:{
+						type:Number,
+						default:2
+					},
+					num:{
+						type:Number,
+						default:2
+					}
+				},
+				methods:{
+					add(step){
+						this.n+=step;
+						// 子组件给父组件发射一个事件(发布者)
+						this.$emit('changenum',this.n)
+					}
+				}
+			}
+			
+			
+			// 初始化vue实例
+			new Vue({
+			   el:'#app',
+			   //2、注册组件
+			   components:{
+				   btn
+			   },
+			   data:{
+				  flag:false,
+				  step:5,
+				  num:6
+			   },
+			   filters:{
+				  fix(val){
+					return '￥'+val.toFixed(2)+'元'  
+				  } 
+			   },
+			   /*
+			      el:指当前dom元素,
+			      binding:指令相关信息 
+			   	bind：当指令绑定到button元素上后执行  
+			   	inserted 当指令绑定到button并且插入到父节点app中执行
+			   	update 组件更新前的状态,指令值更新时
+			   	componentUpdated 组件更新后的状态 
+			   	注意:自定义指令的钩子里面没有vue实例，this指向window
+			   */
+			   directives:{
+				   focus:{
+					   update(el,binding){
+						   // 如果指令值为true，获取焦点
+						   if(binding.value){
+							   el.focus();
+						   }
+					   }
+				   }
+			   }
+			})
+		</script>
+	</body>
+</html>
