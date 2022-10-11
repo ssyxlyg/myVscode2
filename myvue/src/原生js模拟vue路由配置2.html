@@ -1,0 +1,62 @@
+<!--
+ * @Author: ssyx ssyx@gmail.com
+ * @Date: 2022-10-09 16:37:18
+ * @LastEditors: ssyx ssyx@gmail.com
+ * @LastEditTime: 2022-10-09 16:47:05
+ * @FilePath: \vsFile\myvue\src\原生js模拟vue路由配置2.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .router-view {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .router-view div {
+            display: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#/">Home</a> |
+        <a href="#/about">About</a> |
+        <a href="#/produce">Produce</a>
+    </div>
+    <div class="router-view">
+        <div id="home">首页页面</div>
+        <div id="about">关于页面</div>
+        <div id="produce">产品页面</div>
+    </div>
+    <script>
+        // 配置路由
+        let router = [
+            { 'path': '/', component: document.getElementById('home') },
+            { 'path': '/about', component: document.getElementById('about') },
+            { 'path': '/produce', component: document.getElementById('produce') }
+        ]
+        // 监听路由变化
+        window.onhashchange = function () {
+            let hash = location.hash.slice(1);
+            router.forEach(item => {
+                if (item.path == hash) {
+                    item.component.style.display = 'block';
+                } else {
+                    item.component.style.display = 'none'
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
