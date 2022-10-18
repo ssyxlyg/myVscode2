@@ -2,7 +2,7 @@
  * @Author: ssyx ssyx@gmail.com
  * @Date: 2022-10-11 15:20:57
  * @LastEditors: ssyx ssyx@gmail.com
- * @LastEditTime: 2022-10-12 16:47:50
+ * @LastEditTime: 2022-10-17 15:05:07
  * @FilePath: \vsFile\mymi\src\main.js
   */
 import Vue from 'vue'
@@ -29,6 +29,11 @@ import './assets/css/reset.css'
 // 引入 js
 import './assets/js/flexible.min.js'
 
+
+import { Lazyload } from 'vant';
+Vue.use(Lazyload);
+
+import  './utils/mock';
 
 Vue.config.productionTip = false
 

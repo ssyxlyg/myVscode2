@@ -7,7 +7,7 @@
       <!-- <router-link to="/login">Login</router-link> |
       <router-link to="/login2">Login2</router-link> | -->
       <div>
-        <router-link id="home" to="/"><i></i><span>首页</span></router-link>
+        <router-link id="home" to="/home2"><i></i><span>首页</span></router-link>
       </div>
       <div>
         <router-link id="cat" to="/cat"><i></i><span>分类</span></router-link>
@@ -43,6 +43,8 @@ nav {
   position: fixed;
   bottom: 0;
   font-size: 0.22rem;
+  background-color: #fff;
+  padding: .1rem 0;
 }
 nav div {
   width: 20%;

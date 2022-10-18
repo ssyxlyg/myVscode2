@@ -2,7 +2,7 @@
  * @Author: ssyx ssyx@gmail.com
  * @Date: 2022-10-11 15:20:57
  * @LastEditors: ssyx ssyx@gmail.com
- * @LastEditTime: 2022-10-12 16:23:25
+ * @LastEditTime: 2022-10-17 15:00:51
  * @FilePath: \vsFile\mymi\src\router\index.js
   */
 import Vue from 'vue'
@@ -16,6 +16,10 @@ import Ball from '../views/Ball.vue';
 import Cart from '../views/Cart.vue';
 import Cat from '../views/Cat.vue';
 import Home from '../views/Home.vue';
+import Home2 from '../views/Home2.vue';
+import Mock from '../views/Mock.vue';
+
+
 
 
 
@@ -27,6 +31,18 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home,
+        meta: { requireAuth: true }
+    },
+    {
+        path: '/mock',
+        name: 'mock',
+        component: Mock,
+        meta: { requireAuth: true }
+    },
+    {
+        path: '/home2',
+        name: 'home2',
+        component: Home2,
         meta: { requireAuth: true }
     },
     {
